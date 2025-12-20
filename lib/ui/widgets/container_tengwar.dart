@@ -16,3 +16,15 @@ class ContenedorTengwar extends StatelessWidget {
     );
   }
 }
+
+class ContenedorNegro extends StatelessWidget {
+  const ContenedorNegro({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: Colors.black,
+      height: MediaQuery.of(context).size.height / 30,
+    );
+  }
+}

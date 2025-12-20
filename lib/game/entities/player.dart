@@ -18,8 +18,8 @@ class PlayerClass {
   final String comando;
   final List<CombatLogEntry> logs;
   final StatsClass stats;
-  final List<Item> inventory;
-  final List<Item?> quickSlots;
+  final List<ItemConsumible> inventory;
+  final List<ItemConsumible?> quickSlots;
 
   const PlayerClass({
     required this.nombre,
@@ -65,8 +65,8 @@ class PlayerClass {
     String? comando,
     List<CombatLogEntry>? logs,
     StatsClass? stats,
-    List<Item>? inventory,
-    List<Item?>? quickSlots,
+    List<ItemConsumible>? inventory,
+    List<ItemConsumible?>? quickSlots,
   }) {
     return PlayerClass(
       nombre: nombre ?? this.nombre,

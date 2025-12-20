@@ -7,7 +7,7 @@ import 'package:warden/game/progress/player_progress.dart';
 import 'package:warden/game/systems/ai_systems.dart';
 import 'package:warden/game/systems/audio_systems.dart';
 import 'game_state.dart';
-import 'systems/combat_system.dart';
+import 'combat/combat_system.dart';
 import 'systems/effect_system.dart';
 
 class GameController extends ChangeNotifier {

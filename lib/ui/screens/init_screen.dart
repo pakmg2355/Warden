@@ -21,17 +21,19 @@ class InitScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+              ContenedorNegro(),
               ContenedorTengwar(),
               Column(
                 children: [
-                  Text('WARDEN GAMBITS SYSTEM'),
-                  Text(''),
-                  Text('BY'),
-                  Text(''),
-                  Text('OSCAR MARTÍNEZ GÓMEZ'),
+                  Text('WARDEN GAMBITS SYSTEM', style: TextStyle(fontSize: 14)),
+                  Text('', style: TextStyle(fontSize: 14)),
+                  Text('BY', style: TextStyle(fontSize: 14)),
+                  Text('', style: TextStyle(fontSize: 14)),
+                  Text('OSCAR MARTÍNEZ GÓMEZ', style: TextStyle(fontSize: 14)),
                 ],
               ),
               ContenedorTengwar(),
+              ContenedorNegro(),
             ],
           ),
         ),

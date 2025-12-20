@@ -11,8 +11,8 @@ class PlayerMenuHeader extends StatelessWidget {
     final expRatio = progress.experiencia / progress.experienciaParaSubir;
 
     return Container(
-      padding: const EdgeInsets.all(16),
-      margin: const EdgeInsets.only(bottom: 24),
+      padding: const EdgeInsets.all(30),
+      margin: const EdgeInsets.only(left: 40, right: 40),
       decoration: BoxDecoration(
         color: const Color.fromARGB(137, 136, 136, 136),
         borderRadius: BorderRadius.circular(12),

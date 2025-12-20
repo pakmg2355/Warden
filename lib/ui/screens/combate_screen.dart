@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:warden/game/game_controller.dart';
+import 'package:warden/global/constants.dart';
 import 'package:warden/ui/screens/menu_screen.dart';
 import 'package:warden/ui/widgets/barra_estado.dart';
 import 'package:warden/ui/widgets/barra_stats.dart';
-import 'package:warden/ui/widgets/cabecera_players.dart';
-import 'package:warden/ui/widgets/combar_result.dart';
-import 'package:warden/ui/widgets/combat_button.dart';
+import 'package:warden/ui/widgets/container_menu_player.dart';
+import 'package:warden/ui/widgets/container_combat_result.dart';
+import 'package:warden/ui/widgets/boton_combate.dart';
 import 'package:warden/ui/widgets/container_tengwar.dart';
-import 'package:warden/ui/widgets/efectos_row.dart';
-import 'package:warden/ui/widgets/log_list.dart';
+import 'package:warden/ui/widgets/row_efectos.dart';
+import 'package:warden/ui/widgets/lista_logs.dart';
 
 class CombateScreen extends StatelessWidget {
   final GameController controller;
@@ -171,8 +172,8 @@ class CombateScreen extends StatelessWidget {
                           Expanded(
                             child: CombatButton(
                               text: '',
-                              color: Colors.grey.shade800,
-                              icon: Icons.fitness_center,
+                              color: colorSpear,
+                              icon: spearIcon,
                               onPressed: () => controller.addInput('1'),
                             ),
                           ),
@@ -180,8 +181,8 @@ class CombateScreen extends StatelessWidget {
                           Expanded(
                             child: CombatButton(
                               text: '',
-                              color: Colors.grey.shade700,
-                              icon: Icons.shield,
+                              color: colorShield,
+                              icon: shieldIcon,
                               onPressed: () => controller.addInput('2'),
                             ),
                           ),
@@ -189,16 +190,16 @@ class CombateScreen extends StatelessWidget {
                           Expanded(
                             child: CombatButton(
                               text: '',
-                              color: Colors.grey.shade600,
-                              icon: Icons.flash_on,
+                              color: colorFist,
+                              icon: fistIcon,
                               onPressed: () => controller.addInput('3'),
                             ),
                           ),
                           const SizedBox(width: 8),
                           Expanded(
                             flex: 2,
-                            child: CombatButton(
-                              text: state.jugador.comando,
+                            child: CombatButtonExec(
+                              text: state.jugador.comando.replaceAll('X', ''),
                               color: Colors.red.shade800,
 
                               onPressed: () => controller.addInput('X'),

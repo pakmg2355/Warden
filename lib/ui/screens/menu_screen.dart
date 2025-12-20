@@ -11,7 +11,7 @@ import 'package:warden/ui/screens/combate_screen.dart';
 import 'package:warden/ui/screens/confirmacion.dart';
 import 'package:warden/ui/widgets/boton_menu.dart';
 import 'package:warden/ui/widgets/container_tengwar.dart';
-import 'package:warden/ui/widgets/player_menu_header.dart';
+import 'package:warden/ui/widgets/row_menu_cabecera.dart';
 
 class MenuScreen extends StatefulWidget {
   const MenuScreen({super.key});
@@ -69,11 +69,10 @@ class _MenuScreenState extends State<MenuScreen> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            ContenedorNegro(),
             ContenedorTengwar(),
             // 🧙 CABECERA PLAYER
             PlayerMenuHeader(progress: _progress!),
-
-            const SizedBox(height: 24),
 
             // ⚔️ COMBAT
             MenuButton(
@@ -137,6 +136,7 @@ class _MenuScreenState extends State<MenuScreen> {
               },
             ),
             ContenedorTengwar(),
+            ContenedorNegro(),
           ],
         ),
       ),
