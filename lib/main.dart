@@ -14,7 +14,7 @@ class MyGameApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Warden',
+      title: 'Warden Gambit System',
       theme: ThemeData.dark(),
       home: InitScreen(),
     );
