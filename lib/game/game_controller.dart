@@ -1,0 +1,139 @@
+import 'dart:async';
+import 'package:flutter/foundation.dart';
+import 'package:warden/data/models/player_progress_repository.dart';
+import 'package:warden/game/entities/enums.dart';
+import 'package:warden/game/entities/player.dart';
+import 'package:warden/game/progress/player_progress.dart';
+import 'package:warden/game/systems/ai_systems.dart';
+import 'package:warden/game/systems/audio_systems.dart';
+import 'game_state.dart';
+import 'systems/combat_system.dart';
+import 'systems/effect_system.dart';
+
+class GameController extends ChangeNotifier {
+  GameState _state;
+  GameState get state => _state;
+
+  PlayerProgress progress;
+  PlayerProgress get playerProgress => progress;
+
+  AIState aiState = AISystem.initialState();
+
+  Timer? _timer;
+
+  static const Duration tickRate = Duration(seconds: 1);
+
+  GameController(this._state, {required this.progress}) {
+    _timer = Timer.periodic(tickRate, (_) => _gameTick());
+  }
+  int _calculateExpForEnemy(PlayerClass enemy) {
+    return enemy.stats.ataque * 2 + enemy.stats.defensa * 3;
+  }
+
+  void _onCombatFinished(CombatResult result) async {
+    if (result == CombatResult.playerWin) {
+      progress = progress.addExperience(_calculateExpForEnemy(state.rival));
+
+      progress = progress.copyWith(faseActual: progress.faseActual + 1);
+
+      await PlayerProgressRepository.save(progress);
+    }
+  }
+
+  void useItemSlot(int slotIndex) {
+    final item = state.jugador.quickSlots[slotIndex];
+    if (item == null) return;
+
+    final jugador = state.jugador;
+
+    // 1️⃣ aplicar efectos instantáneos
+    jugador.instantEffects.addAll(item.instantEffects);
+
+    // 2️⃣ aplicar efectos temporales
+    jugador.efectos.addAll(item.timedEffects);
+
+    // 3️⃣ si es consumible → eliminar
+    if (item.type == ItemType.consumable) {
+      jugador.quickSlots[slotIndex] = null;
+      jugador.inventory.removeWhere((i) => i.id == item.id);
+    }
+  }
+
+  GameState _applyPowerRegen(GameState state) {
+    final player = state.jugador;
+
+    if (player.vida <= 0) return state;
+
+    final regen = player.stats.powerRegen;
+
+    if (regen <= 0) return state;
+
+    final newPower = (player.power + regen).clamp(0, player.maxpower);
+
+    if (newPower == player.power) return state;
+
+    return state.copyWith(jugador: player.copyWith(power: newPower));
+  }
+
+  void _gameTick() {
+    final previousResult = state.result;
+
+    _state = state.copyWith(
+      rival: AISystem.update(
+        state.rival,
+        aiState,
+        (newState) => aiState = newState,
+      ),
+    );
+
+    _state = _applyPowerRegen(_state);
+    _state = CombatSystem.update(_state);
+    _state = EffectSystem.update(_state);
+    _state = resolveCombatEnd(state);
+
+    if (previousResult == CombatResult.none &&
+        _state.result != CombatResult.none) {
+      _onCombatFinished(_state.result);
+    }
+
+    notifyListeners();
+  }
+
+  GameState resolveCombatEnd(GameState state) {
+    if (state.result != CombatResult.none) return state;
+
+    if (state.jugador.vida <= 0) {
+      return state.copyWith(result: CombatResult.rivalWin);
+    }
+
+    if (state.rival.vida <= 0) {
+      return state.copyWith(result: CombatResult.playerWin);
+    }
+
+    return state;
+  }
+
+  void addInput(String input) {
+    if (state.jugador.isFeared || state.jugador.isDazed) {
+      return;
+    }
+
+    //AudioSystem.onCommandApplied(input);
+
+    final jugador = _state.jugador;
+
+    final newCommand = input == 'X'
+        ? '${jugador.comando}X'
+        : jugador.comando + input;
+
+    _state = _state.copyWith(jugador: jugador.copyWith(comando: newCommand));
+
+    notifyListeners();
+  }
+
+  @override
+  void dispose() {
+    _timer?.cancel();
+    super.dispose();
+  }
+}
