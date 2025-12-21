@@ -27,6 +27,13 @@ class ItemStack {
   ItemStack consumeOne() => ItemStack(item: item, quantity: quantity - 1);
 
   bool get isEmpty => quantity <= 0;
+
+  ItemStack copyWith({ItemDefinition? item, int? quantity}) {
+    return ItemStack(
+      item: item ?? this.item,
+      quantity: quantity ?? this.quantity,
+    );
+  }
 }
 
 const potionVida = ItemDefinition(

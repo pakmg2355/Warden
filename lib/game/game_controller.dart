@@ -116,6 +116,45 @@ class GameController extends ChangeNotifier {
     notifyListeners();
   }
 
+  void useItem(int slotIndex) {
+    final jugador = _state.jugador;
+
+    if (jugador.isFeared || jugador.isDazed) return;
+
+    final slots = [...jugador.quickSlots];
+    final stack = slots[slotIndex];
+
+    if (stack == null || stack.quantity <= 0) return;
+
+    final item = stack.item;
+
+    // 1️⃣ Aplicar efectos instantáneos
+    final newInstantEffects = [
+      ...jugador.instantEffects,
+      ...item.instantEffects.map((e) => e.copyWith(source: item.nombre)),
+    ];
+
+    // 2️⃣ Aplicar efectos temporales
+    final newEfectos = [...jugador.efectos, ...item.timedEffects];
+
+    // 3️⃣ Reducir stack
+    final newQuantity = stack.quantity - 1;
+    slots[slotIndex] = newQuantity > 0
+        ? stack.copyWith(quantity: newQuantity)
+        : null;
+
+    // 4️⃣ Actualizar jugador
+    _state = _state.copyWith(
+      jugador: jugador.copyWith(
+        instantEffects: newInstantEffects,
+        efectos: newEfectos,
+        quickSlots: slots,
+      ),
+    );
+
+    notifyListeners();
+  }
+
   @override
   void dispose() {
     _timer?.cancel();

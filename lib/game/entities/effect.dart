@@ -89,4 +89,16 @@ class InstantEffect {
     required this.value,
     required this.source,
   });
+
+  InstantEffect copyWith({
+    InstantEffectKind? kind,
+    int? value,
+    String? source,
+  }) {
+    return InstantEffect(
+      kind: kind ?? this.kind,
+      value: value ?? this.value,
+      source: source ?? this.source,
+    );
+  }
 }

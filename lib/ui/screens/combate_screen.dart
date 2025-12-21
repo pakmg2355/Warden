@@ -169,8 +169,12 @@ class CombateScreen extends StatelessWidget {
 
                     QuickSlotRow(
                       items: state.jugador.quickSlots
-                          .whereType<ItemStack>() // 👈 elimina nulls
+                          .whereType<ItemStack>()
                           .toList(),
+                      onTap: (index) {
+                        print(index);
+                        controller.useItem(index);
+                      },
                     ),
                     const Divider(),
                     Padding(
