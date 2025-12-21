@@ -27,7 +27,7 @@ class CombatIconsHelper {
 
     final icons = <Widget>[];
 
-    for (final char in text.characters) {
+    for (final char in text.split('')) {
       switch (char) {
         case '1':
           icons.add(_buildIcon(icon: spearIcon, color: colorSpear));

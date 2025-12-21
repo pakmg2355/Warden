@@ -172,7 +172,6 @@ class CombateScreen extends StatelessWidget {
                           .whereType<ItemStack>()
                           .toList(),
                       onTap: (index) {
-                        print(index);
                         controller.useItem(index);
                       },
                     ),

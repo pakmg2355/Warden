@@ -18,9 +18,8 @@ class MenuButton extends StatelessWidget {
       onTap: onTap,
       borderRadius: BorderRadius.circular(12),
       child: Container(
-        width: 280,
         padding: const EdgeInsets.symmetric(vertical: 18, horizontal: 24),
-        margin: const EdgeInsets.symmetric(vertical: 8),
+        margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 10),
         decoration: BoxDecoration(
           color: const Color(0xFF1E1E1E),
           borderRadius: BorderRadius.circular(12),

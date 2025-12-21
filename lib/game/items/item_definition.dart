@@ -41,7 +41,7 @@ const potionVida = ItemDefinition(
   nombre: 'Health Potion',
   type: ItemType.consumable,
   instantEffects: [
-    InstantEffect(kind: InstantEffectKind.vidaPercent, value: 10, source: ''),
+    InstantEffect(kind: InstantEffectKind.vidaPercent, value: 30, source: ''),
   ],
 );
 

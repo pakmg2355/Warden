@@ -11,10 +11,10 @@ class QuickSlotRow extends StatelessWidget {
   IconData _iconDataForItem(String id) {
     switch (id) {
       case 'EffectType.damage':
-        return Icons.thermostat;
+        return Icons.science_outlined;
     }
 
-    return Icons.thermostat;
+    return Icons.science_outlined;
   }
 
   Widget _buildEffectBadge(ItemStack item, int index) {

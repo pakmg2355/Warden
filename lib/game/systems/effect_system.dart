@@ -37,7 +37,6 @@ class EffectSystem {
           break;
 
         case InstantEffectKind.vidaPercent:
-          print(ie.value);
           delta = (source.maxvida * ie.value / 100).round();
           vida += delta;
           break;

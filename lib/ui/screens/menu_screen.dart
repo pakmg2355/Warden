@@ -9,7 +9,8 @@ import 'package:warden/game/items/item_definition.dart';
 import 'package:warden/game/progress/player_progress.dart';
 
 import 'package:warden/ui/screens/combate_screen.dart';
-import 'package:warden/ui/screens/confirmacion.dart';
+import 'package:warden/ui/screens/gambir_info.dart';
+import 'package:warden/ui/screens/reset_screen.dart';
 import 'package:warden/ui/widgets/boton_menu.dart';
 import 'package:warden/ui/widgets/container_tengwar.dart';
 import 'package:warden/ui/widgets/row_menu_cabecera.dart';
@@ -114,9 +115,14 @@ class _MenuScreenState extends State<MenuScreen> {
             ),
 
             MenuButton(
-              text: 'INFORMATION',
+              text: 'GAMBIT INFO',
               icon: Icons.menu_book,
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => GambitInfoScreen()),
+                );
+              },
             ),
 
             MenuButton(
@@ -129,16 +135,14 @@ class _MenuScreenState extends State<MenuScreen> {
               text: 'RESET PLAYER',
               icon: Icons.reset_tv,
               onTap: () async {
-                final nombre = await showResetNameDialog(context);
-
-                // ⛔ cancelado o vacío
-                if (nombre == null) return;
-
-                await PlayerProgressRepository.reset(nombre);
-
-                if (!mounted) return;
-
-                await _loadProgress();
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (_) => ResetScreen(nombre: _progress!.nombre),
+                  ),
+                ).then((res) {
+                  _loadProgress();
+                });
               },
             ),
             ContenedorTengwar(),
