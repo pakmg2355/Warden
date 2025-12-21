@@ -3,6 +3,7 @@ import 'package:warden/game/entities/enums.dart';
 import 'package:warden/game/entities/item.dart';
 import 'package:warden/game/entities/logs.dart';
 import 'package:warden/game/entities/stats.dart';
+import 'package:warden/game/items/item_definition.dart';
 
 class PlayerClass {
   final String nombre;
@@ -20,8 +21,8 @@ class PlayerClass {
   final StatsClass stats;
   final int comboChainTier;
   final EffectType? comboChainType;
-  final List<ItemConsumible> inventory;
-  final List<ItemConsumible?> quickSlots;
+  final List<ItemStack> inventory;
+  final List<ItemStack?> quickSlots;
 
   const PlayerClass({
     required this.nombre,
@@ -71,8 +72,8 @@ class PlayerClass {
     StatsClass? stats,
     int? comboChainTier,
     EffectType? comboChainType,
-    List<ItemConsumible>? inventory,
-    List<ItemConsumible?>? quickSlots,
+    List<ItemStack>? inventory,
+    List<ItemStack?>? quickSlots,
   }) {
     return PlayerClass(
       nombre: nombre ?? this.nombre,

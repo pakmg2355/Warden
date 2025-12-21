@@ -40,25 +40,6 @@ class GameController extends ChangeNotifier {
     }
   }
 
-  void useItemSlot(int slotIndex) {
-    final item = state.jugador.quickSlots[slotIndex];
-    if (item == null) return;
-
-    final jugador = state.jugador;
-
-    // 1️⃣ aplicar efectos instantáneos
-    jugador.instantEffects.addAll(item.instantEffects);
-
-    // 2️⃣ aplicar efectos temporales
-    jugador.efectos.addAll(item.timedEffects);
-
-    // 3️⃣ si es consumible → eliminar
-    if (item.type == ItemType.consumable) {
-      jugador.quickSlots[slotIndex] = null;
-      jugador.inventory.removeWhere((i) => i.id == item.id);
-    }
-  }
-
   GameState _applyPowerRegen(GameState state) {
     final player = state.jugador;
 

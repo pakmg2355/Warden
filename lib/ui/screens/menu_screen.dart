@@ -5,6 +5,7 @@ import 'package:warden/game/entities/player.dart';
 import 'package:warden/game/factories/enemy_factory.dart';
 import 'package:warden/game/game_controller.dart';
 import 'package:warden/game/game_state.dart';
+import 'package:warden/game/items/item_definition.dart';
 import 'package:warden/game/progress/player_progress.dart';
 
 import 'package:warden/ui/screens/combate_screen.dart';
@@ -52,7 +53,10 @@ class _MenuScreenState extends State<MenuScreen> {
       comboChainTier: 0,
       comboChainType: null,
       inventory: [],
-      quickSlots: [],
+      quickSlots: [
+        ItemStack(item: potionVida, quantity: 10),
+        ItemStack(item: potionPower, quantity: 10),
+      ],
     );
   }
 

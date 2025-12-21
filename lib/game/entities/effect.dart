@@ -80,9 +80,13 @@ class EfectoClass {
 }
 
 class InstantEffect {
-  final int vida;
-  final int power;
+  final InstantEffectKind kind;
+  final int value;
   final String source;
 
-  const InstantEffect({this.vida = 0, this.power = 0, required this.source});
+  const InstantEffect({
+    required this.kind,
+    required this.value,
+    required this.source,
+  });
 }

@@ -26,18 +26,40 @@ class EffectSystem {
     final nuevosLogs = <CombatLogEntry>[];
     final activos = <EfectoClass>[];
 
+    //EFECTOS INSTANTÁNEOS
     for (final ie in target.instantEffects) {
-      vida += ie.vida;
-      power += ie.power;
+      int delta = 0;
 
-      if (ie.vida != 0 || ie.power != 0) {
+      switch (ie.kind) {
+        case InstantEffectKind.vidaFlat:
+          delta = ie.value;
+          vida += delta;
+          break;
+
+        case InstantEffectKind.vidaPercent:
+          delta = (source.maxvida * ie.value / 100).round();
+          vida += delta;
+          break;
+
+        case InstantEffectKind.powerFlat:
+          delta = ie.value;
+          power += delta;
+          break;
+
+        case InstantEffectKind.powerPercent:
+          delta = (source.maxpower * ie.value / 100).round();
+          power += delta;
+          break;
+      }
+
+      if (delta != 0) {
         nuevosLogs.add(
           CombatLogEntry(
             source: ie.source,
             comando: 'INSTANT',
             type: EffectType.none,
             tier: 0,
-            valor: ie.vida != 0 ? ie.vida : ie.power,
+            valor: delta,
           ),
         );
       }

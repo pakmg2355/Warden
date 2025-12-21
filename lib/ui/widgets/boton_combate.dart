@@ -60,6 +60,7 @@ class CombatButtonExec extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: MediaQuery.of(context).size.height * 0.08,
       decoration: BoxDecoration(
         color: const Color.fromARGB(30, 255, 255, 255), // fondo muy suave
         borderRadius: BorderRadius.circular(8),

@@ -66,7 +66,11 @@ class CombatSystem {
     newSelf = newSelf.copyWith(
       instantEffects: [
         ...newSelf.instantEffects,
-        InstantEffect(power: -combo.powerCost, source: self.nombre),
+        InstantEffect(
+          kind: InstantEffectKind.powerFlat,
+          value: -combo.powerCost,
+          source: self.nombre,
+        ),
       ],
     );
 

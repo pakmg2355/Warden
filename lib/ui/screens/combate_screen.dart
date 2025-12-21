@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:warden/game/game_controller.dart';
+import 'package:warden/game/items/item_definition.dart';
 import 'package:warden/global/constants.dart';
 import 'package:warden/ui/screens/menu_screen.dart';
 import 'package:warden/ui/widgets/barra_estado.dart';
@@ -8,6 +9,7 @@ import 'package:warden/ui/widgets/container_menu_player.dart';
 import 'package:warden/ui/widgets/container_combat_result.dart';
 import 'package:warden/ui/widgets/boton_combate.dart';
 import 'package:warden/ui/widgets/container_tengwar.dart';
+import 'package:warden/ui/widgets/quick_slot.dart';
 import 'package:warden/ui/widgets/row_efectos.dart';
 import 'package:warden/ui/widgets/lista_logs.dart';
 
@@ -165,6 +167,12 @@ class CombateScreen extends StatelessWidget {
                     ),
                     const Divider(),
 
+                    QuickSlotRow(
+                      items: state.jugador.quickSlots
+                          .whereType<ItemStack>() // 👈 elimina nulls
+                          .toList(),
+                    ),
+                    const Divider(),
                     Padding(
                       padding: EdgeInsets.all(10),
                       child: Row(
@@ -203,7 +211,6 @@ class CombateScreen extends StatelessWidget {
                       child: Row(
                         children: [
                           Expanded(
-                            flex: 2,
                             child: CombatButtonExec(
                               text: state.jugador.comando.replaceAll('X', ''),
                               color: Colors.red.shade800,

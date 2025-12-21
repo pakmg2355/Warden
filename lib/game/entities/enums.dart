@@ -22,3 +22,5 @@ enum ControlState { normal, feared, dazed }
 enum CombatResult { none, playerWin, rivalWin }
 
 enum ItemType { consumable, buff }
+
+enum InstantEffectKind { vidaFlat, vidaPercent, powerFlat, powerPercent }
