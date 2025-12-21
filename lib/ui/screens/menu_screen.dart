@@ -49,6 +49,8 @@ class _MenuScreenState extends State<MenuScreen> {
       comando: '',
       logs: const [],
       stats: progress.statsBase,
+      comboChainTier: 0,
+      comboChainType: null,
       inventory: [],
       quickSlots: [],
     );

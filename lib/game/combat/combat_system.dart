@@ -12,6 +12,12 @@ class CommandResolution {
   const CommandResolution({required this.effects, required this.powerCost});
 }
 
+class ComboApplyResult {
+  final List<EfectoClass> efectos;
+
+  const ComboApplyResult({required this.efectos});
+}
+
 class CombatSystem {
   /// Se llama en cada tick del game loop
   static GameState update(GameState state) {
@@ -32,53 +38,78 @@ class CombatSystem {
   }
 
   static _CombatResult _processPlayer(PlayerClass self, PlayerClass enemy) {
-    // 1️⃣ Si no hay EXEC → no resolvemos
-
     if (!self.comando.endsWith('X')) {
       return _CombatResult(self: self, target: enemy);
     }
 
-    if (self.power <= 0) {
+    if ((self.power <= 0) || (self.comando.length > 6)) {
       return _CombatResult(
         self: self.copyWith(comando: ''),
         target: enemy,
       );
     }
 
-    // 2️⃣ Extraemos secuencia
     final sequence = self.comando.replaceAll('X', '');
+    final combo = _resolveCommand(sequence);
 
-    // 3️⃣ Resolvemos comando → LISTA de efectos
-    final efectos = _resolveCommand(sequence);
-
-    // 4️⃣ Limpiamos comando
     PlayerClass newSelf = self.copyWith(comando: '');
     PlayerClass newEnemy = enemy;
 
-    if (efectos == null || efectos.effects.isEmpty) {
-      return _CombatResult(self: newSelf, target: newEnemy);
+    if (combo == null || combo.effects.isEmpty) {
+      return _CombatResult(
+        self: newSelf.copyWith(comboChainTier: 0, comboChainType: null),
+        target: newEnemy,
+      );
     }
 
-    // pagar coste almacenado en CommanodResolution
+    // 💥 PAGAR POWER
     newSelf = newSelf.copyWith(
       instantEffects: [
         ...newSelf.instantEffects,
-        InstantEffect(power: -efectos.powerCost, source: self.nombre),
+        InstantEffect(power: -combo.powerCost, source: self.nombre),
       ],
     );
 
-    // 5️⃣ Repartimos efectos según target
-    for (final e in efectos.effects) {
+    // 🔗 CALCULAR CHAIN (UNA VEZ)
+    int newChainTier = 0;
+    int multiplicador = 1;
+
+    final bool continuesChain =
+        self.comboChainType == combo.type &&
+        combo.tier == self.comboChainTier + 1;
+
+    if (continuesChain) {
+      newChainTier = combo.tier;
+      multiplicador = (1.3 * combo.tier * combo.tier).round();
+    } else if (combo.tier == 1) {
+      newChainTier = 1;
+      multiplicador = 1;
+    } else {
+      // ❌ combo fuera de orden → rompe cadena
+      newChainTier = 0;
+      multiplicador = 1;
+    }
+
+    // ⚔️ APLICAR EFECTOS
+    for (final e in combo.effects) {
+      final efectoConMulti = e.copyWith(multiplicador: multiplicador);
+
       if (e.target == EffectTarget.self) {
         newSelf = newSelf.copyWith(
-          efectos: _addOrRefreshEffect(newSelf.efectos, e),
+          efectos: _addOrRefreshEffect(newSelf.efectos, efectoConMulti),
         );
       } else {
         newEnemy = newEnemy.copyWith(
-          efectos: _addOrRefreshEffect(newEnemy.efectos, e),
+          efectos: _addOrRefreshEffect(newEnemy.efectos, efectoConMulti),
         );
       }
     }
+
+    // ✅ ACTUALIZAR CHAIN EN EL PLAYER
+    newSelf = newSelf.copyWith(
+      comboChainTier: newChainTier,
+      comboChainType: combo.type,
+    );
 
     return _CombatResult(self: newSelf, target: newEnemy);
   }
@@ -87,23 +118,9 @@ class CombatSystem {
     List<EfectoClass> efectos,
     EfectoClass nuevo,
   ) {
-    // 1️⃣ Contar tiers activos inferiores de la misma rama
-    final tiersActivos = efectos
-        .where((e) => e.type == nuevo.type && e.tier < nuevo.tier)
-        .map((e) => e.tier)
-        .toSet();
-
-    // 2️⃣ Comprobar si están TODOS los anteriores
-    final bool comboCompleto = tiersActivos.length == nuevo.tier - 1;
-
-    final int multiplicador = (comboCompleto || nuevo.tier == 4)
-        ? nuevo.tier
-        : 1;
-
     bool refreshed = false;
 
     final nuevosEfectos = efectos.map((e) {
-      // 3️⃣ Refresh del mismo efecto (misma rama + tier)
       if (e.type == nuevo.type && e.tier == nuevo.tier) {
         refreshed = true;
         return e.reset();
@@ -111,9 +128,8 @@ class CombatSystem {
       return e;
     }).toList();
 
-    // 4️⃣ Añadir efecto nuevo (con multiplicador aplicado)
     if (!refreshed) {
-      nuevosEfectos.add(nuevo.copyWith(multiplicador: multiplicador));
+      nuevosEfectos.add(nuevo);
     }
 
     return nuevosEfectos;

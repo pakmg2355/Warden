@@ -5,10 +5,9 @@ import 'package:warden/game/entities/player.dart';
 /// =====================
 
 class AICombo {
-  final String name;
   final List<String> inputs;
 
-  const AICombo(this.name, this.inputs);
+  const AICombo(this.inputs);
 }
 
 class AIPlan {
@@ -40,35 +39,111 @@ class AIState {
   }
 }
 
-const comboAtaque1 = AICombo('Ataque corto', ['1', '2', 'X']);
-const comboAtaque2 = AICombo('Ataque medio', ['1', '2', '1', 'X']);
-const comboAtaque3 = AICombo('Ataque largo', ['1', '2', '1', '2', 'X']);
+const spear1 = AICombo(['1', '2', 'X']);
+const spear2 = AICombo(['1', '2', '1', 'X']);
+const spear3 = AICombo(['1', '2', '1', '2', 'X']);
+const spear4 = AICombo(['1', '2', '1', '2', 'X']);
+const spear5 = AICombo(['1', '2', '1', '2', '1', 'X']);
 
-const comboCura1 = AICombo('Cura corta', ['2', '1', 'X']);
-const comboCura2 = AICombo('Cura media', ['2', '1', '2', 'X']);
-const comboEscudo = AICombo('Escudo', ['2', '1', '3', '2', 'X']);
+const shield1 = AICombo(['2', '1', 'X']);
+const shield2 = AICombo(['2', '1', '2', 'X']);
+const shield3 = AICombo(['2', '1', '2', '1', 'X']);
+const shield4 = AICombo(['2', '1', '2', '1', 'X']);
+const shield5 = AICombo(['2', '1', '2', '1', '2', 'X']);
 
-const planAtaque = AIPlan('Ataque', [comboAtaque1, comboAtaque2, comboAtaque3]);
+const daze1 = AICombo(['3', '1', 'X']);
+const daze2 = AICombo(['3', '1', '3', 'X']);
+const daze3 = AICombo(['3', '1', '3', '1', 'X']);
+const daze4 = AICombo(['3', '1', '3', '1', 'X']);
+const daze5 = AICombo(['3', '1', '3', '1', '3', 'X']);
 
-const planCura = AIPlan('Cura', [comboEscudo, comboCura1, comboCura2]);
+const fear1 = AICombo(['3', '2', 'X']);
+const fear2 = AICombo(['3', '2', '3', 'X']);
+const fear3 = AICombo(['3', '2', '3', '2', 'X']);
+const fear4 = AICombo(['3', '2', '3', '2', 'X']);
+const fear5 = AICombo(['3', '2', '3', '2', '3', 'X']);
 
-const planMixto = AIPlan('Mixto', [
-  comboEscudo,
-  comboCura1,
-  comboAtaque1,
-  comboAtaque2,
-  comboAtaque3,
-  comboCura2,
+const shieldMaster = AICombo(['2', '1', '3', '2', 'X']);
+const shieldTactics = AICombo(['2', '1', '3', '1', 'X']);
+const power = AICombo(['1', '3', '1', '2', '1', 'X']);
+
+const quieto = AICombo(['3', '3', 'X']);
+
+const planAtaque = AIPlan('Ataque', [
+  shieldMaster,
+  spear1,
+  spear2,
+  spear3,
+  spear4,
+  spear5,
+  fear1,
+  fear2,
+  fear3,
+  fear4,
+  fear5,
+  spear1,
+  spear2,
+  spear3,
+  spear4,
+  spear5,
+  power,
 ]);
+const planCura = AIPlan('Cura', [
+  shieldMaster,
+  shield1,
+  shield2,
+  shield3,
+  shield4,
+  shield5,
+  power,
+  spear1,
+  spear2,
+  spear3,
+  spear4,
+  spear5,
+  shieldTactics,
+  shield1,
+  shield2,
+  shield3,
+  shield4,
+  shield5,
+]);
+const planMixto = AIPlan('Mixto', [
+  shieldMaster,
+  shieldTactics,
+  spear1,
+  spear2,
+  spear3,
+  spear4,
+  spear5,
+  power,
+  shield1,
+  shield2,
+  shield3,
+  shield4,
+  shield5,
+  fear1,
+  fear2,
+  fear3,
+  fear4,
+  fear5,
+]);
+const planPower = AIPlan('Power', [power, shield5, spear5]);
+const planQuieto = AIPlan('Quieto', [quieto]);
 
-const aiPlans = [planAtaque, planCura, planMixto];
+const aiPlans = [planAtaque, planCura, planMixto, planQuieto];
 
-AIPlan decidePlan(PlayerClass rival) {
-  final ratio = rival.vida / rival.maxvida;
+AIPlan decidePlan(PlayerClass p) {
+  final ratio = p.vida / p.maxvida;
+  final pw = p.power / p.maxpower;
 
-  if (ratio > 0.7) return planAtaque;
-  if (ratio > 0.3) return planMixto;
-  return planCura;
+  if (pw < 0.3) {
+    return planPower;
+  } else {
+    if (ratio > 0.7) return planAtaque;
+    if (ratio > 0.3) return planMixto;
+    return planCura;
+  }
 }
 
 class AISystem {

@@ -6,7 +6,7 @@ Widget buildEndOverlay(GameState state) {
   final isWin = state.result == CombatResult.playerWin;
 
   return Container(
-    color: Colors.black.withOpacity(0.7),
+    color: Colors.black.withAlpha(25),
     alignment: Alignment.center,
     child: Center(
       child: Text(

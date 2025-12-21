@@ -21,6 +21,8 @@ class EnemyFactory {
       comando: '',
       logs: const [],
       stats: stats,
+      comboChainTier: 0,
+      comboChainType: null,
       inventory: [],
       quickSlots: [],
     );

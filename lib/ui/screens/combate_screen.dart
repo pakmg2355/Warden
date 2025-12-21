@@ -166,7 +166,7 @@ class CombateScreen extends StatelessWidget {
                     const Divider(),
 
                     Padding(
-                      padding: EdgeInsets.all(5),
+                      padding: EdgeInsets.all(10),
                       child: Row(
                         children: [
                           Expanded(
@@ -177,7 +177,7 @@ class CombateScreen extends StatelessWidget {
                               onPressed: () => controller.addInput('1'),
                             ),
                           ),
-                          const SizedBox(width: 8),
+                          const SizedBox(width: 50),
                           Expanded(
                             child: CombatButton(
                               text: '',
@@ -186,7 +186,7 @@ class CombateScreen extends StatelessWidget {
                               onPressed: () => controller.addInput('2'),
                             ),
                           ),
-                          const SizedBox(width: 8),
+                          const SizedBox(width: 50),
                           Expanded(
                             child: CombatButton(
                               text: '',
@@ -195,7 +195,13 @@ class CombateScreen extends StatelessWidget {
                               onPressed: () => controller.addInput('3'),
                             ),
                           ),
-                          const SizedBox(width: 8),
+                        ],
+                      ),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.all(5),
+                      child: Row(
+                        children: [
                           Expanded(
                             flex: 2,
                             child: CombatButtonExec(

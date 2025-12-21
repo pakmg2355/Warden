@@ -122,11 +122,15 @@ class GameController extends ChangeNotifier {
 
     final jugador = _state.jugador;
 
-    final newCommand = input == 'X'
+    String newCommand = input == 'X'
         ? '${jugador.comando}X'
         : jugador.comando + input;
 
-    _state = _state.copyWith(jugador: jugador.copyWith(comando: newCommand));
+    if (newCommand.length > 5 && !newCommand.contains('X')) {
+      _state = _state.copyWith(jugador: jugador.copyWith(comando: ''));
+    } else {
+      _state = _state.copyWith(jugador: jugador.copyWith(comando: newCommand));
+    }
 
     notifyListeners();
   }

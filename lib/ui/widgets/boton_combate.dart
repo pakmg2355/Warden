@@ -17,42 +17,29 @@ class CombatButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 64,
-      child: ElevatedButton(
-        onPressed: onPressed,
-        style: ElevatedButton.styleFrom(
-          backgroundColor: color,
-          foregroundColor: Colors.white,
-          elevation: 6,
-          padding: const EdgeInsets.all(8), // 👈 controla el padding
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(14),
+    return Material(
+      color: Colors.transparent,
+      shape: const CircleBorder(),
+      child: InkWell(
+        customBorder: const CircleBorder(),
+        onTap: onPressed,
+        child: Container(
+          padding: const EdgeInsets.all(8),
+          decoration: BoxDecoration(
+            shape: BoxShape.circle,
+            color: color.withAlpha(25),
+            border: Border.all(color: color, width: 2),
+          ),
+
+          child: LayoutBuilder(
+            builder: (context, constraints) {
+              return FittedBox(
+                fit: BoxFit.contain,
+                child: Icon(icon, color: color),
+              );
+            },
           ),
         ),
-        child: icon == null
-            ? Text(
-                text,
-
-                overflow: TextOverflow.ellipsis,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 16,
-                  fontWeight: FontWeight.bold,
-                  letterSpacing: 1,
-                ),
-              )
-            : LayoutBuilder(
-                builder: (context, constraints) {
-                  return Padding(
-                    padding: const EdgeInsets.all(6),
-                    child: FittedBox(
-                      fit: BoxFit.contain,
-                      child: Icon(icon, color: Colors.white),
-                    ),
-                  );
-                },
-              ),
       ),
     );
   }
@@ -72,19 +59,14 @@ class CombatButtonExec extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 64,
-      child: ElevatedButton(
-        onPressed: onPressed,
-        style: ElevatedButton.styleFrom(
-          backgroundColor: color,
-          foregroundColor: Colors.white,
-          elevation: 6,
-          padding: const EdgeInsets.all(8),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(14),
-          ),
-        ),
+    return Container(
+      decoration: BoxDecoration(
+        color: const Color.fromARGB(30, 255, 255, 255), // fondo muy suave
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: Colors.black.withAlpha(40)),
+      ),
+      child: InkWell(
+        onTap: onPressed,
         child: CombatIconsHelper.buildFromText(text),
       ),
     );
