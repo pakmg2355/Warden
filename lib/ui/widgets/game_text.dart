@@ -20,7 +20,7 @@ class GameText {
     double size = 16,
     FontWeight weight = FontWeight.normal,
     Color color = Colors.white,
-    TextAlign align = TextAlign.center,
+    TextAlign align = TextAlign.left,
   }) {
     return Text(
       value,

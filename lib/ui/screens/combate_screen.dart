@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:warden/game/game_controller.dart';
 import 'package:warden/game/items/item_definition.dart';
+import 'package:warden/game/systems/music_systems.dart';
 import 'package:warden/global/constants.dart';
 import 'package:warden/ui/screens/menu_screen.dart';
 import 'package:warden/ui/widgets/barra_estado.dart';
@@ -20,6 +21,7 @@ class CombateScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    MusicSystem.play('music_combat01');
     return Scaffold(
       body: AnimatedBuilder(
         animation: controller,

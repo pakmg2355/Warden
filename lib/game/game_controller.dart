@@ -5,6 +5,7 @@ import 'package:warden/game/enums/enums.dart';
 import 'package:warden/game/entities/player.dart';
 import 'package:warden/game/progress/player_progress.dart';
 import 'package:warden/game/systems/ai_systems.dart';
+import 'package:warden/game/systems/audio_systems.dart';
 import 'game_state.dart';
 import 'combat/combat_system.dart';
 import 'systems/effect_system.dart';
@@ -98,7 +99,7 @@ class GameController extends ChangeNotifier {
       return;
     }
 
-    //AudioSystem.onCommandApplied(input);
+    AudioSystem.onCommandApplied(input);
 
     final jugador = _state.jugador;
 

@@ -1,6 +1,4 @@
 call flutter clean
 call flutter pub get
-call flutter pub run flutter_launcher_icons
 call flutter build apk
-call flutter build appbundle
 call flutter install

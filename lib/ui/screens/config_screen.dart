@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:warden/data/persistence/preferencias.dart';
 import 'package:warden/game/enums/enums.dart';
+import 'package:warden/game/systems/music_systems.dart';
+import 'package:warden/game/textos/diccionario.dart';
 import 'package:warden/main.dart';
 import 'package:warden/ui/widgets/boton_menu.dart';
 import 'package:warden/ui/widgets/container_tengwar.dart';
 import 'package:warden/ui/widgets/game_checkbox.dart';
+import 'package:warden/ui/widgets/game_text.dart';
 
 class ConfigScreen extends StatefulWidget {
   const ConfigScreen({super.key});
@@ -33,6 +36,8 @@ class _ConfigScreenState extends State<ConfigScreen> {
         preferencesController.current.escritura!.name == 'tolkien';
     temaDark = preferencesController.current.tema!.name == 'dark';
     temaWhite = preferencesController.current.tema!.name == 'white';
+
+    MusicSystem.play('music_config');
   }
 
   @override
@@ -58,6 +63,8 @@ class _ConfigScreenState extends State<ConfigScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
+                  GameText.text(t('texto.idioma')),
+                  const SizedBox(width: 12),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
@@ -88,7 +95,9 @@ class _ConfigScreenState extends State<ConfigScreen> {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 12),
+                  const Divider(),
+                  GameText.text(t('texto.escritura')),
+                  const SizedBox(width: 12),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
@@ -119,7 +128,9 @@ class _ConfigScreenState extends State<ConfigScreen> {
                       ),
                     ],
                   ),
-                  const SizedBox(height: 12),
+                  const Divider(),
+                  GameText.text(t('texto.tema')),
+                  const SizedBox(width: 12),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
@@ -153,7 +164,7 @@ class _ConfigScreenState extends State<ConfigScreen> {
 
                   const SizedBox(height: 12),
                   MenuButton(
-                    text: 'GUARDAR',
+                    text: t('boton.guardar'),
                     icon: Icons.save,
                     onTap: () async {
                       Preferencias? preferencias;

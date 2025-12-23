@@ -7,6 +7,8 @@ import 'package:warden/game/game_controller.dart';
 import 'package:warden/game/game_state.dart';
 import 'package:warden/game/items/item_definition.dart';
 import 'package:warden/game/progress/player_progress.dart';
+import 'package:warden/game/systems/music_systems.dart';
+import 'package:warden/game/textos/diccionario.dart';
 import 'package:warden/ui/screens/combate_screen.dart';
 import 'package:warden/ui/screens/config_screen.dart';
 import 'package:warden/ui/screens/gambir_info.dart';
@@ -29,6 +31,7 @@ class _MenuScreenState extends State<MenuScreen> {
   void initState() {
     super.initState();
     _loadProgress();
+    MusicSystem.play('music_menu');
   }
 
   Future<void> _loadProgress() async {
@@ -83,7 +86,7 @@ class _MenuScreenState extends State<MenuScreen> {
             Column(
               children: [
                 MenuButton(
-                  text: 'COMBAT',
+                  text: t('menu.combate'),
                   icon: Icons.local_fire_department,
                   onTap: () async {
                     final player = _buildPlayerFromProgress(_progress!);
@@ -115,7 +118,7 @@ class _MenuScreenState extends State<MenuScreen> {
                 ),
 
                 MenuButton(
-                  text: 'GAMBIT INFO',
+                  text: t('menu.gambit.info'),
                   icon: Icons.menu_book,
                   onTap: () {
                     Navigator.push(
@@ -126,7 +129,7 @@ class _MenuScreenState extends State<MenuScreen> {
                 ),
 
                 MenuButton(
-                  text: 'CONFIGURATION',
+                  text: t('menu.configuracion'),
                   icon: Icons.settings,
                   onTap: () {
                     Navigator.push(
@@ -139,7 +142,7 @@ class _MenuScreenState extends State<MenuScreen> {
                 ),
 
                 MenuButton(
-                  text: 'RESET PLAYER',
+                  text: t('menu.reset'),
                   icon: Icons.reset_tv,
                   onTap: () async {
                     Navigator.push(

@@ -34,7 +34,7 @@ class ComboInfoCard extends StatelessWidget {
           const SizedBox(height: 6),
           GameText.text(combo.description),
           const SizedBox(height: 6),
-          GameText.text(combo.description),
+          GameText.text('Power: -${combo.powerCost}'),
         ],
       ),
     );

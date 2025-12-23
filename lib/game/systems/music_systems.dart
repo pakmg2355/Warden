@@ -13,27 +13,11 @@ class MusicSystem {
     _initialized = true;
   }
 
-  static Future<void> playCombat() async {
+  static Future<void> play(String music) async {
     if (kIsWeb) return;
     await _init();
     await _musicPlayer.setVolume(0);
-    await _musicPlayer.play(AssetSource('assets/sfx/combate.wav'));
-    await _musicPlayer.setVolume(0.4);
-  }
-
-  static Future<void> playMenu() async {
-    if (kIsWeb) return;
-    await _init();
-    await _musicPlayer.setVolume(0);
-    await _musicPlayer.play(AssetSource('assets/sfx/menu.wav'));
-    await _musicPlayer.setVolume(0.4);
-  }
-
-  static Future<void> playInitScreen() async {
-    if (kIsWeb) return;
-    await _init();
-    await _musicPlayer.setVolume(0);
-    await _musicPlayer.play(AssetSource('assets/sfx/init.wav'));
+    await _musicPlayer.play(AssetSource('audio/sfx/$music.wav'));
     await _musicPlayer.setVolume(0.4);
   }
 

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:warden/data/models/player_progress_repository.dart';
+import 'package:warden/game/systems/music_systems.dart';
+import 'package:warden/game/textos/diccionario.dart';
 import 'package:warden/ui/widgets/boton_menu.dart';
 import 'package:warden/ui/widgets/container_tengwar.dart';
 import 'package:warden/ui/widgets/game_text.dart';
@@ -15,6 +17,7 @@ class _ResetScreenState extends State<ResetScreen> {
   TextEditingController nombreController = TextEditingController();
   @override
   Widget build(BuildContext context) {
+    MusicSystem.play('music_reset');
     return Scaffold(
       backgroundColor: Colors.black,
       body: Column(
@@ -35,10 +38,7 @@ class _ResetScreenState extends State<ResetScreen> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  GameText.text(
-                    'This will erase all progress.\n\n'
-                    'Enter the new player name:',
-                  ),
+                  GameText.text(t('texto.aviso.reset')),
                   const SizedBox(height: 12),
                   TextField(
                     controller: nombreController,
@@ -52,7 +52,7 @@ class _ResetScreenState extends State<ResetScreen> {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       MenuButton(
-                        text: 'ACEPTAR',
+                        text: t('boton.aceptar'),
                         icon: Icons.check,
                         onTap: () async {
                           if (nombreController.text == '') return;
@@ -68,7 +68,7 @@ class _ResetScreenState extends State<ResetScreen> {
                         },
                       ),
                       MenuButton(
-                        text: 'CANCELAR',
+                        text: t('boton.cancelar'),
                         icon: Icons.cancel,
                         onTap: () async {
                           Navigator.pop(context, true);
