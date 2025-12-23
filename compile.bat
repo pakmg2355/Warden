@@ -1,10 +1,10 @@
-git status        
-git add .         
-git commit -m "Configuracion Android Play Store"
-git push
+call git status        
+call git add .         
+call git commit -m "Configuracion Android Play Store"
+call git push
 
-flutter pub get
+call flutter pub get
 pause
-flutter pub run flutter_launcher_icons
-flutter build apk
-flutter install
+call flutter pub run flutter_launcher_icons
+call flutter build apk
+call flutter install
