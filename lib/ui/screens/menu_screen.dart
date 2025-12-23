@@ -77,80 +77,81 @@ class _MenuScreenState extends State<MenuScreen> {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             ContenedorNegro(),
-            ContenedorTengwar(),
             // 🧙 CABECERA PLAYER
             PlayerMenuHeader(progress: _progress!),
 
-            // ⚔️ COMBAT
-            MenuButton(
-              text: 'COMBAT',
-              icon: Icons.local_fire_department,
-              onTap: () async {
-                final player = _buildPlayerFromProgress(_progress!);
-                final enemy = EnemyFactory.createForPhase(
-                  _progress!.faseActual,
-                );
+            Column(
+              children: [
+                MenuButton(
+                  text: 'COMBAT',
+                  icon: Icons.local_fire_department,
+                  onTap: () async {
+                    final player = _buildPlayerFromProgress(_progress!);
+                    final enemy = EnemyFactory.createForPhase(
+                      _progress!.faseActual,
+                    );
 
-                final initialState = GameState(
-                  jugador: player,
-                  rival: enemy,
-                  result: CombatResult.none,
-                );
+                    final initialState = GameState(
+                      jugador: player,
+                      rival: enemy,
+                      result: CombatResult.none,
+                    );
 
-                final controller = GameController(
-                  initialState,
-                  progress: _progress!,
-                );
+                    final controller = GameController(
+                      initialState,
+                      progress: _progress!,
+                    );
 
-                await Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (_) => CombateScreen(controller: controller),
-                  ),
-                );
+                    await Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (_) => CombateScreen(controller: controller),
+                      ),
+                    );
 
-                // 🔄 refrescar progreso al volver del combate
-                _loadProgress();
-              },
+                    // 🔄 refrescar progreso al volver del combate
+                    _loadProgress();
+                  },
+                ),
+
+                MenuButton(
+                  text: 'GAMBIT INFO',
+                  icon: Icons.menu_book,
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => GambitInfoScreen()),
+                    );
+                  },
+                ),
+
+                MenuButton(
+                  text: 'CONFIGURATION',
+                  icon: Icons.settings,
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => ConfigScreen()),
+                    ).then((r) {
+                      setState(() {});
+                    });
+                  },
+                ),
+
+                MenuButton(
+                  text: 'RESET PLAYER',
+                  icon: Icons.reset_tv,
+                  onTap: () async {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (_) => ResetScreen()),
+                    ).then((res) {
+                      _loadProgress();
+                    });
+                  },
+                ),
+              ],
             ),
-
-            MenuButton(
-              text: 'GAMBIT INFO',
-              icon: Icons.menu_book,
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => GambitInfoScreen()),
-                );
-              },
-            ),
-
-            MenuButton(
-              text: 'CONFIGURATION',
-              icon: Icons.settings,
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => ConfigScreen()),
-                ).then((r) {
-                  setState(() {});
-                });
-              },
-            ),
-
-            MenuButton(
-              text: 'RESET PLAYER',
-              icon: Icons.reset_tv,
-              onTap: () async {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => ResetScreen()),
-                ).then((res) {
-                  _loadProgress();
-                });
-              },
-            ),
-            ContenedorTengwar(),
             ContenedorNegro(),
           ],
         ),

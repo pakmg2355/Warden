@@ -20,7 +20,7 @@ class GambitInfoScreen extends StatelessWidget {
             onTap: () {
               Navigator.pop(context, null);
             },
-            child: ContenedorTengwar(),
+            child: ContenedorVolver(),
           ),
 
           Expanded(
@@ -33,12 +33,6 @@ class GambitInfoScreen extends StatelessWidget {
             ),
           ),
 
-          InkWell(
-            onTap: () {
-              Navigator.pop(context, null);
-            },
-            child: ContenedorTengwar(),
-          ),
           ContenedorNegro(),
         ],
       ),

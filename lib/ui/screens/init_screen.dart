@@ -23,7 +23,6 @@ class InitScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               ContenedorNegro(),
-              ContenedorTengwar(),
               Column(
                 children: [
                   GameText.text('WARDEN GAMBIT SYSTEM', size: 20),
@@ -31,7 +30,6 @@ class InitScreen extends StatelessWidget {
                   GameText.text('oscar martinez gomez', size: 20),
                 ],
               ),
-              ContenedorTengwar(),
               ContenedorNegro(),
             ],
           ),

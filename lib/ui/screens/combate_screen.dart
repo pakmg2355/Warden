@@ -46,7 +46,13 @@ class CombateScreen extends StatelessWidget {
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
-                    ContenedorTengwar(),
+                    ContenedorNegro(),
+                    InkWell(
+                      onTap: () {
+                        Navigator.pop(context, null);
+                      },
+                      child: ContenedorVolver(),
+                    ),
                     Padding(
                       padding: EdgeInsets.all(5),
                       child: Row(
@@ -224,7 +230,7 @@ class CombateScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    ContenedorTengwar(),
+                    ContenedorNegro(),
                   ],
                 ),
             ],

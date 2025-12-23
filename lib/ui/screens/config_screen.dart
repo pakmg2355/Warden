@@ -43,7 +43,6 @@ class _ConfigScreenState extends State<ConfigScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           ContenedorNegro(),
-          ContenedorTengwar(),
 
           Center(
             child: Container(
@@ -178,7 +177,6 @@ class _ConfigScreenState extends State<ConfigScreen> {
             ),
           ),
 
-          ContenedorTengwar(),
           ContenedorNegro(),
         ],
       ),

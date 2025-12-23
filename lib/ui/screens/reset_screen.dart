@@ -21,7 +21,6 @@ class _ResetScreenState extends State<ResetScreen> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           ContenedorNegro(),
-          ContenedorTengwar(),
 
           Center(
             child: Container(
@@ -81,7 +80,6 @@ class _ResetScreenState extends State<ResetScreen> {
               ),
             ),
           ),
-          ContenedorTengwar(),
           ContenedorNegro(),
         ],
       ),

@@ -41,6 +41,9 @@ class CombatIconsHelper {
       }
     }
 
-    return Row(mainAxisAlignment: MainAxisAlignment.center, children: icons);
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [...icons],
+    );
   }
 }
