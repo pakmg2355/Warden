@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:warden/ui/widgets/game_text.dart';
 
 class StatBar extends StatelessWidget {
   final int value;

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:warden/game/helpers/escritura.dart';
-import 'package:warden/main.dart';
 import 'package:warden/ui/screens/menu_screen.dart';
 import 'package:warden/ui/widgets/container_tengwar.dart';
 import 'package:warden/ui/widgets/game_text.dart';

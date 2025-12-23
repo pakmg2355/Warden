@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:warden/game/enums/enums.dart';
 import 'package:warden/game/entities/player.dart';
-import 'package:warden/ui/widgets/game_text.dart';
 
 Widget buildControlState(PlayerClass p) {
   switch (p.controlState) {
