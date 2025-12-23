@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:warden/data/models/player_progress_repository.dart';
-import 'package:warden/game/systems/music_systems.dart';
 import 'package:warden/game/textos/diccionario.dart';
 import 'package:warden/ui/widgets/boton_menu.dart';
 import 'package:warden/ui/widgets/container_tengwar.dart';
@@ -17,7 +16,6 @@ class _ResetScreenState extends State<ResetScreen> {
   TextEditingController nombreController = TextEditingController();
   @override
   Widget build(BuildContext context) {
-    MusicSystem.play('music_reset');
     return Scaffold(
       backgroundColor: Colors.black,
       body: Column(

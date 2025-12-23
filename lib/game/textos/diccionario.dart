@@ -103,6 +103,7 @@ const es = {
   'texto.idioma': 'Idioma',
   'texto.escritura': 'Escritura',
   'texto.tema': 'Tema',
+  'texto.musicayefectos': 'Música y Efectos',
 };
 
 const en = {
@@ -218,6 +219,7 @@ const en = {
   'texto.idioma': 'Language',
   'texto.escritura': 'Write Method',
   'texto.tema': 'Theme',
+  'texto.musicayefectos': 'Music and Fx',
 };
 
 String t(String key) {

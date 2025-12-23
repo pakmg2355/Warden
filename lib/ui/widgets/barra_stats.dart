@@ -55,7 +55,13 @@ class StatBar extends StatelessWidget {
 
         // Texto
         if (label != null)
-          Align(alignment: Alignment.center, child: Text(label!)),
+          Align(
+            alignment: Alignment.center,
+            child: Text(
+              label!,
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            ),
+          ),
       ],
     );
   }

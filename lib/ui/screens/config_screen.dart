@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:warden/data/persistence/preferencias.dart';
 import 'package:warden/game/enums/enums.dart';
-import 'package:warden/game/systems/music_systems.dart';
 import 'package:warden/game/textos/diccionario.dart';
 import 'package:warden/main.dart';
 import 'package:warden/ui/widgets/boton_menu.dart';
@@ -23,6 +22,8 @@ class _ConfigScreenState extends State<ConfigScreen> {
   late bool escrituraTolkien;
   late bool temaDark;
   late bool temaWhite;
+  late bool musica;
+  late bool efectos;
 
   @override
   void initState() {
@@ -37,7 +38,8 @@ class _ConfigScreenState extends State<ConfigScreen> {
     temaDark = preferencesController.current.tema!.name == 'dark';
     temaWhite = preferencesController.current.tema!.name == 'white';
 
-    MusicSystem.play('music_config');
+    musica = preferencesController.current.musica!;
+    efectos = preferencesController.current.efectos!;
   }
 
   @override
@@ -161,6 +163,37 @@ class _ConfigScreenState extends State<ConfigScreen> {
                       ),
                     ],
                   ),
+                  const Divider(),
+                  GameText.text(t('texto.musicayefectos')),
+                  const SizedBox(width: 12),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Expanded(
+                        child: GameCheckbox(
+                          label: 'Música',
+                          value: musica,
+                          onTap: () {
+                            setState(() {
+                              musica = !musica;
+                            });
+                          },
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: GameCheckbox(
+                          label: 'Efectos',
+                          value: efectos,
+                          onTap: () {
+                            setState(() {
+                              efectos = !efectos;
+                            });
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
 
                   const SizedBox(height: 12),
                   MenuButton(
@@ -175,6 +208,8 @@ class _ConfigScreenState extends State<ConfigScreen> {
                             ? Escritura.tengwar
                             : Escritura.tolkien,
                         tema: temaDark ? Tema.dark : Tema.white,
+                        musica: musica,
+                        efectos: efectos,
                       );
                       await preferencesController.update(preferencias);
 

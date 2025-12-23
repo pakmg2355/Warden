@@ -11,10 +11,10 @@ class QuickSlotRow extends StatelessWidget {
   IconData _iconDataForItem(String id) {
     switch (id) {
       case 'EffectType.damage':
-        return Icons.science_outlined;
+        return Icons.science;
     }
 
-    return Icons.science_outlined;
+    return Icons.science;
   }
 
   Widget _buildEffectBadge(ItemStack item, int index) {
@@ -24,6 +24,7 @@ class QuickSlotRow extends StatelessWidget {
         customBorder: const CircleBorder(),
         onTap: () => onTap(index),
         child: Container(
+          margin: EdgeInsets.only(right: 10),
           width: 38,
           height: 38,
           decoration: BoxDecoration(
@@ -35,12 +36,12 @@ class QuickSlotRow extends StatelessWidget {
           child: Stack(
             alignment: Alignment.center,
             children: [
-              Positioned(bottom: 0, right: 0, child: Text('${item.quantity}')),
               Icon(
                 _iconDataForItem(item.item.nombre),
-                size: 18,
+                size: 20,
                 color: colorForItem(item.item.instantEffects.first.kind),
               ),
+              Positioned(bottom: 0, right: 0, child: Text('${item.quantity}')),
             ],
           ),
         ),

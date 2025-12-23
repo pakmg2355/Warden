@@ -7,11 +7,15 @@ class Preferencias {
   Idioma? idioma;
   Escritura? escritura;
   Tema? tema;
+  bool? musica;
+  bool? efectos;
 
   Preferencias({
     required this.idioma,
     required this.escritura,
     required this.tema,
+    required this.musica,
+    required this.efectos,
   });
 
   Idioma? get getIdioma => idioma;
@@ -23,6 +27,8 @@ class Preferencias {
       idioma: Idioma.values.byName(json['idioma']),
       escritura: Escritura.values.byName(json['escritura']),
       tema: Tema.values.byName(json['tema']),
+      musica: json['musica'],
+      efectos: json['efectos'],
     );
   }
   Map<String, dynamic> toJson() {
@@ -30,6 +36,8 @@ class Preferencias {
       'idioma': idioma?.name,
       'escritura': escritura?.name,
       'tema': tema?.name,
+      'musica': musica,
+      'efectos': efectos,
     };
   }
 }

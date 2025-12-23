@@ -31,7 +31,7 @@ class _MenuScreenState extends State<MenuScreen> {
   void initState() {
     super.initState();
     _loadProgress();
-    MusicSystem.play('music_menu');
+    MusicSystem.play();
   }
 
   Future<void> _loadProgress() async {

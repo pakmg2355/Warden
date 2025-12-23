@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:warden/game/combos/combo_repository.dart';
-import 'package:warden/game/systems/music_systems.dart';
 import 'package:warden/ui/widgets/container_tengwar.dart';
 import 'package:warden/ui/widgets/gambitInfoCard.dart';
 
@@ -10,7 +9,6 @@ class GambitInfoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final combos = listadoCombos;
-    MusicSystem.play('music_gambits');
 
     return Scaffold(
       backgroundColor: Colors.black,

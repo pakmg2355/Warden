@@ -15,6 +15,8 @@ class PreferencesController extends ChangeNotifier {
         idioma: Idioma.es,
         escritura: Escritura.tolkien,
         tema: Tema.dark,
+        musica: true,
+        efectos: true,
       );
       await PreferenciasStorage.savePreferences(_preferencias!);
     }

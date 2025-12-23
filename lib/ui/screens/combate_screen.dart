@@ -21,7 +21,7 @@ class CombateScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    MusicSystem.play('music_combat01');
+    MusicSystem.play();
     return Scaffold(
       body: AnimatedBuilder(
         animation: controller,
