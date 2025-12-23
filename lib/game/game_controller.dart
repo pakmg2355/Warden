@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:warden/data/models/player_progress_repository.dart';
-import 'package:warden/game/entities/enums.dart';
+import 'package:warden/game/enums/enums.dart';
 import 'package:warden/game/entities/player.dart';
 import 'package:warden/game/progress/player_progress.dart';
 import 'package:warden/game/systems/ai_systems.dart';

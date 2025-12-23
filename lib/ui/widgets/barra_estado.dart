@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:warden/game/entities/enums.dart';
+import 'package:warden/game/enums/enums.dart';
 import 'package:warden/game/entities/player.dart';
+import 'package:warden/ui/widgets/game_text.dart';
 
 Widget buildControlState(PlayerClass p) {
   switch (p.controlState) {
@@ -38,7 +39,7 @@ Widget _stateChip({
       children: [
         Icon(icon, size: 14, color: color),
         const SizedBox(width: 4),
-        Text(text, style: TextStyle(color: color)),
+        Text(text),
       ],
     ),
   );

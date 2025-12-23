@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:warden/data/models/player_progress_repository.dart';
-import 'package:warden/game/entities/enums.dart';
+import 'package:warden/game/enums/enums.dart';
 import 'package:warden/game/entities/player.dart';
 import 'package:warden/game/factories/enemy_factory.dart';
 import 'package:warden/game/game_controller.dart';
 import 'package:warden/game/game_state.dart';
 import 'package:warden/game/items/item_definition.dart';
 import 'package:warden/game/progress/player_progress.dart';
-
 import 'package:warden/ui/screens/combate_screen.dart';
+import 'package:warden/ui/screens/config_screen.dart';
 import 'package:warden/ui/screens/gambir_info.dart';
 import 'package:warden/ui/screens/reset_screen.dart';
 import 'package:warden/ui/widgets/boton_menu.dart';
@@ -128,7 +128,14 @@ class _MenuScreenState extends State<MenuScreen> {
             MenuButton(
               text: 'CONFIGURATION',
               icon: Icons.settings,
-              onTap: () {},
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => ConfigScreen()),
+                ).then((r) {
+                  setState(() {});
+                });
+              },
             ),
 
             MenuButton(
@@ -137,9 +144,7 @@ class _MenuScreenState extends State<MenuScreen> {
               onTap: () async {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(
-                    builder: (_) => ResetScreen(nombre: _progress!.nombre),
-                  ),
+                  MaterialPageRoute(builder: (_) => ResetScreen()),
                 ).then((res) {
                   _loadProgress();
                 });

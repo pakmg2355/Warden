@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:warden/game/entities/effect.dart';
-import 'package:warden/game/entities/enums.dart';
+import 'package:warden/game/enums/enums.dart';
 import 'package:warden/game/helpers/helpers.dart';
 
 class EfectosRow extends StatelessWidget {

@@ -1,7 +1,7 @@
 import 'dart:math';
 
 import 'package:warden/game/entities/effect.dart';
-import 'package:warden/game/entities/enums.dart';
+import 'package:warden/game/enums/enums.dart';
 import 'package:warden/game/entities/logs.dart';
 import 'package:warden/game/entities/player.dart';
 import 'package:warden/game/game_state.dart';

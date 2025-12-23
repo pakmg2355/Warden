@@ -1,4 +1,4 @@
-import 'package:warden/game/entities/enums.dart';
+import 'package:warden/game/enums/enums.dart';
 
 class CombatLogEntry {
   final String source; // 'Jugador' / 'Rival'

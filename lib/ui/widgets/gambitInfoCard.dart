@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:warden/game/combos/combo_repository.dart';
 import 'package:warden/game/helpers/combat_icon_helper.dart';
+import 'package:warden/ui/widgets/game_text.dart';
 
 class ComboInfoCard extends StatelessWidget {
   final ComboDefinition combo;
@@ -28,34 +29,12 @@ class ComboInfoCard extends StatelessWidget {
           ),
 
           const Padding(padding: EdgeInsets.all(10)),
-
-          Text(
-            combo.name,
-            style: const TextStyle(
-              color: Colors.amber,
-              fontWeight: FontWeight.bold,
-              fontSize: 16,
-            ),
-          ),
-
-          /// Tipo + Tier
-          Text(
-            'Type: ${combo.type.name}  |  Tier: ${combo.tier}',
-            style: const TextStyle(color: Colors.white70),
-          ),
-
+          GameText.text(combo.name),
+          GameText.text('Type: ${combo.type.name}  |  Tier: ${combo.tier}'),
           const SizedBox(height: 6),
-
-          /// Descripción
-          Text(combo.description, style: const TextStyle(color: Colors.white)),
-
+          GameText.text(combo.description),
           const SizedBox(height: 6),
-
-          /// Coste
-          Text(
-            'Power cost: ${combo.powerCost}',
-            style: const TextStyle(color: Colors.redAccent),
-          ),
+          GameText.text(combo.description),
         ],
       ),
     );

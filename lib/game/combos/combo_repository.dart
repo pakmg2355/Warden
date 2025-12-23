@@ -1,5 +1,6 @@
 import 'package:warden/game/entities/effect.dart';
-import 'package:warden/game/entities/enums.dart';
+import 'package:warden/game/enums/enums.dart';
+import 'package:warden/game/textos/diccionario.dart';
 
 class ComboDefinition {
   final String id;
@@ -41,16 +42,16 @@ ComboDefinition? findComboBySequence(String sequence) {
 
 List<ComboDefinition> listadoCombos = [
   ComboDefinition(
-    id: 'basic_strike',
+    id: t('combo.spear.t1.id'),
     sequence: '12',
-    name: 'Spear Tier 1',
+    name: t('combo.spear.t1.name'),
     type: EffectType.damage,
     tier: 1,
-    description: 'Spear first combo',
+    description: t('combo.spear.t1.desc'),
     powerCost: 10,
     effects: [
       EfectoClass(
-        nombre: 'Spear Tier 1',
+        nombre: t('combo.spear.t1.name'),
         tier: 1,
         vida: -50,
         type: EffectType.damage,

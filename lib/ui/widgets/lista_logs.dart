@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:warden/game/entities/logs.dart';
 import 'package:warden/game/helpers/helpers.dart';
+import 'package:warden/ui/widgets/game_text.dart';
 
 class CombatLogView extends StatelessWidget {
   final List<CombatLogEntry> log;
@@ -48,14 +49,7 @@ class CombatLogView extends StatelessWidget {
           ),
         ],
       ),
-      child: Text(
-        text,
-        style: TextStyle(
-          fontSize: 12,
-          fontWeight: FontWeight.bold,
-          color: baseColor,
-        ),
-      ),
+      child: Text(text),
     );
   }
 }

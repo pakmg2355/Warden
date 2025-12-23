@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:warden/game/progress/player_progress.dart';
+import 'package:warden/ui/widgets/game_text.dart';
 
 class PlayerMenuHeader extends StatelessWidget {
   final PlayerProgress progress;
@@ -26,33 +27,16 @@ class PlayerMenuHeader extends StatelessWidget {
             children: [
               const Icon(Icons.person, color: Colors.amber),
               const SizedBox(width: 8),
-              Text(
-                progress.nombre,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              GameText.text(progress.nombre),
               const Spacer(),
-              Text(
-                'Lv. ${progress.nivel}',
-                style: const TextStyle(
-                  color: Colors.amber,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
+              GameText.text('Lv. ${progress.nivel}'),
             ],
           ),
 
           const SizedBox(height: 12),
 
           // EXP
-          Text(
-            'Experience',
-            style: TextStyle(color: Colors.grey.shade400, fontSize: 12),
-          ),
+          GameText.text('Experience'),
           const SizedBox(height: 6),
 
           ClipRRect(
@@ -67,9 +51,8 @@ class PlayerMenuHeader extends StatelessWidget {
 
           const SizedBox(height: 6),
 
-          Text(
+          GameText.text(
             '${progress.experiencia} / ${progress.experienciaParaSubir}',
-            style: TextStyle(color: Colors.grey.shade400, fontSize: 12),
           ),
         ],
       ),

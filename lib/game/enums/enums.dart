@@ -24,3 +24,9 @@ enum CombatResult { none, playerWin, rivalWin }
 enum ItemType { consumable, buff }
 
 enum InstantEffectKind { vidaFlat, vidaPercent, powerFlat, powerPercent }
+
+enum Idioma { es, en }
+
+enum Escritura { tolkien, tengwar }
+
+enum Tema { dark, white }

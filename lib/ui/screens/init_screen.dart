@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:warden/game/helpers/escritura.dart';
+import 'package:warden/main.dart';
 import 'package:warden/ui/screens/menu_screen.dart';
 import 'package:warden/ui/widgets/container_tengwar.dart';
+import 'package:warden/ui/widgets/game_text.dart';
 
 class InitScreen extends StatelessWidget {
   const InitScreen({super.key});
@@ -25,11 +28,9 @@ class InitScreen extends StatelessWidget {
               ContenedorTengwar(),
               Column(
                 children: [
-                  Text('WARDEN GAMBITS SYSTEM', style: TextStyle(fontSize: 14)),
-                  Text('', style: TextStyle(fontSize: 14)),
-                  Text('BY', style: TextStyle(fontSize: 14)),
-                  Text('', style: TextStyle(fontSize: 14)),
-                  Text('OSCAR MARTÍNEZ GÓMEZ', style: TextStyle(fontSize: 14)),
+                  GameText.text('WARDEN GAMBIT SYSTEM', size: 20),
+                  GameText.text('by', size: 20),
+                  GameText.text('oscar martinez gomez', size: 20),
                 ],
               ),
               ContenedorTengwar(),

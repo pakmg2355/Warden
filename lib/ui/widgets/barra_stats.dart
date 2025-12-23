@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:warden/ui/widgets/game_text.dart';
 
 class StatBar extends StatelessWidget {
   final int value;
@@ -55,24 +56,7 @@ class StatBar extends StatelessWidget {
 
         // Texto
         if (label != null)
-          Align(
-            alignment: Alignment.center,
-            child: Text(
-              label!,
-              style: TextStyle(
-                color: Colors.white,
-                fontSize: height * 0.6,
-                fontWeight: FontWeight.bold,
-                shadows: const [
-                  Shadow(
-                    offset: Offset(1, 1),
-                    blurRadius: 2,
-                    color: Colors.black,
-                  ),
-                ],
-              ),
-            ),
-          ),
+          Align(alignment: Alignment.center, child: Text(label!)),
       ],
     );
   }

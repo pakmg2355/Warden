@@ -1,5 +1,5 @@
 import 'package:warden/game/entities/effect.dart';
-import 'package:warden/game/entities/enums.dart';
+import 'package:warden/game/enums/enums.dart';
 import 'package:warden/game/entities/player.dart';
 import 'package:warden/game/entities/stats.dart';
 

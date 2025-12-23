@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:warden/ui/widgets/game_text.dart';
 
 class CabeceraPlayer extends StatelessWidget {
   final String nombre;
@@ -25,20 +26,7 @@ class CabeceraPlayer extends StatelessWidget {
           crossAxisAlignment: alignRight
               ? CrossAxisAlignment.end
               : CrossAxisAlignment.start,
-          children: [
-            Text(
-              nombre,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 16,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            Text(
-              'Lv $nivel',
-              style: const TextStyle(color: Colors.white70, fontSize: 12),
-            ),
-          ],
+          children: [GameText.text(nombre), GameText.text('Lv $nivel')],
         ),
       ],
     );

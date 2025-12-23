@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:warden/ui/widgets/game_text.dart';
 
 class MenuButton extends StatelessWidget {
   final String text;
@@ -39,15 +40,7 @@ class MenuButton extends StatelessWidget {
               Icon(icon, color: Colors.amberAccent),
               const SizedBox(width: 12),
             ],
-            Text(
-              text,
-              style: const TextStyle(
-                fontSize: 20,
-                letterSpacing: 1.5,
-                fontWeight: FontWeight.w600,
-                color: Colors.white,
-              ),
-            ),
+            GameText.text(text),
           ],
         ),
       ),

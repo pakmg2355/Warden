@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:warden/game/preferences_controller.dart';
 import 'package:warden/ui/screens/init_screen.dart';
 
-void main() {
+final preferencesController = PreferencesController();
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  await preferencesController.load();
   runApp(MyGameApp());
 }
 

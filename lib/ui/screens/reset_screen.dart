@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:warden/data/models/player_progress_repository.dart';
 import 'package:warden/ui/widgets/boton_menu.dart';
 import 'package:warden/ui/widgets/container_tengwar.dart';
+import 'package:warden/ui/widgets/game_text.dart';
 
 class ResetScreen extends StatefulWidget {
-  final String nombre;
-  const ResetScreen({super.key, required this.nombre});
+  const ResetScreen({super.key});
 
   @override
   State<ResetScreen> createState() => _ResetScreenState();
@@ -36,7 +36,7 @@ class _ResetScreenState extends State<ResetScreen> {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  const Text(
+                  GameText.text(
                     'This will erase all progress.\n\n'
                     'Enter the new player name:',
                   ),
@@ -46,7 +46,6 @@ class _ResetScreenState extends State<ResetScreen> {
                     autofocus: true,
                     decoration: const InputDecoration(
                       border: OutlineInputBorder(),
-                      hintText: 'Nuevo nombre jugador',
                     ),
                   ),
                   const Padding(padding: EdgeInsets.all(5)),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:warden/game/helpers/helpers.dart';
 
 import 'package:warden/game/items/item_definition.dart';
+import 'package:warden/ui/widgets/game_text.dart';
 
 class QuickSlotRow extends StatelessWidget {
   final List<ItemStack> items;
