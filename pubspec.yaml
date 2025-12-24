@@ -39,4 +39,4 @@ flutter:
          - asset: assets/fonts/tengwar.ttf
      - family: tolkien
        fonts:
-         - asset: assets/fonts/tolkien.ttf
+         - asset: assets/fonts/tolkien_font.ttf

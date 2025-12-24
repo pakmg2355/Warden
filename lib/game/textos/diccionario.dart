@@ -104,6 +104,16 @@ const es = {
   'texto.escritura': 'Escritura',
   'texto.tema': 'Tema',
   'texto.musicayefectos': 'Música y Efectos',
+  'texto.about': 'ACERCA DE ...',
+  'texto.about.info':
+      'Warden es un juego de combate estratégico por turnos con una fuerte inspiración en la fantasía oscura.\n\n'
+      'El jugador encarna a un guardián solitario que debe enfrentarse a una sucesión de enemigos utilizando habilidad, táctica y una correcta gestión del combate. Cada enfrentamiento no se basa únicamente en la fuerza bruta, sino en la elección adecuada de acciones y en el dominio de los combos.\n\n'
+      'El sistema de combate se articula a través de combos encadenados. Cada acción puede potenciar a las siguientes, desbloqueando bonificaciones adicionales si se ejecutan en el orden correcto. Aprender a mantener activos los efectos y a combinar los distintos niveles de ataque es clave para sobrevivir y avanzar.\n\n'
+      'Warden está diseñado para ofrecer una experiencia clara y directa, con una interfaz minimalista y una ambientación cuidada. Bajo el capó, el juego está desarrollado con tecnología moderna, utilizando Flutter como motor principal, lo que permite un rendimiento sólido y una evolución constante del proyecto.\n\n'
+      'Este juego es un proyecto en desarrollo, creado con pasión, experimentación y atención al detalle, donde cada combate cuenta.\n\n\n'
+      'El código fuente del juego lo podéis descargar en github\n\n'
+      'https://github.com/pakmg2355/Warden\n\n'
+      'Cualquier mejora y comentario será bienvenido\n\n',
 };
 
 const en = {
@@ -220,6 +230,16 @@ const en = {
   'texto.escritura': 'Write Method',
   'texto.tema': 'Theme',
   'texto.musicayefectos': 'Music and Fx',
+  'texto.about': 'ABOUT ...',
+  'texto.about.info':
+      'Warden is a turn-based strategic combat game strongly inspired by dark fantasy.\n\n'
+      'The player takes on the role of a lone guardian who must face a series of enemies using skill, tactics, and careful combat management. Each encounter is not based solely on raw strength, but on choosing the right actions and mastering the combo system.\n\n'
+      'Combat revolves around chained combos. Each action can empower the next, unlocking additional bonuses when executed in the correct order. Learning how to maintain active effects and combine different attack tiers is essential for survival and progression.\n\n'
+      'Warden is designed to deliver a clean and focused experience, featuring a minimalist interface and a carefully crafted atmosphere. Under the hood, the game is built using modern technology, with Flutter as its core engine, allowing for solid performance and continuous evolution.\n\n'
+      'This game is an ongoing project, developed with passion, experimentation, and attention to detail, where every battle matters.\n\n\n'
+      'The font code is in github\n\n'
+      'https://github.com/pakmg2355/Warden\n\n'
+      'Any improvement or comment will be welcome\n\n',
 };
 
 String t(String key) {

@@ -9,6 +9,7 @@ import 'package:warden/game/items/item_definition.dart';
 import 'package:warden/game/progress/player_progress.dart';
 import 'package:warden/game/systems/music_systems.dart';
 import 'package:warden/game/textos/diccionario.dart';
+import 'package:warden/ui/screens/about_screen.dart';
 import 'package:warden/ui/screens/combate_screen.dart';
 import 'package:warden/ui/screens/config_screen.dart';
 import 'package:warden/ui/screens/gambir_info.dart';
@@ -76,87 +77,101 @@ class _MenuScreenState extends State<MenuScreen> {
     return Scaffold(
       backgroundColor: Colors.black,
       body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            ContenedorNegro(),
-            // 🧙 CABECERA PLAYER
-            PlayerMenuHeader(progress: _progress!),
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 600),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              ContenedorNegro(),
+              // 🧙 CABECERA PLAYER
+              PlayerMenuHeader(progress: _progress!),
 
-            Column(
-              children: [
-                MenuButton(
-                  text: t('menu.combate'),
-                  icon: Icons.local_fire_department,
-                  onTap: () async {
-                    final player = _buildPlayerFromProgress(_progress!);
-                    final enemy = EnemyFactory.createForPhase(
-                      _progress!.faseActual,
-                    );
+              Column(
+                children: [
+                  MenuButton(
+                    text: t('menu.combate'),
+                    icon: Icons.local_fire_department,
+                    onTap: () async {
+                      final player = _buildPlayerFromProgress(_progress!);
+                      final enemy = EnemyFactory.createForPhase(
+                        _progress!.faseActual,
+                      );
 
-                    final initialState = GameState(
-                      jugador: player,
-                      rival: enemy,
-                      result: CombatResult.none,
-                    );
+                      final initialState = GameState(
+                        jugador: player,
+                        rival: enemy,
+                        result: CombatResult.none,
+                      );
 
-                    final controller = GameController(
-                      initialState,
-                      progress: _progress!,
-                    );
+                      final controller = GameController(
+                        initialState,
+                        progress: _progress!,
+                      );
 
-                    await Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (_) => CombateScreen(controller: controller),
-                      ),
-                    );
+                      await Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) => CombateScreen(controller: controller),
+                        ),
+                      );
 
-                    // 🔄 refrescar progreso al volver del combate
-                    _loadProgress();
-                  },
-                ),
-
-                MenuButton(
-                  text: t('menu.gambit.info'),
-                  icon: Icons.menu_book,
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (_) => GambitInfoScreen()),
-                    );
-                  },
-                ),
-
-                MenuButton(
-                  text: t('menu.configuracion'),
-                  icon: Icons.settings,
-                  onTap: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (_) => ConfigScreen()),
-                    ).then((r) {
-                      setState(() {});
-                    });
-                  },
-                ),
-
-                MenuButton(
-                  text: t('menu.reset'),
-                  icon: Icons.reset_tv,
-                  onTap: () async {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (_) => ResetScreen()),
-                    ).then((res) {
+                      // 🔄 refrescar progreso al volver del combate
                       _loadProgress();
-                    });
-                  },
-                ),
-              ],
-            ),
-            ContenedorNegro(),
-          ],
+                    },
+                  ),
+
+                  MenuButton(
+                    text: t('menu.gambit.info'),
+                    icon: Icons.menu_book,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => GambitInfoScreen()),
+                      );
+                    },
+                  ),
+
+                  MenuButton(
+                    text: t('menu.configuracion'),
+                    icon: Icons.settings,
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => ConfigScreen()),
+                      ).then((r) {
+                        setState(() {});
+                      });
+                    },
+                  ),
+
+                  MenuButton(
+                    text: t('menu.reset'),
+                    icon: Icons.reset_tv,
+                    onTap: () async {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => ResetScreen()),
+                      ).then((res) {
+                        _loadProgress();
+                      });
+                    },
+                  ),
+
+                  MenuButton(
+                    text: t('texto.about'),
+                    icon: Icons.reset_tv,
+                    onTap: () async {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => AboutScreen()),
+                      );
+                    },
+                  ),
+                ],
+              ),
+              ContenedorNegro(),
+            ],
+          ),
         ),
       ),
     );

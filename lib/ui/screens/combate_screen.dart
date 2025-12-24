@@ -45,195 +45,219 @@ class CombateScreen extends StatelessWidget {
                   child: buildEndOverlay(state),
                 ),
               if (!state.isFinished)
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    ContenedorNegro(),
-                    InkWell(
-                      onTap: () {
-                        Navigator.pop(context, null);
-                      },
-                      child: ContenedorVolver(),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(5),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: CabeceraPlayer(
-                              nombre: state.jugador.nombre,
-                              nivel: state.jugador.nivel,
-                              icon: Icons.person,
-                            ),
+                Center(
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(maxWidth: 600),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        ContenedorNegro(),
+                        InkWell(
+                          onTap: () {
+                            Navigator.pop(context, null);
+                          },
+                          child: ContenedorVolver(),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.all(5),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: CabeceraPlayer(
+                                  nombre: state.jugador.nombre,
+                                  nivel: state.jugador.nivel,
+                                  icon: Icons.person,
+                                ),
+                              ),
+                              Expanded(
+                                child: CabeceraPlayer(
+                                  nombre: state.rival.nombre,
+                                  nivel: state.rival.nivel,
+                                  icon: Icons.person_2,
+                                  alignRight: true,
+                                ),
+                              ),
+                            ],
                           ),
-                          Expanded(
-                            child: CabeceraPlayer(
-                              nombre: state.rival.nombre,
-                              nivel: state.rival.nivel,
-                              icon: Icons.person_2,
-                              alignRight: true,
-                            ),
+                        ),
+                        const Divider(),
+                        Padding(
+                          padding: EdgeInsets.all(5),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: StatBar(
+                                  value: state.jugador.vida,
+                                  maxValue: state.jugador.maxvida,
+                                  fillColor: Colors.green,
+                                  height:
+                                      MediaQuery.of(context).size.height / 20,
+                                  label:
+                                      '${state.jugador.vida}/${state.jugador.maxvida}',
+                                ),
+                              ),
+                              const Padding(padding: EdgeInsets.all(5)),
+                              Expanded(
+                                child: StatBar(
+                                  value: state.rival.vida,
+                                  maxValue: state.rival.maxvida,
+                                  height:
+                                      MediaQuery.of(context).size.height / 20,
+                                  fillColor: Colors.green,
+                                  label:
+                                      '${state.rival.vida}/${state.rival.maxvida}',
+                                ),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
-                    ),
-                    const Divider(),
-                    Padding(
-                      padding: EdgeInsets.all(5),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: StatBar(
-                              value: state.jugador.vida,
-                              maxValue: state.jugador.maxvida,
-                              fillColor: Colors.green,
-                              height: MediaQuery.of(context).size.height / 20,
-                              label:
-                                  '${state.jugador.vida}/${state.jugador.maxvida}',
-                            ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.all(5),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: StatBar(
+                                  value: state.jugador.power,
+                                  maxValue: state.jugador.maxpower,
+                                  fillColor: Colors.blue,
+                                  height:
+                                      MediaQuery.of(context).size.height / 20,
+                                  label:
+                                      '${state.jugador.power}/${state.jugador.maxpower}',
+                                ),
+                              ),
+                              const Padding(padding: EdgeInsets.all(5)),
+                              Expanded(
+                                child: StatBar(
+                                  value: state.rival.power,
+                                  maxValue: state.rival.maxpower,
+                                  height:
+                                      MediaQuery.of(context).size.height / 20,
+                                  fillColor: Colors.blue,
+                                  label:
+                                      '${state.rival.power}/${state.rival.maxpower}',
+                                ),
+                              ),
+                            ],
                           ),
-                          const Padding(padding: EdgeInsets.all(5)),
-                          Expanded(
-                            child: StatBar(
-                              value: state.rival.vida,
-                              maxValue: state.rival.maxvida,
-                              height: MediaQuery.of(context).size.height / 20,
-                              fillColor: Colors.green,
-                              label:
-                                  '${state.rival.vida}/${state.rival.maxvida}',
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(5),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: StatBar(
-                              value: state.jugador.power,
-                              maxValue: state.jugador.maxpower,
-                              fillColor: Colors.blue,
-                              height: MediaQuery.of(context).size.height / 20,
-                              label:
-                                  '${state.jugador.power}/${state.jugador.maxpower}',
-                            ),
-                          ),
-                          const Padding(padding: EdgeInsets.all(5)),
-                          Expanded(
-                            child: StatBar(
-                              value: state.rival.power,
-                              maxValue: state.rival.maxpower,
-                              height: MediaQuery.of(context).size.height / 20,
-                              fillColor: Colors.blue,
-                              label:
-                                  '${state.rival.power}/${state.rival.maxpower}',
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                        ),
 
-                    Padding(
-                      padding: EdgeInsets.all(5),
-                      child: Row(
-                        children: [
-                          Expanded(child: buildControlState(state.jugador)),
-                          Expanded(child: buildControlState(state.rival)),
-                        ],
-                      ),
-                    ),
-                    const Divider(),
-                    Padding(
-                      padding: EdgeInsets.all(5),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: EfectosRow(efectos: state.jugador.efectos),
+                        Padding(
+                          padding: EdgeInsets.all(5),
+                          child: Row(
+                            children: [
+                              Expanded(child: buildControlState(state.jugador)),
+                              Expanded(child: buildControlState(state.rival)),
+                            ],
                           ),
+                        ),
+                        const Divider(),
+                        Padding(
+                          padding: EdgeInsets.all(5),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: EfectosRow(
+                                  efectos: state.jugador.efectos,
+                                ),
+                              ),
 
-                          Expanded(
-                            child:
-                                /// EFECTOS RIVAL
-                                EfectosRow(efectos: state.rival.efectos),
+                              Expanded(
+                                child:
+                                    /// EFECTOS RIVAL
+                                    EfectosRow(efectos: state.rival.efectos),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
-                    ),
-                    const Divider(),
+                        ),
+                        const Divider(),
 
-                    Expanded(
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: CombatLogView(log: state.jugador.logs),
+                        Expanded(
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: CombatLogView(log: state.jugador.logs),
+                              ),
+                              Expanded(
+                                child: CombatLogView(log: state.rival.logs),
+                              ),
+                            ],
                           ),
-                          Expanded(child: CombatLogView(log: state.rival.logs)),
-                        ],
-                      ),
-                    ),
-                    const Divider(),
+                        ),
+                        const Divider(),
 
-                    QuickSlotRow(
-                      items: state.jugador.quickSlots
-                          .whereType<ItemStack>()
-                          .toList(),
-                      onTap: (index) {
-                        controller.useItem(index);
-                      },
-                    ),
-                    const Divider(),
-                    Padding(
-                      padding: EdgeInsets.all(10),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: CombatButton(
-                              text: '',
-                              color: colorSpear,
-                              icon: spearIcon,
-                              onPressed: () => controller.addInput('1'),
-                            ),
+                        QuickSlotRow(
+                          items: state.jugador.quickSlots
+                              .whereType<ItemStack>()
+                              .toList(),
+                          onTap: (index) {
+                            controller.useItem(index);
+                          },
+                        ),
+                        const Divider(),
+                        Padding(
+                          padding: EdgeInsets.all(10),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Expanded(
+                                child: Padding(
+                                  padding: EdgeInsets.all(20),
+                                  child: CombatButton(
+                                    text: '',
+                                    color: colorSpear,
+                                    icon: spearIcon,
+                                    onPressed: () => controller.addInput('1'),
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: Padding(
+                                  padding: EdgeInsets.all(20),
+                                  child: CombatButton(
+                                    text: '',
+                                    color: colorShield,
+                                    icon: shieldIcon,
+                                    onPressed: () => controller.addInput('2'),
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: Padding(
+                                  padding: EdgeInsets.all(20),
+                                  child: CombatButton(
+                                    text: '',
+                                    color: colorFist,
+                                    icon: fistIcon,
+                                    onPressed: () => controller.addInput('3'),
+                                  ),
+                                ),
+                              ),
+                            ],
                           ),
-                          const SizedBox(width: 50),
-                          Expanded(
-                            child: CombatButton(
-                              text: '',
-                              color: colorShield,
-                              icon: shieldIcon,
-                              onPressed: () => controller.addInput('2'),
-                            ),
-                          ),
-                          const SizedBox(width: 50),
-                          Expanded(
-                            child: CombatButton(
-                              text: '',
-                              color: colorFist,
-                              icon: fistIcon,
-                              onPressed: () => controller.addInput('3'),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: EdgeInsets.all(5),
-                      child: Row(
-                        children: [
-                          Expanded(
-                            child: CombatButtonExec(
-                              text: state.jugador.comando.replaceAll('X', ''),
-                              color: Colors.red.shade800,
+                        ),
+                        Padding(
+                          padding: EdgeInsets.all(5),
+                          child: Row(
+                            children: [
+                              Expanded(
+                                child: CombatButtonExec(
+                                  text: state.jugador.comando.replaceAll(
+                                    'X',
+                                    '',
+                                  ),
+                                  color: Colors.red.shade800,
 
-                              onPressed: () => controller.addInput('X'),
-                            ),
+                                  onPressed: () => controller.addInput('X'),
+                                ),
+                              ),
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                        ContenedorNegro(),
+                      ],
                     ),
-                    ContenedorNegro(),
-                  ],
+                  ),
                 ),
             ],
           );

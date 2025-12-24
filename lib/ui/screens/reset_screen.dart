@@ -18,68 +18,73 @@ class _ResetScreenState extends State<ResetScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.black,
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          ContenedorNegro(),
+      body: Center(
+        child: ConstrainedBox(
+          constraints: const BoxConstraints(maxWidth: 600),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              ContenedorNegro(),
 
-          Center(
-            child: Container(
-              padding: const EdgeInsets.all(15),
-              margin: const EdgeInsets.only(left: 10, right: 10),
-              decoration: BoxDecoration(
-                color: const Color.fromARGB(137, 136, 136, 136),
-                borderRadius: BorderRadius.circular(12),
-                border: Border.all(color: Colors.amber.shade700, width: 1),
-              ),
-
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  GameText.text(t('texto.aviso.reset')),
-                  const SizedBox(height: 12),
-                  TextField(
-                    controller: nombreController,
-                    autofocus: true,
-                    decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                    ),
+              Center(
+                child: Container(
+                  padding: const EdgeInsets.all(15),
+                  margin: const EdgeInsets.only(left: 10, right: 10),
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(137, 136, 136, 136),
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(color: Colors.amber.shade700, width: 1),
                   ),
-                  const Padding(padding: EdgeInsets.all(5)),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
                     children: [
-                      MenuButton(
-                        text: t('boton.aceptar'),
-                        icon: Icons.check,
-                        onTap: () async {
-                          if (nombreController.text == '') return;
-
-                          await PlayerProgressRepository.reset(
-                            nombreController.text,
-                          );
-
-                          if (!mounted) return;
-
-                          // ignore: use_build_context_synchronously
-                          Navigator.pop(context, true);
-                        },
+                      GameText.text(t('texto.aviso.reset')),
+                      const SizedBox(height: 12),
+                      TextField(
+                        controller: nombreController,
+                        autofocus: true,
+                        decoration: const InputDecoration(
+                          border: OutlineInputBorder(),
+                        ),
                       ),
-                      MenuButton(
-                        text: t('boton.cancelar'),
-                        icon: Icons.cancel,
-                        onTap: () async {
-                          Navigator.pop(context, true);
-                        },
+                      const Padding(padding: EdgeInsets.all(5)),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          MenuButton(
+                            text: t('boton.aceptar'),
+                            icon: Icons.check,
+                            onTap: () async {
+                              if (nombreController.text == '') return;
+
+                              await PlayerProgressRepository.reset(
+                                nombreController.text,
+                              );
+
+                              if (!mounted) return;
+
+                              // ignore: use_build_context_synchronously
+                              Navigator.pop(context, true);
+                            },
+                          ),
+                          MenuButton(
+                            text: t('boton.cancelar'),
+                            icon: Icons.cancel,
+                            onTap: () async {
+                              Navigator.pop(context, true);
+                            },
+                          ),
+                        ],
                       ),
                     ],
                   ),
-                ],
+                ),
               ),
-            ),
+              ContenedorNegro(),
+            ],
           ),
-          ContenedorNegro(),
-        ],
+        ),
       ),
     );
   }

@@ -1,3 +1,3 @@
 call git add .
-call git commit -m "Musica y efectos en paraleto y en preferencias"
+call git commit -m "Fuente nueva y tamaño máximo ventanas"
 call git push
