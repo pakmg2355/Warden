@@ -1,5 +1,6 @@
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:warden/game/entities/stats.dart';
+import 'package:warden/game/enums/enums.dart';
 import 'package:warden/game/progress/player_progress.dart';
 
 class PlayerProgressRepository {
@@ -68,5 +69,44 @@ class PlayerProgressRepository {
         powerRegen: 1,
       ),
     );
+  }
+}
+
+class Preferencias {
+  Idioma? idioma;
+  Escritura? escritura;
+  Tema? tema;
+  bool? musica;
+  bool? efectos;
+
+  Preferencias({
+    required this.idioma,
+    required this.escritura,
+    required this.tema,
+    required this.musica,
+    required this.efectos,
+  });
+
+  Idioma? get getIdioma => idioma;
+  Escritura? get getEscritura => escritura;
+  Tema? get getTema => tema;
+
+  factory Preferencias.fromJson(Map<String, dynamic> json) {
+    return Preferencias(
+      idioma: Idioma.values.byName(json['idioma']),
+      escritura: Escritura.values.byName(json['escritura']),
+      tema: Tema.values.byName(json['tema']),
+      musica: json['musica'],
+      efectos: json['efectos'],
+    );
+  }
+  Map<String, dynamic> toJson() {
+    return {
+      'idioma': idioma?.name,
+      'escritura': escritura?.name,
+      'tema': tema?.name,
+      'musica': musica,
+      'efectos': efectos,
+    };
   }
 }

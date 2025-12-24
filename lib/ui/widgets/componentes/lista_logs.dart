@@ -48,7 +48,7 @@ class CombatLogView extends StatelessWidget {
           ),
         ],
       ),
-      child: Text(text),
+      child: Text(text, style: TextStyle(fontSize: 10)),
     );
   }
 }

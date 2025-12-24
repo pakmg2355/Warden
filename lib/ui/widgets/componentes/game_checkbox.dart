@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:warden/ui/widgets/game_text.dart';
+import 'package:warden/ui/widgets/componentes/game_text.dart';
 
 class GameCheckbox extends StatelessWidget {
   final bool value;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:warden/ui/widgets/game_text.dart';
+import 'package:warden/ui/widgets/componentes/game_text.dart';
 
 class CabeceraPlayer extends StatelessWidget {
   final String nombre;

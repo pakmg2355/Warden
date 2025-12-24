@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:warden/game/textos/diccionario.dart';
 import 'package:warden/ui/screens/menu_screen.dart';
-import 'package:warden/ui/widgets/container_tengwar.dart';
-import 'package:warden/ui/widgets/game_text.dart';
+import 'package:warden/ui/widgets/contenedores/container_tengwar.dart';
+import 'package:warden/ui/widgets/componentes/game_text.dart';
 
 class InitScreen extends StatelessWidget {
   const InitScreen({super.key});
@@ -26,9 +26,9 @@ class InitScreen extends StatelessWidget {
               ContenedorNegro(),
               Column(
                 children: [
-                  GameText.text(t('titulo.warden.gambit.system'), size: 20),
-                  GameText.text(t('titulo.by'), size: 20),
-                  GameText.text(t('titulo.oscar.martinez.gomez'), size: 20),
+                  GameText.text(t('titulo.warden.gambit.system'), size: 30),
+                  GameText.text(t('titulo.by'), size: 30),
+                  GameText.text(t('titulo.oscar.martinez.gomez'), size: 30),
                 ],
               ),
               ContenedorNegro(),

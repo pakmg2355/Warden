@@ -1,14 +1,14 @@
 import 'dart:async';
 import 'package:flutter/foundation.dart';
-import 'package:warden/data/models/player_progress_repository.dart';
+import 'package:warden/data/models/repositorios.dart';
 import 'package:warden/game/enums/enums.dart';
 import 'package:warden/game/entities/player.dart';
 import 'package:warden/game/progress/player_progress.dart';
 import 'package:warden/game/systems/ai_systems.dart';
 import 'package:warden/game/systems/audio_systems.dart';
 import 'game_state.dart';
-import 'combat/combat_system.dart';
-import 'systems/effect_system.dart';
+import '../combat/combat_system.dart';
+import '../systems/effect_system.dart';
 
 class GameController extends ChangeNotifier {
   GameState _state;

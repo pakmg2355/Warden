@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:warden/game/combos/combo_repository.dart';
 import 'package:warden/game/helpers/combat_icon_helper.dart';
-import 'package:warden/ui/widgets/game_text.dart';
+import 'package:warden/ui/widgets/componentes/game_text.dart';
 
 class ComboInfoCard extends StatelessWidget {
   final ComboDefinition combo;

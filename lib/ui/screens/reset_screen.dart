@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:warden/data/models/player_progress_repository.dart';
+import 'package:warden/data/models/repositorios.dart';
 import 'package:warden/game/textos/diccionario.dart';
-import 'package:warden/ui/widgets/boton_menu.dart';
-import 'package:warden/ui/widgets/container_tengwar.dart';
-import 'package:warden/ui/widgets/game_text.dart';
+import 'package:warden/ui/widgets/botones/boton_menu.dart';
+import 'package:warden/ui/widgets/contenedores/container_tengwar.dart';
+import 'package:warden/ui/widgets/componentes/game_text.dart';
 
 class ResetScreen extends StatefulWidget {
   const ResetScreen({super.key});

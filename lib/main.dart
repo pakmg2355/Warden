@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:warden/game/preferences_controller.dart';
+import 'package:warden/game/controllers/preferences_controller.dart';
 import 'package:warden/ui/screens/init_screen.dart';
 
 final preferencesController = PreferencesController();

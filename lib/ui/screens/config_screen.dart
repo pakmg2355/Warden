@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:warden/data/models/repositorios.dart';
 import 'package:warden/data/persistence/preferencias.dart';
 import 'package:warden/game/enums/enums.dart';
 import 'package:warden/game/textos/diccionario.dart';
 import 'package:warden/main.dart';
-import 'package:warden/ui/widgets/boton_menu.dart';
-import 'package:warden/ui/widgets/container_tengwar.dart';
-import 'package:warden/ui/widgets/game_checkbox.dart';
-import 'package:warden/ui/widgets/game_text.dart';
+import 'package:warden/ui/widgets/botones/boton_menu.dart';
+import 'package:warden/ui/widgets/contenedores/container_tengwar.dart';
+import 'package:warden/ui/widgets/componentes/game_checkbox.dart';
+import 'package:warden/ui/widgets/componentes/game_text.dart';
 
 class ConfigScreen extends StatefulWidget {
   const ConfigScreen({super.key});

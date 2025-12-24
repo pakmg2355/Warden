@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:warden/data/models/player_progress_repository.dart';
+import 'package:warden/data/models/repositorios.dart';
 import 'package:warden/game/enums/enums.dart';
 import 'package:warden/game/entities/player.dart';
 import 'package:warden/game/factories/enemy_factory.dart';
-import 'package:warden/game/game_controller.dart';
-import 'package:warden/game/game_state.dart';
+import 'package:warden/game/controllers/game_controller.dart';
+import 'package:warden/game/controllers/game_state.dart';
 import 'package:warden/game/items/item_definition.dart';
 import 'package:warden/game/progress/player_progress.dart';
 import 'package:warden/game/systems/music_systems.dart';
@@ -14,9 +14,9 @@ import 'package:warden/ui/screens/combate_screen.dart';
 import 'package:warden/ui/screens/config_screen.dart';
 import 'package:warden/ui/screens/gambir_info.dart';
 import 'package:warden/ui/screens/reset_screen.dart';
-import 'package:warden/ui/widgets/boton_menu.dart';
-import 'package:warden/ui/widgets/container_tengwar.dart';
-import 'package:warden/ui/widgets/row_menu_cabecera.dart';
+import 'package:warden/ui/widgets/botones/boton_menu.dart';
+import 'package:warden/ui/widgets/contenedores/container_tengwar.dart';
+import 'package:warden/ui/widgets/rows/row_menu_cabecera.dart';
 
 class MenuScreen extends StatefulWidget {
   const MenuScreen({super.key});
