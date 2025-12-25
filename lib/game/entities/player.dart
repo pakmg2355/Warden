@@ -18,6 +18,7 @@ class PlayerClass {
   final String comando;
   final List<CombatLogEntry> logs;
   final StatsClass stats;
+  final StatsClass baseStats;
   final int comboChainTier;
   final EffectType? comboChainType;
   final List<ItemStack> inventory;
@@ -37,6 +38,7 @@ class PlayerClass {
     required this.comando,
     required this.logs,
     required this.stats,
+    required this.baseStats,
     required this.comboChainTier,
     required this.comboChainType,
     required this.inventory,
@@ -68,6 +70,7 @@ class PlayerClass {
     List<InstantEffect>? instantEffects,
     String? comando,
     List<CombatLogEntry>? logs,
+    StatsClass? baseStats,
     StatsClass? stats,
     int? comboChainTier,
     EffectType? comboChainType,
@@ -88,6 +91,7 @@ class PlayerClass {
       comando: comando ?? this.comando,
       logs: logs ?? this.logs,
       stats: stats ?? this.stats,
+      baseStats: baseStats ?? this.baseStats,
       comboChainTier: comboChainTier ?? this.comboChainTier,
       comboChainType: comboChainType ?? this.comboChainType,
       inventory: inventory ?? this.inventory,

@@ -151,6 +151,28 @@ class AISystem {
     return AIState(plan: planAtaque, comboIndex: 0, step: 0);
   }
 
+  static String? decideInput(
+    PlayerClass ai,
+    PlayerClass enemy,
+    AIState state,
+    void Function(AIState) saveState,
+  ) {
+    if (ai.vida <= 0) return null;
+    if (ai.isFeared || ai.isDazed) return null;
+    if (ai.comando.endsWith('X')) return null;
+
+    final combo = state.combo;
+
+    if (state.step >= combo.inputs.length) return null;
+
+    final input = combo.inputs[state.step];
+
+    // 👇 AVANZA AQUÍ
+    saveState(state.copyWith(step: state.step + 1));
+
+    return input;
+  }
+
   static PlayerClass update(
     PlayerClass ai,
     AIState state,

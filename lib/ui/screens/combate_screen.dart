@@ -33,7 +33,7 @@ class _CombateScreenState extends State<CombateScreen> {
   @override
   void initState() {
     super.initState();
-    MusicSystem.play();
+    MusicSystem.play('ambient');
 
     contador = 3;
     timer = Timer.periodic(
@@ -99,6 +99,7 @@ class _CombateScreenState extends State<CombateScreen> {
                                   child: CabeceraPlayer(
                                     nombre: state.jugador.nombre,
                                     nivel: state.jugador.nivel,
+                                    stats: state.jugador.stats,
                                     icon: Icons.person,
                                   ),
                                 ),
@@ -106,6 +107,7 @@ class _CombateScreenState extends State<CombateScreen> {
                                   child: CabeceraPlayer(
                                     nombre: state.rival.nombre,
                                     nivel: state.rival.nivel,
+                                    stats: state.rival.stats,
                                     icon: Icons.person_2,
                                     alignRight: true,
                                   ),

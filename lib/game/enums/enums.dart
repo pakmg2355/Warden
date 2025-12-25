@@ -10,6 +10,11 @@ enum EffectType {
   daze,
   fearStack,
   dazeStack,
+  statAtaque,
+  statDefensa,
+  statPoder,
+  statCuracion,
+  statPowerRegen,
   none,
 }
 

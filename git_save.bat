@@ -1,3 +1,3 @@
 call git add .
-call git commit -m "Cuenta atras antes del combate"
+call git commit -m "GameTick para IA mas rápida"
 call git push

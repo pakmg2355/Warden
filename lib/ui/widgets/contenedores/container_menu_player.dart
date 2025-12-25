@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:warden/game/entities/stats.dart';
 import 'package:warden/ui/widgets/componentes/game_text.dart';
 
 class CabeceraPlayer extends StatelessWidget {
   final String nombre;
   final int nivel;
+  final StatsClass stats;
   final IconData icon;
   final bool alignRight;
 
@@ -11,6 +13,7 @@ class CabeceraPlayer extends StatelessWidget {
     super.key,
     required this.nombre,
     required this.nivel,
+    required this.stats,
     required this.icon,
     this.alignRight = false,
   });
@@ -26,7 +29,13 @@ class CabeceraPlayer extends StatelessWidget {
           crossAxisAlignment: alignRight
               ? CrossAxisAlignment.end
               : CrossAxisAlignment.start,
-          children: [GameText.text(nombre), GameText.text('Lv $nivel')],
+          children: [
+            GameText.text(nombre),
+            GameText.text('Lv $nivel'),
+            GameText.text(
+              'A:${stats.ataque.toString()} D:${stats.defensa.toString()} C:${stats.curacion.toString()} P:${stats.poder.toString()} Pw:${stats.powerRegen.toString()}',
+            ),
+          ],
         ),
       ],
     );

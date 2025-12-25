@@ -1,9 +1,13 @@
 call flutter clean
-pause
+timeout /t 5 /nobreak
+
 call flutter pub get
-pause
+timeout /t 5 /nobreak
+
 call flutter pub run flutter_launcher_icons
-pause
+timeout /t 5 /nobreak
+
 call flutter build apk
-pause
+timeout /t 5 /nobreak
+
 call flutter install

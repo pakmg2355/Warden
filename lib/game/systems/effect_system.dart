@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:warden/game/entities/effect.dart';
+import 'package:warden/game/entities/stats.dart';
 import 'package:warden/game/enums/enums.dart';
 import 'package:warden/game/entities/logs.dart';
 import 'package:warden/game/entities/player.dart';
@@ -16,9 +17,20 @@ class EffectSystem {
     return state.copyWith(jugador: jugador, rival: rival);
   }
 
-  static PlayerClass _applyEffects(PlayerClass target, PlayerClass source) {
-    int vida = target.vida;
-    int power = target.power;
+  List<EfectoClass> uniqueEffects(Iterable<EfectoClass> efectos) {
+    final seen = <String, EfectoClass>{};
+
+    for (final e in efectos) {
+      final key = '${e.type}-${e.nombre}-${e.tier}';
+      seen.putIfAbsent(key, () => e);
+    }
+
+    return seen.values.toList();
+  }
+
+  static PlayerClass _applyEffects(PlayerClass t1, PlayerClass t2) {
+    int vida = t1.vida;
+    int power = t1.power;
 
     bool feared = false;
     bool dazed = false;
@@ -26,8 +38,12 @@ class EffectSystem {
     final nuevosLogs = <CombatLogEntry>[];
     final activos = <EfectoClass>[];
 
+    final efectosAplicables = t1.efectos.where((e) {
+      return e.target == EffectTarget.self;
+    }).toList();
+
     //EFECTOS INSTANTÁNEOS
-    for (final ie in target.instantEffects) {
+    for (final ie in t1.instantEffects) {
       int delta = 0;
 
       switch (ie.kind) {
@@ -37,7 +53,7 @@ class EffectSystem {
           break;
 
         case InstantEffectKind.vidaPercent:
-          delta = (source.maxvida * ie.value / 100).round();
+          delta = (t2.maxvida * ie.value / 100).round();
           vida += delta;
           break;
 
@@ -47,7 +63,7 @@ class EffectSystem {
           break;
 
         case InstantEffectKind.powerPercent:
-          delta = (source.maxpower * ie.value / 100).round();
+          delta = (t2.maxpower * ie.value / 100).round();
           power += delta;
           break;
       }
@@ -65,24 +81,40 @@ class EffectSystem {
       }
     }
 
+    StatsClass modificadorEstados = StatsClass();
     // ======================
     // 🔍 CLASIFICAR EFECTOS
     // ======================
-    final fearStacks = target.efectos
+    final fearStacks = t1.efectos
         .where((e) => e.type == EffectType.fearStack)
         .toList();
-    final dazeStacks = target.efectos
+    final dazeStacks = t1.efectos
         .where((e) => e.type == EffectType.dazeStack)
         .toList();
 
-    final fearStates = target.efectos
+    final fearStates = t1.efectos
         .where((e) => e.type == EffectType.fear)
         .toList();
-    final dazeStates = target.efectos
+    final dazeStates = t1.efectos
         .where((e) => e.type == EffectType.daze)
         .toList();
 
-    final otherEffects = target.efectos
+    final statModAtaque = efectosAplicables
+        .where((e) => e.statsMod.ataque != 0)
+        .toList();
+    final statModDefensa = efectosAplicables
+        .where((e) => e.statsMod.defensa != 0)
+        .toList();
+    final statModPoder = efectosAplicables
+        .where((e) => e.statsMod.poder != 0)
+        .toList();
+    final statModCuracion = efectosAplicables
+        .where((e) => e.statsMod.curacion != 0)
+        .toList();
+    final statModPowerRegen = efectosAplicables
+        .where((e) => e.statsMod.powerRegen != 0)
+        .toList();
+    final otherEffects = t1.efectos
         .where(
           (e) => ![
             EffectType.fearStack,
@@ -93,7 +125,36 @@ class EffectSystem {
         )
         .toList();
 
-    final immune = isImmuneToFearOrDaze(target);
+    final immune = isImmuneToFearOrDaze(t1);
+
+    //Aplicamos los modificadores de stats si hay efectos con modificadores de estados
+    //Antes de aplicar los efectos
+    //Si no hay ningún modificador, se guardará el source sin modificadores
+    for (final e in statModAtaque) {
+      modificadorEstados = modificadorEstados.copyWith(
+        ataque: e.statsMod.ataque,
+      );
+    }
+    for (final e in statModDefensa) {
+      modificadorEstados = modificadorEstados.copyWith(
+        defensa: modificadorEstados.defensa + e.statsMod.defensa,
+      );
+    }
+    for (final e in statModPoder) {
+      modificadorEstados = modificadorEstados.copyWith(
+        poder: modificadorEstados.poder + e.statsMod.poder,
+      );
+    }
+    for (final e in statModCuracion) {
+      modificadorEstados = modificadorEstados.copyWith(
+        curacion: modificadorEstados.curacion + e.statsMod.curacion,
+      );
+    }
+    for (final e in statModPowerRegen) {
+      modificadorEstados = modificadorEstados.copyWith(
+        powerRegen: modificadorEstados.powerRegen + e.statsMod.powerRegen,
+      );
+    }
 
     // ======================
     // 😱 RESOLVER FEAR STACK
@@ -114,6 +175,7 @@ class EffectSystem {
             target: base.target,
             type: EffectType.fear,
             duracionInicial: base.duracionInicial,
+            statsMod: StatsClass(),
           ),
         );
 
@@ -146,6 +208,7 @@ class EffectSystem {
             target: base.target,
             type: EffectType.daze,
             duracionInicial: base.duracionInicial,
+            statsMod: StatsClass(),
           ),
         );
 
@@ -177,12 +240,12 @@ class EffectSystem {
     // 💥 RESTO DE EFECTOS
     // ======================
     for (final e in otherEffects) {
-      final effectValue = applyStats(e, source.stats, target.stats);
+      final effectValue = applyStats(e, t2.stats, t1.stats);
 
       int vidaDelta = effectValue.vida;
 
       if (vidaDelta < 0) {
-        final mitigation = calculateDamageMitigation(target);
+        final mitigation = calculateDamageMitigation(t1);
         vidaDelta = (vidaDelta * (1 - mitigation)).round();
       }
 
@@ -192,7 +255,7 @@ class EffectSystem {
       if (vidaDelta != 0 || effectValue.power != 0) {
         nuevosLogs.add(
           CombatLogEntry(
-            source: source.nombre,
+            source: t2.nombre,
             comando: e.nombre,
             type: e.type,
             tier: e.tier,
@@ -205,11 +268,17 @@ class EffectSystem {
       if (!next.isFinished) activos.add(next);
     }
 
-    return target.copyWith(
-      vida: vida.clamp(0, target.maxvida),
-      power: power.clamp(0, target.maxpower),
+    final finalStats = calculateFinalStats(
+      t1.baseStats,
+      activos, // efectos tras tick()
+    );
+
+    return t1.copyWith(
+      vida: vida.clamp(0, t1.maxvida),
+      power: power.clamp(0, t1.maxpower),
       efectos: activos,
       instantEffects: const [],
+      stats: finalStats,
       logs: nuevosLogs,
       feared: feared,
       dazed: dazed,

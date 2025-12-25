@@ -4,4 +4,4 @@ call flutter pub get
 pause
 call flutter pub run flutter_launcher_icons
 pause
-call flutter build appbundle
+call flutter build appbundle --release

@@ -1,37 +1,12 @@
 import 'package:flutter/material.dart';
 
 import 'package:warden/game/entities/effect.dart';
-import 'package:warden/game/enums/enums.dart';
 import 'package:warden/game/helpers/helpers.dart';
 
 class EfectosRow extends StatelessWidget {
   final List<EfectoClass> efectos;
 
   const EfectosRow({super.key, required this.efectos});
-
-  IconData _iconDataForEffect(EffectType type) {
-    switch (type) {
-      case EffectType.damage:
-        return Icons.fireplace_outlined;
-      case EffectType.heal:
-        return Icons.healing_outlined;
-      case EffectType.power:
-        return Icons.bolt_outlined;
-      case EffectType.shieldmaster:
-      case EffectType.shiteldtactics:
-        return Icons.shield_outlined;
-      case EffectType.fear:
-        return Icons.waves_outlined;
-      case EffectType.daze:
-        return Icons.cyclone_outlined;
-      case EffectType.fearStack:
-        return Icons.waves_outlined;
-      case EffectType.dazeStack:
-        return Icons.cyclone_outlined;
-      case EffectType.none:
-        return Icons.cyclone_outlined;
-    }
-  }
 
   Widget _buildEffectBadge(EfectoClass e) {
     final baseColor = colorForEffect(e);
@@ -56,7 +31,7 @@ class EfectosRow extends StatelessWidget {
         alignment: Alignment.center,
         children: [
           /// ICONO
-          Icon(_iconDataForEffect(e.type), size: 18, color: baseColor),
+          Icon(iconDataForEffect(e.type), size: 18, color: baseColor),
 
           /// PROGRESO CIRCULAR
           Positioned.fill(

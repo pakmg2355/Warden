@@ -152,19 +152,6 @@ class _ConfigScreenState extends State<ConfigScreen> {
                               },
                             ),
                           ),
-                          const SizedBox(width: 8),
-                          Expanded(
-                            child: GameCheckbox(
-                              label: 'White',
-                              value: temaWhite,
-                              onTap: () {
-                                setState(() {
-                                  temaWhite = true;
-                                  temaDark = false;
-                                });
-                              },
-                            ),
-                          ),
                         ],
                       ),
                       const Divider(),

@@ -5,9 +5,9 @@ import 'package:warden/game/enums/enums.dart';
 import 'package:warden/game/entities/player.dart';
 import 'package:warden/game/progress/player_progress.dart';
 import 'package:warden/game/systems/ai_systems.dart';
-import 'package:warden/game/systems/audio_systems.dart';
+import 'package:warden/game/systems/fx_systems.dart';
 import 'game_state.dart';
-import '../combat/combat_system.dart';
+import '../systems/combat_system.dart';
 import '../systems/effect_system.dart';
 
 class GameController extends ChangeNotifier {
@@ -19,12 +19,18 @@ class GameController extends ChangeNotifier {
 
   AIState aiState = AISystem.initialState();
 
+  final List<String> _aiInputQueue = [];
+  static const int _maxAiQueueSize = 6;
+  static Duration iaTickRate = Duration(milliseconds: 500);
   Timer? _timer;
+  Timer? _timerIA;
+  int _lastAiStepIssued = -1;
 
   static const Duration tickRate = Duration(seconds: 1);
 
   GameController(this._state, {required this.progress}) {
     _timer = Timer.periodic(tickRate, (_) => _gameTick());
+    _timerIA = Timer.periodic(iaTickRate, (_) => _iaTick());
   }
   int _calculateExpForEnemy(PlayerClass enemy) {
     return enemy.stats.ataque * 2 + enemy.stats.defensa * 3;
@@ -56,8 +62,42 @@ class GameController extends ChangeNotifier {
     return state.copyWith(jugador: player.copyWith(power: newPower));
   }
 
+  void _consumeAiInputs() {
+    if (_aiInputQueue.isEmpty) return;
+
+    final input = _aiInputQueue.removeAt(0);
+
+    final rival = _state.rival;
+    final newCommand = rival.comando + input;
+
+    _state = _state.copyWith(rival: rival.copyWith(comando: newCommand));
+  }
+
+  void _iaTick() {
+    if (_state.result != CombatResult.none) return;
+    if (_state.rival.isFeared || _state.rival.isDazed) return;
+    if (_aiInputQueue.length >= _maxAiQueueSize) return;
+
+    // ⛔ Ya se emitió input para este step
+    if (aiState.step == _lastAiStepIssued) return;
+
+    final input = AISystem.decideInput(
+      _state.rival,
+      _state.jugador,
+      aiState,
+      (newState) => aiState = newState,
+    );
+
+    if (input != null) {
+      _aiInputQueue.add(input);
+      _lastAiStepIssued = aiState.step;
+    }
+  }
+
   void _gameTick() {
     final previousResult = state.result;
+
+    _consumeAiInputs();
 
     _state = state.copyWith(
       rival: AISystem.update(
@@ -99,7 +139,7 @@ class GameController extends ChangeNotifier {
       return;
     }
 
-    AudioSystem.onCommandApplied(input);
+    FxSystem.onCommandApplied(input);
 
     final jugador = _state.jugador;
 
@@ -158,6 +198,7 @@ class GameController extends ChangeNotifier {
   @override
   void dispose() {
     _timer?.cancel();
+    _timerIA?.cancel();
     super.dispose();
   }
 }

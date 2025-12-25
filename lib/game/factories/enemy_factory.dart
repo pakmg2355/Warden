@@ -20,6 +20,7 @@ class EnemyFactory {
       instantEffects: [],
       comando: '',
       logs: const [],
+      baseStats: stats,
       stats: stats,
       comboChainTier: 0,
       comboChainType: null,
@@ -30,9 +31,9 @@ class EnemyFactory {
 
   static StatsClass _statsForLevel(int level) {
     return StatsClass(
-      ataque: 20 + level * 5,
-      defensa: 10 + level * 3,
-      poder: 5 + level * 2,
+      ataque: 10 + level * 5,
+      defensa: 5 + level * 3,
+      poder: 3 + level * 2,
       curacion: 2 + level,
       powerRegen: 1 + level,
     );

@@ -86,6 +86,31 @@ const es = {
   'combo.power.t1.desc':
       'Realiza un combo para pasar 150 de la vida del jugador al power.',
 
+  'combo.statAtaque.t1.id': 'STA1',
+  'combo.statAtaque.t1.name': 'Stats Ataque tier 1',
+  'combo.statAtaque.t1.desc':
+      'Aumenta en 10 puntos los stats de Ataque del jugador durante 30 segundos',
+
+  'combo.statDefensa.t1.id': 'STD1',
+  'combo.statDefensa.t1.name': 'Stats Defensa tier 1',
+  'combo.statDefensa.t1.desc':
+      'Aumenta en 10 puntos los stats de Defensa del jugador durante 30 segundos',
+
+  'combo.statCuracion.t1.id': 'STD1',
+  'combo.statCuracion.t1.name': 'Stats Curacion tier 1',
+  'combo.statCuracion.t1.desc':
+      'Aumenta en 10 puntos los stats de Curación del jugador durante 30 segundos',
+
+  'combo.statPoder.t1.id': 'STD1',
+  'combo.statPoder.t1.name': 'Stats Poder tier 1',
+  'combo.statPoder.t1.desc':
+      'Aumenta en 10 puntos los stats de Poder del jugador durante 30 segundos',
+
+  'combo.statPowerRegen.t1.id': 'STD1',
+  'combo.statPowerRegen.t1.name': 'Stats PowerRegen tier 1',
+  'combo.statPowerRegen.t1.desc':
+      'Aumenta en 10 puntos los stats de PowerRegen del jugador durante 30 segundos',
+
   'titulo.warden.gambit.system': 'Combos/Gambits Warden',
   'titulo.by': 'por',
   'titulo.oscar.martinez.gomez': 'Oscar Martínez Gómez',

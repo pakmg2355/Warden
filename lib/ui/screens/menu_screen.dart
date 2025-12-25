@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:warden/data/models/repositorios.dart';
+import 'package:warden/game/entities/stats.dart';
 import 'package:warden/game/enums/enums.dart';
 import 'package:warden/game/entities/player.dart';
 import 'package:warden/game/factories/enemy_factory.dart';
@@ -32,7 +33,7 @@ class _MenuScreenState extends State<MenuScreen> {
   void initState() {
     super.initState();
     _loadProgress();
-    MusicSystem.play();
+    MusicSystem.play('combat');
   }
 
   Future<void> _loadProgress() async {
@@ -45,16 +46,29 @@ class _MenuScreenState extends State<MenuScreen> {
       nombre: progress.nombre,
       nivel: progress.nivel,
       isAI: false,
-      vida: 5000,
-      maxvida: 5000,
-      power: 1000,
-      maxpower: 1000,
+      vida: 2000 + progress.nivel * 300,
+      maxvida: 2000 + progress.nivel * 300,
+      power: 800 + progress.nivel * 50,
+      maxpower: 800 + progress.nivel * 50,
       time: 0,
       efectos: const [],
       instantEffects: [],
       comando: '',
       logs: const [],
-      stats: progress.statsBase,
+      stats: StatsClass(
+        ataque: progress.statsBase.ataque + progress.nivel * 5,
+        defensa: progress.statsBase.defensa + progress.nivel * 3,
+        curacion: progress.statsBase.curacion + progress.nivel * 2,
+        poder: progress.statsBase.poder + progress.nivel,
+        powerRegen: progress.statsBase.powerRegen + progress.nivel,
+      ),
+      baseStats: StatsClass(
+        ataque: progress.statsBase.ataque + progress.nivel * 5,
+        defensa: progress.statsBase.defensa + progress.nivel * 3,
+        curacion: progress.statsBase.curacion + progress.nivel * 2,
+        poder: progress.statsBase.poder + progress.nivel,
+        powerRegen: progress.statsBase.powerRegen + progress.nivel,
+      ),
       comboChainTier: 0,
       comboChainType: null,
       inventory: [],

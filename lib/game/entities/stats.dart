@@ -1,3 +1,5 @@
+import 'package:warden/game/entities/effect.dart';
+
 class StatsClass {
   final int ataque;
   final int defensa;
@@ -48,4 +50,28 @@ class StatsClass {
       powerRegen: powerRegen ?? this.powerRegen,
     );
   }
+}
+
+StatsClass calculateFinalStats(StatsClass base, List<EfectoClass> efectos) {
+  int ataque = base.ataque;
+  int defensa = base.defensa;
+  int poder = base.poder;
+  int curacion = base.curacion;
+  int powerRegen = base.powerRegen;
+
+  for (final e in efectos.where((e) => e.isActive)) {
+    ataque += e.statsMod.ataque;
+    defensa += e.statsMod.defensa;
+    poder += e.statsMod.poder;
+    curacion += e.statsMod.curacion;
+    powerRegen += e.statsMod.powerRegen;
+  }
+
+  return StatsClass(
+    ataque: ataque,
+    defensa: defensa,
+    poder: poder,
+    curacion: curacion,
+    powerRegen: powerRegen,
+  );
 }

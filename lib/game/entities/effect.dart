@@ -1,3 +1,4 @@
+import 'package:warden/game/entities/stats.dart';
 import 'package:warden/game/enums/enums.dart';
 
 class EfectoClass {
@@ -14,8 +15,12 @@ class EfectoClass {
   final int feardazeinmune;
   final int multiplicador;
 
+  final StatsClass statsMod;
+
   final int duracionInicial;
   final int tiempo;
+
+  bool get isActive => tiempo > 0;
 
   const EfectoClass({
     required this.nombre,
@@ -29,6 +34,9 @@ class EfectoClass {
     this.daze = 0,
     this.feardazeinmune = 0,
     this.multiplicador = 1,
+
+    required this.statsMod,
+
     this.duracionInicial = 0,
     this.tiempo = 0,
   });
@@ -58,6 +66,7 @@ class EfectoClass {
     int? daze,
     int? feardazeinmune,
     int? multiplicador,
+    StatsClass? statsMod,
     int? duracionInicial,
     int? tiempo,
   }) {
@@ -75,6 +84,7 @@ class EfectoClass {
       feardazeinmune: feardazeinmune ?? this.feardazeinmune,
       duracionInicial: duracionInicial ?? this.duracionInicial,
       tiempo: tiempo ?? this.tiempo,
+      statsMod: statsMod ?? this.statsMod,
     );
   }
 }
