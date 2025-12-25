@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:warden/game/enums/enums.dart';
+import 'package:warden/game/entities/enums.dart';
 import 'package:warden/game/entities/player.dart';
 
 Widget buildControlState(PlayerClass p) {

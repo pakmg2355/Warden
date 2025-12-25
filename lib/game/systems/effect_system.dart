@@ -2,12 +2,12 @@ import 'dart:math';
 
 import 'package:warden/game/entities/effect.dart';
 import 'package:warden/game/entities/stats.dart';
-import 'package:warden/game/enums/enums.dart';
+import 'package:warden/game/entities/enums.dart';
 import 'package:warden/game/entities/logs.dart';
 import 'package:warden/game/entities/player.dart';
 import 'package:warden/game/controllers/game_state.dart';
 import 'package:warden/game/helpers/effect_calculator.dart';
-import 'package:warden/game/helpers/helpers.dart';
+import 'package:warden/game/helpers/effects.dart';
 
 class EffectSystem {
   static GameState update(GameState state) {

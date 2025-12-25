@@ -1,6 +1,7 @@
-import 'package:warden/game/combos/combo_repository.dart';
+import 'package:warden/game/gambits_repository/gambits_repository.dart';
+import 'package:warden/game/entities/combo.dart';
 import 'package:warden/game/entities/effect.dart';
-import 'package:warden/game/enums/enums.dart';
+import 'package:warden/game/entities/enums.dart';
 
 import '../controllers/game_state.dart';
 import '../entities/player.dart';

@@ -1,5 +1,5 @@
 import 'package:warden/game/entities/stats.dart';
-import 'package:warden/game/enums/enums.dart';
+import 'package:warden/game/entities/enums.dart';
 
 class EfectoClass {
   final String nombre;

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:warden/game/helpers/helpers.dart';
+import 'package:warden/game/entities/item.dart';
+import 'package:warden/game/helpers/colores.dart';
 
 import 'package:warden/game/items/item_definition.dart';
 

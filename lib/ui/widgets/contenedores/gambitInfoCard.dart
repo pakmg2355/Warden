@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:warden/game/combos/combo_repository.dart';
+import 'package:warden/game/gambits_repository/gambits_repository.dart';
+import 'package:warden/game/entities/combo.dart';
+import 'package:warden/game/helpers/colores.dart';
 import 'package:warden/game/helpers/combat_icon_helper.dart';
 import 'package:warden/ui/widgets/componentes/game_text.dart';
 
@@ -15,7 +17,7 @@ class ComboInfoCard extends StatelessWidget {
       width: MediaQuery.of(context).size.width,
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: Colors.black.withAlpha(120),
+        color: baseColorForEffect(combo.type).withAlpha(20),
         borderRadius: BorderRadius.circular(8),
         border: Border.all(color: Colors.amber.shade700.withAlpha(120)),
       ),

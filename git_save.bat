@@ -1,3 +1,3 @@
 call git add .
-call git commit -m "GameTick para IA mas rápida"
+call git commit -m "Separación gambit repository"
 call git push

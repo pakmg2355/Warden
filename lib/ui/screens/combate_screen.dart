@@ -2,13 +2,15 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:warden/game/controllers/game_controller.dart';
-import 'package:warden/game/items/item_definition.dart';
+import 'package:warden/game/entities/item.dart';
 import 'package:warden/game/systems/music_systems.dart';
+import 'package:warden/game/textos/diccionario.dart';
 import 'package:warden/global/constants.dart';
 import 'package:warden/ui/screens/menu_screen.dart';
 import 'package:warden/ui/widgets/barras/barra_estado.dart';
 import 'package:warden/ui/widgets/barras/barra_stats.dart';
-import 'package:warden/ui/widgets/contenedores/container_menu_player.dart';
+import 'package:warden/ui/widgets/botones/boton_menu.dart';
+import 'package:warden/ui/widgets/contenedores/cabecera_player.dart';
 import 'package:warden/ui/widgets/contenedores/container_combat_result.dart';
 import 'package:warden/ui/widgets/botones/boton_combate.dart';
 import 'package:warden/ui/widgets/contenedores/container_tengwar.dart';
@@ -65,17 +67,21 @@ class _CombateScreenState extends State<CombateScreen> {
             return Stack(
               children: [
                 if (state.isFinished)
-                  InkWell(
-                    onTap: () {
-                      Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(
-                          builder: (BuildContext context) => MenuScreen(),
+                  Center(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        buildEndOverlay(state),
+                        MenuButton(
+                          text: t('boton.aceptar'),
+                          icon: Icons.check,
+                          onTap: () async {
+                            Navigator.pop(context, true);
+                          },
                         ),
-                        ModalRoute.withName('/'),
-                      );
-                    },
-                    child: buildEndOverlay(state),
+                      ],
+                    ),
                   ),
                 if (!state.isFinished)
                   Center(

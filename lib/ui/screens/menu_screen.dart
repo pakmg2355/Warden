@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:warden/data/models/repositorios.dart';
+import 'package:warden/game/entities/item.dart';
 import 'package:warden/game/entities/stats.dart';
-import 'package:warden/game/enums/enums.dart';
+import 'package:warden/game/entities/enums.dart';
 import 'package:warden/game/entities/player.dart';
 import 'package:warden/game/factories/enemy_factory.dart';
 import 'package:warden/game/controllers/game_controller.dart';
@@ -13,7 +14,7 @@ import 'package:warden/game/textos/diccionario.dart';
 import 'package:warden/ui/screens/about_screen.dart';
 import 'package:warden/ui/screens/combate_screen.dart';
 import 'package:warden/ui/screens/config_screen.dart';
-import 'package:warden/ui/screens/gambir_info.dart';
+import 'package:warden/ui/screens/gambit_info.dart';
 import 'package:warden/ui/screens/reset_screen.dart';
 import 'package:warden/ui/widgets/botones/boton_menu.dart';
 import 'package:warden/ui/widgets/contenedores/container_tengwar.dart';

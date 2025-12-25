@@ -1,8 +1,9 @@
 import 'dart:async';
 import 'package:flutter/foundation.dart';
 import 'package:warden/data/models/repositorios.dart';
-import 'package:warden/game/enums/enums.dart';
+import 'package:warden/game/entities/enums.dart';
 import 'package:warden/game/entities/player.dart';
+import 'package:warden/game/helpers/velocidad_ia.dart';
 import 'package:warden/game/progress/player_progress.dart';
 import 'package:warden/game/systems/ai_systems.dart';
 import 'package:warden/game/systems/fx_systems.dart';
@@ -21,7 +22,6 @@ class GameController extends ChangeNotifier {
 
   final List<String> _aiInputQueue = [];
   static const int _maxAiQueueSize = 6;
-  static Duration iaTickRate = Duration(milliseconds: 500);
   Timer? _timer;
   Timer? _timerIA;
   int _lastAiStepIssued = -1;
@@ -29,6 +29,9 @@ class GameController extends ChangeNotifier {
   static const Duration tickRate = Duration(seconds: 1);
 
   GameController(this._state, {required this.progress}) {
+    final newRate = calculateIaTickRate(rival: _state.rival);
+    Duration iaTickRate = newRate;
+
     _timer = Timer.periodic(tickRate, (_) => _gameTick());
     _timerIA = Timer.periodic(iaTickRate, (_) => _iaTick());
   }

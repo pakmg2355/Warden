@@ -1,6 +1,6 @@
 import 'package:warden/main.dart';
 
-import '../enums/enums.dart';
+import '../entities/enums.dart';
 
 const es = {
   'combo.spear.t1.id': 'SPT1',

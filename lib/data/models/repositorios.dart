@@ -1,6 +1,6 @@
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:warden/game/entities/stats.dart';
-import 'package:warden/game/enums/enums.dart';
+import 'package:warden/game/entities/enums.dart';
 import 'package:warden/game/progress/player_progress.dart';
 
 class PlayerProgressRepository {

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:warden/game/entities/effect.dart';
-import 'package:warden/game/helpers/helpers.dart';
+import 'package:warden/game/helpers/colores.dart';
+import 'package:warden/game/helpers/iconos.dart';
 
 class EfectosRow extends StatelessWidget {
   final List<EfectoClass> efectos;

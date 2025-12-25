@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:warden/game/entities/logs.dart';
-import 'package:warden/game/helpers/helpers.dart';
+import 'package:warden/game/helpers/colores.dart';
 
 class CombatLogView extends StatelessWidget {
   final List<CombatLogEntry> log;

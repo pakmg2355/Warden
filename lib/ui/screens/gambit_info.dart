@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:warden/game/combos/combo_repository.dart';
+import 'package:warden/game/gambits_repository/gambits_repository.dart';
 import 'package:warden/ui/widgets/contenedores/container_tengwar.dart';
 import 'package:warden/ui/widgets/contenedores/gambitInfoCard.dart';
 

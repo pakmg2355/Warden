@@ -1,8 +1,8 @@
 import 'package:warden/game/entities/effect.dart';
-import 'package:warden/game/enums/enums.dart';
+import 'package:warden/game/entities/item.dart';
+import 'package:warden/game/entities/enums.dart';
 import 'package:warden/game/entities/logs.dart';
 import 'package:warden/game/entities/stats.dart';
-import 'package:warden/game/items/item_definition.dart';
 
 class PlayerClass {
   final String nombre;
