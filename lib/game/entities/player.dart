@@ -22,7 +22,7 @@ class PlayerClass {
   final StatsClass baseStats;
   final int comboChainTier;
   final EffectType? comboChainType;
-  final List<ItemStack> inventory;
+  final List<ItemStack?> inventory;
   final List<ItemStack?> quickSlots;
   final AIPlan planAtaqueIA;
   final AIPlan planMixtoIA;

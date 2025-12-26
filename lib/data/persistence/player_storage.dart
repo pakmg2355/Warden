@@ -1,6 +1,6 @@
 import 'dart:convert';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:warden/game/progress/player_progress.dart';
+import 'package:warden/data/persistence/player_progress.dart';
 
 class PlayerStorage {
   static const _key = 'player_progress';

@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:warden/data/models/repositorios.dart';
+import 'package:warden/data/persistence/repositorios.dart';
 
 class PreferenciasStorage {
   static const _key = 'preferencias';

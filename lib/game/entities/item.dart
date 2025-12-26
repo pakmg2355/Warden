@@ -1,5 +1,6 @@
 import 'package:warden/game/entities/effect.dart';
 import 'package:warden/game/entities/enums.dart';
+import 'package:warden/game/items/item_definition.dart';
 
 class ItemConsumible {
   final String id;
@@ -36,18 +37,22 @@ class ItemDefinition {
 }
 
 class ItemStack {
-  final ItemDefinition item;
+  final String itemId;
   final int quantity;
 
-  const ItemStack({required this.item, required this.quantity});
+  const ItemStack({required this.itemId, required this.quantity});
 
-  ItemStack consumeOne() => ItemStack(item: item, quantity: quantity - 1);
+  ItemDefinition get item => ItemDatabase.getById(itemId);
 
-  bool get isEmpty => quantity <= 0;
+  Map<String, dynamic> toJson() => {'itemId': itemId, 'quantity': quantity};
 
-  ItemStack copyWith({ItemDefinition? item, int? quantity}) {
+  factory ItemStack.fromJson(Map<String, dynamic> json) {
+    return ItemStack(itemId: json['itemId'], quantity: json['quantity']);
+  }
+
+  ItemStack copyWith({String? itemId, int? quantity}) {
     return ItemStack(
-      item: item ?? this.item,
+      itemId: itemId ?? this.itemId,
       quantity: quantity ?? this.quantity,
     );
   }

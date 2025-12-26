@@ -1,3 +1,4 @@
+import 'package:warden/game/entities/item.dart';
 import 'package:warden/game/entities/stats.dart';
 
 class PlayerProgress {
@@ -27,23 +28,6 @@ class PlayerProgress {
       'faseActual': faseActual,
       'statsBase': statsBase.toJson(),
     };
-  }
-
-  static PlayerProgress initial(String nombre) {
-    return PlayerProgress(
-      nombre: nombre,
-      nivel: 1,
-      experiencia: 0,
-      experienciaParaSubir: 100,
-      faseActual: 1,
-      statsBase: const StatsClass(
-        ataque: 10,
-        defensa: 5,
-        poder: 3,
-        curacion: 2,
-        powerRegen: 1,
-      ),
-    );
   }
 
   factory PlayerProgress.fromJson(Map<String, dynamic> json) {
@@ -86,6 +70,8 @@ class PlayerProgress {
     int? experienciaParaSubir,
     int? faseActual,
     StatsClass? statsBase,
+    List<ItemStack?>? quickSlots,
+    List<ItemStack?>? inventory,
   }) {
     return PlayerProgress(
       nombre: nombre ?? this.nombre,

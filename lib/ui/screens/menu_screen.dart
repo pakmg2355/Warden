@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:warden/data/models/repositorios.dart';
-import 'package:warden/game/entities/item.dart';
+import 'package:warden/data/persistence/player_inventory.dart';
+import 'package:warden/data/persistence/repositorios.dart';
 import 'package:warden/game/entities/stats.dart';
 import 'package:warden/game/entities/enums.dart';
 import 'package:warden/game/entities/player.dart';
 import 'package:warden/game/factories/enemy_factory.dart';
 import 'package:warden/game/controllers/game_controller.dart';
 import 'package:warden/game/controllers/game_state.dart';
-import 'package:warden/game/items/item_definition.dart';
-import 'package:warden/game/progress/player_progress.dart';
+import 'package:warden/data/persistence/player_progress.dart';
 import 'package:warden/game/systems/ai_systems.dart';
 import 'package:warden/game/systems/music_systems.dart';
 import 'package:warden/game/textos/diccionario.dart';
@@ -16,6 +15,7 @@ import 'package:warden/ui/screens/about_screen.dart';
 import 'package:warden/ui/screens/combate_screen.dart';
 import 'package:warden/ui/screens/config_screen.dart';
 import 'package:warden/ui/screens/gambit_info.dart';
+import 'package:warden/ui/screens/inventario_screen.dart';
 import 'package:warden/ui/screens/reset_screen.dart';
 import 'package:warden/ui/widgets/botones/boton_menu.dart';
 import 'package:warden/ui/widgets/contenedores/container_tengwar.dart';
@@ -30,10 +30,12 @@ class MenuScreen extends StatefulWidget {
 
 class _MenuScreenState extends State<MenuScreen> {
   PlayerProgress? _progress;
+  PlayerInventory? _inventario;
 
   @override
   void initState() {
     super.initState();
+    _loadInventory();
     _loadProgress();
     MusicSystem.play('combat');
   }
@@ -41,6 +43,11 @@ class _MenuScreenState extends State<MenuScreen> {
   Future<void> _loadProgress() async {
     final progress = await PlayerProgressRepository.load();
     setState(() => _progress = progress);
+  }
+
+  Future<void> _loadInventory() async {
+    final inv = await PlayerInventoryStorage.load();
+    setState(() => _inventario = inv);
   }
 
   PlayerClass _buildPlayerFromProgress(PlayerProgress progress) {
@@ -73,11 +80,8 @@ class _MenuScreenState extends State<MenuScreen> {
       ),
       comboChainTier: 0,
       comboChainType: null,
-      inventory: [],
-      quickSlots: [
-        ItemStack(item: potionVida, quantity: 10),
-        ItemStack(item: potionPower, quantity: 10),
-      ],
+      inventory: _inventario!.inventory,
+      quickSlots: _inventario!.quickSlots,
       planAtaqueIA: AIPlan('', []),
       planMixtoIA: AIPlan('', []),
       planDefensaIA: AIPlan('', []),
@@ -132,7 +136,9 @@ class _MenuScreenState extends State<MenuScreen> {
                         MaterialPageRoute(
                           builder: (_) => CombateScreen(controller: controller),
                         ),
-                      );
+                      ).then((r) {
+                        _loadInventory();
+                      });
 
                       // 🔄 refrescar progreso al volver del combate
                       _loadProgress();
@@ -170,6 +176,19 @@ class _MenuScreenState extends State<MenuScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (_) => ResetScreen()),
+                      ).then((res) {
+                        _loadProgress();
+                      });
+                    },
+                  ),
+
+                  MenuButton(
+                    text: t('menu.inventario'),
+                    icon: Icons.badge,
+                    onTap: () async {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (_) => InventoryScreen()),
                       ).then((res) {
                         _loadProgress();
                       });

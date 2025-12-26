@@ -1,10 +1,11 @@
 import 'dart:async';
 import 'package:flutter/foundation.dart';
-import 'package:warden/data/models/repositorios.dart';
+import 'package:warden/data/persistence/player_inventory.dart';
+import 'package:warden/data/persistence/repositorios.dart';
 import 'package:warden/game/entities/enums.dart';
 import 'package:warden/game/entities/player.dart';
 import 'package:warden/game/helpers/velocidad_ia.dart';
-import 'package:warden/game/progress/player_progress.dart';
+import 'package:warden/data/persistence/player_progress.dart';
 import 'package:warden/game/systems/ai_systems.dart';
 import 'package:warden/game/systems/fx_systems.dart';
 import 'game_state.dart';
@@ -39,11 +40,14 @@ class GameController extends ChangeNotifier {
     return enemy.stats.ataque * 2 + enemy.stats.defensa * 3;
   }
 
-  void _onCombatFinished(CombatResult result) async {
-    if (result == CombatResult.playerWin) {
+  void _onCombatFinished(GameState result) async {
+    if (result.result == CombatResult.playerWin) {
       progress = progress.addExperience(_calculateExpForEnemy(state.rival));
 
-      progress = progress.copyWith(faseActual: progress.faseActual + 1);
+      progress = progress.copyWith(
+        faseActual: progress.faseActual + 1,
+        quickSlots: _state.jugador.quickSlots,
+      );
 
       await PlayerProgressRepository.save(progress);
     }
@@ -117,7 +121,7 @@ class GameController extends ChangeNotifier {
 
     if (previousResult == CombatResult.none &&
         _state.result != CombatResult.none) {
-      _onCombatFinished(_state.result);
+      _onCombatFinished(_state);
     }
 
     notifyListeners();
@@ -165,6 +169,7 @@ class GameController extends ChangeNotifier {
     if (jugador.isFeared || jugador.isDazed) return;
 
     final slots = [...jugador.quickSlots];
+    final inventario = [...jugador.inventory];
     final stack = slots[slotIndex];
 
     if (stack == null || stack.quantity <= 0) return;
@@ -185,6 +190,10 @@ class GameController extends ChangeNotifier {
     slots[slotIndex] = newQuantity > 0
         ? stack.copyWith(quantity: newQuantity)
         : null;
+
+    PlayerInventoryStorage.save(
+      PlayerInventory(inventory: inventario, quickSlots: slots),
+    );
 
     // 4️⃣ Actualizar jugador
     _state = _state.copyWith(
