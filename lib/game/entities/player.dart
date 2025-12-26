@@ -3,6 +3,7 @@ import 'package:warden/game/entities/item.dart';
 import 'package:warden/game/entities/enums.dart';
 import 'package:warden/game/entities/logs.dart';
 import 'package:warden/game/entities/stats.dart';
+import 'package:warden/game/systems/ai_systems.dart';
 
 class PlayerClass {
   final String nombre;
@@ -23,6 +24,9 @@ class PlayerClass {
   final EffectType? comboChainType;
   final List<ItemStack> inventory;
   final List<ItemStack?> quickSlots;
+  final AIPlan planAtaqueIA;
+  final AIPlan planMixtoIA;
+  final AIPlan planDefensaIA;
 
   const PlayerClass({
     required this.nombre,
@@ -43,6 +47,9 @@ class PlayerClass {
     required this.comboChainType,
     required this.inventory,
     required this.quickSlots,
+    required this.planAtaqueIA,
+    required this.planMixtoIA,
+    required this.planDefensaIA,
   });
 
   bool get isFeared => efectos.any((e) => e.type == EffectType.fear);
@@ -76,6 +83,9 @@ class PlayerClass {
     EffectType? comboChainType,
     List<ItemStack>? inventory,
     List<ItemStack?>? quickSlots,
+    AIPlan? planAtaqueIA,
+    AIPlan? planMixtoIA,
+    AIPlan? planDefensaIA,
   }) {
     return PlayerClass(
       nombre: nombre ?? this.nombre,
@@ -96,6 +106,9 @@ class PlayerClass {
       comboChainType: comboChainType ?? this.comboChainType,
       inventory: inventory ?? this.inventory,
       quickSlots: quickSlots ?? this.quickSlots,
+      planAtaqueIA: planAtaqueIA ?? this.planAtaqueIA,
+      planMixtoIA: planMixtoIA ?? this.planMixtoIA,
+      planDefensaIA: planDefensaIA ?? this.planDefensaIA,
     );
   }
 }

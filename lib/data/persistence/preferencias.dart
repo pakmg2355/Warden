@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:warden/data/models/repositorios.dart';
-import 'package:warden/game/entities/enums.dart';
 
 class PreferenciasStorage {
   static const _key = 'preferencias';

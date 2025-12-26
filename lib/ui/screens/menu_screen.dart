@@ -9,6 +9,7 @@ import 'package:warden/game/controllers/game_controller.dart';
 import 'package:warden/game/controllers/game_state.dart';
 import 'package:warden/game/items/item_definition.dart';
 import 'package:warden/game/progress/player_progress.dart';
+import 'package:warden/game/systems/ai_systems.dart';
 import 'package:warden/game/systems/music_systems.dart';
 import 'package:warden/game/textos/diccionario.dart';
 import 'package:warden/ui/screens/about_screen.dart';
@@ -77,6 +78,9 @@ class _MenuScreenState extends State<MenuScreen> {
         ItemStack(item: potionVida, quantity: 10),
         ItemStack(item: potionPower, quantity: 10),
       ],
+      planAtaqueIA: AIPlan('', []),
+      planMixtoIA: AIPlan('', []),
+      planDefensaIA: AIPlan('', []),
     );
   }
 

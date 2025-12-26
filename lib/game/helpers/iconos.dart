@@ -4,12 +4,13 @@ import 'package:warden/game/entities/enums.dart';
 IconData iconDataForEffect(EffectType type) {
   switch (type) {
     case EffectType.damage:
-      return Icons.fireplace_outlined;
+      return Icons.sports_mma;
     case EffectType.heal:
-      return Icons.healing_outlined;
+      return Icons.local_hospital;
     case EffectType.power:
       return Icons.bolt_outlined;
     case EffectType.shieldmaster:
+      return Icons.health_and_safety;
     case EffectType.shiteldtactics:
       return Icons.shield_outlined;
     case EffectType.fear:
@@ -20,17 +21,17 @@ IconData iconDataForEffect(EffectType type) {
       return Icons.waves_outlined;
     case EffectType.dazeStack:
       return Icons.cyclone_outlined;
-    case EffectType.none:
-      return Icons.cyclone_outlined;
     case EffectType.statAtaque:
-      return Icons.run_circle;
+      return Icons.medical_information;
     case EffectType.statDefensa:
-      return Icons.umbrella;
+      return Icons.medical_information;
     case EffectType.statPoder:
-      return Icons.wind_power;
+      return Icons.medical_information;
     case EffectType.statCuracion:
-      return Icons.medical_services;
+      return Icons.medical_information;
     case EffectType.statPowerRegen:
-      return Icons.medical_services;
+      return Icons.medical_information;
+    case EffectType.none:
+      return Icons.no_accounts;
   }
 }

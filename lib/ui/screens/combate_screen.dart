@@ -6,7 +6,6 @@ import 'package:warden/game/entities/item.dart';
 import 'package:warden/game/systems/music_systems.dart';
 import 'package:warden/game/textos/diccionario.dart';
 import 'package:warden/global/constants.dart';
-import 'package:warden/ui/screens/menu_screen.dart';
 import 'package:warden/ui/widgets/barras/barra_estado.dart';
 import 'package:warden/ui/widgets/barras/barra_stats.dart';
 import 'package:warden/ui/widgets/botones/boton_menu.dart';

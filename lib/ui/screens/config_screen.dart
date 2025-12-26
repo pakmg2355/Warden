@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:warden/data/models/repositorios.dart';
-import 'package:warden/data/persistence/preferencias.dart';
 import 'package:warden/game/entities/enums.dart';
 import 'package:warden/game/textos/diccionario.dart';
 import 'package:warden/main.dart';

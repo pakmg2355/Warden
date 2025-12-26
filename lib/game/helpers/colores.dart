@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:warden/game/entities/effect.dart';
 import 'package:warden/game/entities/enums.dart';
@@ -27,29 +28,29 @@ Color baseColorForEffect(EffectType type) {
     case EffectType.power:
       return Colors.blue;
     case EffectType.shieldmaster:
-      return Colors.lightGreen;
-    case EffectType.shiteldtactics:
       return Colors.cyan;
+    case EffectType.shiteldtactics:
+      return Colors.cyanAccent;
     case EffectType.fear:
       return Colors.orange;
     case EffectType.daze:
       return Colors.pink;
     case EffectType.fearStack:
-      return const Color.fromARGB(255, 255, 218, 255);
+      return Colors.orange;
     case EffectType.dazeStack:
-      return const Color.fromARGB(255, 226, 201, 255);
-    case EffectType.none:
-      return const Color.fromARGB(255, 94, 91, 255);
+      return Colors.pink;
     case EffectType.statAtaque:
-      return const Color.fromARGB(255, 211, 116, 7);
+      return Colors.red;
     case EffectType.statDefensa:
-      return const Color.fromARGB(255, 14, 11, 226);
+      return Colors.cyan;
     case EffectType.statPoder:
-      return const Color.fromARGB(255, 163, 202, 21);
+      return Colors.blue;
     case EffectType.statCuracion:
-      return const Color.fromARGB(255, 207, 99, 144);
+      return Colors.green;
     case EffectType.statPowerRegen:
-      return const Color.fromARGB(255, 93, 92, 187);
+      return Colors.blue;
+    case EffectType.none:
+      return Colors.white;
   }
 }
 

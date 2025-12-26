@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:warden/game/entities/item.dart';
 import 'package:warden/game/helpers/colores.dart';
 
-import 'package:warden/game/items/item_definition.dart';
-
 class QuickSlotRow extends StatelessWidget {
   final List<ItemStack> items;
   final void Function(int index) onTap;
