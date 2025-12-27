@@ -1,27 +1,11 @@
 import 'package:warden/game/entities/effect.dart';
 import 'package:warden/game/entities/enums.dart';
-import 'package:warden/game/items/item_definition.dart';
-
-class ItemConsumible {
-  final String id;
-  final String nombre;
-  final ItemType type;
-
-  final List<InstantEffect> instantEffects;
-  final List<EfectoClass> timedEffects;
-
-  const ItemConsumible({
-    required this.id,
-    required this.nombre,
-    required this.type,
-    this.instantEffects = const [],
-    this.timedEffects = const [],
-  });
-}
+import 'package:warden/game/items_repositoty/item_definition.dart';
 
 class ItemDefinition {
   final String id;
   final String nombre;
+  final String descripcion;
   final ItemType type;
 
   final List<InstantEffect> instantEffects;
@@ -30,6 +14,7 @@ class ItemDefinition {
   const ItemDefinition({
     required this.id,
     required this.nombre,
+    required this.descripcion,
     required this.type,
     this.instantEffects = const [],
     this.timedEffects = const [],

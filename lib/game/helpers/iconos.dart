@@ -35,3 +35,12 @@ IconData iconDataForEffect(EffectType type) {
       return Icons.no_accounts;
   }
 }
+
+IconData iconDataForItem(String id) {
+  switch (id) {
+    case 'EffectType.damage':
+      return Icons.science;
+  }
+
+  return Icons.science;
+}

@@ -12,6 +12,7 @@ class GambitInfoScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Colors.black,
+
       body: Center(
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 600),
@@ -21,7 +22,7 @@ class GambitInfoScreen extends StatelessWidget {
               ContenedorNegro(),
               InkWell(
                 onTap: () {
-                  Navigator.pop(context, null);
+                  Navigator.pop(context, true);
                 },
                 child: ContenedorVolver(),
               ),

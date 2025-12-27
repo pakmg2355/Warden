@@ -4,16 +4,14 @@ import 'package:flutter/material.dart';
 import 'package:warden/game/controllers/game_controller.dart';
 import 'package:warden/game/entities/item.dart';
 import 'package:warden/game/systems/music_systems.dart';
-import 'package:warden/game/textos/diccionario.dart';
 import 'package:warden/global/constants.dart';
 import 'package:warden/ui/widgets/barras/barra_estado.dart';
 import 'package:warden/ui/widgets/barras/barra_stats.dart';
-import 'package:warden/ui/widgets/botones/boton_menu.dart';
 import 'package:warden/ui/widgets/contenedores/cabecera_player.dart';
 import 'package:warden/ui/widgets/contenedores/container_combat_result.dart';
 import 'package:warden/ui/widgets/botones/boton_combate.dart';
 import 'package:warden/ui/widgets/contenedores/container_tengwar.dart';
-import 'package:warden/ui/widgets/componentes/quick_slot.dart';
+import 'package:warden/ui/widgets/rows/quick_slot_row.dart';
 import 'package:warden/ui/widgets/contenedores/contenedor_cuenta_atras.dart';
 import 'package:warden/ui/widgets/rows/row_efectos.dart';
 import 'package:warden/ui/widgets/componentes/lista_logs.dart';
@@ -56,6 +54,7 @@ class _CombateScreenState extends State<CombateScreen> {
     if (contador > 0) {
       return Scaffold(body: ContenedorCuenta(cuenta: contador));
     } else {
+      widget.controller.startCombat();
       return Scaffold(
         body: AnimatedBuilder(
           animation: widget.controller,
@@ -70,16 +69,7 @@ class _CombateScreenState extends State<CombateScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        buildEndOverlay(state),
-                        MenuButton(
-                          text: t('boton.aceptar'),
-                          icon: Icons.check,
-                          onTap: () async {
-                            Navigator.pop(context, true);
-                          },
-                        ),
-                      ],
+                      children: [CombatRewardContainer(result: state.result)],
                     ),
                   ),
                 if (!state.isFinished)
@@ -105,7 +95,6 @@ class _CombateScreenState extends State<CombateScreen> {
                                     nombre: state.jugador.nombre,
                                     nivel: state.jugador.nivel,
                                     stats: state.jugador.stats,
-                                    icon: Icons.person,
                                   ),
                                 ),
                                 Expanded(
@@ -113,8 +102,6 @@ class _CombateScreenState extends State<CombateScreen> {
                                     nombre: state.rival.nombre,
                                     nivel: state.rival.nivel,
                                     stats: state.rival.stats,
-                                    icon: Icons.person_2,
-                                    alignRight: true,
                                   ),
                                 ),
                               ],

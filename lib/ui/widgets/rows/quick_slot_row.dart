@@ -1,20 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:warden/game/entities/item.dart';
 import 'package:warden/game/helpers/colores.dart';
+import 'package:warden/game/helpers/iconos.dart';
 
 class QuickSlotRow extends StatelessWidget {
   final List<ItemStack> items;
   final void Function(int index) onTap;
   const QuickSlotRow({super.key, required this.items, required this.onTap});
-
-  IconData _iconDataForItem(String id) {
-    switch (id) {
-      case 'EffectType.damage':
-        return Icons.science;
-    }
-
-    return Icons.science;
-  }
 
   Widget _buildEffectBadge(ItemStack item, int index) {
     return Material(
@@ -36,7 +28,7 @@ class QuickSlotRow extends StatelessWidget {
             alignment: Alignment.center,
             children: [
               Icon(
-                _iconDataForItem(item.item.nombre),
+                iconDataForItem(item.item.nombre),
                 size: 20,
                 color: colorForItem(item.item.instantEffects.first.kind),
               ),

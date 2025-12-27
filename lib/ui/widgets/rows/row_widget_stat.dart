@@ -4,6 +4,7 @@ import 'package:warden/game/helpers/colores.dart';
 
 Widget rowWidgetStatsPlayer(StatsClass e) {
   return Row(
+    mainAxisAlignment: MainAxisAlignment.center,
     children: [
       Container(
         margin: EdgeInsets.only(right: 1),

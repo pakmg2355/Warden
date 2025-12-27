@@ -41,36 +41,51 @@ class PlayerInventory {
 class PlayerInventoryStorage {
   static const _key = 'playerinventory';
 
-  static Future<void> save(PlayerInventory playerInvetory) async {
+  static const int maxInventorySlots = 100;
+  static const int maxQuickSlots = 10;
+
+  static List<ItemStack?> _normalize(List<ItemStack?> source, int size) {
+    return List<ItemStack?>.generate(
+      size,
+      (i) => i < source.length ? source[i] : null,
+    );
+  }
+
+  static Future<void> save(PlayerInventory playerInventory) async {
     final prefs = await SharedPreferences.getInstance();
-    final json = jsonEncode(playerInvetory.toJson());
+
+    final normalized = PlayerInventory(
+      inventory: _normalize(playerInventory.inventory, maxInventorySlots),
+      quickSlots: _normalize(playerInventory.quickSlots, maxQuickSlots),
+    );
+
+    final json = jsonEncode(normalized.toJson());
     await prefs.setString(_key, json);
   }
 
-  static Future<PlayerInventory?> load() async {
+  static Future<PlayerInventory> load() async {
     final prefs = await SharedPreferences.getInstance();
     final json = prefs.getString(_key);
 
     if (json == null) {
-      await save(
-        PlayerInventory(
-          inventory: [
-            ItemStack(itemId: 'potionvida', quantity: 10),
-            ItemStack(itemId: 'potionpower', quantity: 10),
-          ],
-          quickSlots: [],
-        ),
-      );
-      return PlayerInventory(
-        inventory: [
+      final initial = PlayerInventory(
+        inventory: _normalize([
           ItemStack(itemId: 'potionvida', quantity: 10),
           ItemStack(itemId: 'potionpower', quantity: 10),
-        ],
-        quickSlots: [],
+        ], maxInventorySlots),
+        quickSlots: _normalize([], maxQuickSlots),
       );
+
+      await save(initial);
+      return initial;
     }
 
-    return PlayerInventory.fromJson(jsonDecode(json));
+    final loaded = PlayerInventory.fromJson(jsonDecode(json));
+
+    return PlayerInventory(
+      inventory: _normalize(loaded.inventory, maxInventorySlots),
+      quickSlots: _normalize(loaded.quickSlots, maxQuickSlots),
+    );
   }
 
   static Future<void> clear() async {

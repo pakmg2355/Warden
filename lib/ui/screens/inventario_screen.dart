@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:warden/data/persistence/player_inventory.dart';
+import 'package:warden/global/constants.dart';
 import 'package:warden/ui/widgets/componentes/item_slot_inventario.dart';
+import 'package:warden/ui/widgets/contenedores/container_tengwar.dart';
 
 class InventoryScreen extends StatefulWidget {
   const InventoryScreen({super.key});
@@ -21,31 +23,11 @@ class _InventoryScreenState extends State<InventoryScreen> {
 
   Future<void> _loadInventory() async {
     final inv = await PlayerInventoryStorage.load();
+    if (!mounted) return;
     setState(() {
       _inventory = inv;
       _loading = false;
     });
-  }
-
-  void _moveItem(DraggedItem item, bool toQuickSlot, int toIndex) {
-    if (_inventory == null) return;
-
-    setState(() {
-      final source = item.fromQuickSlot
-          ? _inventory!.quickSlots
-          : _inventory!.inventory;
-      final target = toQuickSlot
-          ? _inventory!.quickSlots
-          : _inventory!.inventory;
-
-      // Vaciar origen
-      source[item.fromIndex] = null;
-
-      // Colocar en destino
-      target[toIndex] = item.stack;
-    });
-
-    PlayerInventoryStorage.save(_inventory!);
   }
 
   @override
@@ -55,19 +37,78 @@ class _InventoryScreenState extends State<InventoryScreen> {
     }
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Inventario')),
-      body: Padding(
-        padding: const EdgeInsets.all(12),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            _buildQuickSlots(),
-            const SizedBox(height: 16),
-            const Divider(),
-            const SizedBox(height: 8),
-            _buildInventory(),
-          ],
-        ),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ContenedorNegro(),
+          InkWell(
+            onTap: () {
+              Navigator.pop(context, true);
+            },
+            child: ContenedorVolver(),
+          ),
+
+          // ⬇ CONTENIDO
+          Expanded(
+            child: Column(
+              children: [
+                _buildQuickSlots(),
+                const SizedBox(height: 16),
+                const Divider(),
+                const SizedBox(height: 8),
+
+                // 👇 SOLO el inventario scrollea
+                Expanded(
+                  child: SingleChildScrollView(child: _buildInventory()),
+                ),
+              ],
+            ),
+          ),
+
+          ContenedorNegro(),
+        ],
+      ),
+    );
+  }
+
+  void _moveOrSwapItem({
+    required DraggedItem dragged,
+    required bool toQuickSlot,
+    required int toIndex,
+  }) {
+    if (!mounted) return;
+
+    setState(() {
+      final fromList = dragged.fromQuickSlot
+          ? _inventory!.quickSlots
+          : _inventory!.inventory;
+      final toList = toQuickSlot
+          ? _inventory!.quickSlots
+          : _inventory!.inventory;
+
+      if (dragged.fromIndex >= fromList.length || toIndex >= toList.length) {
+        return;
+      }
+
+      // ⛔ mismo slot
+      if (dragged.fromQuickSlot == toQuickSlot &&
+          dragged.fromIndex == toIndex) {
+        return;
+      }
+
+      final fromStack = fromList[dragged.fromIndex];
+      final toStack = toList[toIndex];
+
+      // 🔁 swap
+      toList[toIndex] = fromStack;
+      fromList[dragged.fromIndex] = toStack;
+    });
+
+    // 💾 guardado persistente
+    PlayerInventoryStorage.save(
+      PlayerInventory(
+        inventory: _inventory!.inventory,
+        quickSlots: _inventory!.quickSlots,
       ),
     );
   }
@@ -76,32 +117,22 @@ class _InventoryScreenState extends State<InventoryScreen> {
   // QUICK SLOTS
   // ─────────────────────────────
   Widget _buildQuickSlots() {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        const Text(
-          'Quick Slots',
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        ),
-        const SizedBox(height: 8),
-        GridView.count(
-          crossAxisCount: 5,
-          shrinkWrap: true,
-          physics: const NeverScrollableScrollPhysics(),
-          mainAxisSpacing: 8,
-          crossAxisSpacing: 8,
-          children: List.generate(10, (i) {
-            return ItemSlotInventario(
-              stack: _inventory!.quickSlots.length > i
-                  ? _inventory!.quickSlots[i]
-                  : null,
-              index: i,
-              isQuickSlot: true,
-              onAccept: (item) => _moveItem(item, true, i),
-            );
-          }),
-        ),
-      ],
+    return GridView.count(
+      crossAxisCount: 5,
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      mainAxisSpacing: 8,
+      crossAxisSpacing: 8,
+      children: List.generate(maxQuickSlots, (i) {
+        return ItemSlotInventario(
+          stack: _inventory!.quickSlots[i],
+          index: i,
+          isQuickSlot: true,
+          onItemDropped: (dragged) {
+            _moveOrSwapItem(dragged: dragged, toQuickSlot: true, toIndex: i);
+          },
+        );
+      }),
     );
   }
 
@@ -109,34 +140,22 @@ class _InventoryScreenState extends State<InventoryScreen> {
   // INVENTARIO
   // ─────────────────────────────
   Widget _buildInventory() {
-    return Expanded(
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          const Text(
-            'Inventario',
-            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 8),
-          Expanded(
-            child: GridView.count(
-              crossAxisCount: 5,
-              mainAxisSpacing: 8,
-              crossAxisSpacing: 8,
-              children: List.generate(100, (i) {
-                return ItemSlotInventario(
-                  stack: _inventory!.inventory.length > i
-                      ? _inventory!.inventory[i]
-                      : null,
-                  index: i,
-                  isQuickSlot: false,
-                  onAccept: (item) => _moveItem(item, false, i),
-                );
-              }),
-            ),
-          ),
-        ],
-      ),
+    return GridView.count(
+      crossAxisCount: 5,
+      shrinkWrap: true,
+      physics: const NeverScrollableScrollPhysics(),
+      mainAxisSpacing: 8,
+      crossAxisSpacing: 8,
+      children: List.generate(maxInventorySlots, (i) {
+        return ItemSlotInventario(
+          stack: _inventory!.inventory[i],
+          index: i,
+          isQuickSlot: false,
+          onItemDropped: (dragged) {
+            _moveOrSwapItem(dragged: dragged, toQuickSlot: false, toIndex: i);
+          },
+        );
+      }),
     );
   }
 }

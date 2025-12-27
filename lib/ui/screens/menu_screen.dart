@@ -40,13 +40,21 @@ class _MenuScreenState extends State<MenuScreen> {
     MusicSystem.play('combat');
   }
 
+  @override
+  void dispose() {
+    MusicSystem.stop(); // o pause()
+    super.dispose();
+  }
+
   Future<void> _loadProgress() async {
     final progress = await PlayerProgressRepository.load();
+    if (!mounted) return;
     setState(() => _progress = progress);
   }
 
   Future<void> _loadInventory() async {
     final inv = await PlayerInventoryStorage.load();
+    if (!mounted) return;
     setState(() => _inventario = inv);
   }
 
@@ -103,13 +111,13 @@ class _MenuScreenState extends State<MenuScreen> {
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 600),
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              ContenedorNegro(),
-              // 🧙 CABECERA PLAYER
               PlayerMenuHeader(progress: _progress!),
+              ContenedorNegro(),
 
               Column(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   MenuButton(
                     text: t('menu.combate'),
@@ -137,6 +145,7 @@ class _MenuScreenState extends State<MenuScreen> {
                           builder: (_) => CombateScreen(controller: controller),
                         ),
                       ).then((r) {
+                        if (!mounted) return;
                         _loadInventory();
                       });
 
@@ -164,6 +173,7 @@ class _MenuScreenState extends State<MenuScreen> {
                         context,
                         MaterialPageRoute(builder: (_) => ConfigScreen()),
                       ).then((r) {
+                        if (!mounted) return;
                         setState(() {});
                       });
                     },
@@ -177,7 +187,8 @@ class _MenuScreenState extends State<MenuScreen> {
                         context,
                         MaterialPageRoute(builder: (_) => ResetScreen()),
                       ).then((res) {
-                        _loadProgress();
+                        if (!mounted) return;
+                        if (res) _loadProgress();
                       });
                     },
                   ),
@@ -190,7 +201,8 @@ class _MenuScreenState extends State<MenuScreen> {
                         context,
                         MaterialPageRoute(builder: (_) => InventoryScreen()),
                       ).then((res) {
-                        _loadProgress();
+                        if (!mounted) return;
+                        if (res) _loadInventory();
                       });
                     },
                   ),
@@ -207,7 +219,6 @@ class _MenuScreenState extends State<MenuScreen> {
                   ),
                 ],
               ),
-              ContenedorNegro(),
             ],
           ),
         ),

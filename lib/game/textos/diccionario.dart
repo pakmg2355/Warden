@@ -131,6 +131,15 @@ const es = {
   'texto.tema': 'Tema',
   'texto.musicayefectos': 'Música y Efectos',
   'texto.about': 'ACERCA DE ...',
+  'texto.playerWin': 'JUGADOR GANA',
+  'texto.rivalWin': 'RIVAL GANA',
+  'texto.eligeRecompensa': 'Elige recompensa...',
+
+  'item.potionvida.descripcion':
+      'Recupera el 30% de la vida máxima al instante',
+  'item.potionpower.descripcion':
+      'Recupera el 30% del power máximo al instante',
+
   'texto.about.info':
       'Warden es un juego de combate estratégico por turnos con una fuerte inspiración en la fantasía oscura.\n\n'
       'El jugador encarna a un guardián solitario que debe enfrentarse a una sucesión de enemigos utilizando habilidad, táctica y una correcta gestión del combate. Cada enfrentamiento no se basa únicamente en la fuerza bruta, sino en la elección adecuada de acciones y en el dominio de los combos.\n\n'
@@ -309,6 +318,14 @@ const en = {
   'texto.tema': 'Theme',
   'texto.musicayefectos': 'Music and Fx',
   'texto.about': 'ABOUT ...',
+
+  'texto.playerWin': 'PLAYER WINS',
+  'texto.rivalWin': 'RIVAL WINS',
+  'texto.eligeRecompensa': 'Choose reward...',
+
+  'item.potionvida.descripcion': 'Recovers 30% of maximum health instantly',
+  'item.potionpower.descripcion': 'Recovers 10% of maximum power instantly',
+
   'texto.about.info':
       'Warden is a turn-based strategic combat game strongly inspired by dark fantasy.\n\n'
       'The player takes on the role of a lone guardian who must face a series of enemies using skill, tactics, and careful combat management. Each encounter is not based solely on raw strength, but on choosing the right actions and mastering the combo system.\n\n'

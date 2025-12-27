@@ -7,3 +7,6 @@ const colorFist = Color.fromARGB(255, 150, 142, 77);
 const spearIcon = Icons.sports_mma;
 const shieldIcon = Icons.shield;
 const fistIcon = Icons.flash_on;
+
+const int maxQuickSlots = 10;
+const int maxInventorySlots = 25;

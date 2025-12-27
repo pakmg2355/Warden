@@ -13,6 +13,7 @@ import '../systems/combat_system.dart';
 import '../systems/effect_system.dart';
 
 class GameController extends ChangeNotifier {
+  bool _paused = true;
   GameState _state;
   GameState get state => _state;
 
@@ -20,6 +21,12 @@ class GameController extends ChangeNotifier {
   PlayerProgress get playerProgress => progress;
 
   AIState aiState = AISystem.initialState();
+
+  void startCombat() {
+    _paused = false;
+  }
+
+  bool get isPaused => _paused;
 
   final List<String> _aiInputQueue = [];
   static const int _maxAiQueueSize = 6;
@@ -81,11 +88,10 @@ class GameController extends ChangeNotifier {
   }
 
   void _iaTick() {
+    if (_paused) return;
     if (_state.result != CombatResult.none) return;
     if (_state.rival.isFeared || _state.rival.isDazed) return;
     if (_aiInputQueue.length >= _maxAiQueueSize) return;
-
-    // ⛔ Ya se emitió input para este step
     if (aiState.step == _lastAiStepIssued) return;
 
     final input = AISystem.decideInput(

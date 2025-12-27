@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:warden/game/entities/item.dart';
+import 'package:warden/game/helpers/colores.dart';
+import 'package:warden/game/helpers/iconos.dart';
 
 class DraggedItem {
   final ItemStack stack;
@@ -13,37 +15,46 @@ class DraggedItem {
   });
 }
 
-class ItemSlotInventario extends StatelessWidget {
+class ItemSlotInventario extends StatefulWidget {
   final ItemStack? stack;
-  final void Function(DraggedItem)? onAccept;
   final bool isQuickSlot;
   final int index;
+  final void Function(DraggedItem dragged)? onItemDropped;
 
   const ItemSlotInventario({
     super.key,
     required this.stack,
     required this.index,
     required this.isQuickSlot,
-    this.onAccept,
+    this.onItemDropped,
   });
 
   @override
+  State<ItemSlotInventario> createState() => _ItemSlotInventarioState();
+}
+
+class _ItemSlotInventarioState extends State<ItemSlotInventario> {
+  @override
   Widget build(BuildContext context) {
     return DragTarget<DraggedItem>(
-      onAccept: onAccept,
+      onAcceptWithDetails: (details) {
+        widget.onItemDropped?.call(details.data);
+      },
       builder: (context, candidate, rejected) {
-        return stack == null
-            ? _emptySlot()
-            : Draggable<DraggedItem>(
-                data: DraggedItem(
-                  stack: stack!,
-                  fromQuickSlot: isQuickSlot,
-                  fromIndex: index,
-                ),
-                feedback: _itemContent(opacity: 0.8),
-                childWhenDragging: _emptySlot(),
-                child: _itemContent(),
-              );
+        if (widget.stack == null) {
+          return _emptySlot();
+        }
+
+        return Draggable<DraggedItem>(
+          data: DraggedItem(
+            stack: widget.stack!,
+            fromQuickSlot: widget.isQuickSlot,
+            fromIndex: widget.index,
+          ),
+          feedback: _itemContent(widget.stack!),
+          childWhenDragging: _emptySlot(),
+          child: _itemContent(widget.stack!),
+        );
       },
     );
   }
@@ -54,14 +65,21 @@ class ItemSlotInventario extends StatelessWidget {
     );
   }
 
-  Widget _itemContent({double opacity = 1}) {
-    return Opacity(
-      opacity: opacity,
+  Widget _itemContent(ItemStack item) {
+    return Material(
+      color: Colors.transparent,
       child: Container(
-        decoration: BoxDecoration(border: Border.all(color: Colors.amber)),
+        decoration: BoxDecoration(border: Border.all(color: Colors.grey)),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [Icon(Icons.local_drink), Text('x${stack!.quantity}')],
+          children: [
+            Icon(
+              iconDataForItem(item.item.nombre),
+              size: 40,
+              color: colorForItem(item.item.instantEffects.first.kind),
+            ),
+            Text('${item.quantity}'),
+          ],
         ),
       ),
     );

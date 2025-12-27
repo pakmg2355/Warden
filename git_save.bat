@@ -1,3 +1,3 @@
 call git add .
-call git commit -m "Iconos stats en combat_screen"
+call git commit -m "Gestion inventario y premios al ganar"
 call git push
