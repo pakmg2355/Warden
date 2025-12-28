@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:warden/data/persistence/player_inventory.dart';
+import 'package:warden/game/entities/item.dart';
 import 'package:warden/global/constants.dart';
 import 'package:warden/ui/widgets/componentes/item_slot_inventario.dart';
 import 'package:warden/ui/widgets/contenedores/container_tengwar.dart';
@@ -96,12 +97,24 @@ class _InventoryScreenState extends State<InventoryScreen> {
         return;
       }
 
-      final fromStack = fromList[dragged.fromIndex];
-      final toStack = toList[toIndex];
+      ItemStack? fromStack = fromList[dragged.fromIndex];
+      ItemStack? toStack = toList[toIndex];
 
-      // 🔁 swap
-      toList[toIndex] = fromStack;
-      fromList[dragged.fromIndex] = toStack;
+      int toStackQuantity = toStack?.quantity ?? 0;
+      int fromStackQuantity = fromStack?.quantity ?? 0;
+
+      if (fromStack != null &&
+          toStack != null &&
+          fromStack.itemId == toStack.itemId) {
+        toList[toIndex] = fromStack.copyWith(
+          quantity: toStackQuantity + fromStackQuantity,
+        );
+        fromList[dragged.fromIndex] = null;
+      } else {
+        // 🔁 swap
+        toList[toIndex] = fromStack;
+        fromList[dragged.fromIndex] = toStack;
+      }
     });
 
     // 💾 guardado persistente

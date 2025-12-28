@@ -11,10 +11,10 @@ import 'package:warden/ui/widgets/contenedores/cabecera_player.dart';
 import 'package:warden/ui/widgets/contenedores/container_combat_result.dart';
 import 'package:warden/ui/widgets/botones/boton_combate.dart';
 import 'package:warden/ui/widgets/contenedores/container_tengwar.dart';
-import 'package:warden/ui/widgets/rows/quick_slot_row.dart';
+import 'package:warden/ui/widgets/rows/row_quick_slot.dart';
 import 'package:warden/ui/widgets/contenedores/contenedor_cuenta_atras.dart';
 import 'package:warden/ui/widgets/rows/row_efectos.dart';
-import 'package:warden/ui/widgets/componentes/lista_logs.dart';
+import 'package:warden/ui/widgets/rows/row_logs.dart';
 
 class CombateScreen extends StatefulWidget {
   final GameController controller;
@@ -69,7 +69,12 @@ class _CombateScreenState extends State<CombateScreen> {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
                       crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [CombatRewardContainer(result: state.result)],
+                      children: [
+                        CombatRewardContainer(
+                          result: state.result,
+                          playerLevel: state.jugador.nivel,
+                        ),
+                      ],
                     ),
                   ),
                 if (!state.isFinished)

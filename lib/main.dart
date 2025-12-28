@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:warden/game/controllers/preferences_controller.dart';
 import 'package:warden/game/systems/music_systems.dart';
 import 'package:warden/ui/screens/init_screen.dart';
@@ -7,6 +8,12 @@ final preferencesController = PreferencesController();
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]);
+
   await preferencesController.load();
   runApp(const MyGameApp());
 }

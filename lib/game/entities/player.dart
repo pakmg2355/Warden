@@ -16,6 +16,7 @@ class PlayerClass {
   final int time;
   final List<EfectoClass> efectos;
   final List<InstantEffect> instantEffects;
+  final PlayerEquipo equipo;
   final String comando;
   final List<CombatLogEntry> logs;
   final StatsClass stats;
@@ -39,6 +40,7 @@ class PlayerClass {
     required this.maxpower,
     required this.efectos,
     required this.instantEffects,
+    required this.equipo,
     required this.comando,
     required this.logs,
     required this.stats,
@@ -75,6 +77,7 @@ class PlayerClass {
     int? maxpower,
     List<EfectoClass>? efectos,
     List<InstantEffect>? instantEffects,
+    PlayerEquipo? equipo,
     String? comando,
     List<CombatLogEntry>? logs,
     StatsClass? baseStats,
@@ -98,6 +101,7 @@ class PlayerClass {
       maxpower: maxpower ?? this.maxpower,
       efectos: efectos ?? this.efectos,
       instantEffects: instantEffects ?? this.instantEffects,
+      equipo: equipo ?? this.equipo,
       comando: comando ?? this.comando,
       logs: logs ?? this.logs,
       stats: stats ?? this.stats,
@@ -110,5 +114,45 @@ class PlayerClass {
       planMixtoIA: planMixtoIA ?? this.planMixtoIA,
       planDefensaIA: planDefensaIA ?? this.planDefensaIA,
     );
+  }
+}
+
+class PlayerEquipo {
+  final Map<Equipo, ItemStack?> slots;
+
+  PlayerEquipo({Map<Equipo, ItemStack?>? slots})
+    : slots = slots ?? {for (var s in Equipo.values) s: null};
+
+  ItemStack? operator [](Equipo slot) => slots[slot];
+
+  void equip(Equipo slot, ItemStack item) {
+    slots[slot] = item;
+  }
+
+  ItemStack? unequip(Equipo slot) {
+    final item = slots[slot];
+    slots[slot] = null;
+    return item;
+  }
+
+  // ─────────────────────────────
+  // JSON
+  // ─────────────────────────────
+
+  Map<String, dynamic> toJson() {
+    return {
+      for (final entry in slots.entries) entry.key.name: entry.value?.toJson(),
+    };
+  }
+
+  factory PlayerEquipo.fromJson(Map<String, dynamic> json) {
+    final Map<Equipo, ItemStack?> slots = {};
+
+    for (final slot in Equipo.values) {
+      final value = json[slot.name];
+      slots[slot] = value == null ? null : ItemStack.fromJson(value);
+    }
+
+    return PlayerEquipo(slots: slots);
   }
 }

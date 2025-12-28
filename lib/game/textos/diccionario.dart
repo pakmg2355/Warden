@@ -135,10 +135,8 @@ const es = {
   'texto.rivalWin': 'RIVAL GANA',
   'texto.eligeRecompensa': 'Elige recompensa...',
 
-  'item.potionvida.descripcion':
-      'Recupera el 30% de la vida máxima al instante',
-  'item.potionpower.descripcion':
-      'Recupera el 30% del power máximo al instante',
+  'item.potVida.descripcion': 'Recupera el 30% de la vida máxima al instante',
+  'item.potPower.descripcion': 'Recupera el 30% del power máximo al instante',
 
   'texto.about.info':
       'Warden es un juego de combate estratégico por turnos con una fuerte inspiración en la fantasía oscura.\n\n'
@@ -323,8 +321,8 @@ const en = {
   'texto.rivalWin': 'RIVAL WINS',
   'texto.eligeRecompensa': 'Choose reward...',
 
-  'item.potionvida.descripcion': 'Recovers 30% of maximum health instantly',
-  'item.potionpower.descripcion': 'Recovers 10% of maximum power instantly',
+  'item.potVida.descripcion': 'Recovers 30% of maximum health instantly',
+  'item.potPower.descripcion': 'Recovers 10% of maximum power instantly',
 
   'texto.about.info':
       'Warden is a turn-based strategic combat game strongly inspired by dark fantasy.\n\n'

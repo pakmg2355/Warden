@@ -21,6 +21,7 @@ class CombatLogView extends StatelessWidget {
       ),
       child: SingleChildScrollView(
         child: Wrap(
+          alignment: WrapAlignment.start,
           spacing: 6,
           runSpacing: 6,
           children: entries.map(_buildBubble).toList(),

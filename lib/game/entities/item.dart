@@ -7,6 +7,7 @@ class ItemDefinition {
   final String nombre;
   final String descripcion;
   final ItemType type;
+  final int minLevel;
 
   final List<InstantEffect> instantEffects;
   final List<EfectoClass> timedEffects;
@@ -16,6 +17,7 @@ class ItemDefinition {
     required this.nombre,
     required this.descripcion,
     required this.type,
+    required this.minLevel,
     this.instantEffects = const [],
     this.timedEffects = const [],
   });

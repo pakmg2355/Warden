@@ -23,6 +23,7 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -48,6 +49,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -73,6 +76,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -98,6 +103,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -123,6 +130,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -148,6 +157,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -173,6 +184,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -198,6 +211,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -223,6 +238,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -248,6 +265,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -273,6 +292,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -298,6 +319,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -323,6 +346,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -348,6 +373,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -373,6 +400,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -398,6 +427,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -423,6 +454,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -448,6 +481,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -473,6 +508,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -498,6 +535,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -523,6 +562,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -548,6 +589,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -573,6 +616,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -598,6 +643,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -623,6 +670,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -648,6 +697,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -673,6 +724,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -698,6 +751,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -723,6 +778,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -748,6 +805,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -773,6 +832,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -798,6 +859,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -823,6 +886,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -848,6 +913,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -873,6 +940,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -898,6 +967,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -923,6 +994,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -948,6 +1021,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -973,6 +1048,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -998,6 +1075,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -1023,6 +1102,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -1048,6 +1129,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -1073,6 +1156,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -1098,6 +1183,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -1123,6 +1210,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -1148,6 +1237,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -1173,6 +1264,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -1198,6 +1291,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -1223,6 +1318,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -1248,6 +1345,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -1273,6 +1372,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -1298,6 +1399,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -1323,6 +1426,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -1348,6 +1453,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -1373,6 +1480,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -1398,6 +1507,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -1423,6 +1534,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -1448,6 +1561,8 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
+        equipo: PlayerEquipo(),
+
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -1474,6 +1589,8 @@ class EnemyFactory {
       time: 0,
       efectos: const [],
       instantEffects: [],
+      equipo: PlayerEquipo(),
+
       comando: '',
       logs: const [],
       baseStats: stats,
@@ -1489,6 +1606,7 @@ class EnemyFactory {
         spear3,
         spear4,
         spear5,
+        power,
         fear1,
         fear2,
         fear3,
@@ -1520,6 +1638,7 @@ class EnemyFactory {
         fear3,
         fear4,
         fear5,
+        power,
       ]),
       planDefensaIA: AIPlan('Cura', [
         shieldMaster,
@@ -1540,6 +1659,7 @@ class EnemyFactory {
         shield3,
         shield4,
         shield5,
+        power,
       ]),
     );
   }

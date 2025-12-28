@@ -88,4 +88,87 @@ List<ComboDefinition> listadoCombosSpear = [
       ),
     ],
   ),
+  ComboDefinition(
+    id: t('combo.spearfist.t1.id'),
+    sequence: '13',
+    name: t('combo.spearfist.t1.name'),
+    type: EffectType.fist,
+    tier: 1,
+    description: t('combo.spearfist.t1.desc'),
+    powerCost: 10,
+    effects: [
+      EfectoClass(
+        nombre: t('combo.spearfist.t1.name'),
+        tier: 1,
+        vida: -50,
+        type: EffectType.fist,
+        target: EffectTarget.enemy,
+        duracionInicial: 15,
+        statsMod: StatsClass(),
+      ),
+    ],
+  ),
+  ComboDefinition(
+    id: t('combo.spearfist.t2.id'),
+    sequence: '131',
+    name: t('combo.spearfist.t2.name'),
+    description: t('combo.spearfist.t2.desc'),
+    powerCost: 30,
+    type: EffectType.fist,
+    tier: 2,
+
+    effects: [
+      EfectoClass(
+        nombre: t('combo.spearfist.t2.name'),
+        tier: 2,
+        vida: -100,
+        type: EffectType.fist,
+        target: EffectTarget.enemy,
+        duracionInicial: 15,
+        statsMod: StatsClass(),
+      ),
+    ],
+  ),
+  ComboDefinition(
+    id: t('combo.spearfist.t3.id'),
+    sequence: '1313',
+    name: t('combo.spearfist.t3.name'),
+    description: t('combo.spearfist.t3.desc'),
+    powerCost: 70,
+    type: EffectType.fist,
+    tier: 3,
+
+    effects: [
+      EfectoClass(
+        nombre: t('combo.spearfist.t3.name'),
+        tier: 3,
+        vida: -150,
+        type: EffectType.fist,
+        target: EffectTarget.enemy,
+        duracionInicial: 15,
+        statsMod: StatsClass(),
+      ),
+    ],
+  ),
+  ComboDefinition(
+    id: t('combo.spearfist.t4.id'),
+    sequence: '13131',
+    name: t('combo.spearfist.t4.name'),
+    description: t('combo.spearfist.t4.desc'),
+    powerCost: 90,
+    type: EffectType.fist,
+    tier: 4,
+
+    effects: [
+      EfectoClass(
+        nombre: t('combo.spearfist.t4.name'),
+        tier: 4,
+        vida: -200,
+        type: EffectType.fist,
+        target: EffectTarget.enemy,
+        duracionInicial: 15,
+        statsMod: StatsClass(),
+      ),
+    ],
+  ),
 ];

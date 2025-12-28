@@ -22,6 +22,8 @@ Color baseColorForEffect(EffectType type) {
   switch (type) {
     case EffectType.damage:
       return Colors.red;
+    case EffectType.fist:
+      return Colors.redAccent;
     case EffectType.heal:
       return Colors.green;
     case EffectType.power:

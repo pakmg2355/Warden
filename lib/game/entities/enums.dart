@@ -2,6 +2,7 @@ enum EffectTarget { self, enemy }
 
 enum EffectType {
   damage,
+  fist,
   heal,
   power,
   shieldmaster,
@@ -33,3 +34,20 @@ enum Idioma { es, en }
 enum Escritura { tolkien, tengwar }
 
 enum Tema { dark, white }
+
+enum Equipo {
+  casco,
+  pechera,
+  pantalones,
+  guantes,
+  botas,
+  capa,
+  hombreras,
+  anilloI,
+  anilloD,
+  brazaleteI,
+  brazaleteD,
+  collar,
+  pendienteI,
+  pendienteD,
+}

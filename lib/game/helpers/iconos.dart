@@ -5,6 +5,8 @@ IconData iconDataForEffect(EffectType type) {
   switch (type) {
     case EffectType.damage:
       return Icons.sports_mma;
+    case EffectType.fist:
+      return Icons.record_voice_over;
     case EffectType.heal:
       return Icons.local_hospital;
     case EffectType.power:

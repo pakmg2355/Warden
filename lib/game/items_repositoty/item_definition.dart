@@ -5,11 +5,12 @@ import 'package:warden/game/textos/diccionario.dart';
 
 class ItemDatabase {
   static final Map<String, ItemDefinition> items = {
-    'potionvida': ItemDefinition(
-      id: 'potionvida',
+    'potVida': ItemDefinition(
+      id: 'potVida',
       nombre: 'Health Potion',
-      descripcion: t('item.potionvida.descripcion'),
+      descripcion: t('item.potVida.descripcion'),
       type: ItemType.consumable,
+      minLevel: 1,
       instantEffects: [
         InstantEffect(
           kind: InstantEffectKind.vidaPercent,
@@ -18,11 +19,12 @@ class ItemDatabase {
         ),
       ],
     ),
-    'potionpower': ItemDefinition(
-      id: 'potionpower',
+    'potPower': ItemDefinition(
+      id: 'potPower',
       nombre: 'Power Potion',
-      descripcion: t('item.potionpower.descripcion'),
+      descripcion: t('item.potPower.descripcion'),
       type: ItemType.consumable,
+      minLevel: 1,
       instantEffects: [
         InstantEffect(
           kind: InstantEffectKind.powerPercent,

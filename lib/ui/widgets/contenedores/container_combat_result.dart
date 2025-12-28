@@ -12,7 +12,12 @@ import 'package:warden/ui/widgets/componentes/game_text.dart';
 
 class CombatRewardContainer extends StatefulWidget {
   final CombatResult result;
-  const CombatRewardContainer({super.key, required this.result});
+  final int playerLevel;
+  const CombatRewardContainer({
+    super.key,
+    required this.result,
+    required this.playerLevel,
+  });
 
   @override
   State<CombatRewardContainer> createState() => _CombatRewardContainerState();
@@ -29,7 +34,9 @@ class _CombatRewardContainerState extends State<CombatRewardContainer> {
   }
 
   List<ItemDefinition> _pickRandomItems(int count) {
-    final items = ItemDatabase.items.values.toList();
+    final items = ItemDatabase.items.values
+        .where((e) => e.minLevel <= widget.playerLevel)
+        .toList();
     items.shuffle(Random());
     return items.take(count).toList();
   }

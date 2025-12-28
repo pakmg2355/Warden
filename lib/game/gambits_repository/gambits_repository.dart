@@ -21,6 +21,12 @@ const spear3 = AICombo(['1', '2', '1', '2', 'X']);
 const spear4 = AICombo(['1', '2', '1', '2', 'X']);
 const spear5 = AICombo(['1', '2', '1', '2', '1', 'X']);
 
+const fist1 = AICombo(['1', '3', 'X']);
+const fist2 = AICombo(['1', '3', '1', 'X']);
+const fist3 = AICombo(['1', '3', '1', '3', 'X']);
+const fist4 = AICombo(['1', '3', '1', '3', 'X']);
+const fist5 = AICombo(['1', '3', '1', '3', '1', 'X']);
+
 const shield1 = AICombo(['2', '1', 'X']);
 const shield2 = AICombo(['2', '1', '2', 'X']);
 const shield3 = AICombo(['2', '1', '2', '1', 'X']);

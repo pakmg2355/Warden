@@ -1,3 +1,3 @@
 call git add .
-call git commit -m "Gestion inventario y premios al ganar"
+call git commit -m "Equipamiento player, equipo yjoyería"
 call git push

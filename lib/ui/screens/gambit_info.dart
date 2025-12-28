@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:warden/game/gambits_repository/gambits_repository.dart';
 import 'package:warden/ui/widgets/contenedores/container_tengwar.dart';
-import 'package:warden/ui/widgets/contenedores/gambitInfoCard.dart';
+import 'package:warden/ui/widgets/componentes/gambitInfoCard.dart';
 
 class GambitInfoScreen extends StatelessWidget {
   const GambitInfoScreen({super.key});

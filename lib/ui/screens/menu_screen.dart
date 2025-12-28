@@ -90,6 +90,7 @@ class _MenuScreenState extends State<MenuScreen> {
       comboChainType: null,
       inventory: _inventario!.inventory,
       quickSlots: _inventario!.quickSlots,
+      equipo: PlayerEquipo(),
       planAtaqueIA: AIPlan('', []),
       planMixtoIA: AIPlan('', []),
       planDefensaIA: AIPlan('', []),

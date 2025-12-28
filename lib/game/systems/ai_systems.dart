@@ -30,12 +30,12 @@ AIPlan ataque1 = AIPlan('Ataque', [
   fear3,
   fear4,
   fear5,
-  spear1,
-  spear2,
-  spear3,
-  spear4,
-  spear5,
   power,
+  fist1,
+  fist2,
+  fist3,
+  fist4,
+  fist5,
 ]);
 AIPlan mixto1 = AIPlan('Mixto', [
   shieldMaster,
@@ -56,6 +56,12 @@ AIPlan mixto1 = AIPlan('Mixto', [
   fear3,
   fear4,
   fear5,
+  power,
+  fist1,
+  fist2,
+  fist3,
+  fist4,
+  fist5,
 ]);
 AIPlan cura1 = AIPlan('Cura', [
   shieldMaster,
@@ -76,6 +82,7 @@ AIPlan cura1 = AIPlan('Cura', [
   shield3,
   shield4,
   shield5,
+  power,
 ]);
 
 class AIState {

@@ -36,6 +36,62 @@ class PlayerInventory {
       inventory: inventory ?? this.inventory,
     );
   }
+
+  //Unifica la lista de items agrupando en el de mayor cantidad
+  static List<ItemStack?> _unifyListKeepLength(List<ItemStack?> list) {
+    if (list.isEmpty) return const [];
+
+    final Map<String, _Agg> agg = {};
+
+    for (int i = 0; i < list.length; i++) {
+      final s = list[i];
+      if (s == null) continue;
+
+      final a = agg[s.itemId];
+      if (a == null) {
+        agg[s.itemId] = _Agg(
+          total: s.quantity,
+          maxQty: s.quantity,
+          maxIndex: i,
+        );
+      } else {
+        a.total += s.quantity;
+        if (s.quantity > a.maxQty) {
+          a
+            ..maxQty = s.quantity
+            ..maxIndex = i;
+        }
+      }
+    }
+
+    final List<ItemStack?> result = List<ItemStack?>.from(list);
+    for (int i = 0; i < list.length; i++) {
+      final s = list[i];
+      if (s == null) continue;
+      final a = agg[s.itemId]!;
+      if (i == a.maxIndex) {
+        result[i] = s.copyWith(quantity: a.total);
+      } else {
+        result[i] = null; // liberar hueco del duplicado
+      }
+    }
+    return result;
+  }
+
+  /// Los duplicados pasan a ser `null` (huecos).
+  PlayerInventory unifyKeepLength() {
+    return PlayerInventory(
+      inventory: _unifyListKeepLength(inventory),
+      quickSlots: _unifyListKeepLength(quickSlots),
+    );
+  }
+}
+
+class _Agg {
+  int total;
+  int maxQty;
+  int maxIndex;
+  _Agg({required this.total, required this.maxQty, required this.maxIndex});
 }
 
 class PlayerInventoryStorage {
@@ -54,12 +110,19 @@ class PlayerInventoryStorage {
   static Future<void> save(PlayerInventory playerInventory) async {
     final prefs = await SharedPreferences.getInstance();
 
-    final normalized = PlayerInventory(
-      inventory: _normalize(playerInventory.inventory, maxInventorySlots),
-      quickSlots: _normalize(playerInventory.quickSlots, maxQuickSlots),
+    final inventarioUnificado = PlayerInventory._unifyListKeepLength(
+      _normalize(playerInventory.inventory, maxInventorySlots),
+    );
+    final quickSlotsUnificado = PlayerInventory._unifyListKeepLength(
+      _normalize(playerInventory.quickSlots, maxQuickSlots),
     );
 
-    final json = jsonEncode(normalized.toJson());
+    final normalizedUnificado = PlayerInventory(
+      inventory: _normalize(inventarioUnificado, maxInventorySlots),
+      quickSlots: _normalize(quickSlotsUnificado, maxQuickSlots),
+    );
+
+    final json = jsonEncode(normalizedUnificado.toJson());
     await prefs.setString(_key, json);
   }
 
@@ -70,8 +133,8 @@ class PlayerInventoryStorage {
     if (json == null) {
       final initial = PlayerInventory(
         inventory: _normalize([
-          ItemStack(itemId: 'potionvida', quantity: 10),
-          ItemStack(itemId: 'potionpower', quantity: 10),
+          const ItemStack(itemId: 'potVida', quantity: 10),
+          const ItemStack(itemId: 'potPower', quantity: 10),
         ], maxInventorySlots),
         quickSlots: _normalize([], maxQuickSlots),
       );
