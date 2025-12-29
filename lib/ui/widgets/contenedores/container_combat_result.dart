@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:warden/data/persistence/player_inventory.dart';
 import 'package:warden/game/entities/enums.dart';
 import 'package:warden/game/entities/item.dart';
-import 'package:warden/game/helpers/colores.dart';
 import 'package:warden/game/helpers/iconos.dart';
 import 'package:warden/game/items_repositoty/item_definition.dart';
 import 'package:warden/game/textos/diccionario.dart';
@@ -145,11 +144,7 @@ class _CombatRewardContainerState extends State<CombatRewardContainer> {
         ),
         child: Column(
           children: [
-            Icon(
-              iconDataForItem(item.nombre),
-              size: 40,
-              color: colorForItem(item.instantEffects.first.kind),
-            ),
+            iconDataForItemClass(item.clase.name, item.color),
             GameText.text(t('item.${item.id}.descripcion')),
           ],
         ),

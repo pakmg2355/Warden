@@ -73,11 +73,7 @@ class _ItemSlotInventarioState extends State<ItemSlotInventario> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              iconDataForItem(item.item.nombre),
-              size: 40,
-              color: colorForItem(item.item.instantEffects.first.kind),
-            ),
+            iconDataForItemClass(item.item.clase.name, item.item.color),
             Text('${item.quantity}'),
           ],
         ),

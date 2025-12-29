@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:warden/game/entities/player.dart';
 import 'package:warden/game/entities/stats.dart';
 import 'package:warden/game/entities/enums.dart';
 import 'package:warden/data/persistence/player_progress.dart';
@@ -58,6 +59,7 @@ class PlayerProgressRepository {
       experiencia: 0,
       experienciaParaSubir: 100,
       faseActual: 1,
+      equipo: PlayerEquipo(),
       statsBase: StatsClass(
         ataque: 10,
         defensa: 5,

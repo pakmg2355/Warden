@@ -66,16 +66,3 @@ Color colorForEffect(EfectoClass e) {
 
   return Color.lerp(light, base, t)!;
 }
-
-Color colorForItem(InstantEffectKind e) {
-  switch (e) {
-    case InstantEffectKind.vidaFlat:
-      return Colors.green;
-    case InstantEffectKind.vidaPercent:
-      return Colors.green;
-    case InstantEffectKind.powerFlat:
-      return Colors.blue;
-    case InstantEffectKind.powerPercent:
-      return Colors.blue;
-  }
-}

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:warden/game/entities/enums.dart';
+import 'package:warden/game/items_repositoty/icon_repository.dart';
 
 IconData iconDataForEffect(EffectType type) {
   switch (type) {
@@ -38,11 +39,6 @@ IconData iconDataForEffect(EffectType type) {
   }
 }
 
-IconData iconDataForItem(String id) {
-  switch (id) {
-    case 'EffectType.damage':
-      return Icons.science;
-  }
-
-  return Icons.science;
+Widget iconDataForItemClass(String tipo, Color color) {
+  return ItemIconRepository.icon(tipo, color);
 }

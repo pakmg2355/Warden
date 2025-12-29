@@ -27,11 +27,7 @@ class QuickSlotRow extends StatelessWidget {
           child: Stack(
             alignment: Alignment.center,
             children: [
-              Icon(
-                iconDataForItem(item.item.nombre),
-                size: 20,
-                color: colorForItem(item.item.instantEffects.first.kind),
-              ),
+              iconDataForItemClass(item.item.clase.name, item.item.color),
               Positioned(bottom: 0, right: 0, child: Text('${item.quantity}')),
             ],
           ),

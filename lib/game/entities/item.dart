@@ -1,5 +1,8 @@
+import 'dart:ui';
+
 import 'package:warden/game/entities/effect.dart';
 import 'package:warden/game/entities/enums.dart';
+import 'package:warden/game/entities/stats.dart';
 import 'package:warden/game/items_repositoty/item_definition.dart';
 
 class ItemDefinition {
@@ -7,19 +10,31 @@ class ItemDefinition {
   final String nombre;
   final String descripcion;
   final ItemType type;
+  final ItemClass clase;
+  final Color color;
   final int minLevel;
 
   final List<InstantEffect> instantEffects;
   final List<EfectoClass> timedEffects;
+  final StatsClass stats;
 
   const ItemDefinition({
     required this.id,
     required this.nombre,
     required this.descripcion,
     required this.type,
+    required this.clase,
+    required this.color,
     required this.minLevel,
     this.instantEffects = const [],
     this.timedEffects = const [],
+    this.stats = const StatsClass(
+      ataque: 0,
+      defensa: 0,
+      poder: 0,
+      curacion: 0,
+      powerRegen: 0,
+    ),
   });
 }
 

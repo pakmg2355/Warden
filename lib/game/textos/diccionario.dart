@@ -138,6 +138,8 @@ const es = {
   'item.potVida.descripcion': 'Recupera el 30% de la vida máxima al instante',
   'item.potPower.descripcion': 'Recupera el 30% del power máximo al instante',
 
+  'item.castoTela.descripcion': 'Gorro hecho de tela',
+
   'texto.about.info':
       'Warden es un juego de combate estratégico por turnos con una fuerte inspiración en la fantasía oscura.\n\n'
       'El jugador encarna a un guardián solitario que debe enfrentarse a una sucesión de enemigos utilizando habilidad, táctica y una correcta gestión del combate. Cada enfrentamiento no se basa únicamente en la fuerza bruta, sino en la elección adecuada de acciones y en el dominio de los combos.\n\n'
@@ -323,6 +325,8 @@ const en = {
 
   'item.potVida.descripcion': 'Recovers 30% of maximum health instantly',
   'item.potPower.descripcion': 'Recovers 10% of maximum power instantly',
+
+  'item.castoTela.descripcion': 'Hat made of fabric',
 
   'texto.about.info':
       'Warden is a turn-based strategic combat game strongly inspired by dark fantasy.\n\n'

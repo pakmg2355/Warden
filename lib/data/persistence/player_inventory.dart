@@ -135,6 +135,7 @@ class PlayerInventoryStorage {
         inventory: _normalize([
           const ItemStack(itemId: 'potVida', quantity: 10),
           const ItemStack(itemId: 'potPower', quantity: 10),
+          const ItemStack(itemId: 'cascoTela', quantity: 1),
         ], maxInventorySlots),
         quickSlots: _normalize([], maxQuickSlots),
       );

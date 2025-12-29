@@ -79,6 +79,10 @@ class _InventoryScreenState extends State<InventoryScreen> {
   }) {
     if (!mounted) return;
 
+    if (toQuickSlot && dragged.stack.item.type.name != 'consumible') {
+      return;
+    }
+
     setState(() {
       final fromList = dragged.fromQuickSlot
           ? _inventory!.quickSlots
