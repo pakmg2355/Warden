@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:warden/game/entities/item.dart';
-import 'package:warden/game/helpers/colores.dart';
 import 'package:warden/game/helpers/iconos.dart';
 
 class QuickSlotRow extends StatelessWidget {
