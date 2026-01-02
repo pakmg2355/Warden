@@ -1,5 +1,5 @@
+import 'package:warden/data/persistence/player_equipo.dart';
 import 'package:warden/game/entities/item.dart';
-import 'package:warden/game/entities/player.dart';
 import 'package:warden/game/entities/stats.dart';
 
 class PlayerProgress {
@@ -8,7 +8,7 @@ class PlayerProgress {
   final int experiencia;
   final int experienciaParaSubir;
   final int faseActual;
-  final PlayerEquipo equipo;
+  final PlayerEquipo? equipo;
 
   final StatsClass statsBase;
 
@@ -19,7 +19,6 @@ class PlayerProgress {
     required this.experienciaParaSubir,
     required this.faseActual,
     required this.equipo,
-
     required this.statsBase,
   });
 
@@ -30,8 +29,8 @@ class PlayerProgress {
       'experiencia': experiencia,
       'experienciaParaSubir': experienciaParaSubir,
       'faseActual': faseActual,
-      'equipo': equipo.toJson(),
       'statsBase': statsBase.toJson(),
+      'equipo': equipo?.toJson(),
     };
   }
 
@@ -42,8 +41,8 @@ class PlayerProgress {
       experiencia: json['experiencia'],
       experienciaParaSubir: json['experienciaParaSubir'],
       faseActual: json['faseActual'],
-      equipo: json['equipo'],
       statsBase: StatsClass.fromJson(json['statsBase']),
+      equipo: PlayerEquipo.fromJson(json['equipo']),
     );
   }
 
@@ -86,8 +85,8 @@ class PlayerProgress {
       experiencia: experiencia ?? this.experiencia,
       experienciaParaSubir: experienciaParaSubir ?? this.experienciaParaSubir,
       faseActual: faseActual ?? this.faseActual,
-      equipo: equipo ?? this.equipo,
       statsBase: statsBase ?? this.statsBase,
+      equipo: equipo ?? this.equipo,
     );
   }
 }

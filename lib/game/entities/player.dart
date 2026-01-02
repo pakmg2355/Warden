@@ -1,3 +1,4 @@
+import 'package:warden/data/persistence/player_equipo.dart';
 import 'package:warden/game/entities/effect.dart';
 import 'package:warden/game/entities/item.dart';
 import 'package:warden/game/entities/enums.dart';
@@ -16,7 +17,7 @@ class PlayerClass {
   final int time;
   final List<EfectoClass> efectos;
   final List<InstantEffect> instantEffects;
-  final PlayerEquipo equipo;
+  final PlayerEquipo? equipo;
   final String comando;
   final List<CombatLogEntry> logs;
   final StatsClass stats;
@@ -84,7 +85,7 @@ class PlayerClass {
     StatsClass? stats,
     int? comboChainTier,
     EffectType? comboChainType,
-    List<ItemStack>? inventory,
+    List<ItemStack?>? inventory,
     List<ItemStack?>? quickSlots,
     AIPlan? planAtaqueIA,
     AIPlan? planMixtoIA,
@@ -114,45 +115,5 @@ class PlayerClass {
       planMixtoIA: planMixtoIA ?? this.planMixtoIA,
       planDefensaIA: planDefensaIA ?? this.planDefensaIA,
     );
-  }
-}
-
-class PlayerEquipo {
-  final Map<Equipo, ItemStack?> slots;
-
-  PlayerEquipo({Map<Equipo, ItemStack?>? slots})
-    : slots = slots ?? {for (var s in Equipo.values) s: null};
-
-  ItemStack? operator [](Equipo slot) => slots[slot];
-
-  void equip(Equipo slot, ItemStack item) {
-    slots[slot] = item;
-  }
-
-  ItemStack? unequip(Equipo slot) {
-    final item = slots[slot];
-    slots[slot] = null;
-    return item;
-  }
-
-  // ─────────────────────────────
-  // JSON
-  // ─────────────────────────────
-
-  Map<String, dynamic> toJson() {
-    return {
-      for (final entry in slots.entries) entry.key.name: entry.value?.toJson(),
-    };
-  }
-
-  factory PlayerEquipo.fromJson(Map<String, dynamic> json) {
-    final Map<Equipo, ItemStack?> slots = {};
-
-    for (final slot in Equipo.values) {
-      final value = json[slot.name];
-      slots[slot] = value == null ? null : ItemStack.fromJson(value);
-    }
-
-    return PlayerEquipo(slots: slots);
   }
 }

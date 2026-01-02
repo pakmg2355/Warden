@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:warden/data/persistence/player_equipo.dart';
 import 'package:warden/data/persistence/player_inventory.dart';
 import 'package:warden/game/entities/item.dart';
 import 'package:warden/global/constants.dart';
@@ -14,6 +15,7 @@ class InventoryScreen extends StatefulWidget {
 
 class _InventoryScreenState extends State<InventoryScreen> {
   PlayerInventory? _inventory;
+  PlayerEquipo? _equipo;
   bool _loading = true;
 
   @override
@@ -25,6 +27,7 @@ class _InventoryScreenState extends State<InventoryScreen> {
   Future<void> _loadInventory() async {
     final inv = await PlayerInventoryStorage.load();
     if (!mounted) return;
+
     setState(() {
       _inventory = inv;
       _loading = false;

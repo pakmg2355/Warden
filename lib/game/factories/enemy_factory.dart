@@ -1,3 +1,4 @@
+import 'package:warden/data/persistence/player_equipo.dart';
 import 'package:warden/game/entities/player.dart';
 import 'package:warden/game/entities/stats.dart';
 import 'package:warden/game/gambits_repository/gambits_repository.dart';
@@ -23,7 +24,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
         comando: '',
         logs: const [],
         baseStats: stats,
@@ -49,7 +55,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -76,7 +87,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -103,7 +119,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -130,7 +151,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -157,7 +183,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -184,7 +215,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -211,7 +247,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -238,7 +279,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -265,7 +311,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -292,7 +343,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -319,7 +375,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -346,7 +407,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -373,7 +439,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -400,7 +471,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -427,7 +503,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -454,7 +535,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -481,7 +567,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -508,7 +599,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -535,7 +631,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -562,7 +663,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -589,7 +695,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -616,7 +727,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -643,7 +759,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -670,7 +791,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -697,7 +823,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -724,7 +855,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -751,7 +887,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -778,7 +919,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -805,7 +951,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -832,7 +983,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -859,7 +1015,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -886,7 +1047,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -913,7 +1079,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -940,7 +1111,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -967,7 +1143,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -994,7 +1175,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -1021,7 +1207,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -1048,7 +1239,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -1075,7 +1271,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -1102,7 +1303,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -1129,7 +1335,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -1156,7 +1367,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -1183,7 +1399,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -1210,7 +1431,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -1237,7 +1463,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -1264,7 +1495,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -1291,7 +1527,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -1318,7 +1559,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -1345,7 +1591,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -1372,7 +1623,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -1399,7 +1655,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -1426,7 +1687,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -1453,7 +1719,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -1480,7 +1751,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -1507,7 +1783,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -1534,7 +1815,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -1561,7 +1847,12 @@ class EnemyFactory {
         time: 0,
         efectos: const [],
         instantEffects: [],
-        equipo: PlayerEquipo(),
+        equipo: PlayerEquipo(
+          casco: null,
+          hombreras: null,
+          pechera: null,
+          pantalones: null,
+        ),
 
         comando: '',
         logs: const [],
@@ -1589,7 +1880,12 @@ class EnemyFactory {
       time: 0,
       efectos: const [],
       instantEffects: [],
-      equipo: PlayerEquipo(),
+      equipo: PlayerEquipo(
+        casco: null,
+        hombreras: null,
+        pechera: null,
+        pantalones: null,
+      ),
 
       comando: '',
       logs: const [],

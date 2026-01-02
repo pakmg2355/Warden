@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:warden/data/persistence/player_inventory.dart';
 import 'package:warden/game/entities/enums.dart';
 import 'package:warden/game/entities/item.dart';
+import 'package:warden/game/entities/nodo.dart';
 import 'package:warden/game/helpers/iconos.dart';
 import 'package:warden/game/items_repositoty/item_definition.dart';
 import 'package:warden/game/textos/diccionario.dart';
@@ -12,10 +13,13 @@ import 'package:warden/ui/widgets/componentes/game_text.dart';
 class CombatRewardContainer extends StatefulWidget {
   final CombatResult result;
   final int playerLevel;
+  final StoryNode nodo;
+
   const CombatRewardContainer({
     super.key,
     required this.result,
     required this.playerLevel,
+    required this.nodo,
   });
 
   @override
@@ -104,7 +108,7 @@ class _CombatRewardContainerState extends State<CombatRewardContainer> {
               } else {
                 if (_selected == null) return;
                 _acceptReward();
-                Navigator.pop(context, true);
+                Navigator.pop(context, {"win": true, "nodo": widget.nodo});
               }
             },
           ),

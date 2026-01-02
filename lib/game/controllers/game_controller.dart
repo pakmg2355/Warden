@@ -1,7 +1,9 @@
 import 'dart:async';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/semantics.dart';
 import 'package:warden/data/persistence/player_inventory.dart';
 import 'package:warden/data/persistence/repositorios.dart';
+import 'package:warden/game/controllers/util_combat.dart';
 import 'package:warden/game/entities/enums.dart';
 import 'package:warden/game/entities/player.dart';
 import 'package:warden/game/helpers/velocidad_ia.dart';
@@ -208,6 +210,18 @@ class GameController extends ChangeNotifier {
         efectos: newEfectos,
         quickSlots: slots,
       ),
+    );
+
+    notifyListeners();
+  }
+
+  void updateStateInventory() async {
+    final jugador = _state.jugador;
+    final inventario = await loadInventory();
+
+    // 4️⃣ Actualizar jugador
+    _state = _state.copyWith(
+      jugador: jugador.copyWith(quickSlots: inventario.quickSlots),
     );
 
     notifyListeners();

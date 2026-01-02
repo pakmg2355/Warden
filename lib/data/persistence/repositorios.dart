@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:warden/game/entities/player.dart';
+import 'package:warden/data/persistence/player_equipo.dart';
 import 'package:warden/game/entities/stats.dart';
 import 'package:warden/game/entities/enums.dart';
 import 'package:warden/data/persistence/player_progress.dart';
@@ -20,6 +20,7 @@ class PlayerProgressRepository {
     }
 
     final jsonString = prefs.getString(_key)!;
+
     final Map<String, dynamic> json = jsonDecode(jsonString);
 
     return PlayerProgress.fromJson(json);
@@ -59,7 +60,12 @@ class PlayerProgressRepository {
       experiencia: 0,
       experienciaParaSubir: 100,
       faseActual: 1,
-      equipo: PlayerEquipo(),
+      equipo: PlayerEquipo(
+        casco: null,
+        hombreras: null,
+        pechera: null,
+        pantalones: null,
+      ),
       statsBase: StatsClass(
         ataque: 10,
         defensa: 5,

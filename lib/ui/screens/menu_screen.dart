@@ -1,20 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:warden/data/persistence/player_inventory.dart';
-import 'package:warden/data/persistence/repositorios.dart';
-import 'package:warden/game/entities/stats.dart';
-import 'package:warden/game/entities/enums.dart';
-import 'package:warden/game/entities/player.dart';
-import 'package:warden/game/factories/enemy_factory.dart';
-import 'package:warden/game/controllers/game_controller.dart';
-import 'package:warden/game/controllers/game_state.dart';
+import 'package:warden/game/controllers/util_combat.dart';
 import 'package:warden/data/persistence/player_progress.dart';
-import 'package:warden/game/systems/ai_systems.dart';
+import 'package:warden/game/helpers/combat_launch.dart';
 import 'package:warden/game/systems/music_systems.dart';
 import 'package:warden/game/textos/diccionario.dart';
+import 'package:warden/global/variables.dart';
 import 'package:warden/ui/screens/about_screen.dart';
-import 'package:warden/ui/screens/combate_screen.dart';
 import 'package:warden/ui/screens/config_screen.dart';
 import 'package:warden/ui/screens/gambit_info.dart';
+import 'package:warden/ui/screens/historia_screen.dart';
 import 'package:warden/ui/screens/inventario_screen.dart';
 import 'package:warden/ui/screens/reset_screen.dart';
 import 'package:warden/ui/widgets/botones/boton_menu.dart';
@@ -30,71 +24,36 @@ class MenuScreen extends StatefulWidget {
 
 class _MenuScreenState extends State<MenuScreen> {
   PlayerProgress? _progress;
-  PlayerInventory? _inventario;
+
+  Future<void> _init() async {
+    MusicSystem.play('menu');
+
+    try {
+      final pro = await loadProgress();
+
+      jugadorGlobal = pro.nombre;
+
+      if (!mounted) return;
+      setState(() {
+        _progress = pro;
+      });
+    } catch (e, st) {
+      // Manejo de errores: loguea y deja algo visible en UI si quieres
+      debugPrint('Error cargando datos del menú: $e\n$st');
+      if (!mounted) return;
+    }
+  }
 
   @override
   void initState() {
     super.initState();
-    _loadInventory();
-    _loadProgress();
-    MusicSystem.play('combat');
+    _init();
   }
 
   @override
   void dispose() {
     MusicSystem.stop(); // o pause()
     super.dispose();
-  }
-
-  Future<void> _loadProgress() async {
-    final progress = await PlayerProgressRepository.load();
-    if (!mounted) return;
-    setState(() => _progress = progress);
-  }
-
-  Future<void> _loadInventory() async {
-    final inv = await PlayerInventoryStorage.load();
-    if (!mounted) return;
-    setState(() => _inventario = inv);
-  }
-
-  PlayerClass _buildPlayerFromProgress(PlayerProgress progress) {
-    return PlayerClass(
-      nombre: progress.nombre,
-      nivel: progress.nivel,
-      isAI: false,
-      vida: 2000 + progress.nivel * 300,
-      maxvida: 2000 + progress.nivel * 300,
-      power: 800 + progress.nivel * 50,
-      maxpower: 800 + progress.nivel * 50,
-      time: 0,
-      efectos: const [],
-      instantEffects: [],
-      comando: '',
-      logs: const [],
-      stats: StatsClass(
-        ataque: progress.statsBase.ataque + progress.nivel * 5,
-        defensa: progress.statsBase.defensa + progress.nivel * 3,
-        curacion: progress.statsBase.curacion + progress.nivel * 2,
-        poder: progress.statsBase.poder + progress.nivel,
-        powerRegen: progress.statsBase.powerRegen + progress.nivel,
-      ),
-      baseStats: StatsClass(
-        ataque: progress.statsBase.ataque + progress.nivel * 5,
-        defensa: progress.statsBase.defensa + progress.nivel * 3,
-        curacion: progress.statsBase.curacion + progress.nivel * 2,
-        poder: progress.statsBase.poder + progress.nivel,
-        powerRegen: progress.statsBase.powerRegen + progress.nivel,
-      ),
-      comboChainTier: 0,
-      comboChainType: null,
-      inventory: _inventario!.inventory,
-      quickSlots: _inventario!.quickSlots,
-      equipo: PlayerEquipo(),
-      planAtaqueIA: AIPlan('', []),
-      planMixtoIA: AIPlan('', []),
-      planDefensaIA: AIPlan('', []),
-    );
   }
 
   @override
@@ -121,37 +80,35 @@ class _MenuScreenState extends State<MenuScreen> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   MenuButton(
+                    text: 'MODO HISTORIA',
+                    icon: Icons.history,
+                    onTap: () async {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (_) =>
+                              PantallaHistoria(progress: _progress!),
+                        ),
+                      ).then((newProgress) {
+                        setState(() {
+                          _progress = newProgress;
+                        });
+                      });
+                    },
+                  ),
+
+                  MenuButton(
                     text: t('menu.combate'),
                     icon: Icons.local_fire_department,
                     onTap: () async {
-                      final player = _buildPlayerFromProgress(_progress!);
-                      final enemy = EnemyFactory.createForPhase(
-                        _progress!.faseActual,
-                      );
+                      final pro = _progress;
+                      if (pro == null) return;
 
-                      final initialState = GameState(
-                        jugador: player,
-                        rival: enemy,
-                        result: CombatResult.none,
-                      );
+                      await launchCombat(context: context, progress: pro);
 
-                      final controller = GameController(
-                        initialState,
-                        progress: _progress!,
-                      );
-
-                      await Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) => CombateScreen(controller: controller),
-                        ),
-                      ).then((r) {
-                        if (!mounted) return;
-                        _loadInventory();
-                      });
-
-                      // 🔄 refrescar progreso al volver del combate
-                      _loadProgress();
+                      if (!mounted) return;
+                      _progress = await loadProgress();
+                      setState(() {});
                     },
                   ),
 
@@ -189,7 +146,7 @@ class _MenuScreenState extends State<MenuScreen> {
                         MaterialPageRoute(builder: (_) => ResetScreen()),
                       ).then((res) {
                         if (!mounted) return;
-                        if (res) _loadProgress();
+                        if (res) loadProgress();
                       });
                     },
                   ),
@@ -203,7 +160,7 @@ class _MenuScreenState extends State<MenuScreen> {
                         MaterialPageRoute(builder: (_) => InventoryScreen()),
                       ).then((res) {
                         if (!mounted) return;
-                        if (res) _loadInventory();
+                        if (res) loadInventory();
                       });
                     },
                   ),

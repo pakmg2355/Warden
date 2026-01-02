@@ -1,8 +1,11 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:warden/data/persistence/player_inventory.dart';
 import 'package:warden/game/controllers/game_controller.dart';
+import 'package:warden/game/controllers/util_combat.dart';
 import 'package:warden/game/entities/item.dart';
+import 'package:warden/game/entities/nodo.dart';
 import 'package:warden/game/systems/music_systems.dart';
 import 'package:warden/global/constants.dart';
 import 'package:warden/ui/widgets/barras/barra_estado.dart';
@@ -18,8 +21,13 @@ import 'package:warden/ui/widgets/rows/row_logs.dart';
 
 class CombateScreen extends StatefulWidget {
   final GameController controller;
+  final StoryNode nodo;
 
-  const CombateScreen({super.key, required this.controller});
+  const CombateScreen({
+    super.key,
+    required this.controller,
+    required this.nodo,
+  });
 
   @override
   State<CombateScreen> createState() => _CombateScreenState();
@@ -33,6 +41,8 @@ class _CombateScreenState extends State<CombateScreen> {
   void initState() {
     super.initState();
     MusicSystem.play('ambient');
+
+    widget.controller.updateStateInventory();
 
     contador = 3;
     timer = Timer.periodic(
@@ -73,6 +83,7 @@ class _CombateScreenState extends State<CombateScreen> {
                         CombatRewardContainer(
                           result: state.result,
                           playerLevel: state.jugador.nivel,
+                          nodo: widget.nodo,
                         ),
                       ],
                     ),

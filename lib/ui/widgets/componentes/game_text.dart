@@ -17,15 +17,17 @@ class GameText {
 
   static Widget text(
     String value, {
-    double size = 16,
+    double size = 20,
     FontWeight weight = FontWeight.normal,
     Color color = Colors.white,
     TextAlign align = TextAlign.left,
   }) {
-    return Text(
-      value,
-      textAlign: align,
-      style: style(size: size, weight: weight, color: color),
+    return SingleChildScrollView(
+      child: Text(
+        value,
+        textAlign: align,
+        style: style(size: size, weight: weight, color: color),
+      ),
     );
   }
 }
