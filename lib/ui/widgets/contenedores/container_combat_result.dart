@@ -38,7 +38,7 @@ class _CombatRewardContainerState extends State<CombatRewardContainer> {
 
   List<ItemDefinition> _pickRandomItems(int count) {
     final items = ItemDatabase.items.values
-        .where((e) => e.minLevel <= widget.playerLevel)
+        .where((e) => e.minLevel <= widget.playerLevel && e.id != 'vacio')
         .toList();
     items.shuffle(Random());
     return items.take(count).toList();
@@ -148,8 +148,9 @@ class _CombatRewardContainerState extends State<CombatRewardContainer> {
         ),
         child: Column(
           children: [
-            iconDataForItemClass(item.clase.name, item.color),
+            iconDataForItemClass(item.clase.name, item.color, size: 40),
             GameText.text(t('item.${item.id}.descripcion')),
+            GameText.text(item.stats.toString()),
           ],
         ),
       ),

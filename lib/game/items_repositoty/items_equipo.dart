@@ -2,9 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:warden/game/entities/item.dart';
 import 'package:warden/game/entities/enums.dart';
 import 'package:warden/game/entities/stats.dart';
+import 'package:warden/game/items_repositoty/items_equipo_armas.dart';
+import 'package:warden/game/items_repositoty/items_equipo_botas.dart';
+import 'package:warden/game/items_repositoty/items_equipo_capas.dart';
+import 'package:warden/game/items_repositoty/items_equipo_cascos.dart';
+import 'package:warden/game/items_repositoty/items_equipo_escudos.dart';
+import 'package:warden/game/items_repositoty/items_equipo_guantes.dart';
+import 'package:warden/game/items_repositoty/items_equipo_hombreras.dart';
+import 'package:warden/game/items_repositoty/items_equipo_pantalones.dart';
+import 'package:warden/game/items_repositoty/items_equipo_pechera.dart';
 import 'package:warden/game/textos/diccionario.dart';
 
-final itemsEquipo = {
+final itemsEquipoVacio = {
   'vacio': ItemDefinition(
     id: 'vacio',
     nombre: 'vacio',
@@ -21,116 +30,17 @@ final itemsEquipo = {
       powerRegen: 0,
     ),
   ),
-  'cascoTela': ItemDefinition(
-    id: 'cascoTela',
-    nombre: 'cascoTela',
-    descripcion: t('item.cascoTela.descripcion'),
-    type: ItemType.equipo,
-    clase: ItemClass.casco,
-    color: Colors.white,
-    minLevel: 1,
-    stats: StatsClass(
-      ataque: 0,
-      defensa: 10,
-      poder: 0,
-      curacion: 0,
-      powerRegen: 0,
-    ),
-  ),
-  'hombrerasTela': ItemDefinition(
-    id: 'hombrerasTela',
-    nombre: 'hombrerasTela',
-    descripcion: t('item.hombrerasTela.descripcion'),
-    type: ItemType.equipo,
-    clase: ItemClass.hombreras,
-    color: Colors.white,
-    minLevel: 1,
-    stats: StatsClass(
-      ataque: 100,
-      defensa: 10,
-      poder: 0,
-      curacion: 0,
-      powerRegen: 0,
-    ),
-  ),
-  'pecheraTela': ItemDefinition(
-    id: 'pecheraTela',
-    nombre: 'pecheraTela',
-    descripcion: t('item.pecheraTela.descripcion'),
-    type: ItemType.equipo,
-    clase: ItemClass.pechera,
-    color: Colors.white,
-    minLevel: 1,
-    stats: StatsClass(
-      ataque: 0,
-      defensa: 10,
-      poder: 0,
-      curacion: 0,
-      powerRegen: 0,
-    ),
-  ),
-  'pantalonesTela': ItemDefinition(
-    id: 'pantalonesTela',
-    nombre: 'pantalonesTela',
-    descripcion: t('item.pantalonesTela.descripcion'),
-    type: ItemType.equipo,
-    clase: ItemClass.pantalones,
-    color: Colors.white,
-    minLevel: 1,
-    stats: StatsClass(
-      ataque: 0,
-      defensa: 10,
-      poder: 0,
-      curacion: 0,
-      powerRegen: 0,
-    ),
-  ),
-  'botasTela': ItemDefinition(
-    id: 'botasTela',
-    nombre: 'botasTela',
-    descripcion: t('item.botasTela.descripcion'),
-    type: ItemType.equipo,
-    clase: ItemClass.botas,
-    color: Colors.white,
-    minLevel: 1,
-    stats: StatsClass(
-      ataque: 0,
-      defensa: 10,
-      poder: 0,
-      curacion: 0,
-      powerRegen: 0,
-    ),
-  ),
-  'guantesTela': ItemDefinition(
-    id: 'guantesTela',
-    nombre: 'guantesTela',
-    descripcion: t('item.guantesTela.descripcion'),
-    type: ItemType.equipo,
-    clase: ItemClass.guantes,
-    color: Colors.white,
-    minLevel: 1,
-    stats: StatsClass(
-      ataque: 0,
-      defensa: 10,
-      poder: 0,
-      curacion: 0,
-      powerRegen: 0,
-    ),
-  ),
-  'capaTela': ItemDefinition(
-    id: 'capaTela',
-    nombre: 'capaTela',
-    descripcion: t('item.capaTela.descripcion'),
-    type: ItemType.equipo,
-    clase: ItemClass.capa,
-    color: Colors.white,
-    minLevel: 1,
-    stats: StatsClass(
-      ataque: 0,
-      defensa: 10,
-      poder: 0,
-      curacion: 0,
-      powerRegen: 0,
-    ),
-  ),
+};
+
+final itemsEquipo = {
+  ...itemsEquipoVacio,
+  ...itemsEquipoArmas,
+  ...itemsEquipoEscudos,
+  ...itemsEquipoCapas,
+  ...itemsEquipoCascos,
+  ...itemsEquipoGuantes,
+  ...itemsEquipoHombreras,
+  ...itemsEquipoPantalones,
+  ...itemsEquipoPecheras,
+  ...itemsEquipoBotas,
 };

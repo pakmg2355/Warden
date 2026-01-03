@@ -27,13 +27,15 @@ class StatsClass {
 
   @override
   String toString() {
-    return 'StatClass('
-        'ataque: $ataque, '
-        'defensa: $defensa, '
-        'poder: $poder, '
-        'curacion: $curacion, '
-        'powerRegen: $powerRegen '
-        ')';
+    final parts = <String>[];
+
+    if (ataque > 0) parts.add('Ataque: +$ataque');
+    if (defensa > 0) parts.add('Defensa: +$defensa');
+    if (poder > 0) parts.add('Poder: +$poder');
+    if (curacion > 0) parts.add('Curación: +$curacion');
+    if (powerRegen > 0) parts.add('Reg. Poder: +$powerRegen');
+
+    return parts.join(', ');
   }
 
   factory StatsClass.fromJson(Map<String, dynamic> json) {

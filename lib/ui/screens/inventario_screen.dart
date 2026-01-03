@@ -114,26 +114,48 @@ class _InventoryScreenState extends State<InventoryScreen> {
                             ),
                           ],
                         ),
-                        DragTarget<DraggedItem>(
-                          onWillAcceptWithDetails: (dragged) {
-                            return true;
-                          },
-                          onAcceptWithDetails: (dragged) {
-                            _equipItemFromInventory(dragged.data);
-                          },
-                          builder: (context, candidateData, rejectedData) {
-                            return Container(
-                              decoration: BoxDecoration(
-                                border: candidateData.isNotEmpty
-                                    ? Border.all(color: Colors.amber, width: 2)
-                                    : null,
-                              ),
-                              child: Image.asset(
-                                'assets/img/personaje.png',
-                                width: 120,
-                              ),
-                            );
-                          },
+                        Column(
+                          children: [
+                            DragTarget<DraggedItem>(
+                              onWillAcceptWithDetails: (dragged) {
+                                return true;
+                              },
+                              onAcceptWithDetails: (dragged) {
+                                _equipItemFromInventory(dragged.data);
+                              },
+                              builder: (context, candidateData, rejectedData) {
+                                return Container(
+                                  decoration: BoxDecoration(
+                                    border: candidateData.isNotEmpty
+                                        ? Border.all(
+                                            color: Colors.amber,
+                                            width: 2,
+                                          )
+                                        : null,
+                                  ),
+                                  child: Image.asset(
+                                    'assets/img/personaje.png',
+                                    width: 120,
+                                  ),
+                                );
+                              },
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                ItemSlotEquipo(
+                                  stack: _equipo!.arma,
+                                  index: 1,
+                                  onPressed: () => _unequip('arma'),
+                                ),
+                                ItemSlotEquipo(
+                                  stack: _equipo!.escudo,
+                                  index: 1,
+                                  onPressed: () => _unequip('escudo'),
+                                ),
+                              ],
+                            ),
+                          ],
                         ),
                         ColumnStatsPersonaje(
                           stats: getTotalStats(
@@ -212,7 +234,10 @@ class _InventoryScreenState extends State<InventoryScreen> {
                                   ),
                                 ],
                               ),
-                              child: Icon(Icons.delete, color: Colors.red),
+                              child: Icon(
+                                Icons.delete,
+                                color: const Color.fromARGB(255, 255, 166, 159),
+                              ),
                             );
                           },
                         ),
@@ -391,7 +416,7 @@ class _InventoryScreenState extends State<InventoryScreen> {
   // ─────────────────────────────
   Widget _titulo(String text) {
     return Container(
-      padding: const EdgeInsets.all(10),
+      padding: const EdgeInsets.all(5),
       decoration: BoxDecoration(
         color: const Color(0xFF1E1E1E),
         borderRadius: BorderRadius.circular(12),

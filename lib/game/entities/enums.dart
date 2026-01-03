@@ -37,6 +37,14 @@ enum ItemClass {
   botas,
   guantes,
   capa,
+  arma,
+  escudo,
+  pendiente1,
+  pendiente2,
+  collar,
+  anillo1,
+  anillo2,
+  hebilla,
 }
 
 enum InstantEffectKind { vidaFlat, vidaPercent, powerFlat, powerPercent }

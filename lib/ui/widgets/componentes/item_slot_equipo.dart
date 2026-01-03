@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:warden/game/entities/item.dart';
 import 'package:warden/game/helpers/iconos.dart';
+import 'package:warden/ui/widgets/componentes/confirmacion.dart';
 
 class DraggedItemEquipo {
   final ItemStack stack;
@@ -54,11 +55,22 @@ class _ItemSlotEquipoState extends State<ItemSlotEquipo> {
             item.item.clase.name == 'vacio'
                 ? SizedBox.shrink()
                 : InkWell(
-                    onTap: () {
+                    onTap: () async {
+                      final confirmar = await showDialog<bool>(
+                        context: context,
+                        barrierDismissible: false,
+                        builder: (_) => const ConfirmDialog(
+                          title: 'Desquipar objeto',
+                          message:
+                              '¿Desequipar el objeto y devolverlo al invetario?',
+                        ),
+                      );
+
+                      if (confirmar != true) return;
                       widget.onPressed();
                     },
                     child: Icon(
-                      Icons.delete,
+                      Icons.refresh,
                       size: 20,
                       color: const Color.fromARGB(255, 255, 166, 159),
                     ),

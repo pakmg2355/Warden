@@ -131,6 +131,8 @@ StatsClass getTotalStats(StatsClass base, PlayerEquipo equipo) {
   sumaAtaque += equipo.collar?.item.stats.ataque ?? 0;
   sumaAtaque += equipo.amuleto?.item.stats.ataque ?? 0;
   sumaAtaque += equipo.hebilla?.item.stats.ataque ?? 0;
+  sumaAtaque += equipo.arma?.item.stats.ataque ?? 0;
+  sumaAtaque += equipo.escudo?.item.stats.ataque ?? 0;
 
   sumaDefensa += equipo.casco?.item.stats.defensa ?? 0;
   sumaDefensa += equipo.hombreras?.item.stats.defensa ?? 0;
@@ -146,6 +148,8 @@ StatsClass getTotalStats(StatsClass base, PlayerEquipo equipo) {
   sumaDefensa += equipo.collar?.item.stats.defensa ?? 0;
   sumaDefensa += equipo.amuleto?.item.stats.defensa ?? 0;
   sumaDefensa += equipo.hebilla?.item.stats.defensa ?? 0;
+  sumaDefensa += equipo.arma?.item.stats.defensa ?? 0;
+  sumaDefensa += equipo.escudo?.item.stats.defensa ?? 0;
 
   sumaPoder += equipo.casco?.item.stats.poder ?? 0;
   sumaPoder += equipo.hombreras?.item.stats.poder ?? 0;
@@ -161,6 +165,8 @@ StatsClass getTotalStats(StatsClass base, PlayerEquipo equipo) {
   sumaPoder += equipo.collar?.item.stats.poder ?? 0;
   sumaPoder += equipo.amuleto?.item.stats.poder ?? 0;
   sumaPoder += equipo.hebilla?.item.stats.poder ?? 0;
+  sumaPoder += equipo.arma?.item.stats.poder ?? 0;
+  sumaPoder += equipo.escudo?.item.stats.poder ?? 0;
 
   sumaCuracion += equipo.casco?.item.stats.curacion ?? 0;
   sumaCuracion += equipo.hombreras?.item.stats.curacion ?? 0;
@@ -176,6 +182,8 @@ StatsClass getTotalStats(StatsClass base, PlayerEquipo equipo) {
   sumaCuracion += equipo.collar?.item.stats.curacion ?? 0;
   sumaCuracion += equipo.amuleto?.item.stats.curacion ?? 0;
   sumaCuracion += equipo.hebilla?.item.stats.curacion ?? 0;
+  sumaCuracion += equipo.arma?.item.stats.curacion ?? 0;
+  sumaCuracion += equipo.escudo?.item.stats.curacion ?? 0;
 
   sumaPowerRegen += equipo.casco?.item.stats.powerRegen ?? 0;
   sumaPowerRegen += equipo.hombreras?.item.stats.powerRegen ?? 0;
@@ -191,6 +199,8 @@ StatsClass getTotalStats(StatsClass base, PlayerEquipo equipo) {
   sumaPowerRegen += equipo.collar?.item.stats.powerRegen ?? 0;
   sumaPowerRegen += equipo.amuleto?.item.stats.powerRegen ?? 0;
   sumaPowerRegen += equipo.hebilla?.item.stats.powerRegen ?? 0;
+  sumaPowerRegen += equipo.arma?.item.stats.powerRegen ?? 0;
+  sumaPowerRegen += equipo.escudo?.item.stats.powerRegen ?? 0;
 
   return StatsClass(
     ataque: sumaAtaque,

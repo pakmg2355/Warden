@@ -9,6 +9,9 @@ class PlayerEquipo {
   ItemStack? guantes = ItemStack(itemId: 'vacio', quantity: 1);
   ItemStack? capa = ItemStack(itemId: 'vacio', quantity: 1);
 
+  ItemStack? arma = ItemStack(itemId: 'vacio', quantity: 1);
+  ItemStack? escudo = ItemStack(itemId: 'vacio', quantity: 1);
+
   ItemStack? pendiente1 = ItemStack(itemId: 'vacio', quantity: 1);
   ItemStack? pendiente2 = ItemStack(itemId: 'vacio', quantity: 1);
   ItemStack? anillo1 = ItemStack(itemId: 'vacio', quantity: 1);
@@ -25,6 +28,10 @@ class PlayerEquipo {
     this.botas,
     this.guantes,
     this.capa,
+
+    this.arma,
+    this.escudo,
+
     this.pendiente1,
     this.pendiente2,
     this.anillo1,
@@ -43,6 +50,10 @@ class PlayerEquipo {
       'botas': botas?.itemId,
       'guantes': guantes?.itemId,
       'capa': capa?.itemId,
+
+      'arma': arma?.itemId,
+      'escudo': escudo?.itemId,
+
       'pendiente1': pendiente1?.itemId,
       'pendiente2': pendiente2?.itemId,
       'anillo1': anillo1?.itemId,
@@ -62,6 +73,9 @@ class PlayerEquipo {
       botas: ItemStack(itemId: json['botas'] ?? 'vacio', quantity: 1),
       guantes: ItemStack(itemId: json['guantes'] ?? 'vacio', quantity: 1),
       capa: ItemStack(itemId: json['capa'] ?? 'vacio', quantity: 1),
+
+      arma: ItemStack(itemId: json['arma'] ?? 'vacio', quantity: 1),
+      escudo: ItemStack(itemId: json['escudo'] ?? 'vacio', quantity: 1),
 
       pendiente1: ItemStack(itemId: json['pendiente1'] ?? 'vacio', quantity: 1),
       pendiente2: ItemStack(itemId: json['pendiente2'] ?? 'vacio', quantity: 1),
@@ -89,6 +103,10 @@ class PlayerEquipo {
         return guantes;
       case 'capa':
         return capa;
+      case 'arma':
+        return arma;
+      case 'escudo':
+        return escudo;
       case 'pendiente1':
         return pendiente1;
       case 'pendiente2':
@@ -129,6 +147,12 @@ class PlayerEquipo {
         break;
       case 'capa':
         capa = stack;
+        break;
+      case 'arma':
+        arma = stack;
+        break;
+      case 'escudo':
+        escudo = stack;
         break;
       case 'pendiente1':
         pendiente1 = stack;

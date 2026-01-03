@@ -56,6 +56,6 @@ IconData iconDataForStat(String stat) {
   return Icons.question_answer;
 }
 
-Widget iconDataForItemClass(String tipo, Color color) {
-  return ItemIconRepository.icon(tipo, color, size: 20);
+Widget iconDataForItemClass(String tipo, Color color, {double size = 20}) {
+  return ItemIconRepository.icon(tipo, color, size: size);
 }

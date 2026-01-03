@@ -138,7 +138,12 @@ const es = {
   'item.potVida.descripcion': 'Recupera el 30% de la vida máxima al instante',
   'item.potPower.descripcion': 'Recupera el 30% del power máximo al instante',
 
-  'item.castoTela.descripcion': 'Gorro hecho de tela',
+  'item.cascoCueroBree.descripcion': 'Casco de cuero de Bree.',
+  'item.hombrerasCueroBree.descripcion': 'Hombreras de cuero de Bree.',
+  'item.pecheraCueroBree.descripcion': 'Pechera de cuero de Bree.',
+  'item.pantalonesCueroBree.descripcion': 'Pantalones de cuero de Bree.',
+  'item.botasCueroBree.descripcion': 'Botas de cuero de Bree.',
+  'item.guantesCueroBree.descripcion': 'Guantes de cuero de Bree.',
 
   'texto.about.info':
       'Warden es un juego de combate estratégico por turnos con una fuerte inspiración en la fantasía oscura.\n\n'
@@ -147,6 +152,7 @@ const es = {
       'Warden está diseñado para ofrecer una experiencia clara y directa, con una interfaz minimalista y una ambientación cuidada. Bajo el capó, el juego está desarrollado con tecnología moderna, utilizando Flutter como motor principal, lo que permite un rendimiento sólido y una evolución constante del proyecto.\n\n'
       'Este juego es un proyecto en desarrollo, creado con pasión, experimentación y atención al detalle, donde cada combate cuenta.\n\n\n'
       'El código fuente del juego lo podéis descargar en github\n\n'
+      'https://www.svgrepo.com/'
       'https://github.com/pakmg2355/Warden\n\n'
       'Cualquier mejora y comentario será bienvenido\n\n',
 
@@ -326,7 +332,12 @@ const en = {
   'item.potVida.descripcion': 'Recovers 30% of maximum health instantly',
   'item.potPower.descripcion': 'Recovers 10% of maximum power instantly',
 
-  'item.castoTela.descripcion': 'Hat made of fabric',
+  'item.cascoCueroBree.descripcion': 'Casto de cuero de Bree.',
+  'item.hombrerasCueroBree.descripcion': 'Hombreras de cuero de Bree.',
+  'item.pecheraCueroBree.descripcion': 'Pechera de cuero de Bree.',
+  'item.pantaloresCueroBree.descripcion': 'Pantalones de cuero de Bree.',
+  'item.botasCueroBree.descripcion': 'Botas de cuero de Bree.',
+  'item.guantesCueroBree.descripcion': 'Guantes de cuero de Bree.',
 
   'texto.about.info':
       'Warden is a turn-based strategic combat game strongly inspired by dark fantasy.\n\n'
