@@ -8,7 +8,8 @@ class PlayerProgress {
   final int experiencia;
   final int experienciaParaSubir;
   final int faseActual;
-  final PlayerEquipo? equipo;
+  final String pantallaActual;
+  final PlayerEquipo equipo;
 
   final StatsClass statsBase;
 
@@ -18,6 +19,7 @@ class PlayerProgress {
     required this.experiencia,
     required this.experienciaParaSubir,
     required this.faseActual,
+    required this.pantallaActual,
     required this.equipo,
     required this.statsBase,
   });
@@ -29,18 +31,34 @@ class PlayerProgress {
       'experiencia': experiencia,
       'experienciaParaSubir': experienciaParaSubir,
       'faseActual': faseActual,
+      'pantallaActual': pantallaActual,
       'statsBase': statsBase.toJson(),
-      'equipo': equipo?.toJson(),
+      'equipo': equipo.toJson(),
     };
+  }
+
+  @override
+  String toString() {
+    return 'PlayerProgress('
+        'nombre: $nombre, '
+        'nivel: $nivel, '
+        'experiencia: $experiencia, '
+        'experienciaParaSubir: $experienciaParaSubir, '
+        'faseActual: $faseActual, '
+        'pantallaActual: $pantallaActual, '
+        'statsBase: ${statsBase.toString()}, '
+        'equipo: ${equipo.toJson()}'
+        ')';
   }
 
   factory PlayerProgress.fromJson(Map<String, dynamic> json) {
     return PlayerProgress(
-      nombre: json['nombre'],
-      nivel: json['nivel'],
-      experiencia: json['experiencia'],
+      nombre: json['nombre'] ?? 'Rodamon',
+      nivel: json['nivel'] ?? 1,
+      experiencia: json['experiencia'] ?? 1,
       experienciaParaSubir: json['experienciaParaSubir'],
-      faseActual: json['faseActual'],
+      faseActual: json['faseActual'] ?? 1,
+      pantallaActual: json['pantallaActual'] ?? 'inicio',
       statsBase: StatsClass.fromJson(json['statsBase']),
       equipo: PlayerEquipo.fromJson(json['equipo']),
     );
@@ -74,6 +92,7 @@ class PlayerProgress {
     int? experiencia,
     int? experienciaParaSubir,
     int? faseActual,
+    String? pantallaActual,
     StatsClass? statsBase,
     PlayerEquipo? equipo,
     List<ItemStack?>? quickSlots,
@@ -85,6 +104,7 @@ class PlayerProgress {
       experiencia: experiencia ?? this.experiencia,
       experienciaParaSubir: experienciaParaSubir ?? this.experienciaParaSubir,
       faseActual: faseActual ?? this.faseActual,
+      pantallaActual: pantallaActual ?? this.pantallaActual,
       statsBase: statsBase ?? this.statsBase,
       equipo: equipo ?? this.equipo,
     );

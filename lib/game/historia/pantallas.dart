@@ -6,9 +6,12 @@ StoryNode? getNode(String id) {
 }
 
 final modoHistoria = <String, StoryNode>{
-  "entrada_puerta_bree": StoryNode(
-    id: "entrada_puerta_bree",
-    texto: th('texto.pantalla.003'),
+  /*
+  "inicio_plantilla": StoryNode(
+    id: "inicio_plantilla",
+    texto1: th('texto.inicio.1'),
+    imagen: 'inicio',
+    texto2: th('texto.inicio.2'),
     botones: [
       Choice(
         texto: "Buscar otra puerta",
@@ -16,29 +19,32 @@ final modoHistoria = <String, StoryNode>{
       ),
       Choice(
         texto: "Pelear",
+        pantallaDestino: '',
         enemigo: 1,
         combateGana: "victoria_bandido",
         combatePierde: "derrota_bandido",
       ),
     ],
   ),
-  "entrada_otra_puerta": StoryNode(
-    id: "entrada_otra_puerta",
-    texto: th('texto.pantalla.004'),
-    botones: [Choice(texto: "Entrar", pantallaDestino: "bree_calle_principal")],
+  */
+  "inicio": StoryNode(
+    texto1: th('inicio.1'),
+    imagen: 'inicio',
+    texto2: th('inicio.2'),
+    botones: [Choice(texto: "Entrar en Bree", pantallaDestino: "este_bree")],
   ),
-  "victoria_bandido": StoryNode(
-    id: "victoria_bandido",
-    texto: th('texto.pantalla.005'),
-    botones: [Choice(texto: "Seguir", pantallaDestino: "bree_calle_principal")],
-  ),
-  "derrota_bandido": StoryNode(
-    id: "derrota_bandido",
-    texto: th('texto.pantalla.100'),
+  "este_bree": StoryNode(
+    texto1: th('este.bree.1'),
+    imagen: 'bree1',
+    texto2: th('este.bree.2'),
     botones: [
+      Choice(texto: "Buscar otra puerta", pantallaDestino: "inicio"),
       Choice(
-        texto: "Intentar de nuevo",
-        pantallaDestino: "entrada_otra_puerta",
+        texto: "Pelear",
+        pantallaDestino: '',
+        enemigo: 1,
+        combateGana: "inicio",
+        combatePierde: "inicio",
       ),
     ],
   ),

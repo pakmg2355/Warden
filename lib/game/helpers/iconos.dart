@@ -39,6 +39,23 @@ IconData iconDataForEffect(EffectType type) {
   }
 }
 
+IconData iconDataForStat(String stat) {
+  switch (stat) {
+    case 'ataque':
+      return Icons.sports_mma;
+    case 'curacion':
+      return Icons.local_hospital;
+    case 'powerregen':
+      return Icons.healing;
+    case 'defensa':
+      return Icons.health_and_safety;
+    case 'poder':
+      return Icons.power_settings_new;
+  }
+
+  return Icons.question_answer;
+}
+
 Widget iconDataForItemClass(String tipo, Color color) {
-  return ItemIconRepository.icon(tipo, color);
+  return ItemIconRepository.icon(tipo, color, size: 20);
 }

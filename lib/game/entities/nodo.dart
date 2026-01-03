@@ -10,9 +10,9 @@ class Choice {
   Choice({
     required this.texto,
     required this.pantallaDestino,
-    this.enemigo,
-    this.combateGana,
-    this.combatePierde,
+    this.enemigo = 0,
+    this.combateGana = '',
+    this.combatePierde = '',
   });
 
   factory Choice.fromAny(dynamic any) {
@@ -28,18 +28,25 @@ class Choice {
 }
 
 class StoryNode {
-  final String id;
-  final String texto;
+  final String texto1;
+  final String imagen;
+  final String texto2;
   final List<Choice> botones;
-  StoryNode({required this.texto, required this.botones, required this.id});
+  StoryNode({
+    this.texto1 = '',
+    this.texto2 = '',
+    this.imagen = '',
+    this.botones = const [],
+  });
 
   /// Acepta cualquier estructura Map-like y la normaliza.
   factory StoryNode.fromAny(dynamic any) {
     final map = normalizeMap(any);
     final choicesList = normalizeChoicesList(map['botones']);
     return StoryNode(
-      id: map['id'],
-      texto: map['texto'] as String,
+      texto1: map['texto1'] as String,
+      texto2: map['texto2'] as String,
+      imagen: map['imagen'] as String,
       botones: choicesList.map(Choice.fromAny).toList(),
     );
   }

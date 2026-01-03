@@ -25,6 +25,17 @@ class StatsClass {
     };
   }
 
+  @override
+  String toString() {
+    return 'StatClass('
+        'ataque: $ataque, '
+        'defensa: $defensa, '
+        'poder: $poder, '
+        'curacion: $curacion, '
+        'powerRegen: $powerRegen '
+        ')';
+  }
+
   factory StatsClass.fromJson(Map<String, dynamic> json) {
     return StatsClass(
       ataque: json['ataque'],

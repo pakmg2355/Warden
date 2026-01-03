@@ -1,4 +1,5 @@
 import 'package:warden/data/persistence/player_equipo.dart';
+import 'package:warden/game/entities/item.dart';
 import 'package:warden/game/entities/player.dart';
 import 'package:warden/game/entities/stats.dart';
 import 'package:warden/game/gambits_repository/gambits_repository.dart';
@@ -25,10 +26,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
         comando: '',
         logs: const [],
@@ -56,42 +57,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
-        ),
-
-        comando: '',
-        logs: const [],
-        baseStats: stats,
-        stats: stats,
-        comboChainTier: 0,
-        comboChainType: null,
-        inventory: [],
-        quickSlots: [],
-        planAtaqueIA: ataque1,
-        planMixtoIA: mixto1,
-        planDefensaIA: cura1,
-      );
-    }
-    if (level == 1) {
-      return PlayerClass(
-        nombre: _nameForLevel(level),
-        nivel: level,
-        isAI: true,
-        vida: 2000 + level * 300,
-        maxvida: 2000 + level * 300,
-        power: 800 + level * 50,
-        maxpower: 800 + level * 50,
-        time: 0,
-        efectos: const [],
-        instantEffects: [],
-        equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -120,10 +89,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -152,10 +121,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -184,10 +153,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -216,10 +185,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -248,10 +217,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -280,10 +249,42 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
+        ),
+
+        comando: '',
+        logs: const [],
+        baseStats: stats,
+        stats: stats,
+        comboChainTier: 0,
+        comboChainType: null,
+        inventory: [],
+        quickSlots: [],
+        planAtaqueIA: ataque1,
+        planMixtoIA: mixto1,
+        planDefensaIA: cura1,
+      );
+    }
+    if (level == 1) {
+      return PlayerClass(
+        nombre: _nameForLevel(level),
+        nivel: level,
+        isAI: true,
+        vida: 2000 + level * 300,
+        maxvida: 2000 + level * 300,
+        power: 800 + level * 50,
+        maxpower: 800 + level * 50,
+        time: 0,
+        efectos: const [],
+        instantEffects: [],
+        equipo: PlayerEquipo(
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -312,10 +313,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -344,10 +345,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -376,10 +377,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -408,10 +409,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -440,10 +441,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -472,10 +473,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -504,10 +505,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -536,10 +537,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -568,10 +569,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -600,10 +601,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -632,10 +633,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -664,10 +665,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -696,10 +697,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -728,10 +729,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -760,10 +761,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -792,10 +793,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -824,10 +825,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -856,10 +857,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -888,10 +889,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -920,10 +921,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -952,10 +953,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -984,10 +985,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -1016,10 +1017,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -1048,10 +1049,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -1080,10 +1081,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -1112,10 +1113,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -1144,10 +1145,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -1176,10 +1177,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -1208,10 +1209,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -1240,10 +1241,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -1272,10 +1273,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -1304,10 +1305,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -1336,10 +1337,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -1368,10 +1369,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -1400,10 +1401,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -1432,10 +1433,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -1464,10 +1465,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -1496,10 +1497,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -1528,10 +1529,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -1560,10 +1561,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -1592,10 +1593,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -1624,10 +1625,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -1656,10 +1657,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -1688,10 +1689,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -1720,10 +1721,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -1752,10 +1753,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -1784,10 +1785,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -1816,10 +1817,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -1848,10 +1849,10 @@ class EnemyFactory {
         efectos: const [],
         instantEffects: [],
         equipo: PlayerEquipo(
-          casco: null,
-          hombreras: null,
-          pechera: null,
-          pantalones: null,
+          casco: ItemStack(itemId: 'vacio', quantity: 1),
+          hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+          pechera: ItemStack(itemId: 'vacio', quantity: 1),
+          pantalones: ItemStack(itemId: 'vacio', quantity: 1),
         ),
 
         comando: '',
@@ -1881,10 +1882,10 @@ class EnemyFactory {
       efectos: const [],
       instantEffects: [],
       equipo: PlayerEquipo(
-        casco: null,
-        hombreras: null,
-        pechera: null,
-        pantalones: null,
+        casco: ItemStack(itemId: 'vacio', quantity: 1),
+        hombreras: ItemStack(itemId: 'vacio', quantity: 1),
+        pechera: ItemStack(itemId: 'vacio', quantity: 1),
+        pantalones: ItemStack(itemId: 'vacio', quantity: 1),
       ),
 
       comando: '',

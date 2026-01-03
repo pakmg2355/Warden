@@ -24,10 +24,7 @@ Future<void> launchCombat({
     // ignore: use_build_context_synchronously
     context,
     MaterialPageRoute(
-      builder: (_) => CombateScreen(
-        controller: controller,
-        nodo: StoryNode(id: '', texto: '', botones: []),
-      ),
+      builder: (_) => CombateScreen(controller: controller, nodo: StoryNode()),
     ),
   );
 }

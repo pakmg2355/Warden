@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:warden/data/persistence/player_equipo.dart';
+import 'package:warden/game/entities/item.dart';
 import 'package:warden/game/entities/stats.dart';
 import 'package:warden/game/entities/enums.dart';
 import 'package:warden/data/persistence/player_progress.dart';
@@ -16,6 +17,7 @@ class PlayerProgressRepository {
     final prefs = await SharedPreferences.getInstance();
 
     if (!prefs.containsKey(_key)) {
+      prefs.clear();
       return _defaultProgress('Rodamon');
     }
 
@@ -42,7 +44,6 @@ class PlayerProgressRepository {
   // =========================
   static Future<void> reset(String nombre) async {
     final prefs = await SharedPreferences.getInstance();
-
     // Guardar nombre activo (si lo usas en otro sitio)
     await prefs.setString('current_player_name', nombre);
 
@@ -60,12 +61,8 @@ class PlayerProgressRepository {
       experiencia: 0,
       experienciaParaSubir: 100,
       faseActual: 1,
-      equipo: PlayerEquipo(
-        casco: null,
-        hombreras: null,
-        pechera: null,
-        pantalones: null,
-      ),
+      pantallaActual: 'inicio',
+      equipo: PlayerEquipo(),
       statsBase: StatsClass(
         ataque: 10,
         defensa: 5,

@@ -27,7 +27,17 @@ enum CombatResult { none, playerWin, rivalWin }
 
 enum ItemType { consumible, equipo }
 
-enum ItemClass { pocion, casco }
+enum ItemClass {
+  vacio,
+  pocion,
+  casco,
+  hombreras,
+  pechera,
+  pantalones,
+  botas,
+  guantes,
+  capa,
+}
 
 enum InstantEffectKind { vidaFlat, vidaPercent, powerFlat, powerPercent }
 

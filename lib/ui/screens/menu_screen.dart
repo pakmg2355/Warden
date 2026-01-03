@@ -132,7 +132,6 @@ class _MenuScreenState extends State<MenuScreen> {
                         MaterialPageRoute(builder: (_) => ConfigScreen()),
                       ).then((r) {
                         if (!mounted) return;
-                        setState(() {});
                       });
                     },
                   ),
@@ -146,7 +145,11 @@ class _MenuScreenState extends State<MenuScreen> {
                         MaterialPageRoute(builder: (_) => ResetScreen()),
                       ).then((res) {
                         if (!mounted) return;
-                        if (res) loadProgress();
+                        loadProgress().then((pro) {
+                          setState(() {
+                            _progress = pro;
+                          });
+                        });
                       });
                     },
                   ),
@@ -157,10 +160,16 @@ class _MenuScreenState extends State<MenuScreen> {
                     onTap: () async {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (_) => InventoryScreen()),
+                        MaterialPageRoute(
+                          builder: (_) => InventoryScreen(jugador: _progress!),
+                        ),
                       ).then((res) {
                         if (!mounted) return;
-                        if (res) loadInventory();
+                        loadProgress().then((pro) {
+                          setState(() {
+                            _progress = pro;
+                          });
+                        });
                       });
                     },
                   ),

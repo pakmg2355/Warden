@@ -1,9 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:warden/data/persistence/player_inventory.dart';
 import 'package:warden/game/controllers/game_controller.dart';
-import 'package:warden/game/controllers/util_combat.dart';
 import 'package:warden/game/entities/item.dart';
 import 'package:warden/game/entities/nodo.dart';
 import 'package:warden/game/systems/music_systems.dart';

@@ -8,5 +8,5 @@ const spearIcon = Icons.sports_mma;
 const shieldIcon = Icons.shield;
 const fistIcon = Icons.flash_on;
 
-const int maxQuickSlots = 10;
-const int maxInventorySlots = 25;
+const int maxQuickSlots = 8;
+const int maxInventorySlots = 24;

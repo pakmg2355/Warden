@@ -136,6 +136,12 @@ class PlayerInventoryStorage {
           const ItemStack(itemId: 'potVida', quantity: 10),
           const ItemStack(itemId: 'potPower', quantity: 10),
           const ItemStack(itemId: 'cascoTela', quantity: 1),
+          const ItemStack(itemId: 'hombrerasTela', quantity: 1),
+          const ItemStack(itemId: 'pecheraTela', quantity: 1),
+          const ItemStack(itemId: 'pantalonesTela', quantity: 1),
+          const ItemStack(itemId: 'botasTela', quantity: 1),
+          const ItemStack(itemId: 'guantesTela', quantity: 1),
+          const ItemStack(itemId: 'capaTela', quantity: 1),
         ], maxInventorySlots),
         quickSlots: _normalize([], maxQuickSlots),
       );
