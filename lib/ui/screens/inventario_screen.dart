@@ -5,13 +5,16 @@ import 'package:warden/data/persistence/player_progress.dart';
 import 'package:warden/data/persistence/repositorios.dart';
 import 'package:warden/game/controllers/util_combat.dart';
 import 'package:warden/game/entities/item.dart';
+import 'package:warden/game/entities/stats.dart';
 import 'package:warden/global/constants.dart';
 import 'package:warden/ui/widgets/componentes/column_stats_personaje.dart';
 import 'package:warden/ui/widgets/componentes/confirmacion.dart';
 import 'package:warden/ui/widgets/componentes/game_text.dart';
 import 'package:warden/ui/widgets/componentes/item_slot_equipo.dart';
 import 'package:warden/ui/widgets/componentes/item_slot_inventario.dart';
+import 'package:warden/ui/widgets/componentes/row_stats_personaje..dart';
 import 'package:warden/ui/widgets/contenedores/container_tengwar.dart';
+import 'package:warden/ui/widgets/rows/row_widget_stat.dart';
 
 class InventoryScreen extends StatefulWidget {
   final PlayerProgress jugador;
@@ -24,6 +27,8 @@ class InventoryScreen extends StatefulWidget {
 class _InventoryScreenState extends State<InventoryScreen> {
   PlayerInventory? _inventory;
   PlayerEquipo? _equipo;
+  StatsClass? _statsItem;
+  String? nombreItem;
   bool _loading = true;
 
   @override
@@ -31,6 +36,7 @@ class _InventoryScreenState extends State<InventoryScreen> {
     super.initState();
     _loadInventory();
     _equipo = widget.jugador.equipo;
+    nombreItem = '';
   }
 
   Future<void> _loadInventory() async {
@@ -81,36 +87,68 @@ class _InventoryScreenState extends State<InventoryScreen> {
                               stack: _equipo!.casco,
                               index: 1,
                               onPressed: () => _unequip('casco'),
+                              onPressedItem: () => setState(() {
+                                nombreItem = _equipo?.casco?.item.nombre ?? '';
+                                _statsItem = _equipo?.casco?.item.stats;
+                              }),
                             ),
                             ItemSlotEquipo(
                               stack: _equipo!.hombreras,
                               index: 1,
                               onPressed: () => _unequip('hombreras'),
+                              onPressedItem: () => setState(() {
+                                nombreItem =
+                                    _equipo?.hombreras?.item.nombre ?? '';
+                                _statsItem = _equipo?.hombreras?.item.stats;
+                              }),
                             ),
                             ItemSlotEquipo(
                               stack: _equipo!.pechera,
                               index: 1,
                               onPressed: () => _unequip('pechera'),
+                              onPressedItem: () => setState(() {
+                                nombreItem =
+                                    _equipo?.pechera?.item.nombre ?? '';
+                                _statsItem = _equipo?.pechera?.item.stats;
+                              }),
                             ),
                             ItemSlotEquipo(
                               stack: _equipo!.pantalones,
                               index: 1,
                               onPressed: () => _unequip('pantalones'),
+                              onPressedItem: () => setState(() {
+                                nombreItem =
+                                    _equipo?.pantalones?.item.nombre ?? '';
+                                _statsItem = _equipo?.pantalones?.item.stats;
+                              }),
                             ),
                             ItemSlotEquipo(
                               stack: _equipo!.botas,
                               index: 1,
                               onPressed: () => _unequip('botas'),
+                              onPressedItem: () => setState(() {
+                                nombreItem = _equipo?.botas?.item.nombre ?? '';
+                                _statsItem = _equipo?.botas?.item.stats;
+                              }),
                             ),
                             ItemSlotEquipo(
                               stack: _equipo!.guantes,
                               index: 1,
                               onPressed: () => _unequip('guantes'),
+                              onPressedItem: () => setState(() {
+                                nombreItem =
+                                    _equipo?.guantes?.item.nombre ?? '';
+                                _statsItem = _equipo?.guantes?.item.stats;
+                              }),
                             ),
                             ItemSlotEquipo(
                               stack: _equipo!.capa,
                               index: 1,
                               onPressed: () => _unequip('capa'),
+                              onPressedItem: () => setState(() {
+                                nombreItem = _equipo?.capa?.item.nombre ?? '';
+                                _statsItem = _equipo?.capa?.item.stats;
+                              }),
                             ),
                           ],
                         ),
@@ -147,11 +185,21 @@ class _InventoryScreenState extends State<InventoryScreen> {
                                   stack: _equipo!.arma,
                                   index: 1,
                                   onPressed: () => _unequip('arma'),
+                                  onPressedItem: () => setState(() {
+                                    nombreItem =
+                                        _equipo?.arma?.item.nombre ?? '';
+                                    _statsItem = _equipo?.arma?.item.stats;
+                                  }),
                                 ),
                                 ItemSlotEquipo(
                                   stack: _equipo!.escudo,
                                   index: 1,
                                   onPressed: () => _unequip('escudo'),
+                                  onPressedItem: () => setState(() {
+                                    nombreItem =
+                                        _equipo?.escudo?.item.nombre ?? '';
+                                    _statsItem = _equipo?.escudo?.item.stats;
+                                  }),
                                 ),
                               ],
                             ),
@@ -169,36 +217,70 @@ class _InventoryScreenState extends State<InventoryScreen> {
                               stack: _equipo!.pendiente1,
                               index: 1,
                               onPressed: () => _unequip('pendiente1'),
+                              onPressedItem: () => setState(() {
+                                nombreItem =
+                                    _equipo?.pendiente1?.item.nombre ?? '';
+                                _statsItem = _equipo?.pendiente1?.item.stats;
+                              }),
                             ),
                             ItemSlotEquipo(
                               stack: _equipo!.pendiente2,
                               index: 1,
                               onPressed: () => _unequip('pendiente2'),
+                              onPressedItem: () => setState(() {
+                                nombreItem =
+                                    _equipo?.pendiente2?.item.nombre ?? '';
+                                _statsItem = _equipo?.pendiente2?.item.stats;
+                              }),
                             ),
                             ItemSlotEquipo(
                               stack: _equipo!.anillo1,
                               index: 1,
                               onPressed: () => _unequip('anillo1'),
+                              onPressedItem: () => setState(() {
+                                nombreItem =
+                                    _equipo?.anillo1?.item.nombre ?? '';
+                                _statsItem = _equipo?.anillo1?.item.stats;
+                              }),
                             ),
                             ItemSlotEquipo(
                               stack: _equipo!.anillo2,
                               index: 1,
                               onPressed: () => _unequip('anillo2'),
+                              onPressedItem: () => setState(() {
+                                nombreItem =
+                                    _equipo?.anillo2?.item.nombre ?? '';
+                                _statsItem = _equipo?.anillo2?.item.stats;
+                              }),
                             ),
                             ItemSlotEquipo(
                               stack: _equipo!.collar,
                               index: 1,
                               onPressed: () => _unequip('collar'),
+                              onPressedItem: () => setState(() {
+                                nombreItem = _equipo?.collar?.item.nombre ?? '';
+                                _statsItem = _equipo?.collar?.item.stats;
+                              }),
                             ),
                             ItemSlotEquipo(
                               stack: _equipo!.amuleto,
                               index: 1,
                               onPressed: () => _unequip('amuleto'),
+                              onPressedItem: () => setState(() {
+                                nombreItem =
+                                    _equipo?.amuleto?.item.nombre ?? '';
+                                _statsItem = _equipo?.amuleto?.item.stats;
+                              }),
                             ),
                             ItemSlotEquipo(
                               stack: _equipo!.hebilla,
                               index: 1,
                               onPressed: () => _unequip('hebilla'),
+                              onPressedItem: () => setState(() {
+                                nombreItem =
+                                    _equipo?.hebilla?.item.nombre ?? '';
+                                _statsItem = _equipo?.hebilla?.item.stats;
+                              }),
                             ),
                           ],
                         ),
@@ -247,6 +329,13 @@ class _InventoryScreenState extends State<InventoryScreen> {
                     Expanded(
                       child: SingleChildScrollView(child: _buildInventory()),
                     ),
+
+                    (nombreItem ?? '') != ''
+                        ? RowStatsPersonaje(
+                            stats: _statsItem,
+                            nombreItem: nombreItem,
+                          )
+                        : SizedBox.shrink(),
                   ],
                 ),
               ),
@@ -450,6 +539,12 @@ class _InventoryScreenState extends State<InventoryScreen> {
           onItemDropped: (dragged) {
             _moveOrSwapItem(dragged: dragged, toQuickSlot: true, toIndex: i);
           },
+          onItemMoved: (dragged) {
+            setState(() {
+              nombreItem = dragged.stack.item.nombre;
+              _statsItem = dragged.stack.item.stats;
+            });
+          },
         );
       }),
     );
@@ -472,6 +567,12 @@ class _InventoryScreenState extends State<InventoryScreen> {
           isQuickSlot: false,
           onItemDropped: (dragged) {
             _moveOrSwapItem(dragged: dragged, toQuickSlot: false, toIndex: i);
+          },
+          onItemMoved: (dragged) {
+            setState(() {
+              nombreItem = dragged.stack.item.nombre;
+              _statsItem = dragged.stack.item.stats;
+            });
           },
         );
       }),

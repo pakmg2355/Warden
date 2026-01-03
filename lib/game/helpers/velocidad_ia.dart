@@ -4,7 +4,7 @@ Duration calculateIaTickRate({required PlayerClass rival}) {
   final level = rival.nivel;
 
   if (level <= 3) {
-    return const Duration(milliseconds: 1200);
+    return const Duration(milliseconds: 1000);
   } else if (level <= 6) {
     return const Duration(milliseconds: 900);
   } else if (level <= 10) {

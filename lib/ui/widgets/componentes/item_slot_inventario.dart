@@ -19,6 +19,7 @@ class ItemSlotInventario extends StatefulWidget {
   final bool isQuickSlot;
   final int index;
   final void Function(DraggedItem dragged)? onItemDropped;
+  final void Function(DraggedItem dragged)? onItemMoved;
 
   const ItemSlotInventario({
     super.key,
@@ -26,6 +27,7 @@ class ItemSlotInventario extends StatefulWidget {
     required this.index,
     required this.isQuickSlot,
     this.onItemDropped,
+    this.onItemMoved,
   });
 
   @override
@@ -38,6 +40,9 @@ class _ItemSlotInventarioState extends State<ItemSlotInventario> {
     return DragTarget<DraggedItem>(
       onAcceptWithDetails: (details) {
         widget.onItemDropped?.call(details.data);
+      },
+      onMove: (details) {
+        widget.onItemMoved?.call(details.data);
       },
       builder: (context, candidate, rejected) {
         if (widget.stack == null) {

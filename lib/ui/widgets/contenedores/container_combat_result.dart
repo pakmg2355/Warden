@@ -150,6 +150,7 @@ class _CombatRewardContainerState extends State<CombatRewardContainer> {
           children: [
             iconDataForItemClass(item.clase.name, item.color, size: 40),
             GameText.text(t('item.${item.id}.descripcion')),
+            GameText.text('Lv.${item.minLevel.toString()}'),
             GameText.text(item.stats.toString()),
           ],
         ),

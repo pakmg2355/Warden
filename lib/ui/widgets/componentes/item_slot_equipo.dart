@@ -21,12 +21,14 @@ class ItemSlotEquipo extends StatefulWidget {
   final ItemStack? stack;
   final int index;
   final VoidCallback onPressed;
+  final VoidCallback onPressedItem;
 
   const ItemSlotEquipo({
     super.key,
     required this.stack,
     required this.index,
     required this.onPressed,
+    required this.onPressedItem,
   });
 
   @override
@@ -50,7 +52,15 @@ class _ItemSlotEquipoState extends State<ItemSlotEquipo> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            iconDataForItemClass(item!.item.clase.name, item.item.color),
+            InkWell(
+              onTap: () {
+                widget.onPressedItem();
+              },
+              child: iconDataForItemClass(
+                item!.item.clase.name,
+                item.item.color,
+              ),
+            ),
             Padding(padding: EdgeInsetsGeometry.only(right: 5)),
             item.item.clase.name == 'vacio'
                 ? SizedBox.shrink()

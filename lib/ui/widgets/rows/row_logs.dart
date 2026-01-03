@@ -19,13 +19,11 @@ class CombatLogView extends StatelessWidget {
         color: const Color.fromARGB(30, 107, 107, 107),
         border: const Border(top: BorderSide(color: Colors.black12)),
       ),
-      child: SingleChildScrollView(
-        child: Wrap(
-          alignment: WrapAlignment.start,
-          spacing: 6,
-          runSpacing: 6,
-          children: entries.map(_buildBubble).toList(),
-        ),
+      child: Wrap(
+        alignment: WrapAlignment.start,
+        spacing: 6,
+        runSpacing: 6,
+        children: entries.map(_buildBubble).toList(),
       ),
     );
   }

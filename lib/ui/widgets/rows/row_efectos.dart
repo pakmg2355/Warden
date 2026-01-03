@@ -32,7 +32,7 @@ class EfectosRow extends StatelessWidget {
         alignment: Alignment.center,
         children: [
           /// ICONO
-          Icon(iconDataForEffect(e.type), size: 18, color: baseColor),
+          Icon(iconDataForEffect(e.type), size: 25, color: baseColor),
 
           /// PROGRESO CIRCULAR
           Positioned.fill(
@@ -56,15 +56,19 @@ class EfectosRow extends StatelessWidget {
 
     return Container(
       padding: const EdgeInsets.all(6),
+      alignment: Alignment.topCenter,
       decoration: BoxDecoration(
-        color: const Color.fromARGB(30, 255, 255, 255), // fondo muy suave
+        color: const Color.fromARGB(30, 255, 255, 255),
         borderRadius: BorderRadius.circular(8),
         border: Border.all(color: Colors.black.withAlpha(40)),
       ),
-      child: Wrap(
-        spacing: 6,
-        runSpacing: 6,
-        children: efectos.map(_buildEffectBadge).toList(),
+      child: Align(
+        alignment: AlignmentGeometry.topLeft,
+        child: Wrap(
+          spacing: 6,
+          runSpacing: 6,
+          children: efectos.map(_buildEffectBadge).toList(),
+        ),
       ),
     );
   }
