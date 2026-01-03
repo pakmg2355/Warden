@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/semantics.dart';
 import 'package:warden/data/persistence/player_inventory.dart';
 import 'package:warden/data/persistence/repositorios.dart';
 import 'package:warden/game/controllers/util_combat.dart';
