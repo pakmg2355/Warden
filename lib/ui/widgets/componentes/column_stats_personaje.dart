@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:warden/data/persistence/player_equipo.dart';
 import 'package:warden/game/entities/stats.dart';
 import 'package:warden/game/helpers/colores.dart';
 import 'package:warden/game/helpers/iconos.dart';

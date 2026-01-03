@@ -5,8 +5,6 @@ import 'package:warden/data/persistence/player_progress.dart';
 import 'package:warden/data/persistence/repositorios.dart';
 import 'package:warden/game/controllers/util_combat.dart';
 import 'package:warden/game/entities/item.dart';
-import 'package:warden/game/entities/player.dart';
-import 'package:warden/game/entities/stats.dart';
 import 'package:warden/global/constants.dart';
 import 'package:warden/ui/widgets/componentes/column_stats_personaje.dart';
 import 'package:warden/ui/widgets/componentes/confirmacion.dart';
