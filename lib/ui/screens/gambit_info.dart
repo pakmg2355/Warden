@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:warden/game/gambits_repository/gambits_repository.dart';
+import 'package:warden/global/constants.dart';
 import 'package:warden/ui/widgets/contenedores/container_tengwar.dart';
 import 'package:warden/ui/widgets/componentes/gambitInfoCard.dart';
 
@@ -11,7 +12,7 @@ class GambitInfoScreen extends StatelessWidget {
     final combos = listadoCombos;
 
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: colorFondo,
 
       body: Center(
         child: ConstrainedBox(

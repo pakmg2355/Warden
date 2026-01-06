@@ -4,6 +4,7 @@ import 'package:warden/data/persistence/player_progress.dart';
 import 'package:warden/game/helpers/combat_launch.dart';
 import 'package:warden/game/systems/music_systems.dart';
 import 'package:warden/game/textos/diccionario.dart';
+import 'package:warden/global/constants.dart';
 import 'package:warden/global/variables.dart';
 import 'package:warden/ui/screens/about_screen.dart';
 import 'package:warden/ui/screens/config_screen.dart';
@@ -60,13 +61,13 @@ class _MenuScreenState extends State<MenuScreen> {
   Widget build(BuildContext context) {
     if (_progress == null) {
       return const Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: colorFondo,
         body: Center(child: CircularProgressIndicator()),
       );
     }
 
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: colorFondo,
       body: Center(
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 600),
@@ -130,8 +131,10 @@ class _MenuScreenState extends State<MenuScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (_) => ConfigScreen()),
-                      ).then((r) {
+                      ).then((r) async {
                         if (!mounted) return;
+                        _progress = await loadProgress();
+                        setState(() {});
                       });
                     },
                   ),

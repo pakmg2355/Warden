@@ -1,3 +1,3 @@
 call git add .
-call git commit -m "Equipo jugador con stats en juego y equipar/desequitar también funcionando"
+call git commit -m "Ticks ia y effects solo, no playertick. Resuelto inmunidad fear y daze. Dificultad ia modificada en pruebas."
 call git push

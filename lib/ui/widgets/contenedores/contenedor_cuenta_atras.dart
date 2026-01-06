@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:warden/global/constants.dart';
 
 class ContenedorCuenta extends StatefulWidget {
   final int cuenta;
@@ -47,7 +48,7 @@ class _ContenedorCuentaState extends State<ContenedorCuenta>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black.withAlpha(25),
+      backgroundColor: colorFondo,
       body: Center(
         child: ScaleTransition(
           scale: _scale,

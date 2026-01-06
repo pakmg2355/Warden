@@ -7,7 +7,7 @@ import 'package:warden/global/constants.dart';
 final itemsEquipoCascos = {
   'cascoCueroBree': ItemDefinition(
     id: 'cascoCueroBree',
-    nombre: 'casco de Cuero de Bree',
+    nombre: t('item.cascoCueroBree.nombre'),
     descripcion: t('item.cascoCueroBree.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.casco,
@@ -23,7 +23,7 @@ final itemsEquipoCascos = {
   ),
   'cascoCueroElfico': ItemDefinition(
     id: 'cascoCueroElfico',
-    nombre: 'casco de Cuero de Elfico',
+    nombre: t('item.cascoCueroElfico.nombre'),
     descripcion: t('item.cascoCueroElfico.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.casco,
@@ -39,7 +39,7 @@ final itemsEquipoCascos = {
   ),
   'cascoHierroElfico': ItemDefinition(
     id: 'cascoHierroElfico',
-    nombre: 'casco de Hierro Elfico',
+    nombre: t('item.cascoHierroElfico.nombre'),
     descripcion: t('item.cascoHierroElfico.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.casco,
@@ -55,7 +55,7 @@ final itemsEquipoCascos = {
   ),
   'cascoHierroEnano': ItemDefinition(
     id: 'cascoHierroEnano',
-    nombre: 'casco de Hiero Enano',
+    nombre: t('item.cascoHierroEnano.nombre'),
     descripcion: t('item.cascoHierroEnano.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.casco,
@@ -71,7 +71,7 @@ final itemsEquipoCascos = {
   ),
   'cascoAceroGondor': ItemDefinition(
     id: 'cascoAceroGondor',
-    nombre: 'casco de Acero de Gondor',
+    nombre: t('item.cascoAceroGondor.nombre'),
     descripcion: t('item.cascoAceroGondor.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.casco,
@@ -87,7 +87,7 @@ final itemsEquipoCascos = {
   ),
   'cascoMithril': ItemDefinition(
     id: 'cascoMithril',
-    nombre: 'casco de Hierro con Mithril',
+    nombre: t('item.cascoMithril.nombre'),
     descripcion: t('item.cascoMithril.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.casco,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:warden/data/persistence/repositorios.dart';
 import 'package:warden/game/entities/enums.dart';
 import 'package:warden/game/textos/diccionario.dart';
+import 'package:warden/global/constants.dart';
 import 'package:warden/main.dart';
 import 'package:warden/ui/widgets/botones/boton_menu.dart';
 import 'package:warden/ui/widgets/contenedores/container_tengwar.dart';
@@ -45,7 +46,7 @@ class _ConfigScreenState extends State<ConfigScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: colorFondo,
       body: Center(
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 600),

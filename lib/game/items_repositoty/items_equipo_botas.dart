@@ -7,7 +7,7 @@ import 'package:warden/global/constants.dart';
 final itemsEquipoBotas = {
   'botasCueroBree': ItemDefinition(
     id: 'botasCueroBree',
-    nombre: 'botas de Cuero de Bree',
+    nombre: t('item.botasCueroBree.nombre'),
     descripcion: t('item.botasCueroBree.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.botas,
@@ -23,7 +23,7 @@ final itemsEquipoBotas = {
   ),
   'botasCueroElfico': ItemDefinition(
     id: 'botasCueroElfico',
-    nombre: 'botas de Cuero de Elfico',
+    nombre: t('item.botasCueroElfico.nombre'),
     descripcion: t('item.botasCueroElfico.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.botas,
@@ -39,7 +39,7 @@ final itemsEquipoBotas = {
   ),
   'botasMithril': ItemDefinition(
     id: 'botasMithril',
-    nombre: 'botas con incrustaciones de Mithril',
+    nombre: t('item.botasMithril.nombre'),
     descripcion: t('item.botasMithril.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.botas,

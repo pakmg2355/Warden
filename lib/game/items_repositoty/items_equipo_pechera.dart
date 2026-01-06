@@ -7,7 +7,7 @@ import 'package:warden/global/constants.dart';
 final itemsEquipoPecheras = {
   'pecheraCueroBree': ItemDefinition(
     id: 'pecheraCueroBree',
-    nombre: 'pechera de Cuero de Bree',
+    nombre: t('item.pecheraCueroBree.nombre'),
     descripcion: t('item.pecheraCueroBree.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.pechera,
@@ -23,7 +23,7 @@ final itemsEquipoPecheras = {
   ),
   'pecheraCueroElfico': ItemDefinition(
     id: 'pecheraCueroElfico',
-    nombre: 'pechera de Cuero de Elfico',
+    nombre: t('item.pecheraCueroElfico.nombre'),
     descripcion: t('item.pecheraCueroElfico.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.pechera,
@@ -39,7 +39,7 @@ final itemsEquipoPecheras = {
   ),
   'pecheraHierroElfico': ItemDefinition(
     id: 'pecheraHierroElfico',
-    nombre: 'pechera de Hierro Elfico',
+    nombre: t('item.pecheraHierroElfico.nombre'),
     descripcion: t('item.pecheraHierroElfico.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.pechera,
@@ -55,7 +55,7 @@ final itemsEquipoPecheras = {
   ),
   'pecheraHierroEnano': ItemDefinition(
     id: 'pecheraHierroEnano',
-    nombre: 'pechera de Hiero Enano',
+    nombre: t('item.pecheraHierroEnano.nombre'),
     descripcion: t('item.pecheraHierroEnano.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.pechera,
@@ -71,7 +71,7 @@ final itemsEquipoPecheras = {
   ),
   'pecheraAceroGondor': ItemDefinition(
     id: 'pecheraAceroGondor',
-    nombre: 'pechera de Acero de Gondor',
+    nombre: t('item.pecheraAceroGondor.nombre'),
     descripcion: t('item.pecheraAceroGondor.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.pechera,
@@ -87,7 +87,7 @@ final itemsEquipoPecheras = {
   ),
   'pecheraMithril': ItemDefinition(
     id: 'pecheraMithril',
-    nombre: 'pechera de Hierro con Mithril',
+    nombre: t('item.pecheraMithril.nombre'),
     descripcion: t('item.pecheraMithril.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.pechera,

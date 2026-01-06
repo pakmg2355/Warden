@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:warden/game/entities/item.dart';
+import 'package:warden/global/constants.dart';
 
 class PlayerInventory {
   final List<ItemStack?> inventory;
@@ -96,9 +97,6 @@ class _Agg {
 
 class PlayerInventoryStorage {
   static const _key = 'playerinventory';
-
-  static const int maxInventorySlots = 100;
-  static const int maxQuickSlots = 10;
 
   static List<ItemStack?> _normalize(List<ItemStack?> source, int size) {
     return List<ItemStack?>.generate(

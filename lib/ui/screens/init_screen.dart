@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:warden/game/textos/diccionario.dart';
+import 'package:warden/global/constants.dart';
 import 'package:warden/ui/screens/menu_screen.dart';
 import 'package:warden/ui/widgets/contenedores/container_tengwar.dart';
 import 'package:warden/ui/widgets/componentes/game_text.dart';
@@ -10,7 +11,7 @@ class InitScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: colorFondo,
       body: InkWell(
         onTap: () {
           Navigator.pushAndRemoveUntil(

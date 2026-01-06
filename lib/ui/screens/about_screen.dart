@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:warden/game/textos/diccionario.dart';
+import 'package:warden/global/constants.dart';
 import 'package:warden/ui/widgets/botones/boton_menu.dart';
 import 'package:warden/ui/widgets/contenedores/container_tengwar.dart';
 import 'package:warden/ui/widgets/componentes/game_text.dart';
@@ -16,7 +17,7 @@ class _AboutScreenState extends State<AboutScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: colorFondo,
       body: Center(
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 600),
@@ -45,10 +46,10 @@ class _AboutScreenState extends State<AboutScreen> {
                         GameText.text(t('texto.about.info')),
                         const SizedBox(height: 12),
                         Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             MenuButton(
-                              text: t('boton.cancelar'),
+                              text: t('boton.aceptar'),
                               icon: Icons.cancel,
                               onTap: () async {
                                 Navigator.pop(context, true);

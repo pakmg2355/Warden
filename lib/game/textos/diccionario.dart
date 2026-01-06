@@ -3,6 +3,7 @@ import 'package:warden/main.dart';
 import '../entities/enums.dart';
 
 const es = {
+  'experiencia': 'Experiéncia',
   'combo.spear.t1.id': 'SPT1',
   'combo.spear.t1.name': 'Golpe de Lanza tier 1',
   'combo.spear.t1.desc':
@@ -138,12 +139,147 @@ const es = {
   'item.potVida.descripcion': 'Recupera el 30% de la vida máxima al instante',
   'item.potPower.descripcion': 'Recupera el 30% del power máximo al instante',
 
-  'item.cascoCueroBree.descripcion': 'Casco de cuero de Bree.',
-  'item.hombrerasCueroBree.descripcion': 'Hombreras de cuero de Bree.',
-  'item.pecheraCueroBree.descripcion': 'Pechera de cuero de Bree.',
-  'item.pantalonesCueroBree.descripcion': 'Pantalones de cuero de Bree.',
-  'item.botasCueroBree.descripcion': 'Botas de cuero de Bree.',
-  'item.guantesCueroBree.descripcion': 'Guantes de cuero de Bree.',
+  'item.pecheraCueroBree.nombre': 'Pechera de Cuero de Bree',
+  'item.pecheraCueroBree.descripcion':
+      'Armadura ligera de cuero curtido en Bree, sencilla pero resistente.',
+  'item.pecheraCueroElfico.nombre': 'Pechera de Cuero Élfico',
+  'item.pecheraCueroElfico.descripcion':
+      'Cuero élfico flexible y silencioso, forjado con artes antiguas.',
+  'item.pecheraHierroElfico.nombre': 'Pechera de Hierro Élfico',
+  'item.pecheraHierroElfico.descripcion':
+      'Hierro trabajado por elfos, ligero y sorprendentemente resistente.',
+  'item.pecheraHierroEnano.nombre': 'Pechera de Hierro Enano',
+  'item.pecheraHierroEnano.descripcion':
+      'Armadura robusta forjada en las montañas por manos enanas.',
+  'item.pecheraAceroGondor.nombre': 'Pechera de Acero de Gondor',
+  'item.pecheraAceroGondor.descripcion':
+      'Acero templado de Gondor, símbolo de disciplina y honor.',
+  'item.pecheraMithril.nombre': 'Pechera de Mithril',
+  'item.pecheraMithril.descripcion':
+      'Forjada en mithril puro, ligera como una pluma y dura como el acero.',
+
+  'item.pantalonesCueroBree.nombre': 'Pantalones de Cuero de Bree',
+  'item.pantalonesCueroBree.descripcion':
+      'Protección básica de cuero, cómoda para largos viajes.',
+  'item.pantalonesCueroElfico.nombre': 'Pantalones de Cuero Élfico',
+  'item.pantalonesCueroElfico.descripcion':
+      'Cuero refinado que permite moverse sin hacer ruido.',
+  'item.pantalonesHierroElfico.nombre': 'Pantalones de Hierro Élfico',
+  'item.pantalonesHierroElfico.descripcion':
+      'Placas élficas ligeras que protegen sin entorpecer.',
+  'item.pantalonesHierroEnano.nombre': 'Pantalones de Hierro Enano',
+  'item.pantalonesHierroEnano.descripcion':
+      'Hierro grueso diseñado para resistir golpes directos.',
+  'item.pantalonesAceroGondor.nombre': 'Pantalones de Acero de Gondor',
+  'item.pantalonesAceroGondor.descripcion':
+      'Protección militar estándar de los ejércitos de Gondor.',
+  'item.pantalonesMithril.nombre': 'Pantalones de Mithril',
+  'item.pantalonesMithril.descripcion':
+      'Mithril entrelazado que ofrece protección legendaria.',
+
+  'item.hombrerasCueroBree.nombre': 'Hombreras de Cuero de Bree',
+  'item.hombrerasCueroBree.descripcion':
+      'Hombreras simples usadas por guardias y viajeros.',
+  'item.hombrerasCueroElfico.nombre': 'Hombreras de Cuero Élfico',
+  'item.hombrerasCueroElfico.descripcion':
+      'Elegantes hombreras élficas de gran flexibilidad.',
+  'item.hombrerasHierroElfico.nombre': 'Hombreras de Hierro Élfico',
+  'item.hombrerasHierroElfico.descripcion':
+      'Hierro élfico moldeado para desviar ataques.',
+  'item.hombrerasHierroEnano.nombre': 'Hombreras de Hierro Enano',
+  'item.hombrerasHierroEnano.descripcion':
+      'Placas pesadas diseñadas para resistir embestidas.',
+  'item.hombrerasAceroGondor.nombre': 'Hombreras de Acero de Gondor',
+  'item.hombrerasAceroGondor.descripcion':
+      'Protección firme usada por los soldados veteranos.',
+  'item.hombrerasMithril.nombre': 'Hombreras de Mithril',
+  'item.hombrerasMithril.descripcion':
+      'Mithril pulido que combina defensa y ligereza.',
+
+  'item.guantesCueroBree.nombre': 'Guantes de Cuero de Bree',
+  'item.guantesCueroBree.descripcion':
+      'Guantes sencillos que protegen las manos del desgaste.',
+  'item.guantesCueroElfico.nombre': 'Guantes de Cuero Élfico',
+  'item.guantesCueroElfico.descripcion':
+      'Guantes suaves que mejoran la precisión.',
+  'item.guantesMithril.nombre': 'Guantes de Mithril',
+  'item.guantesMithril.descripcion':
+      'Guantes legendarios que no sacrifican movilidad.',
+
+  'item.escudoMaderaVieja.nombre': 'Escudo de Madera Vieja',
+  'item.escudoMaderaVieja.descripcion':
+      'Escudo rudimentario tallado en madera endurecida.',
+  'item.escudoHierroElfico.nombre': 'Escudo de Hierro Élfico',
+  'item.escudoHierroElfico.descripcion':
+      'Escudo equilibrado, resistente y elegante.',
+  'item.escudoHierroEnano.nombre': 'Escudo de Hierro Enano',
+  'item.escudoHierroEnano.descripcion':
+      'Escudo macizo capaz de detener golpes devastadores.',
+  'item.escudoAceroGondor.nombre': 'Escudo de Acero de Gondor',
+  'item.escudoAceroGondor.descripcion':
+      'Escudo militar con el emblema de Gondor.',
+  'item.escudoMithril.nombre': 'Escudo de Mithril',
+  'item.escudoMithril.descripcion': 'Escudo legendario casi indestructible.',
+
+  'item.espadaMaderaVieja.nombre': 'Espada de Madera Vieja',
+  'item.espadaMaderaVieja.descripcion':
+      'Arma de entrenamiento o último recurso.',
+  'item.espadaHierroElfico.nombre': 'Espada de Hierro Élfico',
+  'item.espadaHierroElfico.descripcion':
+      'Hoja ligera y afilada forjada por elfos.',
+  'item.espadaHierroEnano.nombre': 'Espada de Hierro Enano',
+  'item.espadaHierroEnano.descripcion':
+      'Espada robusta diseñada para golpes contundentes.',
+  'item.espadaAceroGondor.nombre': 'Espada de Acero de Gondor',
+  'item.espadaAceroGondor.descripcion':
+      'Arma noble usada por los defensores del reino.',
+  'item.espadaMithril.nombre': 'Espada de Mithril',
+  'item.espadaMithril.descripcion': 'Hoja legendaria de filo eterno.',
+
+  'item.cascoCueroBree.nombre': 'Casco de Cuero de Bree',
+  'item.cascoCueroBree.descripcion': 'Casco ligero para protección básica.',
+  'item.cascoCueroElfico.nombre': 'Casco de Cuero Élfico',
+  'item.cascoCueroElfico.descripcion':
+      'Casco discreto que no limita la visión.',
+  'item.cascoHierroElfico.nombre': 'Casco de Hierro Élfico',
+  'item.cascoHierroElfico.descripcion':
+      'Protección refinada con diseño élfico.',
+  'item.cascoHierroEnano.nombre': 'Casco de Hierro Enano',
+  'item.cascoHierroEnano.descripcion':
+      'Casco pesado hecho para resistir impactos.',
+  'item.cascoAceroGondor.nombre': 'Casco de Acero de Gondor',
+  'item.cascoAceroGondor.descripcion': 'Casco oficial del ejército de Gondor.',
+  'item.cascoMithril.nombre': 'Casco de Mithril',
+  'item.cascoMithril.descripcion':
+      'Casco legendario de resistencia inigualable.',
+
+  'item.capaCueroBree.nombre': 'Capa de Bree',
+  'item.capaCueroBree.descripcion':
+      'Capa sencilla que protege del frío y la lluvia.',
+  'item.capaCueroElfico.nombre': 'Capa Élfica',
+  'item.capaCueroElfico.descripcion':
+      'Capa élfica que ayuda a pasar desapercibido.',
+  'item.capaMithril.nombre': 'Capa de Mithril',
+  'item.capaMithril.descripcion': 'Capa rara reforzada con hilos de mithril.',
+
+  'item.botasCueroBree.nombre': 'Botas de Cuero de Bree',
+  'item.botasCueroBree.descripcion': 'Botas resistentes para caminos largos.',
+  'item.botasCueroElfico.nombre': 'Botas de Cuero Élfico',
+  'item.botasCueroElfico.descripcion': 'Botas silenciosas y ligeras.',
+  'item.botasMithril.nombre': 'Botas de Mithril',
+  'item.botasMithril.descripcion': 'Botas legendarias que no pesan al caminar.',
+
+  'item.anilloHumanoBree.nombre': 'Anillo de Bree',
+  'item.anilloHumanoBree.descripcion':
+      'Anillo sencillo usado por los hombres de Bree.',
+  'item.anilloElfico.nombre': 'Anillo Élfico',
+  'item.anilloElfico.descripcion':
+      'Anillo antiguo imbuido de sabiduría élfica.',
+  'item.anilloEnano.nombre': 'Anillo Enano',
+  'item.anilloEnano.descripcion': 'Anillo pesado símbolo de riqueza y poder.',
+  'item.anilloOscuro.nombre': 'Anillo Oscuro',
+  'item.anilloOscuro.descripcion':
+      'Un anillo de poder prohibido que corrompe a su portador.',
 
   'texto.about.info':
       'Warden es un juego de combate estratégico por turnos con una fuerte inspiración en la fantasía oscura.\n\n'
@@ -156,59 +292,65 @@ const es = {
       'https://github.com/pakmg2355/Warden\n\n'
       'Cualquier mejora y comentario será bienvenido\n\n',
 
-  "enemigo.nivel.1": "Snaga el Rastrero",
-  "enemigo.nivel.2": "Gorûk Diente Roto",
-  "enemigo.nivel.3": "Muzglob el Flaco",
-  "enemigo.nivel.4": "Rikash Ojo Torcido",
-  "enemigo.nivel.5": "Explorador Orco de Mordor",
-  "enemigo.nivel.6": "Grishnákh el Acechador",
-  "enemigo.nivel.7": "Uglúk del Polvo",
-  "enemigo.nivel.8": "Zarbag el Susurrante",
-  "enemigo.nivel.9": "Snoruk Rompehuesos",
-  "enemigo.nivel.10": "Guerrero Orco del Este",
-  "enemigo.nivel.11": "Urak el Sangriento",
-  "enemigo.nivel.12": "Mauhúr el Rápido",
-  "enemigo.nivel.13": "Lugdash Martillo Negro",
-  "enemigo.nivel.14": "Krimp el Desollador",
-  "enemigo.nivel.15": "Uruk-hai del Abismo",
-  "enemigo.nivel.16": "Boldog Hijo del Fuego",
-  "enemigo.nivel.17": "Shagrat el Cruel",
-  "enemigo.nivel.18": "Horkûn Puño de Hierro",
-  "enemigo.nivel.19": "Capitán Negro de Mordor",
-  "enemigo.nivel.20": "Capitán Uruk de Isengard",
-  "enemigo.nivel.21": "Gorbag Señor de la Brecha",
-  "enemigo.nivel.22": "Thrakûr el Dominador",
-  "enemigo.nivel.23": "Uruk Campeón del Foso",
-  "enemigo.nivel.24": "Morzag el Inquebrantable",
-  "enemigo.nivel.25": "Uruk-hai Veterano",
-  "enemigo.nivel.26": "Zugdûsh Portador de Cicatrices",
-  "enemigo.nivel.27": "Rakthûr el Aullador",
-  "enemigo.nivel.28": "Kraghûl el Carnicero",
-  "enemigo.nivel.29": "Guardián de la Torre Negra",
-  "enemigo.nivel.30": "Troll de las Colinas",
-  "enemigo.nivel.31": "Troll Rompemurallas",
-  "enemigo.nivel.32": "Olog-hai del Norte",
-  "enemigo.nivel.33": "Troll Encadenado",
-  "enemigo.nivel.34": "Ghash el Triturador",
-  "enemigo.nivel.35": "Bestia de Gorgoroth",
-  "enemigo.nivel.36": "Troll del Foso Negro",
-  "enemigo.nivel.37": "Olog-hai Veterano",
-  "enemigo.nivel.38": "Ur-Dur el Colosal",
-  "enemigo.nivel.39": "Guardián Troll",
-  "enemigo.nivel.40": "Campeón de Mordor",
-  "enemigo.nivel.41": "Sombra del Paso Alto",
-  "enemigo.nivel.42": "Espectro del Anillo",
-  "enemigo.nivel.43": "Acechador de Minas Morgul",
-  "enemigo.nivel.44": "Servidor de la Oscuridad",
-  "enemigo.nivel.45": "Guardián del Ojo",
-  "enemigo.nivel.46": "Heraldo de la Noche",
-  "enemigo.nivel.47": "Espíritu de Guerra",
-  "enemigo.nivel.48": "Sombra Antigua",
-  "enemigo.nivel.49": "Teniente de Morgul",
-  "enemigo.nivel.50": "Campeón del Ojo",
+  'enemigo.nivel.1': 'Snag-Kar',
+  'enemigo.nivel.2': 'Gor-Muk',
+  'enemigo.nivel.3': 'Ush-Nak',
+  'enemigo.nivel.4': 'Rak-Zul',
+  'enemigo.nivel.5': 'Mor-Gash',
+  'enemigo.nivel.6': 'Kru-Nok',
+  'enemigo.nivel.7': 'Zar-Gul',
+  'enemigo.nivel.8': 'Thak-Mor',
+  'enemigo.nivel.9': 'Ugr-Nesh',
+  'enemigo.nivel.10': 'Bog-Rak',
+
+  'enemigo.nivel.11': 'Ur-Mak',
+  'enemigo.nivel.12': 'Dru-Gor',
+  'enemigo.nivel.13': 'Naz-Kur',
+  'enemigo.nivel.14': 'Krag-Mul',
+  'enemigo.nivel.15': 'Uruk-Zhar',
+  'enemigo.nivel.16': 'Bol-Drak',
+  'enemigo.nivel.17': 'Sha-Gor',
+  'enemigo.nivel.18': 'Hor-Kun',
+  'enemigo.nivel.19': 'Kap-Zul',
+  'enemigo.nivel.20': 'Is-Mor',
+
+  'enemigo.nivel.21': 'Gor-Bak',
+  'enemigo.nivel.22': 'Thra-Kur',
+  'enemigo.nivel.23': 'Ur-Dash',
+  'enemigo.nivel.24': 'Mor-Zag',
+  'enemigo.nivel.25': 'Uruk-Khan',
+  'enemigo.nivel.26': 'Zug-Dor',
+  'enemigo.nivel.27': 'Rak-Thar',
+  'enemigo.nivel.28': 'Krag-Hul',
+  'enemigo.nivel.29': 'Kui-Vor',
+  'enemigo.nivel.30': 'Lot-Ner',
+
+  'enemigo.nivel.31': 'Kra-Shin',
+  'enemigo.nivel.32': 'Olog-Tui',
+  'enemigo.nivel.33': 'Troll-Kai',
+  'enemigo.nivel.34': 'Gash-Nor',
+  'enemigo.nivel.35': 'Best-Rai',
+  'enemigo.nivel.36': 'Tull-Hai',
+  'enemigo.nivel.37': 'Olog-Ven',
+  'enemigo.nivel.38': 'Ur-Dur',
+  'enemigo.nivel.39': 'Troll-War',
+  'enemigo.nivel.40': 'Mor-Champ',
+
+  'enemigo.nivel.41': 'Sha-Pass',
+  'enemigo.nivel.42': 'Ring-Wraith',
+  'enemigo.nivel.43': 'Morg-Ace',
+  'enemigo.nivel.44': 'Dark-Serv',
+  'enemigo.nivel.45': 'Eye-Guard',
+  'enemigo.nivel.46': 'Night-Her',
+  'enemigo.nivel.47': 'War-Spirit',
+  'enemigo.nivel.48': 'Anc-Shadow',
+  'enemigo.nivel.49': 'Morg-Lieut',
+  'enemigo.nivel.50': 'Eye-Champ',
 };
 
 const en = {
+  'experiencia': 'Experience',
+
   'combo.spear.t1.id': 'SPT1',
   'combo.spear.t1.name': 'Spear Strike tier 1',
   'combo.spear.t1.desc':
@@ -332,12 +474,148 @@ const en = {
   'item.potVida.descripcion': 'Recovers 30% of maximum health instantly',
   'item.potPower.descripcion': 'Recovers 10% of maximum power instantly',
 
-  'item.cascoCueroBree.descripcion': 'Casto de cuero de Bree.',
-  'item.hombrerasCueroBree.descripcion': 'Hombreras de cuero de Bree.',
-  'item.pecheraCueroBree.descripcion': 'Pechera de cuero de Bree.',
-  'item.pantaloresCueroBree.descripcion': 'Pantalones de cuero de Bree.',
-  'item.botasCueroBree.descripcion': 'Botas de cuero de Bree.',
-  'item.guantesCueroBree.descripcion': 'Guantes de cuero de Bree.',
+  'item.pecheraCueroBree.nombre': 'Bree Leather Chestplate',
+  'item.pecheraCueroBree.descripcion':
+      'A light leather armor tanned in Bree, simple yet reliable.',
+  'item.pecheraCueroElfico.nombre': 'Elven Leather Chestplate',
+  'item.pecheraCueroElfico.descripcion':
+      'Flexible and silent elven leather, crafted with ancient skill.',
+  'item.pecheraHierroElfico.nombre': 'Elven Iron Chestplate',
+  'item.pecheraHierroElfico.descripcion':
+      'Elven-forged iron, light and surprisingly resilient.',
+  'item.pecheraHierroEnano.nombre': 'Dwarven Iron Chestplate',
+  'item.pecheraHierroEnano.descripcion':
+      'Sturdy armor forged in the mountains by dwarven hands.',
+  'item.pecheraAceroGondor.nombre': 'Gondor Steel Chestplate',
+  'item.pecheraAceroGondor.descripcion':
+      'Tempered steel from Gondor, a symbol of discipline and honor.',
+  'item.pecheraMithril.nombre': 'Mithril Chestplate',
+  'item.pecheraMithril.descripcion':
+      'Forged from pure mithril, light as a feather and hard as steel.',
+
+  'item.pantalonesCueroBree.nombre': 'Bree Leather Leggings',
+  'item.pantalonesCueroBree.descripcion':
+      'Basic leather protection, comfortable for long journeys.',
+  'item.pantalonesCueroElfico.nombre': 'Elven Leather Leggings',
+  'item.pantalonesCueroElfico.descripcion':
+      'Refined leather that allows silent movement.',
+  'item.pantalonesHierroElfico.nombre': 'Elven Iron Leggings',
+  'item.pantalonesHierroElfico.descripcion':
+      'Light elven plates that protect without hindering movement.',
+  'item.pantalonesHierroEnano.nombre': 'Dwarven Iron Leggings',
+  'item.pantalonesHierroEnano.descripcion':
+      'Thick iron designed to withstand direct blows.',
+  'item.pantalonesAceroGondor.nombre': 'Gondor Steel Leggings',
+  'item.pantalonesAceroGondor.descripcion':
+      'Standard military protection of Gondor’s armies.',
+  'item.pantalonesMithril.nombre': 'Mithril Leggings',
+  'item.pantalonesMithril.descripcion':
+      'Interwoven mithril offering legendary protection.',
+
+  'item.hombrerasCueroBree.nombre': 'Bree Leather Pauldrons',
+  'item.hombrerasCueroBree.descripcion':
+      'Simple pauldrons used by guards and travelers.',
+  'item.hombrerasCueroElfico.nombre': 'Elven Leather Pauldrons',
+  'item.hombrerasCueroElfico.descripcion':
+      'Elegant elven pauldrons with great flexibility.',
+  'item.hombrerasHierroElfico.nombre': 'Elven Iron Pauldrons',
+  'item.hombrerasHierroElfico.descripcion':
+      'Elven iron shaped to deflect incoming blows.',
+  'item.hombrerasHierroEnano.nombre': 'Dwarven Iron Pauldrons',
+  'item.hombrerasHierroEnano.descripcion':
+      'Heavy plates designed to resist powerful charges.',
+  'item.hombrerasAceroGondor.nombre': 'Gondor Steel Pauldrons',
+  'item.hombrerasAceroGondor.descripcion':
+      'Solid protection worn by veteran soldiers.',
+  'item.hombrerasMithril.nombre': 'Mithril Pauldrons',
+  'item.hombrerasMithril.descripcion':
+      'Polished mithril combining defense and lightness.',
+
+  'item.guantesCueroBree.nombre': 'Bree Leather Gloves',
+  'item.guantesCueroBree.descripcion':
+      'Simple gloves that protect the hands from wear.',
+  'item.guantesCueroElfico.nombre': 'Elven Leather Gloves',
+  'item.guantesCueroElfico.descripcion': 'Soft gloves that enhance precision.',
+  'item.guantesMithril.nombre': 'Mithril Gloves',
+  'item.guantesMithril.descripcion':
+      'Legendary gloves that never sacrifice mobility.',
+
+  'item.escudoMaderaVieja.nombre': 'Old Wood Shield',
+  'item.escudoMaderaVieja.descripcion':
+      'A rudimentary shield carved from hardened wood.',
+  'item.escudoHierroElfico.nombre': 'Elven Iron Shield',
+  'item.escudoHierroElfico.descripcion':
+      'A well-balanced shield, both resilient and elegant.',
+  'item.escudoHierroEnano.nombre': 'Dwarven Iron Shield',
+  'item.escudoHierroEnano.descripcion':
+      'A massive shield capable of stopping devastating blows.',
+  'item.escudoAceroGondor.nombre': 'Gondor Steel Shield',
+  'item.escudoAceroGondor.descripcion':
+      'Military shield bearing the emblem of Gondor.',
+  'item.escudoMithril.nombre': 'Mithril Shield',
+  'item.escudoMithril.descripcion':
+      'A legendary shield, nearly indestructible.',
+
+  'item.espadaMaderaVieja.nombre': 'Old Wood Sword',
+  'item.espadaMaderaVieja.descripcion': 'A training weapon or a last resort.',
+  'item.espadaHierroElfico.nombre': 'Elven Iron Sword',
+  'item.espadaHierroElfico.descripcion':
+      'A light and razor-sharp blade forged by elves.',
+  'item.espadaHierroEnano.nombre': 'Dwarven Iron Sword',
+  'item.espadaHierroEnano.descripcion':
+      'A sturdy sword built for powerful strikes.',
+  'item.espadaAceroGondor.nombre': 'Gondor Steel Sword',
+  'item.espadaAceroGondor.descripcion':
+      'A noble weapon used by the defenders of the realm.',
+  'item.espadaMithril.nombre': 'Mithril Sword',
+  'item.espadaMithril.descripcion': 'A legendary blade with an eternal edge.',
+
+  'item.cascoCueroBree.nombre': 'Bree Leather Helmet',
+  'item.cascoCueroBree.descripcion':
+      'A light helmet offering basic protection.',
+  'item.cascoCueroElfico.nombre': 'Elven Leather Helmet',
+  'item.cascoCueroElfico.descripcion':
+      'A discreet helmet that does not limit vision.',
+  'item.cascoHierroElfico.nombre': 'Elven Iron Helmet',
+  'item.cascoHierroElfico.descripcion':
+      'Refined protection with an elven design.',
+  'item.cascoHierroEnano.nombre': 'Dwarven Iron Helmet',
+  'item.cascoHierroEnano.descripcion':
+      'A heavy helmet built to withstand heavy impacts.',
+  'item.cascoAceroGondor.nombre': 'Gondor Steel Helmet',
+  'item.cascoAceroGondor.descripcion': 'Official helmet of Gondor’s army.',
+  'item.cascoMithril.nombre': 'Mithril Helmet',
+  'item.cascoMithril.descripcion':
+      'A legendary helmet of unmatched resistance.',
+
+  'item.capaCueroBree.nombre': 'Bree Cloak',
+  'item.capaCueroBree.descripcion':
+      'A simple cloak that protects against cold and rain.',
+  'item.capaCueroElfico.nombre': 'Elven Cloak',
+  'item.capaCueroElfico.descripcion':
+      'An elven cloak that helps the wearer remain unseen.',
+  'item.capaMithril.nombre': 'Mithril Cloak',
+  'item.capaMithril.descripcion':
+      'A rare cloak reinforced with mithril threads.',
+
+  'item.botasCueroBree.nombre': 'Bree Leather Boots',
+  'item.botasCueroBree.descripcion': 'Sturdy boots for long roads.',
+  'item.botasCueroElfico.nombre': 'Elven Leather Boots',
+  'item.botasCueroElfico.descripcion': 'Silent and lightweight boots.',
+  'item.botasMithril.nombre': 'Mithril Boots',
+  'item.botasMithril.descripcion':
+      'Legendary boots that feel weightless when worn.',
+
+  'item.anilloHumanoBree.nombre': 'Bree Ring',
+  'item.anilloHumanoBree.descripcion':
+      'A simple ring worn by the people of Bree.',
+  'item.anilloElfico.nombre': 'Elven Ring',
+  'item.anilloElfico.descripcion': 'An ancient ring imbued with elven wisdom.',
+  'item.anilloEnano.nombre': 'Dwarven Ring',
+  'item.anilloEnano.descripcion': 'A heavy ring symbolizing wealth and power.',
+  'item.anilloOscuro.nombre': 'The Dark Ring',
+  'item.anilloOscuro.descripcion':
+      'A forbidden ring of power that corrupts its bearer.',
 
   'texto.about.info':
       'Warden is a turn-based strategic combat game strongly inspired by dark fantasy.\n\n'
@@ -349,56 +627,60 @@ const en = {
       'https://github.com/pakmg2355/Warden\n\n'
       'Any improvement or comment will be welcome\n\n',
 
-  "enemigo.nivel.1": "Snaga the Crawler",
-  "enemigo.nivel.2": "Gorûk Broken Tooth",
-  "enemigo.nivel.3": "Muzglob the Lean",
-  "enemigo.nivel.4": "Rikash Crooked Eye",
-  "enemigo.nivel.5": "Mordor Orc Scout",
-  "enemigo.nivel.6": "Grishnákh the Stalker",
-  "enemigo.nivel.7": "Uglúk of the Dust",
-  "enemigo.nivel.8": "Zarbag the Whisperer",
-  "enemigo.nivel.9": "Snoruk Bonecrusher",
-  "enemigo.nivel.10": "Eastern Orc Warrior",
-  "enemigo.nivel.11": "Urak the Blooded",
-  "enemigo.nivel.12": "Mauhúr the Swift",
-  "enemigo.nivel.13": "Lugdash Black Hammer",
-  "enemigo.nivel.14": "Krimp the Flayer",
-  "enemigo.nivel.15": "Uruk-hai of the Abyss",
-  "enemigo.nivel.16": "Boldog Son of Fire",
-  "enemigo.nivel.17": "Shagrat the Cruel",
-  "enemigo.nivel.18": "Horkûn Iron Fist",
-  "enemigo.nivel.19": "Black Captain of Mordor",
-  "enemigo.nivel.20": "Uruk Captain of Isengard",
-  "enemigo.nivel.21": "Gorbag Lord of the Breach",
-  "enemigo.nivel.22": "Thrakûr the Dominator",
-  "enemigo.nivel.23": "Pit Champion Uruk",
-  "enemigo.nivel.24": "Morzag the Unbroken",
-  "enemigo.nivel.25": "Veteran Uruk-hai",
-  "enemigo.nivel.26": "Zugdûsh Scar Bearer",
-  "enemigo.nivel.27": "Rakthûr the Howler",
-  "enemigo.nivel.28": "Kraghûl the Butcher",
-  "enemigo.nivel.29": "Black Tower Guardian",
-  "enemigo.nivel.30": "Hill Troll",
-  "enemigo.nivel.31": "Wallbreaker Troll",
-  "enemigo.nivel.32": "Northern Olog-hai",
-  "enemigo.nivel.33": "Chained Troll",
-  "enemigo.nivel.34": "Ghash the Crusher",
-  "enemigo.nivel.35": "Beast of Gorgoroth",
-  "enemigo.nivel.36": "Black Pit Troll",
-  "enemigo.nivel.37": "Veteran Olog-hai",
-  "enemigo.nivel.38": "Ur-Dur the Colossal",
-  "enemigo.nivel.39": "Troll Guardian",
-  "enemigo.nivel.40": "Champion of Mordor",
-  "enemigo.nivel.41": "Shadow of the High Pass",
-  "enemigo.nivel.42": "Ring Wraith",
-  "enemigo.nivel.43": "Minas Morgul Stalker",
-  "enemigo.nivel.44": "Servant of Darkness",
-  "enemigo.nivel.45": "Eye Guardian",
-  "enemigo.nivel.46": "Herald of the Night",
-  "enemigo.nivel.47": "War Spirit",
-  "enemigo.nivel.48": "Ancient Shadow",
-  "enemigo.nivel.49": "Lieutenant of Morgul",
-  "enemigo.nivel.50": "Champion of the Eye",
+  'enemigo.nivel.1': 'Snag-Kar',
+  'enemigo.nivel.2': 'Gor-Muk',
+  'enemigo.nivel.3': 'Ush-Nak',
+  'enemigo.nivel.4': 'Rak-Zul',
+  'enemigo.nivel.5': 'Mor-Gash',
+  'enemigo.nivel.6': 'Kru-Nok',
+  'enemigo.nivel.7': 'Zar-Gul',
+  'enemigo.nivel.8': 'Thak-Mor',
+  'enemigo.nivel.9': 'Ugr-Nesh',
+  'enemigo.nivel.10': 'Bog-Rak',
+
+  'enemigo.nivel.11': 'Ur-Mak',
+  'enemigo.nivel.12': 'Dru-Gor',
+  'enemigo.nivel.13': 'Naz-Kur',
+  'enemigo.nivel.14': 'Krag-Mul',
+  'enemigo.nivel.15': 'Uruk-Zhar',
+  'enemigo.nivel.16': 'Bol-Drak',
+  'enemigo.nivel.17': 'Sha-Gor',
+  'enemigo.nivel.18': 'Hor-Kun',
+  'enemigo.nivel.19': 'Kap-Zul',
+  'enemigo.nivel.20': 'Is-Mor',
+
+  'enemigo.nivel.21': 'Gor-Bak',
+  'enemigo.nivel.22': 'Thra-Kur',
+  'enemigo.nivel.23': 'Ur-Dash',
+  'enemigo.nivel.24': 'Mor-Zag',
+  'enemigo.nivel.25': 'Uruk-Khan',
+  'enemigo.nivel.26': 'Zug-Dor',
+  'enemigo.nivel.27': 'Rak-Thar',
+  'enemigo.nivel.28': 'Krag-Hul',
+  'enemigo.nivel.29': 'Kui-Vor',
+  'enemigo.nivel.30': 'Lot-Ner',
+
+  'enemigo.nivel.31': 'Kra-Shin',
+  'enemigo.nivel.32': 'Olog-Tui',
+  'enemigo.nivel.33': 'Troll-Kai',
+  'enemigo.nivel.34': 'Gash-Nor',
+  'enemigo.nivel.35': 'Best-Rai',
+  'enemigo.nivel.36': 'Tull-Hai',
+  'enemigo.nivel.37': 'Olog-Ven',
+  'enemigo.nivel.38': 'Ur-Dur',
+  'enemigo.nivel.39': 'Troll-War',
+  'enemigo.nivel.40': 'Mor-Champ',
+
+  'enemigo.nivel.41': 'Sha-Pass',
+  'enemigo.nivel.42': 'Ring-Wraith',
+  'enemigo.nivel.43': 'Morg-Ace',
+  'enemigo.nivel.44': 'Dark-Serv',
+  'enemigo.nivel.45': 'Eye-Guard',
+  'enemigo.nivel.46': 'Night-Her',
+  'enemigo.nivel.47': 'War-Spirit',
+  'enemigo.nivel.48': 'Anc-Shadow',
+  'enemigo.nivel.49': 'Morg-Lieut',
+  'enemigo.nivel.50': 'Eye-Champ',
 };
 
 String t(String key) {

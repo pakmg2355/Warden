@@ -90,7 +90,7 @@ class _PantallaHistoriaState extends State<PantallaHistoria>
     final _botones = botones;
 
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: colorFondo,
       body: Center(
         child: SingleChildScrollView(
           controller: _scrollController,

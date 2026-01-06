@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:warden/data/persistence/player_inventory.dart';
 import 'package:warden/data/persistence/repositorios.dart';
 import 'package:warden/game/textos/diccionario.dart';
+import 'package:warden/global/constants.dart';
 import 'package:warden/ui/widgets/botones/boton_menu.dart';
 import 'package:warden/ui/widgets/contenedores/container_tengwar.dart';
 import 'package:warden/ui/widgets/componentes/game_text.dart';
@@ -18,7 +19,7 @@ class _ResetScreenState extends State<ResetScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: colorFondo,
       body: Center(
         child: ConstrainedBox(
           constraints: const BoxConstraints(maxWidth: 600),
@@ -50,8 +51,7 @@ class _ResetScreenState extends State<ResetScreen> {
                         ),
                       ),
                       const Padding(padding: EdgeInsets.all(5)),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      Column(
                         children: [
                           MenuButton(
                             text: t('boton.aceptar'),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:warden/game/entities/item.dart';
 import 'package:warden/game/entities/enums.dart';
 import 'package:warden/game/entities/stats.dart';
+import 'package:warden/game/items_repositoty/items_equipo_anillos.dart';
 import 'package:warden/game/items_repositoty/items_equipo_armas.dart';
 import 'package:warden/game/items_repositoty/items_equipo_botas.dart';
 import 'package:warden/game/items_repositoty/items_equipo_capas.dart';
@@ -42,5 +43,13 @@ final itemsEquipo = {
   ...itemsEquipoHombreras,
   ...itemsEquipoPantalones,
   ...itemsEquipoPecheras,
+  ...itemsEquipoAnillos,
+  ...itemsEquipoBotas,
+  ...itemsEquipoBotas,
+  ...itemsEquipoBotas,
+  ...itemsEquipoBotas,
+  ...itemsEquipoBotas,
+  ...itemsEquipoBotas,
+  ...itemsEquipoBotas,
   ...itemsEquipoBotas,
 };

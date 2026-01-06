@@ -7,7 +7,7 @@ import 'package:warden/global/constants.dart';
 final itemsEquipoAnillos = {
   'anilloHumano': ItemDefinition(
     id: 'anilloHumano',
-    nombre: 'Anilo hecho por hombres de Bree',
+    nombre: t('item.anilloHumanoBree.nombre'),
     descripcion: t('item.anilloHumanoBree.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.anillo,
@@ -23,7 +23,7 @@ final itemsEquipoAnillos = {
   ),
   'anilloElfico': ItemDefinition(
     id: 'anilloElfico',
-    nombre: 'Anillo hecho por artesanos Elficos',
+    nombre: t('item.anilloElfico.nombre'),
     descripcion: t('item.anilloElfico.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.anillo,
@@ -39,7 +39,7 @@ final itemsEquipoAnillos = {
   ),
   'anilloEnano': ItemDefinition(
     id: 'anilloEnano',
-    nombre: 'Anillo hecho por artesanos Enanos',
+    nombre: t('item.anilloEnano.nombre'),
     descripcion: t('item.anilloEnano.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.anillo,
@@ -55,18 +55,18 @@ final itemsEquipoAnillos = {
   ),
   'anilloOscuro': ItemDefinition(
     id: 'anilloOscuro',
-    nombre: 'anilloOscuro',
+    nombre: t('item.anilloOscuro.nombre'),
     descripcion: t('item.anilloOscuro.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.anillo,
     color: colorHierroEnano,
     minLevel: 20,
     stats: StatsClass(
-      ataque: 0,
-      defensa: 180,
+      ataque: 90,
+      defensa: 90,
       poder: 90,
-      curacion: 10,
-      powerRegen: 0,
+      curacion: 90,
+      powerRegen: 90,
     ),
   ),
 };

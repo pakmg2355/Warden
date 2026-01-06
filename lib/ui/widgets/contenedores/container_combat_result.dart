@@ -37,11 +37,24 @@ class _CombatRewardContainerState extends State<CombatRewardContainer> {
   }
 
   List<ItemDefinition> _pickRandomItems(int count) {
-    final items = ItemDatabase.items.values
-        .where((e) => e.minLevel <= widget.playerLevel && e.id != 'vacio')
+    List<ItemDefinition> lista = [];
+    final item1 = ItemDatabase.items.values
+        .where(
+          (e) => e.minLevel <= widget.playerLevel && e.clase.name == 'pocion',
+        )
         .toList();
-    items.shuffle(Random());
-    return items.take(count).toList();
+    item1.shuffle(Random());
+    final item2 = ItemDatabase.items.values
+        .where(
+          (e) => e.minLevel <= widget.playerLevel && e.clase.name != 'pocion',
+        )
+        .toList();
+    item2.shuffle(Random());
+
+    lista.add(item1[0]);
+    lista.add(item2[0]);
+
+    return lista;
   }
 
   Future<void> _acceptReward() async {

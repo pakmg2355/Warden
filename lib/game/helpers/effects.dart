@@ -16,8 +16,7 @@ bool isImmuneToFearOrDaze(PlayerClass target) {
     }
   }
 
-  final roll = Random().nextInt(100);
-  return roll < protection;
+  return protection > 0;
 }
 
 int sumFearStacks(PlayerClass p) => p.efectos

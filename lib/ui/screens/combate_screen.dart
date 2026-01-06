@@ -38,34 +38,39 @@ class _CombateScreenState extends State<CombateScreen> {
   @override
   void initState() {
     super.initState();
-    MusicSystem.play('ambient');
 
+    MusicSystem.play('ambient');
     widget.controller.updateStateInventory();
 
     contador = 3;
-    timer = Timer.periodic(
-      Duration(seconds: 1),
-      (_) => setState(() {
+    timer = Timer.periodic(const Duration(seconds: 1), (_) {
+      setState(() {
         contador--;
-      }),
-    );
+        if (contador == 0) {
+          widget.controller.startCombat();
+        }
+      });
+    });
   }
 
   @override
   void dispose() {
     timer.cancel();
+    widget.controller.dispose();
     super.dispose();
   }
 
   @override
   Widget build(BuildContext context) {
+    final screenHeight = MediaQuery.of(context).size.height;
+    final barHeight = screenHeight / 20;
+
     if (contador > 0) {
       return Scaffold(body: ContenedorCuenta(cuenta: contador));
     } else {
-      widget.controller.startCombat();
       return Scaffold(
-        body: AnimatedBuilder(
-          animation: widget.controller,
+        body: ListenableBuilder(
+          listenable: widget.controller,
 
           builder: (_, _) {
             final state = widget.controller.state;
@@ -98,30 +103,33 @@ class _CombateScreenState extends State<CombateScreen> {
                             onTap: () {
                               Navigator.pop(context, null);
                             },
-                            child: ContenedorVolver(),
+                            child: const ContenedorVolver(),
                           ),
-                          Padding(
-                            padding: EdgeInsets.all(5),
-                            child: Row(
-                              children: [
-                                Expanded(
-                                  child: CabeceraPlayer(
-                                    nombre: state.jugador.nombre,
-                                    nivel: state.jugador.nivel,
-                                    stats: state.jugador.stats,
-                                  ),
-                                ),
-                                Expanded(
-                                  child: CabeceraPlayer(
-                                    nombre: state.rival.nombre,
-                                    nivel: state.rival.nivel,
-                                    stats: state.rival.stats,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
+
                           const Divider(),
+
+                          Row(
+                            children: [
+                              Expanded(
+                                child: CabeceraPlayer(
+                                  nombre: state.jugador.nombre,
+                                  nivel: state.jugador.nivel,
+                                  stats: state.jugador.stats,
+                                ),
+                              ),
+                              const Padding(padding: EdgeInsets.all(5)),
+                              Expanded(
+                                child: CabeceraPlayer(
+                                  nombre: state.rival.nombre,
+                                  nivel: state.rival.nivel,
+                                  stats: state.rival.stats,
+                                ),
+                              ),
+                            ],
+                          ),
+
+                          const Divider(),
+
                           Padding(
                             padding: EdgeInsets.all(5),
                             child: Row(
@@ -131,8 +139,7 @@ class _CombateScreenState extends State<CombateScreen> {
                                     value: state.jugador.vida,
                                     maxValue: state.jugador.maxvida,
                                     fillColor: Colors.green,
-                                    height:
-                                        MediaQuery.of(context).size.height / 20,
+                                    height: barHeight,
                                     label:
                                         '${state.jugador.vida}/${state.jugador.maxvida}',
                                   ),
@@ -142,8 +149,7 @@ class _CombateScreenState extends State<CombateScreen> {
                                   child: StatBar(
                                     value: state.rival.vida,
                                     maxValue: state.rival.maxvida,
-                                    height:
-                                        MediaQuery.of(context).size.height / 20,
+                                    height: barHeight,
                                     fillColor: Colors.green,
                                     label:
                                         '${state.rival.vida}/${state.rival.maxvida}',
@@ -161,8 +167,7 @@ class _CombateScreenState extends State<CombateScreen> {
                                     value: state.jugador.power,
                                     maxValue: state.jugador.maxpower,
                                     fillColor: Colors.blue,
-                                    height:
-                                        MediaQuery.of(context).size.height / 20,
+                                    height: barHeight,
                                     label:
                                         '${state.jugador.power}/${state.jugador.maxpower}',
                                   ),
@@ -172,8 +177,7 @@ class _CombateScreenState extends State<CombateScreen> {
                                   child: StatBar(
                                     value: state.rival.power,
                                     maxValue: state.rival.maxpower,
-                                    height:
-                                        MediaQuery.of(context).size.height / 20,
+                                    height: barHeight,
                                     fillColor: Colors.blue,
                                     label:
                                         '${state.rival.power}/${state.rival.maxpower}',
@@ -198,13 +202,15 @@ class _CombateScreenState extends State<CombateScreen> {
                           Padding(
                             padding: EdgeInsets.all(5),
                             child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Expanded(
                                   child: EfectosRow(
                                     efectos: state.jugador.efectos,
                                   ),
                                 ),
-
+                                const Padding(padding: EdgeInsets.all(5)),
                                 Expanded(
                                   child:
                                       /// EFECTOS RIVAL

@@ -98,7 +98,12 @@ class AIState {
 
   AICombo get combo => plan.combos[comboIndex];
 
-  AIState copyWith({AIPlan? plan, int? comboIndex, int? step}) {
+  AIState copyWith({
+    AIPlan? plan,
+    int? comboIndex,
+    int? step,
+    bool? transitioning,
+  }) {
     return AIState(
       plan: plan ?? this.plan,
       comboIndex: comboIndex ?? this.comboIndex,
@@ -111,7 +116,7 @@ AIPlan decidePlan(PlayerClass p) {
   final ratio = p.vida / p.maxvida;
 
   if (ratio > 0.7) return p.planAtaqueIA;
-  if (ratio > 0.3) return p.planDefensaIA;
+  if (ratio > 0.3) return p.planMixtoIA;
   return p.planDefensaIA;
 }
 
@@ -158,9 +163,6 @@ class AISystem {
 
     final input = combo.inputs[state.step];
 
-    // 👇 AVANZA AQUÍ
-    saveState(state.copyWith(step: state.step + 1));
-
     return input;
   }
 
@@ -197,7 +199,6 @@ class AISystem {
     if (newPlan != state.plan || nextComboIndex >= newPlan.combos.length) {
       nextComboIndex = 0;
     }
-
     saveState(AIState(plan: newPlan, comboIndex: nextComboIndex, step: 0));
 
     return ai;

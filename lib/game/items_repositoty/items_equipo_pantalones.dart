@@ -7,7 +7,7 @@ import 'package:warden/global/constants.dart';
 final itemsEquipoPantalones = {
   'pantalonesCueroBree': ItemDefinition(
     id: 'pantalonesCueroBree',
-    nombre: 'pantalones de Cuero de Bree',
+    nombre: t('item.pantalonesCueroBree.nombre'),
     descripcion: t('item.pantalonesCueroBree.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.pantalones,
@@ -23,7 +23,7 @@ final itemsEquipoPantalones = {
   ),
   'pantalonesCueroElfico': ItemDefinition(
     id: 'pantalonesCueroElfico',
-    nombre: 'pantalones de Cuero de Elfico',
+    nombre: t('item.pantalonesCueroElfico.nombre'),
     descripcion: t('item.pantalonesCueroElfico.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.pantalones,
@@ -39,7 +39,7 @@ final itemsEquipoPantalones = {
   ),
   'pantalonesHierroElfico': ItemDefinition(
     id: 'pantalonesHierroElfico',
-    nombre: 'pantalones de Hierro Elfico',
+    nombre: t('item.pantalonesHierroElfico.nombre'),
     descripcion: t('item.pantalonesHierroElfico.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.pantalones,
@@ -55,7 +55,7 @@ final itemsEquipoPantalones = {
   ),
   'pantalonesHierroEnano': ItemDefinition(
     id: 'pantalonesHierroEnano',
-    nombre: 'pantalones de Hiero Enano',
+    nombre: t('item.pantalonesHierroEnano.nombre'),
     descripcion: t('item.pantalonesHierroEnano.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.pantalones,
@@ -71,7 +71,7 @@ final itemsEquipoPantalones = {
   ),
   'pantalonesAceroGondor': ItemDefinition(
     id: 'pantalonesAceroGondor',
-    nombre: 'pantalones de Acero de Gondor',
+    nombre: t('item.pantalonesAceroGondor.nombre'),
     descripcion: t('item.pantalonesAceroGondor.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.pantalones,
@@ -87,7 +87,7 @@ final itemsEquipoPantalones = {
   ),
   'pantalonesMithril': ItemDefinition(
     id: 'pantalonesMithril',
-    nombre: 'pantalones de Hierro con Mithril',
+    nombre: t('item.pantalonesMithril.nombre'),
     descripcion: t('item.pantalonesMithril.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.pantalones,

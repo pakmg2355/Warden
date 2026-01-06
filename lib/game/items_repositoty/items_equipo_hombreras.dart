@@ -7,7 +7,7 @@ import 'package:warden/global/constants.dart';
 final itemsEquipoHombreras = {
   'hombrerasCueroBree': ItemDefinition(
     id: 'hombrerasCueroBree',
-    nombre: 'hombreras de Cuero de Bree',
+    nombre: t('item.hombrerasCueroBree.nombre'),
     descripcion: t('item.hombrerasCueroBree.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.hombreras,
@@ -23,7 +23,7 @@ final itemsEquipoHombreras = {
   ),
   'hombrerasCueroElfico': ItemDefinition(
     id: 'hombrerasCueroElfico',
-    nombre: 'hombreras de Cuero de Elfico',
+    nombre: t('item.hombrerasCueroElfico.nombre'),
     descripcion: t('item.hombrerasCueroElfico.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.hombreras,
@@ -39,7 +39,7 @@ final itemsEquipoHombreras = {
   ),
   'hombrerasHierroElfico': ItemDefinition(
     id: 'hombrerasHierroElfico',
-    nombre: 'hombreras de Hierro Elfico',
+    nombre: t('item.hombrerasHierroElfico.nombre'),
     descripcion: t('item.hombrerasHierroElfico.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.hombreras,
@@ -55,7 +55,7 @@ final itemsEquipoHombreras = {
   ),
   'hombrerasHierroEnano': ItemDefinition(
     id: 'hombrerasHierroEnano',
-    nombre: 'hombreras de Hiero Enano',
+    nombre: t('item.hombrerasHierroEnano.nombre'),
     descripcion: t('item.hombrerasHierroEnano.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.hombreras,
@@ -71,7 +71,7 @@ final itemsEquipoHombreras = {
   ),
   'hombrerasAceroGondor': ItemDefinition(
     id: 'hombrerasAceroGondor',
-    nombre: 'hombreras de Acero de Gondor',
+    nombre: t('item.hombrerasAceroGondor.nombre'),
     descripcion: t('item.hombrerasAceroGondor.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.hombreras,
@@ -87,7 +87,7 @@ final itemsEquipoHombreras = {
   ),
   'hombrerasMithril': ItemDefinition(
     id: 'hombrerasMithril',
-    nombre: 'hombreras de Hierro con Mithril',
+    nombre: t('item.hombrerasMithril.nombre'),
     descripcion: t('item.hombrerasMithril.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.hombreras,

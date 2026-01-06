@@ -23,108 +23,38 @@ class GameController extends ChangeNotifier {
 
   AIState aiState = AISystem.initialState();
 
-  void startCombat() {
-    _paused = false;
-  }
-
+  void startCombat() => _paused = false;
   bool get isPaused => _paused;
 
-  final List<String> _aiInputQueue = [];
-  static const int _maxAiQueueSize = 6;
-  Timer? _timer;
   Timer? _timerIA;
+  Timer? _effectsTimer;
+
+  static const Duration effectsTickRate = Duration(milliseconds: 1000);
+
   int _lastAiStepIssued = -1;
 
-  static const Duration tickRate = Duration(seconds: 1);
-
   GameController(this._state, {required this.progress}) {
-    final newRate = calculateIaTickRate(rival: _state.rival);
-    Duration iaTickRate = newRate;
+    final iaRate = calculateIaTickRate(rival: _state.rival);
 
-    _timer = Timer.periodic(tickRate, (_) => _gameTick());
-    _timerIA = Timer.periodic(iaTickRate, (_) => _iaTick());
-  }
-  int _calculateExpForEnemy(PlayerClass enemy) {
-    return enemy.stats.ataque * 2 + enemy.stats.defensa * 3;
+    _timerIA = Timer.periodic(iaRate, (_) => _iaTick());
+    _effectsTimer = Timer.periodic(effectsTickRate, (_) => _effectsTick());
   }
 
-  void _onCombatFinished(GameState result) async {
-    if (result.result == CombatResult.playerWin) {
-      progress = progress.addExperience(_calculateExpForEnemy(state.rival));
+  // ───────────────── PLAYER TICK (GAME LOOP) ─────────────────
 
-      progress = progress.copyWith(
-        faseActual: progress.faseActual + 1,
-        quickSlots: _state.jugador.quickSlots,
-      );
-
-      await PlayerProgressRepository.save(progress);
-    }
-  }
-
-  GameState _applyPowerRegen(GameState state) {
-    final player = state.jugador;
-
-    if (player.vida <= 0) return state;
-
-    final regen = player.stats.powerRegen;
-
-    if (regen <= 0) return state;
-
-    final newPower = (player.power + regen).clamp(0, player.maxpower);
-
-    if (newPower == player.power) return state;
-
-    return state.copyWith(jugador: player.copyWith(power: newPower));
-  }
-
-  void _consumeAiInputs() {
-    if (_aiInputQueue.isEmpty) return;
-
-    final input = _aiInputQueue.removeAt(0);
-
-    final rival = _state.rival;
-    final newCommand = rival.comando + input;
-
-    _state = _state.copyWith(rival: rival.copyWith(comando: newCommand));
-  }
-
-  void _iaTick() {
+  void _effectsTick() {
     if (_paused) return;
-    if (_state.result != CombatResult.none) return;
-    if (_state.rival.isFeared || _state.rival.isDazed) return;
-    if (_aiInputQueue.length >= _maxAiQueueSize) return;
-    if (aiState.step == _lastAiStepIssued) return;
 
-    final input = AISystem.decideInput(
-      _state.rival,
-      _state.jugador,
-      aiState,
-      (newState) => aiState = newState,
-    );
+    final previousResult = _state.result;
 
-    if (input != null) {
-      _aiInputQueue.add(input);
-      _lastAiStepIssued = aiState.step;
-    }
-  }
+    _consumeAiInputs(); // 👈 aquí
 
-  void _gameTick() {
-    final previousResult = state.result;
-
-    _consumeAiInputs();
-
-    _state = state.copyWith(
-      rival: AISystem.update(
-        state.rival,
-        aiState,
-        (newState) => aiState = newState,
-      ),
-    );
-
-    _state = _applyPowerRegen(_state);
     _state = CombatSystem.update(_state);
+    _state = _applyPowerRegen(_state);
     _state = EffectSystem.update(_state);
-    _state = resolveCombatEnd(state);
+    _state = resolveCombatEnd(_state);
+
+    _state = CombatSystem.update(_state);
 
     if (previousResult == CombatResult.none &&
         _state.result != CombatResult.none) {
@@ -132,6 +62,81 @@ class GameController extends ChangeNotifier {
     }
 
     notifyListeners();
+  }
+
+  void _applyPlayerInput(String input) {
+    if (_state.jugador.isFeared || _state.jugador.isDazed) return;
+
+    FxSystem.onCommandApplied(input);
+
+    final jugador = _state.jugador;
+    final newCommand = input == 'X'
+        ? '${jugador.comando}X'
+        : jugador.comando + input;
+
+    _state = _state.copyWith(
+      jugador: jugador.copyWith(
+        comando: newCommand.length > 5 && !newCommand.contains('X')
+            ? ''
+            : newCommand,
+      ),
+    );
+  }
+
+  // ───────────────── IA TIMER ─────────────────
+  void _iaTick() {
+    if (_paused) return;
+    if (_state.result != CombatResult.none) return;
+    if (_state.rival.isFeared || _state.rival.isDazed) return;
+
+    final combo = aiState.combo;
+
+    // Si ya terminó el combo, pasar al siguiente
+    if (aiState.step >= combo.inputs.length) {
+      int nextComboIndex = aiState.comboIndex + 1;
+
+      // reiniciar plan si se acabaron los combos
+      if (nextComboIndex >= aiState.plan.combos.length) nextComboIndex = 0;
+
+      aiState = aiState.copyWith(comboIndex: nextComboIndex, step: 0);
+    }
+
+    // Tomar el input actual del combo
+    final input = aiState.combo.inputs[aiState.step];
+
+    // Aplicar input al comando del rival
+    _state = _state.copyWith(
+      rival: _state.rival.copyWith(comando: _state.rival.comando + input),
+    );
+
+    // Avanzar step
+    aiState = aiState.copyWith(step: aiState.step + 1);
+  }
+
+  void _consumeAiInputs() {
+    final rival = _state.rival;
+
+    _state = _state.copyWith(rival: rival.copyWith(comando: rival.comando));
+  }
+
+  // ───────────────── GAME LOGIC ─────────────────
+
+  GameState _applyPowerRegen(GameState state) {
+    final p = state.jugador;
+    final r = state.rival;
+
+    final newPowerPlayer = (p.power + p.stats.powerRegen).clamp(0, p.maxpower);
+
+    int newPowerRival = (r.power + r.stats.powerRegen).clamp(0, r.maxpower);
+
+    if (newPowerRival < 50) {
+      newPowerRival = (r.maxpower / 2).toInt();
+    }
+
+    return state.copyWith(
+      jugador: p.copyWith(power: newPowerPlayer),
+      rival: r.copyWith(power: newPowerRival),
+    );
   }
 
   GameState resolveCombatEnd(GameState state) {
@@ -148,27 +153,24 @@ class GameController extends ChangeNotifier {
     return state;
   }
 
-  void addInput(String input) {
-    if (state.jugador.isFeared || state.jugador.isDazed) {
-      return;
-    }
-
-    FxSystem.onCommandApplied(input);
-
-    final jugador = _state.jugador;
-
-    String newCommand = input == 'X'
-        ? '${jugador.comando}X'
-        : jugador.comando + input;
-
-    if (newCommand.length > 5 && !newCommand.contains('X')) {
-      _state = _state.copyWith(jugador: jugador.copyWith(comando: ''));
-    } else {
-      _state = _state.copyWith(jugador: jugador.copyWith(comando: newCommand));
-    }
-
-    notifyListeners();
+  int _calculateExpForEnemy(PlayerClass enemy) {
+    return enemy.stats.ataque * 2 + enemy.stats.defensa * 3;
   }
+
+  void _onCombatFinished(GameState result) async {
+    if (result.result != CombatResult.playerWin) return;
+
+    progress = progress.addExperience(_calculateExpForEnemy(_state.rival));
+
+    progress = progress.copyWith(
+      faseActual: progress.faseActual + 1,
+      quickSlots: _state.jugador.quickSlots,
+    );
+
+    await PlayerProgressRepository.save(progress);
+  }
+
+  // ───────────────── PUBLIC API ─────────────────
 
   void useItem(int slotIndex) {
     final jugador = _state.jugador;
@@ -226,10 +228,18 @@ class GameController extends ChangeNotifier {
     notifyListeners();
   }
 
+  void addInput(String input) {
+    if (_state.jugador.isFeared || _state.jugador.isDazed) return;
+
+    // 🔥 FEEDBACK INMEDIATO
+    _applyPlayerInput(input);
+    notifyListeners();
+  }
+
   @override
   void dispose() {
-    _timer?.cancel();
     _timerIA?.cancel();
+    _effectsTimer?.cancel();
     super.dispose();
   }
 }

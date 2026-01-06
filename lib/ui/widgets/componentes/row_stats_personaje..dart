@@ -7,17 +7,19 @@ import 'package:warden/ui/widgets/componentes/game_text.dart';
 class RowStatsPersonaje extends StatelessWidget {
   final StatsClass? stats;
   final String? nombreItem;
+  final double size;
   const RowStatsPersonaje({
     super.key,
     required this.stats,
     required this.nombreItem,
+    required this.size,
   });
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        GameText.text(nombreItem ?? ''),
+        nombreItem != '' ? GameText.text(nombreItem ?? '') : SizedBox.shrink(),
         Container(
           padding: EdgeInsets.all(2),
           decoration: BoxDecoration(
@@ -30,41 +32,46 @@ class RowStatsPersonaje extends StatelessWidget {
                 Icon(
                   iconDataForStat('ataque'),
                   color: colorForStat('ataque'),
-                  size: 25,
+                  size: size * 1.5,
                 ),
                 stats?.ataque ?? 0,
+                size,
               ),
               _statRow(
                 Icon(
                   iconDataForStat('poder'),
                   color: colorForStat('poder'),
-                  size: 25,
+                  size: size * 1.5,
                 ),
                 stats?.poder ?? 0,
+                size,
               ),
               _statRow(
                 Icon(
                   iconDataForStat('defensa'),
                   color: colorForStat('defensa'),
-                  size: 25,
+                  size: size * 1.5,
                 ),
                 stats?.defensa ?? 0,
+                size,
               ),
               _statRow(
                 Icon(
                   iconDataForStat('curacion'),
                   color: colorForStat('curacion'),
-                  size: 25,
+                  size: size * 1.5,
                 ),
                 stats?.curacion ?? 0,
+                size,
               ),
               _statRow(
                 Icon(
                   iconDataForStat('powerregen'),
                   color: colorForStat('powerregen'),
-                  size: 25,
+                  size: size * 1.5,
                 ),
                 stats?.powerRegen ?? 0,
+                size,
               ),
             ],
           ),
@@ -74,16 +81,17 @@ class RowStatsPersonaje extends StatelessWidget {
   }
 }
 
-Widget _statRow(Icon icon, int value) {
-  return Padding(
-    padding: const EdgeInsets.symmetric(vertical: 4),
+Widget _statRow(Icon icon, int value, double size) {
+  return Container(
+    margin: const EdgeInsets.symmetric(horizontal: 2),
+    padding: const EdgeInsets.symmetric(vertical: 2),
     child: Wrap(
       children: [
         Text(
           value.toString().padLeft(3, ' '),
-          style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+          style: TextStyle(fontWeight: FontWeight.bold, fontSize: size),
         ),
-        const SizedBox(width: 8),
+        const SizedBox(width: 2),
         icon,
       ],
     ),

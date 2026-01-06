@@ -7,7 +7,7 @@ import 'package:warden/global/constants.dart';
 final itemsEquipoEscudos = {
   'escudoMaderaVieja': ItemDefinition(
     id: 'escudoMaderaVieja',
-    nombre: 'escudo de Madera Vieja',
+    nombre: t('item.escudoMaderaVieja.nombre'),
     descripcion: t('item.escudoMaderaVieja.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.escudo,
@@ -23,7 +23,7 @@ final itemsEquipoEscudos = {
   ),
   'escudoHierroElfico': ItemDefinition(
     id: 'escudoHierroElfico',
-    nombre: 'escudo de HierroElfico',
+    nombre: t('item.escudoHierroElfico.escudo'),
     descripcion: t('item.escudoHierroElfico.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.escudo,
@@ -39,7 +39,7 @@ final itemsEquipoEscudos = {
   ),
   'escudoHierroEnano': ItemDefinition(
     id: 'escudoHierroEnano',
-    nombre: 'escudo de HierroEnano',
+    nombre: t('item.escudoHierroEnano.nombre'),
     descripcion: t('item.escudoHierroEnano.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.escudo,
@@ -55,7 +55,7 @@ final itemsEquipoEscudos = {
   ),
   'escudoAceroGondor': ItemDefinition(
     id: 'escudoAceroGondor',
-    nombre: 'escudo de AceroGondor',
+    nombre: t('item.escudoAceroGondor.nombre'),
     descripcion: t('item.escudoAceroGondor.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.escudo,
@@ -71,7 +71,7 @@ final itemsEquipoEscudos = {
   ),
   'escudoMithril': ItemDefinition(
     id: 'escudoMithril',
-    nombre: 'escudo de Mithril',
+    nombre: t('item.escudoMithril.nombre'),
     descripcion: t('item.escudoMithril.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.escudo,

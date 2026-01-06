@@ -36,6 +36,10 @@ class ItemDefinition {
       powerRegen: 0,
     ),
   });
+
+  String toNombreLvl() {
+    return '$nombre Lvl:$minLevel';
+  }
 }
 
 class ItemStack {

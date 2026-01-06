@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:warden/global/constants.dart';
 
 class ContenedorNegro extends StatelessWidget {
   const ContenedorNegro({super.key});
@@ -8,8 +9,8 @@ class ContenedorNegro extends StatelessWidget {
     return Column(
       children: [
         Container(
-          color: Colors.black,
-          height: MediaQuery.of(context).size.height / 30,
+          color: colorFondo,
+          height: MediaQuery.of(context).size.height / 20,
         ),
       ],
     );
@@ -25,9 +26,21 @@ class ContenedorVolver extends StatelessWidget {
       children: [
         Expanded(
           child: Container(
-            color: const Color.fromARGB(255, 51, 51, 51),
-            height: MediaQuery.of(context).size.height / 30,
-            child: Icon(Icons.keyboard_arrow_up_sharp),
+            padding: EdgeInsets.all(5),
+            margin: EdgeInsets.all(5),
+            decoration: BoxDecoration(
+              color: colorFondo,
+              borderRadius: BorderRadius.circular(12),
+              border: BoxBorder.all(
+                width: 0.5,
+                color: const Color.fromARGB(255, 87, 87, 87),
+              ),
+            ),
+            height: MediaQuery.of(context).size.height / 20,
+            child: Icon(
+              Icons.exit_to_app,
+              color: const Color.fromARGB(255, 87, 87, 87),
+            ),
           ),
         ),
       ],

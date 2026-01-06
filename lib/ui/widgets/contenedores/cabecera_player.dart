@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:warden/game/entities/stats.dart';
 import 'package:warden/ui/widgets/componentes/game_text.dart';
-import 'package:warden/ui/widgets/rows/row_widget_stat.dart';
+import 'package:warden/ui/widgets/componentes/row_stats_personaje..dart';
 
 class CabeceraPlayer extends StatelessWidget {
   final String nombre;
@@ -19,10 +19,12 @@ class CabeceraPlayer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.center,
-      mainAxisAlignment: MainAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         GameText.text('$nombre Lv$nivel'),
-        rowWidgetStatsPlayer(stats),
+        Divider(),
+        //rowWidgetStatsPlayer(stats),
+        RowStatsPersonaje(stats: stats, nombreItem: '', size: 12),
       ],
     );
   }

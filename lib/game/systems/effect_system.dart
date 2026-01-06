@@ -156,6 +156,10 @@ class EffectSystem {
       );
     }
 
+    if (t1.nombre == 'Rodamon') {
+      print(t1.nombre + ' ' + immune.toString());
+    }
+
     // ======================
     // 😱 RESOLVER FEAR STACK
     // ======================

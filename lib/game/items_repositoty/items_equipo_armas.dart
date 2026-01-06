@@ -7,7 +7,7 @@ import 'package:warden/global/constants.dart';
 final itemsEquipoArmas = {
   'espadaMaderaVieja': ItemDefinition(
     id: 'espadaMaderaVieja',
-    nombre: 'Espada de Madera Vieja',
+    nombre: t('item.espadaMaderaVieja.nombre'),
     descripcion: t('item.espadaMaderaVieja.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.arma,
@@ -23,7 +23,7 @@ final itemsEquipoArmas = {
   ),
   'espadaHierroElfico': ItemDefinition(
     id: 'espadaHierroElfico',
-    nombre: 'Espada de HierroElfico',
+    nombre: t('item.espadaHierroElfico.nombre'),
     descripcion: t('item.espadaHierroElfico.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.arma,
@@ -39,7 +39,7 @@ final itemsEquipoArmas = {
   ),
   'espadaHierroEnano': ItemDefinition(
     id: 'espadaHierroEnano',
-    nombre: 'Espada de HierroEnano',
+    nombre: t('item.espadaHierroEnano.nombre'),
     descripcion: t('item.espadaHierroEnano.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.arma,
@@ -55,7 +55,7 @@ final itemsEquipoArmas = {
   ),
   'espadaAceroGondor': ItemDefinition(
     id: 'espadaAceroGondor',
-    nombre: 'Espada de AceroGondor',
+    nombre: t('item.espadaAceroGondor.nombre'),
     descripcion: t('item.espadaAceroGondor.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.arma,
@@ -71,7 +71,7 @@ final itemsEquipoArmas = {
   ),
   'espadaMithril': ItemDefinition(
     id: 'espadaMithril',
-    nombre: 'Espada de Mithril',
+    nombre: t('item.espadaMithril.nombre'),
     descripcion: t('item.espadaMithril.descripcion'),
     type: ItemType.equipo,
     clase: ItemClass.arma,

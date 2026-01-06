@@ -5,6 +5,8 @@ class ItemIconRepository {
   static const String _basePath = 'assets/icon/items';
 
   static Widget icon(String iconId, Color color, {double size = 40}) {
+    if (iconId == 'vacio') return SizedBox.shrink();
+    if (iconId == 'pocion') return Icon(Icons.science, color: color);
     return SvgPicture.asset(
       '$_basePath/$iconId.svg',
       width: size,
