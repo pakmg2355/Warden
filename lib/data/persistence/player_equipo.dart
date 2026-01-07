@@ -12,10 +12,8 @@ class PlayerEquipo {
   ItemStack? arma = ItemStack(itemId: 'vacio', quantity: 1);
   ItemStack? escudo = ItemStack(itemId: 'vacio', quantity: 1);
 
-  ItemStack? pendiente1 = ItemStack(itemId: 'vacio', quantity: 1);
-  ItemStack? pendiente2 = ItemStack(itemId: 'vacio', quantity: 1);
-  ItemStack? anillo1 = ItemStack(itemId: 'vacio', quantity: 1);
-  ItemStack? anillo2 = ItemStack(itemId: 'vacio', quantity: 1);
+  ItemStack? pendiente = ItemStack(itemId: 'vacio', quantity: 1);
+  ItemStack? anillo = ItemStack(itemId: 'vacio', quantity: 1);
   ItemStack? collar = ItemStack(itemId: 'vacio', quantity: 1);
   ItemStack? amuleto = ItemStack(itemId: 'vacio', quantity: 1);
   ItemStack? hebilla = ItemStack(itemId: 'vacio', quantity: 1);
@@ -32,10 +30,9 @@ class PlayerEquipo {
     this.arma,
     this.escudo,
 
-    this.pendiente1,
-    this.pendiente2,
-    this.anillo1,
-    this.anillo2,
+    this.pendiente,
+    this.anillo,
+
     this.collar,
     this.amuleto,
     this.hebilla,
@@ -54,10 +51,8 @@ class PlayerEquipo {
       'arma': arma?.itemId,
       'escudo': escudo?.itemId,
 
-      'pendiente1': pendiente1?.itemId,
-      'pendiente2': pendiente2?.itemId,
-      'anillo1': anillo1?.itemId,
-      'anillo2': anillo2?.itemId,
+      'pendiente': pendiente?.itemId,
+      'anillo': anillo?.itemId,
       'collar': collar?.itemId,
       'amuleto': amuleto?.itemId,
       'hebilla': hebilla?.itemId,
@@ -77,10 +72,8 @@ class PlayerEquipo {
       arma: ItemStack(itemId: json['arma'] ?? 'vacio', quantity: 1),
       escudo: ItemStack(itemId: json['escudo'] ?? 'vacio', quantity: 1),
 
-      pendiente1: ItemStack(itemId: json['pendiente1'] ?? 'vacio', quantity: 1),
-      pendiente2: ItemStack(itemId: json['pendiente2'] ?? 'vacio', quantity: 1),
-      anillo1: ItemStack(itemId: json['anillo1'] ?? 'vacio', quantity: 1),
-      anillo2: ItemStack(itemId: json['anillo2'] ?? 'vacio', quantity: 1),
+      pendiente: ItemStack(itemId: json['pendiente'] ?? 'vacio', quantity: 1),
+      anillo: ItemStack(itemId: json['anillo'] ?? 'vacio', quantity: 1),
       collar: ItemStack(itemId: json['collar'] ?? 'vacio', quantity: 1),
       amuleto: ItemStack(itemId: json['amuleto'] ?? 'vacio', quantity: 1),
       hebilla: ItemStack(itemId: json['hebilla'] ?? 'vacio', quantity: 1),
@@ -107,14 +100,10 @@ class PlayerEquipo {
         return arma;
       case 'escudo':
         return escudo;
-      case 'pendiente1':
-        return pendiente1;
-      case 'pendiente2':
-        return pendiente2;
-      case 'anillo1':
-        return anillo1;
-      case 'anillo2':
-        return anillo2;
+      case 'pendiente':
+        return pendiente;
+      case 'anillo':
+        return anillo;
       case 'collar':
         return collar;
       case 'amuleto':
@@ -154,17 +143,11 @@ class PlayerEquipo {
       case 'escudo':
         escudo = stack;
         break;
-      case 'pendiente1':
-        pendiente1 = stack;
+      case 'pendiente':
+        pendiente = stack;
         break;
-      case 'pendiente2':
-        pendiente2 = stack;
-        break;
-      case 'anillo1':
-        anillo1 = stack;
-        break;
-      case 'anillo2':
-        anillo2 = stack;
+      case 'anillo':
+        anillo = stack;
         break;
       case 'collar':
         collar = stack;

@@ -11,20 +11,21 @@ class EffectValue {
 }
 
 EffectValue applyStats(EfectoClass e, StatsClass source, StatsClass target) {
+  double multiplicador = e.multiplicador;
+
   switch (e.type) {
     case EffectType.damage:
-      final base = e.vida.abs();
+      final base = e.vida.abs() * multiplicador;
       final ataque = source.ataque;
       final defensa = target.defensa;
 
-      final total = (base + ataque) - defensa;
-
+      final total = ((base + ataque) - defensa).toInt();
       return EffectValue(vida: -total.clamp(1, 999999));
 
     case EffectType.heal:
-      final base = e.vida;
+      final base = e.vida * multiplicador;
       final bonus = source.curacion;
-      return EffectValue(vida: base + bonus);
+      return EffectValue(vida: (base + bonus).toInt());
 
     case EffectType.power:
       return EffectValue(power: e.power + source.poder);

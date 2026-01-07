@@ -1,3 +1,3 @@
 call git add .
-call git commit -m "Ticks ia y effects solo, no playertick. Resuelto inmunidad fear y daze. Dificultad ia modificada en pruebas."
+call git commit -m "Multiplicador de cadena de combos aplicado correctamente. Balanceada vida y power rival y player."
 call git push

@@ -20,3 +20,5 @@ const colorHierroElfico = Color.fromARGB(255, 54, 108, 112);
 const colorHierroEnano = Color.fromARGB(255, 90, 90, 139);
 const colorAceroGondor = Color.fromARGB(255, 99, 72, 121);
 const colorMithril = Color.fromARGB(255, 163, 197, 218);
+
+const appVersion = '1.0.1';

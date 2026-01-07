@@ -5,23 +5,34 @@ import 'package:warden/data/persistence/player_equipo.dart';
 import 'package:warden/game/entities/stats.dart';
 import 'package:warden/game/entities/enums.dart';
 import 'package:warden/data/persistence/player_progress.dart';
+import 'package:warden/global/constants.dart';
 
 class PlayerProgressRepository {
   static const _key = 'player_progress';
+  static const _version = 'app_version';
 
   // =========================
   // LOAD
   // =========================
   static Future<PlayerProgress> load() async {
     final prefs = await SharedPreferences.getInstance();
+    if (!prefs.containsKey(_version)) {
+      await prefs.clear();
+      await saveVersion(appVersion);
+    } else {
+      if (prefs.getString(_version) != appVersion) {
+        await prefs.clear();
+        await saveVersion(appVersion);
+      }
+    }
 
     if (!prefs.containsKey(_key)) {
       prefs.clear();
+      saveVersion(appVersion);
       return _defaultProgress('Rodamon');
     }
 
     final jsonString = prefs.getString(_key)!;
-
     final Map<String, dynamic> json = jsonDecode(jsonString);
 
     return PlayerProgress.fromJson(json);
@@ -36,6 +47,12 @@ class PlayerProgressRepository {
     final jsonString = jsonEncode(p.toJson());
 
     await prefs.setString(_key, jsonString);
+  }
+
+  static Future<void> saveVersion(String version) async {
+    final prefs = await SharedPreferences.getInstance();
+
+    await prefs.setString(_version, version);
   }
 
   // =========================

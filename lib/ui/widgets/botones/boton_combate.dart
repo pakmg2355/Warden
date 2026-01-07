@@ -34,7 +34,7 @@ class CombatButton extends StatelessWidget {
           child: LayoutBuilder(
             builder: (context, constraints) {
               return FittedBox(
-                fit: BoxFit.fitWidth,
+                fit: BoxFit.fitHeight,
                 child: Icon(icon, color: color),
               );
             },

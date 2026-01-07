@@ -13,7 +13,7 @@ class EfectoClass {
   final int fear;
   final int daze;
   final int feardazeinmune;
-  final int multiplicador;
+  final double multiplicador;
 
   final StatsClass statsMod;
 
@@ -65,7 +65,7 @@ class EfectoClass {
     int? fear,
     int? daze,
     int? feardazeinmune,
-    int? multiplicador,
+    double? multiplicador,
     StatsClass? statsMod,
     int? duracionInicial,
     int? tiempo,

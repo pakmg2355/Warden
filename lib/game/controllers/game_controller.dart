@@ -31,8 +31,6 @@ class GameController extends ChangeNotifier {
 
   static const Duration effectsTickRate = Duration(milliseconds: 1000);
 
-  int _lastAiStepIssued = -1;
-
   GameController(this._state, {required this.progress}) {
     final iaRate = calculateIaTickRate(rival: _state.rival);
 

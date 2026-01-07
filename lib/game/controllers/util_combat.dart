@@ -28,10 +28,10 @@ Future<PlayerClass> buildPlayerFromProgress(PlayerProgress progress) async {
       nombre: progress.nombre,
       nivel: progress.nivel,
       isAI: false,
-      vida: 2000 + progress.nivel * 300,
-      maxvida: 2000 + progress.nivel * 300,
-      power: 800 + progress.nivel * 50,
-      maxpower: 800 + progress.nivel * 50,
+      vida: 8000 + progress.nivel * 300,
+      maxvida: 8000 + progress.nivel * 300,
+      power: 3000 + progress.nivel * 50,
+      maxpower: 3000 + progress.nivel * 50,
       time: 0,
       efectos: const [],
       instantEffects: [],
@@ -71,10 +71,10 @@ Future<PlayerClass> buildPlayerFromProgress(PlayerProgress progress) async {
     nombre: progress.nombre,
     nivel: progress.nivel,
     isAI: false,
-    vida: 2000 + progress.nivel * 300,
-    maxvida: 2000 + progress.nivel * 300,
-    power: 800 + progress.nivel * 50,
-    maxpower: 800 + progress.nivel * 50,
+    vida: 8000 + progress.nivel * 300,
+    maxvida: 8000 + progress.nivel * 300,
+    power: 3000 + progress.nivel * 50,
+    maxpower: 3000 + progress.nivel * 50,
     time: 0,
     efectos: const [],
     instantEffects: [],
@@ -124,10 +124,8 @@ StatsClass getTotalStats(StatsClass base, PlayerEquipo equipo) {
   sumaAtaque += equipo.botas?.item.stats.ataque ?? 0;
   sumaAtaque += equipo.guantes?.item.stats.ataque ?? 0;
   sumaAtaque += equipo.capa?.item.stats.ataque ?? 0;
-  sumaAtaque += equipo.pendiente1?.item.stats.ataque ?? 0;
-  sumaAtaque += equipo.pendiente2?.item.stats.ataque ?? 0;
-  sumaAtaque += equipo.anillo1?.item.stats.ataque ?? 0;
-  sumaAtaque += equipo.anillo2?.item.stats.ataque ?? 0;
+  sumaAtaque += equipo.pendiente?.item.stats.ataque ?? 0;
+  sumaAtaque += equipo.anillo?.item.stats.ataque ?? 0;
   sumaAtaque += equipo.collar?.item.stats.ataque ?? 0;
   sumaAtaque += equipo.amuleto?.item.stats.ataque ?? 0;
   sumaAtaque += equipo.hebilla?.item.stats.ataque ?? 0;
@@ -141,10 +139,8 @@ StatsClass getTotalStats(StatsClass base, PlayerEquipo equipo) {
   sumaDefensa += equipo.botas?.item.stats.defensa ?? 0;
   sumaDefensa += equipo.guantes?.item.stats.defensa ?? 0;
   sumaDefensa += equipo.capa?.item.stats.defensa ?? 0;
-  sumaDefensa += equipo.pendiente1?.item.stats.defensa ?? 0;
-  sumaDefensa += equipo.pendiente2?.item.stats.defensa ?? 0;
-  sumaDefensa += equipo.anillo1?.item.stats.defensa ?? 0;
-  sumaDefensa += equipo.anillo2?.item.stats.defensa ?? 0;
+  sumaDefensa += equipo.pendiente?.item.stats.defensa ?? 0;
+  sumaDefensa += equipo.anillo?.item.stats.defensa ?? 0;
   sumaDefensa += equipo.collar?.item.stats.defensa ?? 0;
   sumaDefensa += equipo.amuleto?.item.stats.defensa ?? 0;
   sumaDefensa += equipo.hebilla?.item.stats.defensa ?? 0;
@@ -158,10 +154,8 @@ StatsClass getTotalStats(StatsClass base, PlayerEquipo equipo) {
   sumaPoder += equipo.botas?.item.stats.poder ?? 0;
   sumaPoder += equipo.guantes?.item.stats.poder ?? 0;
   sumaPoder += equipo.capa?.item.stats.poder ?? 0;
-  sumaPoder += equipo.pendiente1?.item.stats.poder ?? 0;
-  sumaPoder += equipo.pendiente2?.item.stats.poder ?? 0;
-  sumaPoder += equipo.anillo1?.item.stats.poder ?? 0;
-  sumaPoder += equipo.anillo2?.item.stats.poder ?? 0;
+  sumaPoder += equipo.pendiente?.item.stats.poder ?? 0;
+  sumaPoder += equipo.anillo?.item.stats.poder ?? 0;
   sumaPoder += equipo.collar?.item.stats.poder ?? 0;
   sumaPoder += equipo.amuleto?.item.stats.poder ?? 0;
   sumaPoder += equipo.hebilla?.item.stats.poder ?? 0;
@@ -175,10 +169,8 @@ StatsClass getTotalStats(StatsClass base, PlayerEquipo equipo) {
   sumaCuracion += equipo.botas?.item.stats.curacion ?? 0;
   sumaCuracion += equipo.guantes?.item.stats.curacion ?? 0;
   sumaCuracion += equipo.capa?.item.stats.curacion ?? 0;
-  sumaCuracion += equipo.pendiente1?.item.stats.curacion ?? 0;
-  sumaCuracion += equipo.pendiente2?.item.stats.curacion ?? 0;
-  sumaCuracion += equipo.anillo1?.item.stats.curacion ?? 0;
-  sumaCuracion += equipo.anillo2?.item.stats.curacion ?? 0;
+  sumaCuracion += equipo.pendiente?.item.stats.curacion ?? 0;
+  sumaCuracion += equipo.anillo?.item.stats.curacion ?? 0;
   sumaCuracion += equipo.collar?.item.stats.curacion ?? 0;
   sumaCuracion += equipo.amuleto?.item.stats.curacion ?? 0;
   sumaCuracion += equipo.hebilla?.item.stats.curacion ?? 0;
@@ -192,10 +184,8 @@ StatsClass getTotalStats(StatsClass base, PlayerEquipo equipo) {
   sumaPowerRegen += equipo.botas?.item.stats.powerRegen ?? 0;
   sumaPowerRegen += equipo.guantes?.item.stats.powerRegen ?? 0;
   sumaPowerRegen += equipo.capa?.item.stats.powerRegen ?? 0;
-  sumaPowerRegen += equipo.pendiente1?.item.stats.powerRegen ?? 0;
-  sumaPowerRegen += equipo.pendiente2?.item.stats.powerRegen ?? 0;
-  sumaPowerRegen += equipo.anillo1?.item.stats.powerRegen ?? 0;
-  sumaPowerRegen += equipo.anillo2?.item.stats.powerRegen ?? 0;
+  sumaPowerRegen += equipo.pendiente?.item.stats.powerRegen ?? 0;
+  sumaPowerRegen += equipo.anillo?.item.stats.powerRegen ?? 0;
   sumaPowerRegen += equipo.collar?.item.stats.powerRegen ?? 0;
   sumaPowerRegen += equipo.amuleto?.item.stats.powerRegen ?? 0;
   sumaPowerRegen += equipo.hebilla?.item.stats.powerRegen ?? 0;

@@ -21,8 +21,8 @@ class CombatLogView extends StatelessWidget {
       ),
       child: Wrap(
         alignment: WrapAlignment.start,
-        spacing: 6,
-        runSpacing: 6,
+        spacing: 3,
+        runSpacing: 2,
         children: entries.map(_buildBubble).toList(),
       ),
     );
@@ -31,7 +31,7 @@ class CombatLogView extends StatelessWidget {
   Widget _buildBubble(CombatLogEntry e) {
     final baseColor = baseColorForEffect(e.type);
     final sign = e.valor > 0 ? '+' : '';
-    final text = '$sign${e.valor} T${e.tier}';
+    final text = '$sign${e.valor}';
 
     return Container(
       padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),

@@ -64,14 +64,14 @@ class CombatSystem {
 
       // 🔗 CALCULAR CHAIN
       int newChainTier = 0;
-      int multiplicador = 1;
+      double multiplicador = 1;
       bool continuesChain =
           self.comboChainType == combo.type &&
           combo.tier == self.comboChainTier + 1;
 
       if (continuesChain) {
         newChainTier = combo.tier;
-        multiplicador = (1.3 * combo.tier * combo.tier).round();
+        multiplicador = 1 + combo.tier / 20;
       } else if (combo.tier == 1) {
         newChainTier = 1;
       }
@@ -122,7 +122,12 @@ class CombatSystem {
     }).toList();
 
     if (!refreshed) {
-      nuevosEfectos.add(nuevo);
+      nuevosEfectos.add(
+        nuevo.copyWith(
+          duracionInicial: (nuevo.duracionInicial * nuevo.multiplicador)
+              .toInt(),
+        ),
+      );
     }
 
     return nuevosEfectos;

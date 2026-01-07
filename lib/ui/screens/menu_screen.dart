@@ -38,9 +38,7 @@ class _MenuScreenState extends State<MenuScreen> {
       setState(() {
         _progress = pro;
       });
-    } catch (e, st) {
-      // Manejo de errores: loguea y deja algo visible en UI si quieres
-      debugPrint('Error cargando datos del menú: $e\n$st');
+    } catch (e) {
       if (!mounted) return;
     }
   }
@@ -93,6 +91,8 @@ class _MenuScreenState extends State<MenuScreen> {
                       ).then((newProgress) {
                         setState(() {
                           _progress = newProgress;
+                          if (!mounted) return;
+                          MusicSystem.play('menu');
                         });
                       });
                     },
@@ -108,6 +108,8 @@ class _MenuScreenState extends State<MenuScreen> {
                       await launchCombat(context: context, progress: pro);
 
                       if (!mounted) return;
+                      MusicSystem.play('menu');
+
                       _progress = await loadProgress();
                       setState(() {});
                     },
@@ -120,7 +122,10 @@ class _MenuScreenState extends State<MenuScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (_) => GambitInfoScreen()),
-                      );
+                      ).then((r) {
+                        if (!mounted) return;
+                        MusicSystem.play('menu');
+                      });
                     },
                   ),
 
@@ -133,6 +138,8 @@ class _MenuScreenState extends State<MenuScreen> {
                         MaterialPageRoute(builder: (_) => ConfigScreen()),
                       ).then((r) async {
                         if (!mounted) return;
+                        MusicSystem.play('menu');
+
                         _progress = await loadProgress();
                         setState(() {});
                       });
@@ -148,6 +155,8 @@ class _MenuScreenState extends State<MenuScreen> {
                         MaterialPageRoute(builder: (_) => ResetScreen()),
                       ).then((res) {
                         if (!mounted) return;
+                        MusicSystem.play('menu');
+
                         loadProgress().then((pro) {
                           setState(() {
                             _progress = pro;
@@ -168,6 +177,8 @@ class _MenuScreenState extends State<MenuScreen> {
                         ),
                       ).then((res) {
                         if (!mounted) return;
+                        MusicSystem.play('menu');
+
                         loadProgress().then((pro) {
                           setState(() {
                             _progress = pro;
@@ -184,7 +195,10 @@ class _MenuScreenState extends State<MenuScreen> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(builder: (_) => AboutScreen()),
-                      );
+                      ).then((r) {
+                        if (!mounted) return;
+                        MusicSystem.play('menu');
+                      });
                     },
                   ),
                 ],

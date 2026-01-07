@@ -208,43 +208,23 @@ class _InventoryScreenState extends State<InventoryScreen> {
                     Column(
                       children: [
                         ItemSlotEquipo(
-                          stack: _equipo!.pendiente1,
+                          stack: _equipo!.pendiente,
                           index: 1,
-                          onPressed: () => _unequip('pendiente1'),
+                          onPressed: () => _unequip('pendiente'),
                           onPressedItem: () => setState(() {
                             nombreItem =
-                                _equipo?.pendiente1?.item.toNombreLvl() ?? '';
-                            _statsItem = _equipo?.pendiente1?.item.stats;
+                                _equipo?.pendiente?.item.toNombreLvl() ?? '';
+                            _statsItem = _equipo?.pendiente?.item.stats;
                           }),
                         ),
                         ItemSlotEquipo(
-                          stack: _equipo!.pendiente2,
+                          stack: _equipo!.anillo,
                           index: 1,
-                          onPressed: () => _unequip('pendiente2'),
+                          onPressed: () => _unequip('anillo'),
                           onPressedItem: () => setState(() {
                             nombreItem =
-                                _equipo?.pendiente2?.item.toNombreLvl() ?? '';
-                            _statsItem = _equipo?.pendiente2?.item.stats;
-                          }),
-                        ),
-                        ItemSlotEquipo(
-                          stack: _equipo!.anillo1,
-                          index: 1,
-                          onPressed: () => _unequip('anillo1'),
-                          onPressedItem: () => setState(() {
-                            nombreItem =
-                                _equipo?.anillo1?.item.toNombreLvl() ?? '';
-                            _statsItem = _equipo?.anillo1?.item.stats;
-                          }),
-                        ),
-                        ItemSlotEquipo(
-                          stack: _equipo!.anillo2,
-                          index: 1,
-                          onPressed: () => _unequip('anillo2'),
-                          onPressedItem: () => setState(() {
-                            nombreItem =
-                                _equipo?.anillo2?.item.toNombreLvl() ?? '';
-                            _statsItem = _equipo?.anillo2?.item.stats;
+                                _equipo?.anillo?.item.toNombreLvl() ?? '';
+                            _statsItem = _equipo?.anillo?.item.stats;
                           }),
                         ),
                         ItemSlotEquipo(

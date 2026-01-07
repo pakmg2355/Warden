@@ -244,7 +244,8 @@ class _CombateScreenState extends State<CombateScreen> {
                             },
                           ),
                           const Divider(),
-                          Padding(
+                          Container(
+                            height: 100,
                             padding: EdgeInsets.all(10),
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
