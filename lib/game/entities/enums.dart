@@ -39,9 +39,11 @@ enum ItemClass {
   capa,
   arma,
   escudo,
+
   pendiente,
   collar,
   anillo,
+  brazalete,
   hebilla,
 }
 

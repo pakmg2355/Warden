@@ -1,6 +1,6 @@
 import 'package:warden/main.dart';
 
-import '../entities/enums.dart';
+import '../../game/entities/enums.dart';
 
 const es = {
   'experiencia': 'Experiéncia',
@@ -280,6 +280,56 @@ const es = {
   'item.anilloOscuro.nombre': 'Anillo Oscuro',
   'item.anilloOscuro.descripcion':
       'Un anillo de poder prohibido que corrompe a su portador.',
+
+  'item.pendienteHumanoBree.nombre': 'Pendiente de Bree',
+  'item.pendienteHumanoBree.descripcion':
+      'Pendiente sencillo usado por los hombres de Bree.',
+  'item.pendienteElfico.nombre': 'Pendiente Élfico',
+  'item.pendienteElfico.descripcion':
+      'Pendiente antiguo imbuido de sabiduría élfica.',
+  'item.pendienteEnano.nombre': 'Pendiente Enano',
+  'item.pendienteEnano.descripcion':
+      'Pendiente pesado símbolo de riqueza y poder.',
+  'item.pendienteOscuro.nombre': 'Pendiente Oscuro',
+  'item.pendienteOscuro.descripcion':
+      'Un pendiente de poder prohibido que corrompe a su portador.',
+
+  'item.collarHumanoBree.nombre': 'Collar de Bree',
+  'item.collarHumanoBree.descripcion':
+      'Collar sencillo usado por los hombres de Bree.',
+  'item.collarElfico.nombre': 'Collar Élfico',
+  'item.collarElfico.descripcion':
+      'Collar antiguo imbuido de sabiduría élfica.',
+  'item.collarEnano.nombre': 'Collar Enano',
+  'item.collarEnano.descripcion': 'Collar pesado símbolo de riqueza y poder.',
+  'item.collarOscuro.nombre': 'Collar Oscuro',
+  'item.collarOscuro.descripcion':
+      'Un collar de poder prohibido que corrompe a su portador.',
+
+  'item.brazaleteHumanoBree.nombre': 'Brazalete de Bree',
+  'item.brazaleteHumanoBree.descripcion':
+      'Brazalete sencillo usado por los hombres de Bree.',
+  'item.brazaleteElfico.nombre': 'Brazalete Élfico',
+  'item.brazaleteElfico.descripcion':
+      'Brazalete antiguo imbuido de sabiduría élfica.',
+  'item.brazaleteEnano.nombre': 'Brazalete Enano',
+  'item.brazaleteEnano.descripcion':
+      'Brazalete pesado símbolo de riqueza y poder.',
+  'item.brazaleteOscuro.nombre': 'Brazalete Oscuro',
+  'item.brazaleteOscuro.descripcion':
+      'Un brazalete de poder prohibido que corrompe a su portador.',
+
+  'item.hebillaHumanoBree.nombre': 'Hebilla de Bree',
+  'item.hebillaHumanoBree.descripcion':
+      'Hebilla sencilla usada por los hombres de Bree.',
+  'item.hebillaElfico.nombre': 'Hebilla Élfica',
+  'item.hebillaElfico.descripcion':
+      'Hebilla antigua imbuida de sabiduría élfica.',
+  'item.hebillaEnano.nombre': 'Hebilla Enana',
+  'item.hebillaEnano.descripcion': 'Hebilla pesada símbolo de riqueza y poder.',
+  'item.hebillaOscuro.nombre': 'Hebilla Oscura',
+  'item.hebillaOscuro.descripcion':
+      'Una hebilla de poder prohibido que corrompe a su portador.',
 
   'texto.about.info':
       'Warden es un juego de combate estratégico por turnos con una fuerte inspiración en la fantasía oscura.\n\n'
@@ -606,16 +656,66 @@ const en = {
   'item.botasMithril.descripcion':
       'Legendary boots that feel weightless when worn.',
 
-  'item.anilloHumanoBree.nombre': 'Bree Ring',
-  'item.anilloHumanoBree.descripcion':
-      'A simple ring worn by the people of Bree.',
+  'item.anilloHumanoBree.nombre': 'Ring of Bree',
+  'item.anilloHumanoBree.descripcion': 'A simple ring worn by the men of Bree.',
   'item.anilloElfico.nombre': 'Elven Ring',
   'item.anilloElfico.descripcion': 'An ancient ring imbued with elven wisdom.',
   'item.anilloEnano.nombre': 'Dwarven Ring',
-  'item.anilloEnano.descripcion': 'A heavy ring symbolizing wealth and power.',
-  'item.anilloOscuro.nombre': 'The Dark Ring',
+  'item.anilloEnano.descripcion': 'A heavy ring symbol of wealth and power.',
+  'item.anilloOscuro.nombre': 'Dark Ring',
   'item.anilloOscuro.descripcion':
       'A forbidden ring of power that corrupts its bearer.',
+
+  'item.pendienteHumanoBree.nombre': 'Earring of Bree',
+  'item.pendienteHumanoBree.descripcion':
+      'A simple earring worn by the men of Bree.',
+  'item.pendienteElfico.nombre': 'Elven Earring',
+  'item.pendienteElfico.descripcion':
+      'An ancient earring imbued with elven wisdom.',
+  'item.pendienteEnano.nombre': 'Dwarven Earring',
+  'item.pendienteEnano.descripcion':
+      'A heavy earring symbol of wealth and power.',
+  'item.pendienteOscuro.nombre': 'Dark Earring',
+  'item.pendienteOscuro.descripcion':
+      'A forbidden earring of power that corrupts its bearer.',
+
+  'item.collarHumanoBree.nombre': 'Necklace of Bree',
+  'item.collarHumanoBree.descripcion':
+      'A simple necklace worn by the men of Bree.',
+  'item.collarElfico.nombre': 'Elven Necklace',
+  'item.collarElfico.descripcion':
+      'An ancient necklace imbued with elven wisdom.',
+  'item.collarEnano.nombre': 'Dwarven Necklace',
+  'item.collarEnano.descripcion':
+      'A heavy necklace symbol of wealth and power.',
+  'item.collarOscuro.nombre': 'Dark Necklace',
+  'item.collarOscuro.descripcion':
+      'A forbidden necklace of power that corrupts its bearer.',
+
+  'item.brazaleteHumanoBree.nombre': 'Bracelet of Bree',
+  'item.brazaleteHumanoBree.descripcion':
+      'A simple bracelet worn by the men of Bree.',
+  'item.brazaleteElfico.nombre': 'Elven Bracelet',
+  'item.brazaleteElfico.descripcion':
+      'An ancient bracelet imbued with elven wisdom.',
+  'item.brazaleteEnano.nombre': 'Dwarven Bracelet',
+  'item.brazaleteEnano.descripcion':
+      'A heavy bracelet symbol of wealth and power.',
+  'item.brazaleteOscuro.nombre': 'Dark Bracelet',
+  'item.brazaleteOscuro.descripcion':
+      'A forbidden bracelet of power that corrupts its bearer.',
+
+  'item.hebillaHumanoBree.nombre': 'Buckle of Bree',
+  'item.hebillaHumanoBree.descripcion':
+      'A simple buckle worn by the men of Bree.',
+  'item.hebillaElfico.nombre': 'Elven Buckle',
+  'item.hebillaElfico.descripcion':
+      'An ancient buckle imbued with elven wisdom.',
+  'item.hebillaEnano.nombre': 'Dwarven Buckle',
+  'item.hebillaEnano.descripcion': 'A heavy buckle symbol of wealth and power.',
+  'item.hebillaOscuro.nombre': 'Dark Buckle',
+  'item.hebillaOscuro.descripcion':
+      'A forbidden buckle of power that corrupts its bearer.',
 
   'texto.about.info':
       'Warden is a turn-based strategic combat game strongly inspired by dark fantasy.\n\n'

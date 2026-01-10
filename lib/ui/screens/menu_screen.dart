@@ -3,7 +3,7 @@ import 'package:warden/game/controllers/util_combat.dart';
 import 'package:warden/data/persistence/player_progress.dart';
 import 'package:warden/game/helpers/combat_launch.dart';
 import 'package:warden/game/systems/music_systems.dart';
-import 'package:warden/game/textos/diccionario.dart';
+import 'package:warden/data/textos/diccionario.dart';
 import 'package:warden/global/constants.dart';
 import 'package:warden/global/variables.dart';
 import 'package:warden/ui/screens/about_screen.dart';

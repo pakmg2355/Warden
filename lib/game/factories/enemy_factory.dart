@@ -5,7 +5,7 @@ import 'package:warden/game/entities/stats.dart';
 import 'package:warden/game/gambits_repository/gambits_repository.dart';
 import 'package:warden/game/systems/ai_systems.dart';
 
-import 'package:warden/game/textos/diccionario.dart';
+import 'package:warden/data/textos/diccionario.dart';
 
 class EnemyFactory {
   static PlayerClass createForPhase(int phase) {
@@ -1965,7 +1965,7 @@ class EnemyFactory {
     final double scale = 1 + (level - 1) * 0.5;
 
     return StatsClass(
-      ataque: (10 * scale).round(),
+      ataque: (20 * scale).round(),
       defensa: (10 * scale).round(),
       poder: (5 * scale).round(),
       curacion: (5 * scale).round(),

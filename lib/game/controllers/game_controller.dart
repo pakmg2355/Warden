@@ -89,14 +89,19 @@ class GameController extends ChangeNotifier {
 
     final combo = aiState.combo;
 
-    // Si ya terminó el combo, pasar al siguiente
-    if (aiState.step >= combo.inputs.length) {
-      int nextComboIndex = aiState.comboIndex + 1;
+    final plan = decidePlan(state.rival);
+    if (aiState.plan.name != plan.name) {
+      aiState = aiState.copyWith(comboIndex: 0, step: 0, plan: plan);
+    } else {
+      // Si ya terminó el combo, pasar al siguiente
+      if (aiState.step >= combo.inputs.length) {
+        int nextComboIndex = aiState.comboIndex + 1;
 
-      // reiniciar plan si se acabaron los combos
-      if (nextComboIndex >= aiState.plan.combos.length) nextComboIndex = 0;
+        // reiniciar plan si se acabaron los combos
+        if (nextComboIndex >= aiState.plan.combos.length) nextComboIndex = 0;
 
-      aiState = aiState.copyWith(comboIndex: nextComboIndex, step: 0);
+        aiState = aiState.copyWith(comboIndex: nextComboIndex, step: 0);
+      }
     }
 
     // Tomar el input actual del combo

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:warden/data/persistence/player_progress.dart';
 import 'package:warden/game/controllers/util_combat.dart';
-import 'package:warden/game/textos/diccionario.dart';
+import 'package:warden/data/textos/diccionario.dart';
 import 'package:warden/ui/widgets/componentes/game_text.dart';
 import 'package:warden/ui/widgets/componentes/row_stats_personaje..dart';
 

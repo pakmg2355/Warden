@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:warden/data/persistence/repositorios.dart';
 import 'package:warden/game/entities/enums.dart';
-import 'package:warden/game/textos/diccionario.dart';
+import 'package:warden/data/textos/diccionario.dart';
 import 'package:warden/global/constants.dart';
 import 'package:warden/main.dart';
 import 'package:warden/ui/widgets/botones/boton_menu.dart';

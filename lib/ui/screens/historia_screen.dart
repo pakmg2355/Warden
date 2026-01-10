@@ -9,7 +9,7 @@ import 'package:warden/game/entities/enums.dart';
 import 'package:warden/game/entities/nodo.dart';
 import 'package:warden/game/entities/player.dart';
 import 'package:warden/game/factories/enemy_factory.dart';
-import 'package:warden/game/historia/pantallas.dart';
+import 'package:warden/data/historia/pantallas.dart';
 import 'package:warden/global/constants.dart';
 import 'package:warden/ui/screens/combate_screen.dart';
 import 'package:warden/ui/widgets/botones/boton_menu.dart';

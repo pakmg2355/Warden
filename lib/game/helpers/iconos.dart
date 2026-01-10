@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:warden/game/entities/enums.dart';
-import 'package:warden/game/items_repositoty/icon_repository.dart';
+import 'package:warden/data/items/items_repositoty/icon_repository.dart';
+import 'package:warden/global/constants.dart';
 
 IconData iconDataForEffect(EffectType type) {
   switch (type) {
@@ -54,6 +55,19 @@ IconData iconDataForStat(String stat) {
   }
 
   return Icons.question_answer;
+}
+
+Icon iconDataForPlan(String plan) {
+  switch (plan) {
+    case 'Ataque':
+      return Icon(Icons.sports_mma, color: colorSpear);
+    case 'Mixto':
+      return Icon(Icons.density_medium, color: colorFist);
+    case 'Cura':
+      return Icon(Icons.shield, color: colorShield);
+  }
+
+  return Icon(Icons.question_answer, color: Colors.transparent);
 }
 
 Widget iconDataForItemClass(String tipo, Color color, {double size = 20}) {

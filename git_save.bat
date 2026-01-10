@@ -1,3 +1,3 @@
 call git add .
-call git commit -m "Multiplicador de cadena de combos aplicado correctamente. Balanceada vida y power rival y player."
+call git commit -m "Planes de ataque corregidos para que haga todos."
 call git push

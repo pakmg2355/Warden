@@ -115,6 +115,7 @@ class _CombateScreenState extends State<CombateScreen> {
                                   nombre: state.jugador.nombre,
                                   nivel: state.jugador.nivel,
                                   stats: state.jugador.stats,
+                                  plan: '',
                                 ),
                               ),
                               const Padding(padding: EdgeInsets.all(5)),
@@ -123,6 +124,7 @@ class _CombateScreenState extends State<CombateScreen> {
                                   nombre: state.rival.nombre,
                                   nivel: state.rival.nivel,
                                   stats: state.rival.stats,
+                                  plan: widget.controller.aiState.plan.name,
                                 ),
                               ),
                             ],
@@ -256,13 +258,17 @@ class _CombateScreenState extends State<CombateScreen> {
                                       left: 20,
                                       right: 20,
                                     ),
-                                    child: CombatButton(
-                                      text: '',
-                                      color: colorSpear,
-                                      icon: spearIcon,
-                                      onPressed: () =>
-                                          widget.controller.addInput('1'),
-                                    ),
+                                    child:
+                                        (!state.jugador.isFeared &&
+                                            !state.jugador.isDazed)
+                                        ? CombatButton(
+                                            text: '',
+                                            color: colorSpear,
+                                            icon: spearIcon,
+                                            onPressed: () =>
+                                                widget.controller.addInput('1'),
+                                          )
+                                        : buildControlState(state.jugador),
                                   ),
                                 ),
                                 Expanded(
@@ -271,13 +277,17 @@ class _CombateScreenState extends State<CombateScreen> {
                                       left: 20,
                                       right: 20,
                                     ),
-                                    child: CombatButton(
-                                      text: '',
-                                      color: colorShield,
-                                      icon: shieldIcon,
-                                      onPressed: () =>
-                                          widget.controller.addInput('2'),
-                                    ),
+                                    child:
+                                        (!state.jugador.isFeared &&
+                                            !state.jugador.isDazed)
+                                        ? CombatButton(
+                                            text: '',
+                                            color: colorShield,
+                                            icon: shieldIcon,
+                                            onPressed: () =>
+                                                widget.controller.addInput('2'),
+                                          )
+                                        : buildControlState(state.jugador),
                                   ),
                                 ),
                                 Expanded(
@@ -286,13 +296,17 @@ class _CombateScreenState extends State<CombateScreen> {
                                       left: 20,
                                       right: 20,
                                     ),
-                                    child: CombatButton(
-                                      text: '',
-                                      color: colorFist,
-                                      icon: fistIcon,
-                                      onPressed: () =>
-                                          widget.controller.addInput('3'),
-                                    ),
+                                    child:
+                                        (!state.jugador.isFeared &&
+                                            !state.jugador.isDazed)
+                                        ? CombatButton(
+                                            text: '',
+                                            color: colorFist,
+                                            icon: fistIcon,
+                                            onPressed: () =>
+                                                widget.controller.addInput('3'),
+                                          )
+                                        : buildControlState(state.jugador),
                                   ),
                                 ),
                               ],

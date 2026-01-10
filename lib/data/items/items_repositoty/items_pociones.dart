@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:warden/game/entities/effect.dart';
 import 'package:warden/game/entities/item.dart';
 import 'package:warden/game/entities/enums.dart';
-import 'package:warden/game/textos/diccionario.dart';
+import 'package:warden/data/textos/diccionario.dart';
 
 final itemsPociones = {
   'potVida': ItemDefinition(

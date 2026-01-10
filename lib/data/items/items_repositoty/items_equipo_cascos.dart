@@ -1,7 +1,7 @@
 import 'package:warden/game/entities/item.dart';
 import 'package:warden/game/entities/enums.dart';
 import 'package:warden/game/entities/stats.dart';
-import 'package:warden/game/textos/diccionario.dart';
+import 'package:warden/data/textos/diccionario.dart';
 import 'package:warden/global/constants.dart';
 
 final itemsEquipoCascos = {

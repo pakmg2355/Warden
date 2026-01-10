@@ -116,7 +116,7 @@ AIPlan decidePlan(PlayerClass p) {
   final ratio = p.vida / p.maxvida;
 
   if (ratio > 0.7) return p.planAtaqueIA;
-  if (ratio > 0.3) return p.planMixtoIA;
+  if (ratio > 0.5) return p.planMixtoIA;
   return p.planDefensaIA;
 }
 

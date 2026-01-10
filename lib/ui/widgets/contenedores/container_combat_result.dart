@@ -5,8 +5,8 @@ import 'package:warden/game/entities/enums.dart';
 import 'package:warden/game/entities/item.dart';
 import 'package:warden/game/entities/nodo.dart';
 import 'package:warden/game/helpers/iconos.dart';
-import 'package:warden/game/items_repositoty/item_definition.dart';
-import 'package:warden/game/textos/diccionario.dart';
+import 'package:warden/data/items/items_repositoty/item_definition.dart';
+import 'package:warden/data/textos/diccionario.dart';
 import 'package:warden/ui/widgets/botones/boton_menu.dart';
 import 'package:warden/ui/widgets/componentes/game_text.dart';
 

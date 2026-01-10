@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:warden/game/textos/diccionario.dart';
+import 'package:warden/data/textos/diccionario.dart';
 import 'package:warden/global/constants.dart';
 import 'package:warden/ui/screens/menu_screen.dart';
 import 'package:warden/ui/widgets/contenedores/container_tengwar.dart';

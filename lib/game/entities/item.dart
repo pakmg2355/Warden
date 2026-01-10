@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:warden/game/entities/effect.dart';
 import 'package:warden/game/entities/enums.dart';
 import 'package:warden/game/entities/stats.dart';
-import 'package:warden/game/items_repositoty/item_definition.dart';
+import 'package:warden/data/items/items_repositoty/item_definition.dart';
 
 class ItemDefinition {
   final String id;
