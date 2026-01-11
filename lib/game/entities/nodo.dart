@@ -4,6 +4,7 @@ class Choice {
   final String texto;
   final String pantallaDestino;
   final int? enemigo;
+  final String? item;
   final String? combateGana;
   final String? combatePierde;
 
@@ -11,6 +12,7 @@ class Choice {
     required this.texto,
     required this.pantallaDestino,
     this.enemigo = 0,
+    this.item = '',
     this.combateGana = '',
     this.combatePierde = '',
   });
@@ -21,6 +23,7 @@ class Choice {
       texto: map['texto'] as String,
       pantallaDestino: map['pantalla_destino'],
       enemigo: map['enemigo'] as int,
+      item: map['item'] as String,
       combateGana: map['combate_gana'],
       combatePierde: map['combate_pierde'],
     );
@@ -32,6 +35,7 @@ class StoryNode {
   final String imagen;
   final String texto2;
   final List<Choice> botones;
+
   StoryNode({
     this.texto1 = '',
     this.texto2 = '',

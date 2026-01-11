@@ -2,12 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:warden/ui/widgets/componentes/game_text.dart';
 
 class MenuButton extends StatelessWidget {
+  final String? item;
   final String text;
   final VoidCallback onTap;
   final IconData? icon;
 
   const MenuButton({
     super.key,
+    this.item,
     required this.text,
     required this.onTap,
     this.icon,

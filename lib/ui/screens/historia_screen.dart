@@ -13,6 +13,7 @@ import 'package:warden/data/historia/pantallas.dart';
 import 'package:warden/global/constants.dart';
 import 'package:warden/ui/screens/combate_screen.dart';
 import 'package:warden/ui/widgets/botones/boton_menu.dart';
+import 'package:warden/ui/widgets/contenedores/container_combat_result.dart';
 import 'package:warden/ui/widgets/contenedores/container_tengwar.dart';
 import 'package:warden/ui/widgets/componentes/game_text.dart';
 
@@ -112,8 +113,8 @@ class _PantallaHistoriaState extends State<PantallaHistoria>
 
                 Container(
                   width: MediaQuery.of(context).size.width,
-                  padding: const EdgeInsets.all(15),
-                  margin: const EdgeInsets.only(left: 10, right: 10, top: 10),
+                  padding: const EdgeInsets.all(5),
+                  margin: const EdgeInsets.only(left: 5, right: 5, top: 5),
                   decoration: BoxDecoration(
                     color: const Color.fromARGB(137, 136, 136, 136),
                     borderRadius: BorderRadius.circular(12),
@@ -121,11 +122,17 @@ class _PantallaHistoriaState extends State<PantallaHistoria>
                   ),
                   child: Column(
                     children: [
-                      GameText.text(_texto1),
+                      GameText.text(_texto1, size: 24),
                       if (_imagen.isNotEmpty)
-                        Image.asset('assets/img/$_imagen.jpg'),
+                        SizedBox(
+                          width: MediaQuery.of(context).size.width * 0.9,
+                          child: Image.asset(
+                            'assets/img/$_imagen.jpg',
+                            fit: BoxFit.fitWidth,
+                          ),
+                        ),
                       const Padding(padding: EdgeInsets.all(5)),
-                      GameText.text(_texto2),
+                      GameText.text(_texto2, size: 24),
                     ],
                   ),
                 ),

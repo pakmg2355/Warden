@@ -77,7 +77,7 @@ class PlayerProgressRepository {
       experiencia: 0,
       experienciaParaSubir: 100,
       faseActual: 1,
-      pantallaActual: 'inicio',
+      pantallaActual: 'bree.nodo.inicio',
       equipo: PlayerEquipo(),
       statsBase: StatsClass(
         ataque: 10,

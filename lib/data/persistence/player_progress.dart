@@ -58,7 +58,7 @@ class PlayerProgress {
       experiencia: json['experiencia'] ?? 1,
       experienciaParaSubir: json['experienciaParaSubir'],
       faseActual: json['faseActual'] ?? 1,
-      pantallaActual: json['pantallaActual'] ?? 'inicio',
+      pantallaActual: json['pantallaActual'] ?? 'bree.node.0',
       statsBase: StatsClass.fromJson(json['statsBase']),
       equipo: PlayerEquipo.fromJson(json['equipo']),
     );
