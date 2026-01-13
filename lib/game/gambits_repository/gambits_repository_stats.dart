@@ -21,7 +21,7 @@ List<ComboDefinition> listadoCombosStats = [
         type: EffectType.statAtaque,
         duracionInicial: 60,
         tiempo: 0,
-        statsMod: StatsClass(ataque: 100),
+        statsMod: StatsClass(ataque: 2), //añade la mitad del stat base
       ),
     ],
   ),
@@ -41,7 +41,7 @@ List<ComboDefinition> listadoCombosStats = [
         type: EffectType.statDefensa,
         duracionInicial: 60,
         tiempo: 0,
-        statsMod: StatsClass(defensa: 100),
+        statsMod: StatsClass(defensa: 2), //añade la mitad del stat base
       ),
     ],
   ),
@@ -61,7 +61,7 @@ List<ComboDefinition> listadoCombosStats = [
         type: EffectType.statPoder,
         duracionInicial: 60,
         tiempo: 0,
-        statsMod: StatsClass(poder: 100),
+        statsMod: StatsClass(poder: 2), //añade la mitad del stat base
       ),
     ],
   ),
@@ -81,7 +81,7 @@ List<ComboDefinition> listadoCombosStats = [
         type: EffectType.statCuracion,
         duracionInicial: 60,
         tiempo: 0,
-        statsMod: StatsClass(curacion: 100),
+        statsMod: StatsClass(curacion: 2), //añade la mitad del stat base
       ),
     ],
   ),
@@ -101,7 +101,7 @@ List<ComboDefinition> listadoCombosStats = [
         type: EffectType.statPowerRegen,
         duracionInicial: 60,
         tiempo: 0,
-        statsMod: StatsClass(powerRegen: 100),
+        statsMod: StatsClass(powerRegen: 2), //añade la mitad del stat base
       ),
     ],
   ),

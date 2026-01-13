@@ -169,7 +169,7 @@ class _InventoryScreenState extends State<InventoryScreen> {
                                     : null,
                               ),
                               child: Image.asset(
-                                'assets/img/personaje.png',
+                                'assets/img/personaje.jpg',
                                 width: 120,
                               ),
                             );

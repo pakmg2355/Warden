@@ -73,11 +73,21 @@ StatsClass calculateFinalStats(StatsClass base, List<EfectoClass> efectos) {
   int powerRegen = base.powerRegen;
 
   for (final e in efectos.where((e) => e.isActive)) {
-    ataque += e.statsMod.ataque;
-    defensa += e.statsMod.defensa;
-    poder += e.statsMod.poder;
-    curacion += e.statsMod.curacion;
-    powerRegen += e.statsMod.powerRegen;
+    if (e.statsMod.ataque > 0) {
+      ataque = ataque + (ataque / e.statsMod.ataque).toInt();
+    }
+    if (e.statsMod.defensa > 0) {
+      defensa = defensa + (defensa / e.statsMod.defensa).toInt();
+    }
+    if (e.statsMod.poder > 0) {
+      poder = poder + (poder / e.statsMod.poder).toInt();
+    }
+    if (e.statsMod.curacion > 0) {
+      curacion = curacion + (curacion / e.statsMod.curacion).toInt();
+    }
+    if (e.statsMod.powerRegen > 0) {
+      powerRegen = powerRegen + (powerRegen / e.statsMod.powerRegen).toInt();
+    }
   }
 
   return StatsClass(
