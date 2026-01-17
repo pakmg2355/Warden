@@ -55,275 +55,290 @@ class _InventoryScreenState extends State<InventoryScreen> {
     }
 
     return Scaffold(
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ContenedorNegro(),
-          InkWell(
-            onTap: () {
-              Navigator.pop(context, true);
-            },
-            child: ContenedorVolver(),
-          ),
+      backgroundColor: Colors.black,
+      body: Center(
+        child: Container(
+          color: colorFondo,
+          width: 600,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              InkWell(
+                onTap: () {
+                  Navigator.pop(context, true);
+                },
+                child: ContenedorVolver(),
+              ),
 
-          // ⬇ CONTENIDO
-          Expanded(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                _titulo(
-                  '${widget.jugador.nombre.toUpperCase()} Lvl: ${widget.jugador.nivel.toString().toUpperCase()}',
-                ),
-                const Divider(),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              // ⬇ CONTENIDO
+              Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
-                    Column(
-                      children: [
-                        ItemSlotEquipo(
-                          stack: _equipo!.casco,
-                          index: 1,
-                          onPressed: () => _unequip('casco'),
-                          onPressedItem: () => setState(() {
-                            nombreItem =
-                                _equipo?.casco?.item.toNombreLvl() ?? '';
-                            _statsItem = _equipo?.casco?.item.stats;
-                          }),
-                        ),
-                        ItemSlotEquipo(
-                          stack: _equipo!.hombreras,
-                          index: 1,
-                          onPressed: () => _unequip('hombreras'),
-                          onPressedItem: () => setState(() {
-                            nombreItem =
-                                _equipo?.hombreras?.item.toNombreLvl() ?? '';
-                            _statsItem = _equipo?.hombreras?.item.stats;
-                          }),
-                        ),
-                        ItemSlotEquipo(
-                          stack: _equipo!.pechera,
-                          index: 1,
-                          onPressed: () => _unequip('pechera'),
-                          onPressedItem: () => setState(() {
-                            nombreItem =
-                                _equipo?.pechera?.item.toNombreLvl() ?? '';
-                            _statsItem = _equipo?.pechera?.item.stats;
-                          }),
-                        ),
-                        ItemSlotEquipo(
-                          stack: _equipo!.pantalones,
-                          index: 1,
-                          onPressed: () => _unequip('pantalones'),
-                          onPressedItem: () => setState(() {
-                            nombreItem =
-                                _equipo?.pantalones?.item.toNombreLvl() ?? '';
-                            _statsItem = _equipo?.pantalones?.item.stats;
-                          }),
-                        ),
-                        ItemSlotEquipo(
-                          stack: _equipo!.botas,
-                          index: 1,
-                          onPressed: () => _unequip('botas'),
-                          onPressedItem: () => setState(() {
-                            nombreItem =
-                                _equipo?.botas?.item.toNombreLvl() ?? '';
-                            _statsItem = _equipo?.botas?.item.stats;
-                          }),
-                        ),
-                        ItemSlotEquipo(
-                          stack: _equipo!.guantes,
-                          index: 1,
-                          onPressed: () => _unequip('guantes'),
-                          onPressedItem: () => setState(() {
-                            nombreItem =
-                                _equipo?.guantes?.item.toNombreLvl() ?? '';
-                            _statsItem = _equipo?.guantes?.item.stats;
-                          }),
-                        ),
-                        ItemSlotEquipo(
-                          stack: _equipo!.capa,
-                          index: 1,
-                          onPressed: () => _unequip('capa'),
-                          onPressedItem: () => setState(() {
-                            nombreItem =
-                                _equipo?.capa?.item.toNombreLvl() ?? '';
-                            _statsItem = _equipo?.capa?.item.stats;
-                          }),
-                        ),
-                      ],
+                    _titulo(
+                      '${widget.jugador.nombre.toUpperCase()} Lvl: ${widget.jugador.nivel.toString().toUpperCase()}',
                     ),
-                    Column(
+                    const Divider(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        DragTarget<DraggedItem>(
-                          onWillAcceptWithDetails: (dragged) {
-                            return true;
-                          },
-                          onAcceptWithDetails: (dragged) {
-                            _equipItemFromInventory(dragged.data);
-                          },
-                          builder: (context, candidateData, rejectedData) {
-                            return Container(
-                              decoration: BoxDecoration(
-                                border: candidateData.isNotEmpty
-                                    ? Border.all(color: Colors.amber, width: 2)
-                                    : null,
-                              ),
-                              child: Image.asset(
-                                'assets/img/personaje.jpg',
-                                width: 120,
-                              ),
-                            );
-                          },
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        Column(
                           children: [
                             ItemSlotEquipo(
-                              stack: _equipo!.arma,
+                              stack: _equipo!.casco,
                               index: 1,
-                              onPressed: () => _unequip('arma'),
+                              onPressed: () => _unequip('casco'),
                               onPressedItem: () => setState(() {
                                 nombreItem =
-                                    _equipo?.arma?.item.toNombreLvl() ?? '';
-                                _statsItem = _equipo?.arma?.item.stats;
+                                    _equipo?.casco?.item.toNombreLvl() ?? '';
+                                _statsItem = _equipo?.casco?.item.stats;
                               }),
                             ),
                             ItemSlotEquipo(
-                              stack: _equipo!.escudo,
+                              stack: _equipo!.hombreras,
                               index: 1,
-                              onPressed: () => _unequip('escudo'),
+                              onPressed: () => _unequip('hombreras'),
                               onPressedItem: () => setState(() {
                                 nombreItem =
-                                    _equipo?.escudo?.item.toNombreLvl() ?? '';
-                                _statsItem = _equipo?.escudo?.item.stats;
+                                    _equipo?.hombreras?.item.toNombreLvl() ??
+                                    '';
+                                _statsItem = _equipo?.hombreras?.item.stats;
+                              }),
+                            ),
+                            ItemSlotEquipo(
+                              stack: _equipo!.pechera,
+                              index: 1,
+                              onPressed: () => _unequip('pechera'),
+                              onPressedItem: () => setState(() {
+                                nombreItem =
+                                    _equipo?.pechera?.item.toNombreLvl() ?? '';
+                                _statsItem = _equipo?.pechera?.item.stats;
+                              }),
+                            ),
+                            ItemSlotEquipo(
+                              stack: _equipo!.pantalones,
+                              index: 1,
+                              onPressed: () => _unequip('pantalones'),
+                              onPressedItem: () => setState(() {
+                                nombreItem =
+                                    _equipo?.pantalones?.item.toNombreLvl() ??
+                                    '';
+                                _statsItem = _equipo?.pantalones?.item.stats;
+                              }),
+                            ),
+                            ItemSlotEquipo(
+                              stack: _equipo!.botas,
+                              index: 1,
+                              onPressed: () => _unequip('botas'),
+                              onPressedItem: () => setState(() {
+                                nombreItem =
+                                    _equipo?.botas?.item.toNombreLvl() ?? '';
+                                _statsItem = _equipo?.botas?.item.stats;
+                              }),
+                            ),
+                            ItemSlotEquipo(
+                              stack: _equipo!.guantes,
+                              index: 1,
+                              onPressed: () => _unequip('guantes'),
+                              onPressedItem: () => setState(() {
+                                nombreItem =
+                                    _equipo?.guantes?.item.toNombreLvl() ?? '';
+                                _statsItem = _equipo?.guantes?.item.stats;
+                              }),
+                            ),
+                            ItemSlotEquipo(
+                              stack: _equipo!.capa,
+                              index: 1,
+                              onPressed: () => _unequip('capa'),
+                              onPressedItem: () => setState(() {
+                                nombreItem =
+                                    _equipo?.capa?.item.toNombreLvl() ?? '';
+                                _statsItem = _equipo?.capa?.item.stats;
+                              }),
+                            ),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            DragTarget<DraggedItem>(
+                              onWillAcceptWithDetails: (dragged) {
+                                return true;
+                              },
+                              onAcceptWithDetails: (dragged) {
+                                _equipItemFromInventory(dragged.data);
+                              },
+                              builder: (context, candidateData, rejectedData) {
+                                return Container(
+                                  decoration: BoxDecoration(
+                                    border: candidateData.isNotEmpty
+                                        ? Border.all(
+                                            color: Colors.amber,
+                                            width: 2,
+                                          )
+                                        : null,
+                                  ),
+                                  child: Image.asset(
+                                    'assets/img/personaje.jpg',
+                                    width: 120,
+                                  ),
+                                );
+                              },
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                ItemSlotEquipo(
+                                  stack: _equipo!.arma,
+                                  index: 1,
+                                  onPressed: () => _unequip('arma'),
+                                  onPressedItem: () => setState(() {
+                                    nombreItem =
+                                        _equipo?.arma?.item.toNombreLvl() ?? '';
+                                    _statsItem = _equipo?.arma?.item.stats;
+                                  }),
+                                ),
+                                ItemSlotEquipo(
+                                  stack: _equipo!.escudo,
+                                  index: 1,
+                                  onPressed: () => _unequip('escudo'),
+                                  onPressedItem: () => setState(() {
+                                    nombreItem =
+                                        _equipo?.escudo?.item.toNombreLvl() ??
+                                        '';
+                                    _statsItem = _equipo?.escudo?.item.stats;
+                                  }),
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                        ColumnStatsPersonaje(
+                          stats: getTotalStats(
+                            widget.jugador.statsBase,
+                            _equipo!,
+                          ),
+                        ),
+                        Column(
+                          children: [
+                            ItemSlotEquipo(
+                              stack: _equipo!.pendiente,
+                              index: 1,
+                              onPressed: () => _unequip('pendiente'),
+                              onPressedItem: () => setState(() {
+                                nombreItem =
+                                    _equipo?.pendiente?.item.toNombreLvl() ??
+                                    '';
+                                _statsItem = _equipo?.pendiente?.item.stats;
+                              }),
+                            ),
+                            ItemSlotEquipo(
+                              stack: _equipo!.anillo,
+                              index: 1,
+                              onPressed: () => _unequip('anillo'),
+                              onPressedItem: () => setState(() {
+                                nombreItem =
+                                    _equipo?.anillo?.item.toNombreLvl() ?? '';
+                                _statsItem = _equipo?.anillo?.item.stats;
+                              }),
+                            ),
+                            ItemSlotEquipo(
+                              stack: _equipo!.collar,
+                              index: 1,
+                              onPressed: () => _unequip('collar'),
+                              onPressedItem: () => setState(() {
+                                nombreItem =
+                                    _equipo?.collar?.item.toNombreLvl() ?? '';
+                                _statsItem = _equipo?.collar?.item.stats;
+                              }),
+                            ),
+                            ItemSlotEquipo(
+                              stack: _equipo!.amuleto,
+                              index: 1,
+                              onPressed: () => _unequip('amuleto'),
+                              onPressedItem: () => setState(() {
+                                nombreItem =
+                                    _equipo?.amuleto?.item.toNombreLvl() ?? '';
+                                _statsItem = _equipo?.amuleto?.item.stats;
+                              }),
+                            ),
+                            ItemSlotEquipo(
+                              stack: _equipo!.hebilla,
+                              index: 1,
+                              onPressed: () => _unequip('hebilla'),
+                              onPressedItem: () => setState(() {
+                                nombreItem =
+                                    _equipo?.hebilla?.item.toNombreLvl() ?? '';
+                                _statsItem = _equipo?.hebilla?.item.stats;
                               }),
                             ),
                           ],
                         ),
                       ],
                     ),
-                    ColumnStatsPersonaje(
-                      stats: getTotalStats(widget.jugador.statsBase, _equipo!),
-                    ),
-                    Column(
+                    const Divider(),
+                    _titulo('QUICK SLOTS'),
+                    const Divider(),
+                    _buildQuickSlots(),
+                    const Divider(),
+                    Row(
                       children: [
-                        ItemSlotEquipo(
-                          stack: _equipo!.pendiente,
-                          index: 1,
-                          onPressed: () => _unequip('pendiente'),
-                          onPressedItem: () => setState(() {
-                            nombreItem =
-                                _equipo?.pendiente?.item.toNombreLvl() ?? '';
-                            _statsItem = _equipo?.pendiente?.item.stats;
-                          }),
-                        ),
-                        ItemSlotEquipo(
-                          stack: _equipo!.anillo,
-                          index: 1,
-                          onPressed: () => _unequip('anillo'),
-                          onPressedItem: () => setState(() {
-                            nombreItem =
-                                _equipo?.anillo?.item.toNombreLvl() ?? '';
-                            _statsItem = _equipo?.anillo?.item.stats;
-                          }),
-                        ),
-                        ItemSlotEquipo(
-                          stack: _equipo!.collar,
-                          index: 1,
-                          onPressed: () => _unequip('collar'),
-                          onPressedItem: () => setState(() {
-                            nombreItem =
-                                _equipo?.collar?.item.toNombreLvl() ?? '';
-                            _statsItem = _equipo?.collar?.item.stats;
-                          }),
-                        ),
-                        ItemSlotEquipo(
-                          stack: _equipo!.amuleto,
-                          index: 1,
-                          onPressed: () => _unequip('amuleto'),
-                          onPressedItem: () => setState(() {
-                            nombreItem =
-                                _equipo?.amuleto?.item.toNombreLvl() ?? '';
-                            _statsItem = _equipo?.amuleto?.item.stats;
-                          }),
-                        ),
-                        ItemSlotEquipo(
-                          stack: _equipo!.hebilla,
-                          index: 1,
-                          onPressed: () => _unequip('hebilla'),
-                          onPressedItem: () => setState(() {
-                            nombreItem =
-                                _equipo?.hebilla?.item.toNombreLvl() ?? '';
-                            _statsItem = _equipo?.hebilla?.item.stats;
-                          }),
+                        Expanded(child: _titulo('INVENTARIO')),
+                        const Divider(),
+
+                        DragTarget<DraggedItem>(
+                          onWillAcceptWithDetails: (dragged) {
+                            return true;
+                          },
+                          onAcceptWithDetails: (dragged) {
+                            _eliminarItem(dragged.data);
+                          },
+                          builder: (context, candidateData, rejectedData) {
+                            return Container(
+                              padding: const EdgeInsets.all(10),
+                              decoration: BoxDecoration(
+                                color: const Color(0xFF1E1E1E),
+                                borderRadius: BorderRadius.circular(12),
+                                border: Border.all(
+                                  color: Colors.grey.shade700,
+                                  width: 2,
+                                ),
+                                boxShadow: const [
+                                  BoxShadow(
+                                    color: Colors.black87,
+                                    blurRadius: 8,
+                                    offset: Offset(0, 4),
+                                  ),
+                                ],
+                              ),
+                              child: Icon(
+                                Icons.delete,
+                                color: const Color.fromARGB(255, 255, 166, 159),
+                              ),
+                            );
+                          },
                         ),
                       ],
                     ),
-                  ],
-                ),
-                const Divider(),
-                _titulo('QUICK SLOTS'),
-                const Divider(),
-                _buildQuickSlots(),
-                const Divider(),
-                Row(
-                  children: [
-                    Expanded(child: _titulo('INVENTARIO')),
                     const Divider(),
 
-                    DragTarget<DraggedItem>(
-                      onWillAcceptWithDetails: (dragged) {
-                        return true;
-                      },
-                      onAcceptWithDetails: (dragged) {
-                        _eliminarItem(dragged.data);
-                      },
-                      builder: (context, candidateData, rejectedData) {
-                        return Container(
-                          padding: const EdgeInsets.all(10),
-                          decoration: BoxDecoration(
-                            color: const Color(0xFF1E1E1E),
-                            borderRadius: BorderRadius.circular(12),
-                            border: Border.all(
-                              color: Colors.grey.shade700,
-                              width: 2,
-                            ),
-                            boxShadow: const [
-                              BoxShadow(
-                                color: Colors.black87,
-                                blurRadius: 8,
-                                offset: Offset(0, 4),
-                              ),
-                            ],
-                          ),
-                          child: Icon(
-                            Icons.delete,
-                            color: const Color.fromARGB(255, 255, 166, 159),
-                          ),
-                        );
-                      },
+                    Expanded(
+                      child: SingleChildScrollView(child: _buildInventory()),
                     ),
+                    const Divider(),
+
+                    (nombreItem ?? '') != ''
+                        ? RowStatsPersonaje(
+                            stats: _statsItem,
+                            nombreItem: nombreItem,
+                            size: 18,
+                          )
+                        : SizedBox.shrink(),
                   ],
                 ),
-                const Divider(),
-
-                Expanded(
-                  child: SingleChildScrollView(child: _buildInventory()),
-                ),
-                const Divider(),
-
-                (nombreItem ?? '') != ''
-                    ? RowStatsPersonaje(
-                        stats: _statsItem,
-                        nombreItem: nombreItem,
-                        size: 18,
-                      )
-                    : SizedBox.shrink(),
-              ],
-            ),
+              ),
+            ],
           ),
-          ContenedorNegro(),
-        ],
+        ),
       ),
     );
   }

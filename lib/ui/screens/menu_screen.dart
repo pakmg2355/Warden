@@ -65,16 +65,15 @@ class _MenuScreenState extends State<MenuScreen> {
     }
 
     return Scaffold(
-      backgroundColor: colorFondo,
+      backgroundColor: Colors.black,
       body: Center(
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 600),
+        child: Container(
+          color: colorFondo,
+          width: 600,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               PlayerMenuHeader(progress: _progress!),
-              ContenedorNegro(),
-
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [

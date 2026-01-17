@@ -11,7 +11,7 @@ class InitScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: colorFondo,
+      backgroundColor: Colors.black,
       body: InkWell(
         onTap: () {
           Navigator.pushAndRemoveUntil(
@@ -21,19 +21,21 @@ class InitScreen extends StatelessWidget {
           );
         },
         child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              ContenedorNegro(),
-              Column(
-                children: [
-                  GameText.text(t('titulo.warden.gambit.system'), size: 30),
-                  GameText.text(t('titulo.by'), size: 30),
-                  GameText.text(t('titulo.oscar.martinez.gomez'), size: 30),
-                ],
-              ),
-              ContenedorNegro(),
-            ],
+          child: Container(
+            color: colorFondo,
+            width: 600,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  children: [
+                    GameText.text(t('titulo.warden.gambit.system'), size: 30),
+                    GameText.text(t('titulo.by'), size: 30),
+                    GameText.text(t('titulo.oscar.martinez.gomez'), size: 30),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ),

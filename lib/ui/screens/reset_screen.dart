@@ -19,15 +19,14 @@ class _ResetScreenState extends State<ResetScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: colorFondo,
+      backgroundColor: Colors.black,
       body: Center(
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 600),
+        child: Container(
+          color: colorFondo,
+          width: 600,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              ContenedorNegro(),
-
               Center(
                 child: Container(
                   padding: const EdgeInsets.all(15),
@@ -84,7 +83,6 @@ class _ResetScreenState extends State<ResetScreen> {
                   ),
                 ),
               ),
-              ContenedorNegro(),
             ],
           ),
         ),

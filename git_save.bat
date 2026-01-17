@@ -1,3 +1,3 @@
 call git add .
-call git commit -m "build web para prueba en railway"
+call git commit -m "ancho tamaño maximo para web"
 call git push

@@ -91,126 +91,131 @@ class _PantallaHistoriaState extends State<PantallaHistoria>
     final _botones = botones;
 
     return Scaffold(
-      backgroundColor: colorFondo,
+      backgroundColor: Colors.black,
       body: Center(
-        child: SingleChildScrollView(
-          controller: _scrollController,
-          child: FadeTransition(
-            opacity: _fadeAnimation,
-            child: Column(
-              children: [
-                Column(
-                  children: [
-                    ContenedorNegro(),
-                    InkWell(
-                      onTap: () {
-                        Navigator.pop(context, _progress);
-                      },
-                      child: ContenedorVolver(),
-                    ),
-                  ],
-                ),
-
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  padding: const EdgeInsets.all(5),
-                  margin: const EdgeInsets.only(left: 5, right: 5, top: 5),
-                  decoration: BoxDecoration(
-                    color: const Color.fromARGB(137, 136, 136, 136),
-                    borderRadius: BorderRadius.circular(12),
-                    border: Border.all(color: Colors.amber.shade700, width: 1),
-                  ),
-                  child: Column(
+        child: Container(
+          color: colorFondo,
+          width: 600,
+          child: SingleChildScrollView(
+            controller: _scrollController,
+            child: FadeTransition(
+              opacity: _fadeAnimation,
+              child: Column(
+                children: [
+                  Column(
                     children: [
-                      GameText.text(_texto1, size: 24),
-                      if (_imagen.isNotEmpty)
-                        SizedBox(
-                          width: MediaQuery.of(context).size.width * 0.9,
-                          child: Image.asset(
-                            'assets/img/$_imagen.jpg',
-                            fit: BoxFit.fitWidth,
-                          ),
-                        ),
-                      const Padding(padding: EdgeInsets.all(5)),
-                      GameText.text(_texto2, size: 24),
+                      InkWell(
+                        onTap: () {
+                          Navigator.pop(context, _progress);
+                        },
+                        child: ContenedorVolver(),
+                      ),
                     ],
                   ),
-                ),
 
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                    vertical: 12,
-                    horizontal: 16,
+                  Container(
+                    width: MediaQuery.of(context).size.width,
+                    padding: const EdgeInsets.all(5),
+                    margin: const EdgeInsets.only(left: 5, right: 5, top: 5),
+                    decoration: BoxDecoration(
+                      color: const Color.fromARGB(137, 136, 136, 136),
+                      borderRadius: BorderRadius.circular(12),
+                      border: Border.all(
+                        color: Colors.amber.shade700,
+                        width: 1,
+                      ),
+                    ),
+                    child: Column(
+                      children: [
+                        GameText.text(_texto1, size: 24),
+                        if (_imagen.isNotEmpty)
+                          SizedBox(
+                            width: MediaQuery.of(context).size.width * 0.9,
+                            child: Image.asset(
+                              'assets/img/$_imagen.jpg',
+                              fit: BoxFit.fitWidth,
+                            ),
+                          ),
+                        const Padding(padding: EdgeInsets.all(5)),
+                        GameText.text(_texto2, size: 24),
+                      ],
+                    ),
                   ),
-                  child: Column(
-                    children: _botones.map((c) {
-                      return MenuButton(
-                        text: c.texto,
-                        icon: c.texto == 'Pelear'
-                            ? spearIcon
-                            : Icons.call_split,
-                        onTap: () async {
-                          if (c.enemigo != 0) {
-                            final ply = await jugador;
-                            if (!mounted) return;
 
-                            final enemy = EnemyFactory.createForPhase(
-                              c.enemigo!,
-                            );
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      vertical: 12,
+                      horizontal: 16,
+                    ),
+                    child: Column(
+                      children: _botones.map((c) {
+                        return MenuButton(
+                          text: c.texto,
+                          icon: c.texto == 'Pelear'
+                              ? spearIcon
+                              : Icons.call_split,
+                          onTap: () async {
+                            if (c.enemigo != 0) {
+                              final ply = await jugador;
+                              if (!mounted) return;
 
-                            final controller = GameController(
-                              GameState(
-                                jugador: ply,
-                                rival: enemy,
-                                result: CombatResult.none,
-                              ),
-                              progress: widget.progress,
-                            );
-
-                            if (!mounted) return;
-
-                            final resultado = await Navigator.push(
-                              // ignore: use_build_context_synchronously
-                              context,
-                              MaterialPageRoute(
-                                builder: (_) => CombateScreen(
-                                  controller: controller,
-                                  nodo: nodo!,
-                                ),
-                              ),
-                            );
-
-                            if (resultado is Map && resultado['win'] == true) {
-                              final raw = getNode(c.combateGana!);
-                              if (raw == null) return;
-                              _cambiarNodo(raw, c.combateGana);
-                            } else {
-                              final raw = getNode(c.combatePierde!);
-                              if (raw == null) return;
-                              _cambiarNodo(raw, c.combatePierde);
-                            }
-                          } else {
-                            if (c.pantallaDestino == 'FIN') {
-                              _progress = _progress.copyWith(
-                                pantallaActual: c.pantallaDestino,
+                              final enemy = EnemyFactory.createForPhase(
+                                c.enemigo!,
                               );
-                              Navigator.pop(context, _progress);
-                              return;
+
+                              final controller = GameController(
+                                GameState(
+                                  jugador: ply,
+                                  rival: enemy,
+                                  result: CombatResult.none,
+                                ),
+                                progress: widget.progress,
+                              );
+
+                              if (!mounted) return;
+
+                              final resultado = await Navigator.push(
+                                // ignore: use_build_context_synchronously
+                                context,
+                                MaterialPageRoute(
+                                  builder: (_) => CombateScreen(
+                                    controller: controller,
+                                    nodo: nodo!,
+                                  ),
+                                ),
+                              );
+
+                              if (resultado is Map &&
+                                  resultado['win'] == true) {
+                                final raw = getNode(c.combateGana!);
+                                if (raw == null) return;
+                                _cambiarNodo(raw, c.combateGana);
+                              } else {
+                                final raw = getNode(c.combatePierde!);
+                                if (raw == null) return;
+                                _cambiarNodo(raw, c.combatePierde);
+                              }
+                            } else {
+                              if (c.pantallaDestino == 'FIN') {
+                                _progress = _progress.copyWith(
+                                  pantallaActual: c.pantallaDestino,
+                                );
+                                Navigator.pop(context, _progress);
+                                return;
+                              }
+
+                              final raw = getNode(c.pantallaDestino);
+                              if (raw == null) return;
+
+                              _cambiarNodo(raw, c.pantallaDestino);
                             }
-
-                            final raw = getNode(c.pantallaDestino);
-                            if (raw == null) return;
-
-                            _cambiarNodo(raw, c.pantallaDestino);
-                          }
-                        },
-                      );
-                    }).toList(),
+                          },
+                        );
+                      }).toList(),
+                    ),
                   ),
-                ),
-
-                ContenedorNegro(),
-              ],
+                ],
+              ),
             ),
           ),
         ),

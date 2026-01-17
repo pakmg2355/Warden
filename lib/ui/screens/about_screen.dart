@@ -17,53 +17,46 @@ class _AboutScreenState extends State<AboutScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: colorFondo,
+      backgroundColor: Colors.black,
       body: Center(
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 600),
-          child: SingleChildScrollView(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                ContenedorNegro(),
+        child: Container(
+          color: colorFondo,
+          width: 600,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Center(
+                child: Container(
+                  padding: const EdgeInsets.all(15),
+                  margin: const EdgeInsets.only(left: 10, right: 10),
+                  decoration: BoxDecoration(
+                    color: const Color.fromARGB(137, 136, 136, 136),
+                    borderRadius: BorderRadius.circular(12),
+                    border: Border.all(color: Colors.amber.shade700, width: 1),
+                  ),
 
-                Center(
-                  child: Container(
-                    padding: const EdgeInsets.all(15),
-                    margin: const EdgeInsets.only(left: 10, right: 10),
-                    decoration: BoxDecoration(
-                      color: const Color.fromARGB(137, 136, 136, 136),
-                      borderRadius: BorderRadius.circular(12),
-                      border: Border.all(
-                        color: Colors.amber.shade700,
-                        width: 1,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      GameText.text(t('texto.about.info')),
+                      const SizedBox(height: 12),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          MenuButton(
+                            text: t('boton.aceptar'),
+                            icon: Icons.cancel,
+                            onTap: () async {
+                              Navigator.pop(context, true);
+                            },
+                          ),
+                        ],
                       ),
-                    ),
-
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        GameText.text(t('texto.about.info')),
-                        const SizedBox(height: 12),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            MenuButton(
-                              text: t('boton.aceptar'),
-                              icon: Icons.cancel,
-                              onTap: () async {
-                                Navigator.pop(context, true);
-                              },
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
+                    ],
                   ),
                 ),
-                ContenedorNegro(),
-              ],
-            ),
+              ),
+            ],
           ),
         ),
       ),

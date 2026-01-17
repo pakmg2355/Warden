@@ -66,9 +66,19 @@ class _CombateScreenState extends State<CombateScreen> {
     final barHeight = screenHeight / 20;
 
     if (contador > 0) {
-      return Scaffold(body: ContenedorCuenta(cuenta: contador));
+      return Scaffold(
+        backgroundColor: Colors.black,
+        body: Center(
+          child: Container(
+            color: colorFondo,
+            width: 600,
+            child: ContenedorCuenta(cuenta: contador),
+          ),
+        ),
+      );
     } else {
       return Scaffold(
+        backgroundColor: Colors.black,
         body: ListenableBuilder(
           listenable: widget.controller,
 
@@ -79,26 +89,30 @@ class _CombateScreenState extends State<CombateScreen> {
               children: [
                 if (state.isFinished)
                   Center(
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        CombatRewardContainer(
-                          result: state.result,
-                          playerLevel: state.jugador.nivel,
-                          nodo: widget.nodo,
-                        ),
-                      ],
+                    child: Container(
+                      color: colorFondo,
+                      width: 600,
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          CombatRewardContainer(
+                            result: state.result,
+                            playerLevel: state.jugador.nivel,
+                            nodo: widget.nodo,
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 if (!state.isFinished)
                   Center(
-                    child: ConstrainedBox(
-                      constraints: const BoxConstraints(maxWidth: 600),
+                    child: Container(
+                      color: colorFondo,
+                      width: 600,
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.stretch,
                         children: [
-                          ContenedorNegro(),
                           InkWell(
                             onTap: () {
                               Navigator.pop(context, null);
@@ -331,7 +345,6 @@ class _CombateScreenState extends State<CombateScreen> {
                               ],
                             ),
                           ),
-                          ContenedorNegro(),
                         ],
                       ),
                     ),

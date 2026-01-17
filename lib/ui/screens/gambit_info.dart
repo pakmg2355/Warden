@@ -12,34 +12,37 @@ class GambitInfoScreen extends StatelessWidget {
     final combos = listadoCombos;
 
     return Scaffold(
-      backgroundColor: colorFondo,
+      backgroundColor: Colors.black,
 
       body: Center(
-        child: ConstrainedBox(
-          constraints: const BoxConstraints(maxWidth: 600),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              ContenedorNegro(),
-              InkWell(
-                onTap: () {
-                  Navigator.pop(context, true);
-                },
-                child: ContenedorVolver(),
-              ),
-
-              Expanded(
-                child: SingleChildScrollView(
-                  child: Column(
-                    children: combos
-                        .map((combo) => ComboInfoCard(combo: combo))
-                        .toList(),
+        child: Container(
+          color: colorFondo,
+          width: 600,
+          child: Center(
+            child: ConstrainedBox(
+              constraints: const BoxConstraints(maxWidth: 600),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  InkWell(
+                    onTap: () {
+                      Navigator.pop(context, true);
+                    },
+                    child: ContenedorVolver(),
                   ),
-                ),
-              ),
 
-              ContenedorNegro(),
-            ],
+                  Expanded(
+                    child: SingleChildScrollView(
+                      child: Column(
+                        children: combos
+                            .map((combo) => ComboInfoCard(combo: combo))
+                            .toList(),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
         ),
       ),
