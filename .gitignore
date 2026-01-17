@@ -2,8 +2,6 @@
 .dart_tool/
 .packages
 
-build/
-
 # IDE
 .vscode/
 .idea/
